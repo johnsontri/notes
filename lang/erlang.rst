@@ -2,6 +2,8 @@
 Erlang notes
 ************
 
+.. contents::
+
 
 Shell
 =====
