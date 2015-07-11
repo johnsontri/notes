@@ -75,3 +75,44 @@ Tuples
 
 tagged tuple
     ``{km, 100}``
+
+
+List
+====
+
+syntax
+    ``[e1, e2 ...]``
+
+string is a list (no built-in string type)::
+
+ > [97, 98, 99].
+ "abc"
+
+ > [97, 98, 99, 4, 5, 6].
+ [97,98,99,4,5,6]
+
+ >[233].
+ "é"
+
+
+Note
+    Erlang is lack of string manipulations functions.
+
+
+operators
+---------
+
++ ``++``:
+    right-associative, eval from right to left.
++ ``--``:
+    right-associative.
+
+::
+
+ > [1,2,3] -- [1,2] -- [3].
+ [3]
+
+ > [1,2,3] -- [1,2] -- [2].
+ [2,3]
+
+
