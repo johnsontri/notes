@@ -64,8 +64,8 @@
 <ul class="simple">
 <li>Capitalize</li>
 </ul>
-<div class="highlight-python"><div class="highlight"><pre>&gt; One = 1.
-1
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nv">One</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span>
+<span class="mi">1</span>
 </pre></div>
 </div>
 <dl class="docutils">
@@ -77,14 +77,14 @@
 </div>
 <div class="section" id="atom">
 <h2>Atom<a class="headerlink" href="#atom" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>&gt; red.
-red
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="n">red</span><span class="p">.</span>
+<span class="n">red</span>
 
-&gt; red = &#39;red&#39;.
-red
+<span class="o">&gt;</span> <span class="n">red</span> <span class="o">=</span> <span class="n">&#39;red&#39;</span><span class="p">.</span>
+<span class="n">red</span>
 
-&gt; red == &#39;red&#39;.
-true
+<span class="o">&gt;</span> <span class="n">red</span> <span class="o">==</span> <span class="n">&#39;red&#39;</span><span class="p">.</span>
+<span class="n">true</span>
 </pre></div>
 </div>
 </div>
@@ -111,13 +111,13 @@ true
 </div>
 <div class="section" id="tuples">
 <h2>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>&gt; Point = {3, 4}.
-{3,4}
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nv">Point</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}.</span>
+<span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">}</span>
 
-&gt; {X, Y} = Point.
-{3,4}
+<span class="o">&gt;</span> <span class="p">{</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">}</span> <span class="o">=</span> <span class="nv">Point</span><span class="p">.</span>
+<span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">}</span>
 
-&gt; {X, _} = Point.
+<span class="o">&gt;</span> <span class="p">{</span><span class="nv">X</span><span class="p">,</span> <span class="p">_}</span> <span class="o">=</span> <span class="nv">Point</span><span class="p">.</span>
 </pre></div>
 </div>
 <dl class="docutils">
@@ -132,14 +132,14 @@ true
 <dd><code class="docutils literal"><span class="pre">[e1,</span> <span class="pre">e2</span> <span class="pre">...]</span></code></dd>
 </dl>
 <p>string is a list (no built-in string type):</p>
-<div class="highlight-python"><div class="highlight"><pre>&gt; [97, 98, 99].
-&quot;abc&quot;
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="p">[</span><span class="mi">97</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">99</span><span class="p">].</span>
+<span class="s">&quot;abc&quot;</span>
 
-&gt; [97, 98, 99, 4, 5, 6].
-[97,98,99,4,5,6]
+<span class="o">&gt;</span> <span class="p">[</span><span class="mi">97</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">].</span>
+<span class="p">[</span><span class="mi">97</span><span class="p">,</span><span class="mi">98</span><span class="p">,</span><span class="mi">99</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
 
-&gt;[233].
-&quot;é&quot;
+<span class="o">&gt;</span><span class="p">[</span><span class="mi">233</span><span class="p">].</span>
+<span class="s">&quot;é&quot;</span>
 </pre></div>
 </div>
 <dl class="docutils">
@@ -154,11 +154,11 @@ true
 <dt><code class="docutils literal"><span class="pre">--</span></code></dt>
 <dd>right-associative.</dd>
 </dl>
-<div class="highlight-python"><div class="highlight"><pre>&gt; [1,2,3] -- [1,2] -- [3].
-[3]
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">--</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">--</span> <span class="p">[</span><span class="mi">3</span><span class="p">].</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">]</span>
 
-&gt; [1,2,3] -- [1,2] -- [2].
-[2,3]
+<span class="o">&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">--</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">--</span> <span class="p">[</span><span class="mi">2</span><span class="p">].</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -167,14 +167,14 @@ true
 <dl class="docutils">
 <dt>hd (head)</dt>
 <dd><p class="first">pick up the first element:</p>
-<div class="highlight-python"><div class="highlight"><pre>&gt; hd([1, 2, 3]).
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nb">hd</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]).</span>
 </pre></div>
 </div>
 <p class="last">1</p>
 </dd>
 <dt>tl (tail)</dt>
 <dd><p class="first">pick up [1:]:</p>
-<div class="highlight-python"><div class="highlight"><pre>&gt; tl([1, 2, 3]).
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nb">tl</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]).</span>
 </pre></div>
 </div>
 <p>[2, 3].</p>
@@ -196,26 +196,51 @@ true
 </dl>
 <p>e.g.
 <code class="docutils literal"><span class="pre">[Head</span> <span class="pre">|</span> <span class="pre">Tail]</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>&gt; Ls = [1, 2, 3, 4].
-[1,2,3,4]
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nv">Ls</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">].</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 
-&gt; [0|Ls].
-[0,1,2,3,4]
+<span class="o">&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">|</span><span class="nv">Ls</span><span class="p">].</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 
-&gt; [Head | Tail] = [1, 2, 3].
-[1,2,3]
+<span class="o">&gt;</span> <span class="p">[</span><span class="nv">Head</span> <span class="p">|</span> <span class="nv">Tail</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 
-&gt; Head.
-1
+<span class="o">&gt;</span> <span class="nv">Head</span><span class="p">.</span>
+<span class="mi">1</span>
 
-&gt; Tail.
-[2,3]
+<span class="o">&gt;</span> <span class="nv">Tail</span><span class="p">.</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 <dl class="docutils">
 <dt><em>Note</em></dt>
 <dd>Do not use <code class="docutils literal"><span class="pre">[1</span> <span class="pre">|</span> <span class="pre">2]</span></code>.
 This only work in pattern matching, but break all other functions like <code class="docutils literal"><span class="pre">length</span></code>.</dd>
+</dl>
+</div>
+<div class="section" id="list-comprehension">
+<h3>List Comprehension<a class="headerlink" href="#list-comprehension" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>syntax</dt>
+<dd><code class="docutils literal"><span class="pre">NewList</span> <span class="pre">=</span> <span class="pre">[Expression</span> <span class="pre">||</span> <span class="pre">Pattern</span> <span class="pre">&lt;-</span> <span class="pre">List,</span> <span class="pre">Condition1,</span> <span class="pre">Condition2,</span> <span class="pre">...</span> <span class="pre">ConditionN].</span></code></dd>
+</dl>
+<p>e.g.:</p>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="p">[</span><span class="nv">X</span> <span class="o">*</span> <span class="nv">X</span> <span class="p">||</span> <span class="nv">X</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]].</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span>
+
+<span class="o">&gt;</span> <span class="p">[</span><span class="nv">X</span> <span class="o">*</span> <span class="nv">X</span> <span class="p">||</span> <span class="nv">X</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="nv">X</span> <span class="ow">rem</span> <span class="mi">2</span> <span class="o">=:=</span> <span class="mi">0</span><span class="p">].</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Generator expression</dt>
+<dd><p class="first"><code class="docutils literal"><span class="pre">Pattern</span> <span class="pre">&lt;-</span> <span class="pre">List</span></code>.</p>
+<p>This could be more than one in list comprehension:</p>
+<div class="last highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="p">[</span><span class="nv">X</span> <span class="o">+</span> <span class="nv">Y</span> <span class="p">||</span> <span class="nv">X</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="nv">Y</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]].</span>
+<span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">22</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd>
 </dl>
 </div>
 </div>
@@ -239,6 +264,7 @@ This only work in pattern matching, but break all other functions like <code cla
 <li><a class="reference internal" href="#operators">operators</a></li>
 <li><a class="reference internal" href="#functions">functions</a></li>
 <li><a class="reference internal" href="#cons-operator">cons operator</a></li>
+<li><a class="reference internal" href="#list-comprehension">List Comprehension</a></li>
 </ul>
 </li>
 </ul>
