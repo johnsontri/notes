@@ -7,3 +7,4 @@ Erlang
 
     erlang/basic
     erlang/module
+    erlang/function
