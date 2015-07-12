@@ -5,6 +5,9 @@ Erlang
 .. toctree::
 
 
+.. highlight:: erlang
+
+
 Shell
 =====
 
@@ -150,6 +153,7 @@ tl (tail)
 length
     ``length(List)``
 
+
 cons operator
 --------------
 
@@ -179,3 +183,27 @@ e.g.
 *Note*
     Do not use ``[1 | 2]``.
     This only work in pattern matching, but break all other functions like ``length``.
+
+
+List Comprehension
+------------------
+
+syntax
+    ``NewList = [Expression || Pattern <- List, Condition1, Condition2, ... ConditionN].``
+
+e.g.::
+
+    > [X * X || X <- [1, 2, 3, 4]].
+    [1,4,9,16]
+
+    > [X * X || X <- [1, 2, 3, 4], X rem 2 =:= 0].
+    [4,16]
+
+
+Generator expression
+    ``Pattern <- List``.
+
+    This could be more than one in list comprehension::
+
+        > [X + Y || X <- [1, 2], Y <- [10, 20]].
+        [11,21,12,22]
