@@ -11,10 +11,10 @@ Erlang
 Shell
 =====
 
-quit
+Quit
     ``^G`` then ``q``
 
-clean variables
+Clean variables
     ``f(Var)``
         Set the ``Var`` to unbound
     ``f()``
@@ -41,6 +41,12 @@ Pattern matching
 
 Atom
 ====
+
+No matter how long,
+cost 4 bytes in 32 bits system,
+8 in 64 bits.
+
+No overhead in copy, so it's good for message passing.
 
 ::
 
@@ -71,7 +77,7 @@ Bool
 + ``=<`` *Note this*
 
 
-order
+Order
      number < atom < reference < fun < port < pid < tuple < list < bit string
 
 
@@ -96,10 +102,10 @@ tagged tuple
 List
 ====
 
-syntax
+Syntax
     ``[e1, e2 ...]``
 
-string is a list (no built-in string type)::
+String is a list (no built-in string type)::
 
  > [97, 98, 99].
  "abc"
@@ -115,7 +121,7 @@ string is a list (no built-in string type)::
     Erlang is lack of string manipulations functions.
 
 
-operators
+Operators
 ---------
 
 ``++``
@@ -132,7 +138,7 @@ operators
  [2,3]
 
 
-functions
+Functions
 ---------
 
 hd (head)
@@ -154,12 +160,12 @@ length
     ``length(List)``
 
 
-cons operator
+Cons operator
 --------------
 
-* constructor operator
+* Constructor operator
 
-syntax
+Syntax
     ``[Term1 | [Term2 | [TermN]]]...``
 
 e.g.
@@ -188,7 +194,7 @@ e.g.
 List Comprehension
 ------------------
 
-syntax
+Syntax
     ``NewList = [Expression || Pattern <- List, Condition1, Condition2, ... ConditionN].``
 
 e.g.::
@@ -214,7 +220,7 @@ Bit Syntax
 
 Erlang provide powerful bit manipulations.
 
-syntax, quote in ``<<...>>``::
+Syntax, quote in ``<<...>>``::
 
     Value
     Value:Size
@@ -257,3 +263,22 @@ Pattern matching::
 
     > <<Pix1:24, Pix2:24>> = P.
     <<255,0,0,0,0,255>>
+
+
+Bit string
+    efficient but hard to manipulate    
+
+::
+
+    <<"this is a bit string!">>.
+
+
+Operators
+---------
+
+* ``bsl``: bit shift left
+* ``bsr``: bit shift right
+* ``band``: and
+* ``bor``: or
+* ``bxor``: xor
+* ``bnot``: not
