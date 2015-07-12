@@ -71,6 +71,8 @@
 <dl class="docutils">
 <dt>Anonymou var</dt>
 <dd><code class="docutils literal"><span class="pre">_</span></code></dd>
+<dt>Pattern matching</dt>
+<dd><code class="docutils literal"><span class="pre">=</span></code></dd>
 </dl>
 </div>
 <div class="section" id="atom">
@@ -99,6 +101,8 @@ true
 <li><code class="docutils literal"><span class="pre">/=</span></code></li>
 <li><code class="docutils literal"><span class="pre">&gt;</span></code></li>
 <li><code class="docutils literal"><span class="pre">&lt;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&gt;=</span></code></li>
+<li><code class="docutils literal"><span class="pre">=&lt;</span></code> <em>Note this</em></li>
 </ul>
 <dl class="docutils">
 <dt>order</dt>
@@ -139,7 +143,7 @@ true
 </pre></div>
 </div>
 <dl class="docutils">
-<dt>Note</dt>
+<dt><em>Note</em></dt>
 <dd>Erlang is lack of string manipulations functions.</dd>
 </dl>
 <div class="section" id="operators">
@@ -181,6 +185,39 @@ true
 <dd><code class="docutils literal"><span class="pre">length(List)</span></code></dd>
 </dl>
 </div>
+<div class="section" id="cons-operator">
+<h3>cons operator<a class="headerlink" href="#cons-operator" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>constructor operator</li>
+</ul>
+<dl class="docutils">
+<dt>syntax</dt>
+<dd><code class="docutils literal"><span class="pre">[Term1</span> <span class="pre">|</span> <span class="pre">[Term2</span> <span class="pre">|</span> <span class="pre">[TermN]]]...</span></code></dd>
+</dl>
+<p>e.g.
+<code class="docutils literal"><span class="pre">[Head</span> <span class="pre">|</span> <span class="pre">Tail]</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; Ls = [1, 2, 3, 4].
+[1,2,3,4]
+
+&gt; [0|Ls].
+[0,1,2,3,4]
+
+&gt; [Head | Tail] = [1, 2, 3].
+[1,2,3]
+
+&gt; Head.
+1
+
+&gt; Tail.
+[2,3]
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><em>Note</em></dt>
+<dd>Do not use <code class="docutils literal"><span class="pre">[1</span> <span class="pre">|</span> <span class="pre">2]</span></code>.
+This only work in pattern matching, but break all other functions like <code class="docutils literal"><span class="pre">length</span></code>.</dd>
+</dl>
+</div>
 </div>
 </div>
 
@@ -201,6 +238,7 @@ true
 <li><a class="reference internal" href="#list">List</a><ul>
 <li><a class="reference internal" href="#operators">operators</a></li>
 <li><a class="reference internal" href="#functions">functions</a></li>
+<li><a class="reference internal" href="#cons-operator">cons operator</a></li>
 </ul>
 </li>
 </ul>
