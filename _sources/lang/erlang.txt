@@ -47,8 +47,8 @@ Bool
 
 + ``and``
 + ``or``
-+ ``andalso``: short-circuit operators
-+ ``orelse``: short-circuit operators
++ ``andalso``: short-circuit operator
++ ``orelse``: short-circuit operator
 + ``=:=``
 + ``=/=``
 + ``==``
