@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Erlang notes &mdash; Notes 1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Notes 1 documentation" href="../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="erlang-notes">
+<h1><a class="toc-backref" href="#id1">Erlang notes</a><a class="headerlink" href="#erlang-notes" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#erlang-notes" id="id1">Erlang notes</a><ul>
+<li><a class="reference internal" href="#shell" id="id2">Shell</a></li>
+<li><a class="reference internal" href="#variable" id="id3">Variable</a></li>
+<li><a class="reference internal" href="#atom" id="id4">Atom</a></li>
+<li><a class="reference internal" href="#bool" id="id5">Bool</a></li>
+<li><a class="reference internal" href="#tuples" id="id6">Tuples</a></li>
+<li><a class="reference internal" href="#list" id="id7">List</a><ul>
+<li><a class="reference internal" href="#operators" id="id8">operators</a></li>
+<li><a class="reference internal" href="#functions" id="id9">functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="shell">
+<h2><a class="toc-backref" href="#id2">Shell</a><a class="headerlink" href="#shell" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>quit</dt>
+<dd><code class="docutils literal"><span class="pre">^G</span></code> then <code class="docutils literal"><span class="pre">q</span></code></dd>
+</dl>
+</div>
+<div class="section" id="variable">
+<h2><a class="toc-backref" href="#id3">Variable</a><a class="headerlink" href="#variable" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Capitalize</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre>&gt; One = 1.
+1
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Anonymou var</dt>
+<dd><code class="docutils literal"><span class="pre">_</span></code></dd>
+</dl>
+</div>
+<div class="section" id="atom">
+<h2><a class="toc-backref" href="#id4">Atom</a><a class="headerlink" href="#atom" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>&gt; red.
+red
+
+&gt; red = &#39;red&#39;.
+red
+
+&gt; red == &#39;red&#39;.
+true
+</pre></div>
+</div>
+</div>
+<div class="section" id="bool">
+<h2><a class="toc-backref" href="#id5">Bool</a><a class="headerlink" href="#bool" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">and</span></code></li>
+<li><code class="docutils literal"><span class="pre">or</span></code></li>
+<li><code class="docutils literal"><span class="pre">andalso</span></code>: short-circuit operators</li>
+<li><code class="docutils literal"><span class="pre">orelse</span></code>: short-circuit operators</li>
+<li><code class="docutils literal"><span class="pre">=:=</span></code></li>
+<li><code class="docutils literal"><span class="pre">=/=</span></code></li>
+<li><code class="docutils literal"><span class="pre">==</span></code></li>
+<li><code class="docutils literal"><span class="pre">/=</span></code></li>
+<li><code class="docutils literal"><span class="pre">&gt;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&lt;</span></code></li>
+</ul>
+<dl class="docutils">
+<dt>order</dt>
+<dd>number &lt; atom &lt; reference &lt; fun &lt; port &lt; pid &lt; tuple &lt; list &lt; bit string</dd>
+</dl>
+</div>
+<div class="section" id="tuples">
+<h2><a class="toc-backref" href="#id6">Tuples</a><a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>&gt; Point = {3, 4}.
+{3,4}
+
+&gt; {X, Y} = Point.
+{3,4}
+
+&gt; {X, _} = Point.
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>tagged tuple</dt>
+<dd><code class="docutils literal"><span class="pre">{km,</span> <span class="pre">100}</span></code></dd>
+</dl>
+</div>
+<div class="section" id="list">
+<h2><a class="toc-backref" href="#id7">List</a><a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>syntax</dt>
+<dd><code class="docutils literal"><span class="pre">[e1,</span> <span class="pre">e2</span> <span class="pre">...]</span></code></dd>
+</dl>
+<p>string is a list (no built-in string type):</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; [97, 98, 99].
+&quot;abc&quot;
+
+&gt; [97, 98, 99, 4, 5, 6].
+[97,98,99,4,5,6]
+
+&gt;[233].
+&quot;é&quot;
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note</dt>
+<dd>Erlang is lack of string manipulations functions.</dd>
+</dl>
+<div class="section" id="operators">
+<h3><a class="toc-backref" href="#id8">operators</a><a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">++</span></code></dt>
+<dd>right-associative, eval from right to left.</dd>
+<dt><code class="docutils literal"><span class="pre">--</span></code></dt>
+<dd>right-associative.</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>&gt; [1,2,3] -- [1,2] -- [3].
+[3]
+
+&gt; [1,2,3] -- [1,2] -- [2].
+[2,3]
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions">
+<h3><a class="toc-backref" href="#id9">functions</a><a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>hd (head)</dt>
+<dd><p class="first">pick up the first element:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; hd([1, 2, 3]).
+</pre></div>
+</div>
+<p class="last">1</p>
+</dd>
+<dt>tl (tail)</dt>
+<dd><p class="first">pick up [1:]:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; tl([1, 2, 3]).
+</pre></div>
+</div>
+<p>[2, 3].</p>
+<p class="last">&gt; tl([1, 97, 98]).
+&#8220;ab&#8221;</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Erlang notes</a><ul>
+<li><a class="reference internal" href="#shell">Shell</a></li>
+<li><a class="reference internal" href="#variable">Variable</a></li>
+<li><a class="reference internal" href="#atom">Atom</a></li>
+<li><a class="reference internal" href="#bool">Bool</a></li>
+<li><a class="reference internal" href="#tuples">Tuples</a></li>
+<li><a class="reference internal" href="#list">List</a><ul>
+<li><a class="reference internal" href="#operators">operators</a></li>
+<li><a class="reference internal" href="#functions">functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/lang/erlang.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Iblis Lin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="../_sources/lang/erlang.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
