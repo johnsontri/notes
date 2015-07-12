@@ -104,9 +104,9 @@ Note
 operators
 ---------
 
-+ ``++``:
+``++``
     right-associative, eval from right to left.
-+ ``--``:
+``--``
     right-associative.
 
 ::
@@ -118,3 +118,20 @@ operators
  [2,3]
 
 
+functions
+---------
+
+hd (head)
+    pick up the first element::
+
+    > hd([1, 2, 3]).
+    1
+
+tl (tail)
+    pick up [1:]::
+
+    > tl([1, 2, 3]).
+    [2, 3].
+
+    > tl([1, 97, 98]).
+    "ab"
