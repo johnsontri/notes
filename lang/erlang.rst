@@ -11,6 +11,12 @@ Shell
 quit
     ``^G`` then ``q``
 
+clean variables
+    ``f(Var)``
+        Set the ``Var`` to unbound
+    ``f()``
+        Clean all variables
+
 
 Variable
 ========
@@ -135,3 +141,6 @@ tl (tail)
 
     > tl([1, 97, 98]).
     "ab"
+
+length
+    ``length(List)``
