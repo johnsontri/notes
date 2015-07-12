@@ -47,9 +47,9 @@
 <div class="section" id="shell">
 <h2>Shell<a class="headerlink" href="#shell" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>quit</dt>
+<dt>Quit</dt>
 <dd><code class="docutils literal"><span class="pre">^G</span></code> then <code class="docutils literal"><span class="pre">q</span></code></dd>
-<dt>clean variables</dt>
+<dt>Clean variables</dt>
 <dd><dl class="first last docutils">
 <dt><code class="docutils literal"><span class="pre">f(Var)</span></code></dt>
 <dd>Set the <code class="docutils literal"><span class="pre">Var</span></code> to unbound</dd>
@@ -77,6 +77,10 @@
 </div>
 <div class="section" id="atom">
 <h2>Atom<a class="headerlink" href="#atom" title="Permalink to this headline">¶</a></h2>
+<p>No matter how long,
+cost 4 bytes in 32 bits system,
+8 in 64 bits.</p>
+<p>No overhead in copy, so it&#8217;s good for message passing.</p>
 <div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="n">red</span><span class="p">.</span>
 <span class="n">red</span>
 
@@ -105,7 +109,7 @@
 <li><code class="docutils literal"><span class="pre">=&lt;</span></code> <em>Note this</em></li>
 </ul>
 <dl class="docutils">
-<dt>order</dt>
+<dt>Order</dt>
 <dd>number &lt; atom &lt; reference &lt; fun &lt; port &lt; pid &lt; tuple &lt; list &lt; bit string</dd>
 </dl>
 </div>
@@ -128,10 +132,10 @@
 <div class="section" id="list">
 <h2>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>syntax</dt>
+<dt>Syntax</dt>
 <dd><code class="docutils literal"><span class="pre">[e1,</span> <span class="pre">e2</span> <span class="pre">...]</span></code></dd>
 </dl>
-<p>string is a list (no built-in string type):</p>
+<p>String is a list (no built-in string type):</p>
 <div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="p">[</span><span class="mi">97</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">99</span><span class="p">].</span>
 <span class="s">&quot;abc&quot;</span>
 
@@ -147,7 +151,7 @@
 <dd>Erlang is lack of string manipulations functions.</dd>
 </dl>
 <div class="section" id="operators">
-<h3>operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h3>
+<h3>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">++</span></code></dt>
 <dd>right-associative, eval from right to left.</dd>
@@ -163,7 +167,7 @@
 </div>
 </div>
 <div class="section" id="functions">
-<h3>functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
 <dt>hd (head)</dt>
 <dd><p class="first">pick up the first element:</p>
@@ -186,12 +190,12 @@
 </dl>
 </div>
 <div class="section" id="cons-operator">
-<h3>cons operator<a class="headerlink" href="#cons-operator" title="Permalink to this headline">¶</a></h3>
+<h3>Cons operator<a class="headerlink" href="#cons-operator" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>constructor operator</li>
+<li>Constructor operator</li>
 </ul>
 <dl class="docutils">
-<dt>syntax</dt>
+<dt>Syntax</dt>
 <dd><code class="docutils literal"><span class="pre">[Term1</span> <span class="pre">|</span> <span class="pre">[Term2</span> <span class="pre">|</span> <span class="pre">[TermN]]]...</span></code></dd>
 </dl>
 <p>e.g.
@@ -221,7 +225,7 @@ This only work in pattern matching, but break all other functions like <code cla
 <div class="section" id="list-comprehension">
 <h3>List Comprehension<a class="headerlink" href="#list-comprehension" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
-<dt>syntax</dt>
+<dt>Syntax</dt>
 <dd><code class="docutils literal"><span class="pre">NewList</span> <span class="pre">=</span> <span class="pre">[Expression</span> <span class="pre">||</span> <span class="pre">Pattern</span> <span class="pre">&lt;-</span> <span class="pre">List,</span> <span class="pre">Condition1,</span> <span class="pre">Condition2,</span> <span class="pre">...</span> <span class="pre">ConditionN].</span></code></dd>
 </dl>
 <p>e.g.:</p>
@@ -247,7 +251,7 @@ This only work in pattern matching, but break all other functions like <code cla
 <div class="section" id="bit-syntax">
 <h2>Bit Syntax<a class="headerlink" href="#bit-syntax" title="Permalink to this headline">¶</a></h2>
 <p>Erlang provide powerful bit manipulations.</p>
-<p>syntax, quote in <code class="docutils literal"><span class="pre">&lt;&lt;...&gt;&gt;</span></code>:</p>
+<p>Syntax, quote in <code class="docutils literal"><span class="pre">&lt;&lt;...&gt;&gt;</span></code>:</p>
 <div class="highlight-erlang"><div class="highlight"><pre><span class="nv">Value</span>
 <span class="nv">Value</span><span class="p">:</span><span class="nv">Size</span>
 <span class="nv">Value</span><span class="o">/</span><span class="nv">TypeSpecifierList</span>
@@ -307,6 +311,24 @@ This only work in pattern matching, but break all other functions like <code cla
 <span class="o">&lt;&lt;</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="o">&gt;&gt;</span>
 </pre></div>
 </div>
+<dl class="docutils">
+<dt>Bit string</dt>
+<dd>efficient but hard to manipulate</dd>
+</dl>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&lt;&lt;</span><span class="s">&quot;this is a bit string!&quot;</span><span class="o">&gt;&gt;</span><span class="p">.</span>
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h3>Operators<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">bsl</span></code>: bit shift left</li>
+<li><code class="docutils literal"><span class="pre">bsr</span></code>: bit shift right</li>
+<li><code class="docutils literal"><span class="pre">band</span></code>: and</li>
+<li><code class="docutils literal"><span class="pre">bor</span></code>: or</li>
+<li><code class="docutils literal"><span class="pre">bxor</span></code>: xor</li>
+<li><code class="docutils literal"><span class="pre">bnot</span></code>: not</li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -325,13 +347,16 @@ This only work in pattern matching, but break all other functions like <code cla
 <li><a class="reference internal" href="#bool">Bool</a></li>
 <li><a class="reference internal" href="#tuples">Tuples</a></li>
 <li><a class="reference internal" href="#list">List</a><ul>
-<li><a class="reference internal" href="#operators">operators</a></li>
-<li><a class="reference internal" href="#functions">functions</a></li>
-<li><a class="reference internal" href="#cons-operator">cons operator</a></li>
+<li><a class="reference internal" href="#operators">Operators</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#cons-operator">Cons operator</a></li>
 <li><a class="reference internal" href="#list-comprehension">List Comprehension</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#bit-syntax">Bit Syntax</a></li>
+<li><a class="reference internal" href="#bit-syntax">Bit Syntax</a><ul>
+<li><a class="reference internal" href="#id1">Operators</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
