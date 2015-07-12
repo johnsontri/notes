@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Erlang module &mdash; Notes  documentation</title>
+    <title>Erlang Module &mdash; Notes  documentation</title>
     
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -40,10 +40,82 @@
           <div class="body" role="main">
             
   <div class="section" id="erlang-module">
-<h1>Erlang module<a class="headerlink" href="#erlang-module" title="Permalink to this headline">¶</a></h1>
+<h1>Erlang Module<a class="headerlink" href="#erlang-module" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
+</div>
+<dl class="docutils">
+<dt>call a function from module</dt>
+<dd><p class="first"><code class="docutils literal"><span class="pre">Module:Function(Args).</span></code></p>
+<div class="last highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nn">lists</span><span class="p">:</span><span class="nf">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">).</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="section" id="declaration">
+<h2>Declaration<a class="headerlink" href="#declaration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="attribute">
+<h3>Attribute<a class="headerlink" href="#attribute" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Sytax</dt>
+<dd><code class="docutils literal"><span class="pre">-Name(Attribute).</span></code></dd>
+<dt>Required attribute</dt>
+<dd><p class="first"><code class="docutils literal"><span class="pre">-module(Name).</span></code></p>
+<p class="last"><em>Name</em> is an atom</p>
+</dd>
+<dt>Export functions</dt>
+<dd><p class="first"><code class="docutils literal"><span class="pre">-export([Function1/Arity,</span> <span class="pre">Function2/Arity,</span> <span class="pre">...,</span> <span class="pre">FunctionN/Arity]).</span></code></p>
+<dl class="last docutils">
+<dt>Arity</dt>
+<dd><p class="first">How many arg can be passed to the function.</p>
+<p class="last">Different function can share <em>same name</em>: <code class="docutils literal"><span class="pre">add(X,</span> <span class="pre">Y)</span></code> and <code class="docutils literal"><span class="pre">add(X,</span> <span class="pre">Y,</span> <span class="pre">Z)</span></code>.
+They will carry diffrent arity: <code class="docutils literal"><span class="pre">add/2</span></code> and <code class="docutils literal"><span class="pre">add/3</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt>Import functions</dt>
+<dd><p class="first"><code class="docutils literal"><span class="pre">-import(Module,</span> <span class="pre">[Function/Arity,</span> <span class="pre">...]).</span></code></p>
+<div class="last highlight-erlang"><div class="highlight"><pre><span class="p">-</span><span class="ni">import</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="p">[</span><span class="n">format</span><span class="o">/</span><span class="mi">1</span><span class="p">]).</span>
+</pre></div>
+</div>
+</dd>
+<dt>Macro</dt>
+<dd><p class="first">similar to C&#8217;s Macro. They will be replace before compiling.</p>
+<p><code class="docutils literal"><span class="pre">-define(MACRO,</span> <span class="pre">value).</span></code></p>
+<p>Use as <code class="docutils literal"><span class="pre">?MACRO</span></code> inside code.</p>
+<p>e.g.:</p>
+<div class="last highlight-erlang"><div class="highlight"><pre><span class="p">-</span><span class="ni">define</span><span class="p">(</span><span class="no">sub</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">),</span> <span class="nv">X</span> <span class="o">-</span> <span class="nv">Y</span><span class="p">).</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="function">
+<h3>Function<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Sytax</dt>
+<dd><p class="first"><code class="docutils literal"><span class="pre">Name(Args)</span> <span class="pre">-&gt;</span> <span class="pre">Body.</span></code></p>
+<dl class="docutils">
+<dt>Name</dt>
+<dd>an atom</dd>
+<dt>Body</dt>
+<dd>one or more erlang expressions</dd>
+<dt>Return</dt>
+<dd>The value of last expression</dd>
+</dl>
+<p>e.g:</p>
+<div class="last highlight-erlang"><div class="highlight"><pre><span class="nf">add</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">)</span> <span class="o">-&gt;</span>
+    <span class="nv">X</span> <span class="o">+</span> <span class="nv">Y</span><span class="p">.</span>
+
+<span class="nf">hello</span><span class="p">()</span> <span class="o">-&gt;</span>
+    <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;Hello World!</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">).</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 
@@ -52,7 +124,19 @@
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="relations">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Erlang Module</a><ul>
+<li><a class="reference internal" href="#declaration">Declaration</a><ul>
+<li><a class="reference internal" href="#attribute">Attribute</a></li>
+<li><a class="reference internal" href="#function">Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
