@@ -130,15 +130,16 @@ They will carry diffrent arity: <code class="docutils literal"><span class="pre"
 </div></blockquote>
 </div>
 </div>
+</div>
 <div class="section" id="compile-the-code">
-<h3>Compile the code<a class="headerlink" href="#compile-the-code" title="Permalink to this headline">¶</a></h3>
+<h2>Compile the code<a class="headerlink" href="#compile-the-code" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">$</span> <span class="pre">erlc</span> <span class="pre">file.erl</span></code></li>
 <li>In shell, <code class="docutils literal"><span class="pre">c(module)</span></code></li>
 <li>In shell or module, <code class="docutils literal"><span class="pre">compile:file(FileName)</span></code></li>
 </ul>
 <div class="section" id="define-compiling-flags-in-module">
-<h4>Define compiling flags in module<a class="headerlink" href="#define-compiling-flags-in-module" title="Permalink to this headline">¶</a></h4>
+<h3>Define compiling flags in module<a class="headerlink" href="#define-compiling-flags-in-module" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><dl class="docutils">
 <dt>e.g.:</dt>
@@ -147,7 +148,7 @@ They will carry diffrent arity: <code class="docutils literal"><span class="pre"
 </div></blockquote>
 </div>
 <div class="section" id="compile-into-native-code">
-<h4>Compile into native code<a class="headerlink" href="#compile-into-native-code" title="Permalink to this headline">¶</a></h4>
+<h3>Compile into native code<a class="headerlink" href="#compile-into-native-code" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>There is two way to deal with it.</p>
 <ul class="simple">
@@ -158,9 +159,9 @@ They will carry diffrent arity: <code class="docutils literal"><span class="pre"
 </div>
 </div>
 <div class="section" id="more-about-module">
-<h3>More about module<a class="headerlink" href="#more-about-module" title="Permalink to this headline">¶</a></h3>
+<h2>More about module<a class="headerlink" href="#more-about-module" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="module-info-0">
-<h4><code class="docutils literal"><span class="pre">module_info/0</span></code><a class="headerlink" href="#module-info-0" title="Permalink to this headline">¶</a></h4>
+<h3><code class="docutils literal"><span class="pre">module_info/0</span></code><a class="headerlink" href="#module-info-0" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nn">test</span><span class="p">:</span><span class="nf">module_info</span><span class="p">().</span>
 <span class="p">[{</span><span class="n">module</span><span class="p">,</span><span class="n">test</span><span class="p">},</span>
 <span class="p">{</span><span class="n">exports</span><span class="p">,[{</span><span class="n">add</span><span class="p">,</span><span class="mi">2</span><span class="p">},{</span><span class="n">module_info</span><span class="p">,</span><span class="mi">0</span><span class="p">},{</span><span class="n">module_info</span><span class="p">,</span><span class="mi">1</span><span class="p">}]},</span>
@@ -176,14 +177,14 @@ They will carry diffrent arity: <code class="docutils literal"><span class="pre"
 </div>
 </div>
 <div class="section" id="module-info-1">
-<h4><code class="docutils literal"><span class="pre">module_info/1</span></code><a class="headerlink" href="#module-info-1" title="Permalink to this headline">¶</a></h4>
+<h3><code class="docutils literal"><span class="pre">module_info/1</span></code><a class="headerlink" href="#module-info-1" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nn">test</span><span class="p">:</span><span class="nf">module_info</span><span class="p">(</span><span class="n">exports</span><span class="p">).</span>
 <span class="p">[{</span><span class="n">add</span><span class="p">,</span><span class="mi">2</span><span class="p">},{</span><span class="n">module_info</span><span class="p">,</span><span class="mi">0</span><span class="p">},{</span><span class="n">module_info</span><span class="p">,</span><span class="mi">1</span><span class="p">}]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="vns">
-<h4>vns<a class="headerlink" href="#vns" title="Permalink to this headline">¶</a></h4>
+<h3>vns<a class="headerlink" href="#vns" title="Permalink to this headline">¶</a></h3>
 <p>This is an auto generated version for your code.
 It&#8217;s used for hot-loading.</p>
 <div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nb">hd</span><span class="p">(</span><span class="nn">test</span><span class="p">:</span><span class="nf">module_info</span><span class="p">(</span><span class="n">attributes</span><span class="p">)).</span>
@@ -192,7 +193,6 @@ It&#8217;s used for hot-loading.</p>
 </div>
 <p>It can be set manually.</p>
 <p><code class="docutils literal"><span class="pre">-vsn(VersionNumber).</span></code></p>
-</div>
 </div>
 </div>
 </div>
@@ -219,6 +219,8 @@ It&#8217;s used for hot-loading.</p>
 <li><a class="reference internal" href="#id1">Sytax</a></li>
 </ul>
 </li>
+</ul>
+</li>
 <li><a class="reference internal" href="#compile-the-code">Compile the code</a><ul>
 <li><a class="reference internal" href="#define-compiling-flags-in-module">Define compiling flags in module</a></li>
 <li><a class="reference internal" href="#compile-into-native-code">Compile into native code</a></li>
@@ -228,8 +230,6 @@ It&#8217;s used for hot-loading.</p>
 <li><a class="reference internal" href="#module-info-0"><code class="docutils literal"><span class="pre">module_info/0</span></code></a></li>
 <li><a class="reference internal" href="#module-info-1"><code class="docutils literal"><span class="pre">module_info/1</span></code></a></li>
 <li><a class="reference internal" href="#vns">vns</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
