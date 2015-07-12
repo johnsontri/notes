@@ -1,8 +1,8 @@
 ************
-Erlang notes
+Erlang
 ************
 
-.. contents::
+.. toctree::
 
 
 Shell

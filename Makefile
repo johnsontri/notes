@@ -3,7 +3,7 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build
+SPHINXBUILD   = sphinx-build -v
 PAPER         =
 BUILDDIR      = _build
 
@@ -191,3 +191,12 @@ pseudoxml:
 	$(SPHINXBUILD) -b pseudoxml $(ALLSPHINXOPTS) $(BUILDDIR)/pseudoxml
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
+
+push:
+	ghp-import $(BUILDDIR)/html
+	git push origin gh-pages
+
+serve:
+	cd $(BUILDDIR)/html && python -m http.server
+
+publish: clean html push

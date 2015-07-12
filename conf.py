@@ -79,7 +79,7 @@ language = None
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build']
+exclude_patterns = ['_build', 'README.rst']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -227,7 +227,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'IblissNotes.tex', 'Notes Documentation',
+  (master_doc, 'IblissNotes.tex', 'Notes',
    'Iblis Lin', 'manual'),
 ]
 
@@ -257,7 +257,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'iblissnotes', 'Iblis\'s Notes Documentation',
+    (master_doc, 'iblissnotes', 'Notes',
      [author], 1)
 ]
 
@@ -271,7 +271,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'IblissNotes', 'Notes Documentation',
+  (master_doc, 'IblissNotes', 'Notes',
    author, 'IblissNotes', 'One line description of project.',
    'Miscellaneous'),
 ]
