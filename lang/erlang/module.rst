@@ -91,19 +91,19 @@ Sytax
 
 
 Compile the code
------------------
+=================
 
 * ``$ erlc file.erl``
 * In shell, ``c(module)``
 * In shell or module, ``compile:file(FileName)``
 
 Define compiling flags in module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------
     e.g.:
         ``-compile([debug_info, export_all, ...]).``
 
 Compile into native code
-^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------
     There is two way to deal with it.
 
     * ``hipe:c(Module, OptionList).``
@@ -111,11 +111,11 @@ Compile into native code
 
 
 More about module
-------------------
+==================
 
 
 ``module_info/0``
-^^^^^^^^^^^^^^^^^
+-----------------
 
 ::
 
@@ -133,7 +133,7 @@ More about module
 
 
 ``module_info/1``
-^^^^^^^^^^^^^^^^^
+-----------------
 
 ::
 
@@ -142,7 +142,7 @@ More about module
 
 
 vns
-^^^
+---
 
 This is an auto generated version for your code.
 It's used for hot-loading.
