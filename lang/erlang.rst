@@ -3,9 +3,7 @@ Erlang
 ************
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
     erlang/basic
     erlang/module
-
-.. highlight:: erlang
