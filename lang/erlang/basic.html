@@ -26,7 +26,7 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Notes  documentation" href="../../index.html" />
     <link rel="up" title="Erlang" href="../erlang.html" />
-    <link rel="next" title="Erlang module" href="module.html" />
+    <link rel="next" title="Erlang Module" href="module.html" />
     <link rel="prev" title="Erlang" href="../erlang.html" />
    
   
@@ -110,10 +110,11 @@ cost 4 bytes in 32 bits system,
 <li><code class="docutils literal"><span class="pre">&gt;=</span></code></li>
 <li><code class="docutils literal"><span class="pre">=&lt;</span></code> <em>Note this</em></li>
 </ul>
-<dl class="docutils">
-<dt>Order</dt>
-<dd>number &lt; atom &lt; reference &lt; fun &lt; port &lt; pid &lt; tuple &lt; list &lt; bit string</dd>
-</dl>
+<div class="section" id="order">
+<h3>Order<a class="headerlink" href="#order" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>number &lt; atom &lt; reference &lt; fun &lt; port &lt; pid &lt; tuple &lt; list &lt; bit string</div></blockquote>
+</div>
 </div>
 <div class="section" id="tuples">
 <h2>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h2>
@@ -253,18 +254,24 @@ This only work in pattern matching, but break all other functions like <code cla
 <div class="section" id="bit-syntax">
 <h2>Bit Syntax<a class="headerlink" href="#bit-syntax" title="Permalink to this headline">¶</a></h2>
 <p>Erlang provide powerful bit manipulations.</p>
-<p>Syntax, quote in <code class="docutils literal"><span class="pre">&lt;&lt;...&gt;&gt;</span></code>:</p>
+<div class="section" id="syntax">
+<h3>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h3>
+<p>quote in <code class="docutils literal"><span class="pre">&lt;&lt;...&gt;&gt;</span></code>:</p>
 <div class="highlight-erlang"><div class="highlight"><pre><span class="nv">Value</span>
 <span class="nv">Value</span><span class="p">:</span><span class="nv">Size</span>
 <span class="nv">Value</span><span class="o">/</span><span class="nv">TypeSpecifierList</span>
 <span class="nv">Value</span><span class="p">:</span><span class="nv">Size</span><span class="o">/</span><span class="nv">TypeSpecifierList</span>
 </pre></div>
 </div>
-<dl class="docutils">
-<dt>Size</dt>
-<dd>bits or bytes, depends on <em>Type</em> or <em>Unit</em>.</dd>
-<dt>TypeSpecifierList</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<div class="section" id="size">
+<h4>Size<a class="headerlink" href="#size" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div>bits or bytes, depends on <em>Type</em> or <em>Unit</em>.</div></blockquote>
+</div>
+<div class="section" id="typespecifierlist">
+<h4>TypeSpecifierList<a class="headerlink" href="#typespecifierlist" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -291,8 +298,7 @@ This only work in pattern matching, but break all other functions like <code cla
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
+</div></blockquote>
 <p>e.g.:</p>
 <div class="highlight-erlang"><div class="highlight"><pre>&gt; Color = 16#1200FF.
 1179903
@@ -305,7 +311,9 @@ This only work in pattern matching, but break all other functions like <code cla
 -44
 </pre></div>
 </div>
-<p>Pattern matching:</p>
+</div>
+<div class="section" id="pattern-matching">
+<h4>Pattern matching<a class="headerlink" href="#pattern-matching" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nv">P</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="o">&gt;&gt;</span><span class="p">.</span>
 <span class="o">&lt;&lt;</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="o">&gt;&gt;</span>
 
@@ -313,12 +321,16 @@ This only work in pattern matching, but break all other functions like <code cla
 <span class="o">&lt;&lt;</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="o">&gt;&gt;</span>
 </pre></div>
 </div>
-<dl class="docutils">
-<dt>Bit string</dt>
-<dd>efficient but hard to manipulate</dd>
-</dl>
+</div>
+<div class="section" id="bit-string">
+<h4>Bit string<a class="headerlink" href="#bit-string" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>efficient but hard to manipulate</p>
 <div class="highlight-erlang"><div class="highlight"><pre><span class="o">&lt;&lt;</span><span class="s">&quot;this is a bit string!&quot;</span><span class="o">&gt;&gt;</span><span class="p">.</span>
 </pre></div>
+</div>
+</div></blockquote>
+</div>
 </div>
 <div class="section" id="id1">
 <h3>Operators<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
@@ -361,7 +373,10 @@ This only work in pattern matching, but break all other functions like <code cla
 <li><a class="reference internal" href="#shell">Shell</a></li>
 <li><a class="reference internal" href="#variable">Variable</a></li>
 <li><a class="reference internal" href="#atom">Atom</a></li>
-<li><a class="reference internal" href="#bool">Bool</a></li>
+<li><a class="reference internal" href="#bool">Bool</a><ul>
+<li><a class="reference internal" href="#order">Order</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#tuples">Tuples</a></li>
 <li><a class="reference internal" href="#list">List</a><ul>
 <li><a class="reference internal" href="#operators">Operators</a></li>
@@ -371,6 +386,13 @@ This only work in pattern matching, but break all other functions like <code cla
 </ul>
 </li>
 <li><a class="reference internal" href="#bit-syntax">Bit Syntax</a><ul>
+<li><a class="reference internal" href="#syntax">Syntax</a><ul>
+<li><a class="reference internal" href="#size">Size</a></li>
+<li><a class="reference internal" href="#typespecifierlist">TypeSpecifierList</a></li>
+<li><a class="reference internal" href="#pattern-matching">Pattern matching</a></li>
+<li><a class="reference internal" href="#bit-string">Bit string</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#id1">Operators</a></li>
 <li><a class="reference internal" href="#binary-comprehension">Binary Comprehension</a></li>
 </ul>
@@ -384,7 +406,7 @@ This only work in pattern matching, but break all other functions like <code cla
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../erlang.html">Erlang</a><ul>
       <li>Previous: <a href="../erlang.html" title="previous chapter">Erlang</a></li>
-      <li>Next: <a href="module.html" title="next chapter">Erlang module</a></li>
+      <li>Next: <a href="module.html" title="next chapter">Erlang Module</a></li>
   </ul></li>
   </ul></li>
 </ul>

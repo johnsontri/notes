@@ -78,6 +78,7 @@ Bool
 
 
 Order
+-----
      number < atom < reference < fun < port < pid < tuple < list < bit string
 
 
@@ -220,7 +221,10 @@ Bit Syntax
 
 Erlang provide powerful bit manipulations.
 
-Syntax, quote in ``<<...>>``::
+Syntax
+-------
+
+quote in ``<<...>>``::
 
     Value
     Value:Size
@@ -228,9 +232,11 @@ Syntax, quote in ``<<...>>``::
     Value:Size/TypeSpecifierList
 
 Size
+^^^^
     bits or bytes, depends on *Type* or *Unit*.
 
 TypeSpecifierList
+^^^^^^^^^^^^^^^^^
     :Type: 
         ``integer | float | binary | bytes | bitstring | bits | utf8 | utf16 | utf32``.
         
@@ -256,7 +262,10 @@ e.g.::
     > X.
     -44
 
-Pattern matching::
+Pattern matching
+^^^^^^^^^^^^^^^^
+
+::
 
     > P = <<255, 0, 0, 0, 0, 255>>.
     <<255,0,0,0,0,255>>
@@ -266,11 +275,12 @@ Pattern matching::
 
 
 Bit string
+^^^^^^^^^^
     efficient but hard to manipulate    
 
-::
+    ::
 
-    <<"this is a bit string!">>.
+        <<"this is a bit string!">>.
 
 
 Operators

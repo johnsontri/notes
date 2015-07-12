@@ -58,45 +58,59 @@
 <h2>Declaration<a class="headerlink" href="#declaration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="attribute">
 <h3>Attribute<a class="headerlink" href="#attribute" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="sytax">
+<h4>Sytax<a class="headerlink" href="#sytax" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">-Name(Attribute).</span></code></div></blockquote>
+</div>
+<div class="section" id="required-attribute">
+<h4>Required attribute<a class="headerlink" href="#required-attribute" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">-module(Name).</span></code></p>
+<p><em>Name</em> is an atom</p>
+</div></blockquote>
+</div>
+<div class="section" id="export-functions">
+<h4>Export functions<a class="headerlink" href="#export-functions" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">-export([Function1/Arity,</span> <span class="pre">Function2/Arity,</span> <span class="pre">...,</span> <span class="pre">FunctionN/Arity]).</span></code></p>
 <dl class="docutils">
-<dt>Sytax</dt>
-<dd><code class="docutils literal"><span class="pre">-Name(Attribute).</span></code></dd>
-<dt>Required attribute</dt>
-<dd><p class="first"><code class="docutils literal"><span class="pre">-module(Name).</span></code></p>
-<p class="last"><em>Name</em> is an atom</p>
-</dd>
-<dt>Export functions</dt>
-<dd><p class="first"><code class="docutils literal"><span class="pre">-export([Function1/Arity,</span> <span class="pre">Function2/Arity,</span> <span class="pre">...,</span> <span class="pre">FunctionN/Arity]).</span></code></p>
-<dl class="last docutils">
 <dt>Arity</dt>
 <dd><p class="first">How many arg can be passed to the function.</p>
 <p class="last">Different function can share <em>same name</em>: <code class="docutils literal"><span class="pre">add(X,</span> <span class="pre">Y)</span></code> and <code class="docutils literal"><span class="pre">add(X,</span> <span class="pre">Y,</span> <span class="pre">Z)</span></code>.
 They will carry diffrent arity: <code class="docutils literal"><span class="pre">add/2</span></code> and <code class="docutils literal"><span class="pre">add/3</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Import functions</dt>
-<dd><p class="first"><code class="docutils literal"><span class="pre">-import(Module,</span> <span class="pre">[Function/Arity,</span> <span class="pre">...]).</span></code></p>
-<div class="last highlight-erlang"><div class="highlight"><pre><span class="p">-</span><span class="ni">import</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="p">[</span><span class="n">format</span><span class="o">/</span><span class="mi">1</span><span class="p">]).</span>
+</div></blockquote>
+</div>
+<div class="section" id="import-functions">
+<h4>Import functions<a class="headerlink" href="#import-functions" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">-import(Module,</span> <span class="pre">[Function/Arity,</span> <span class="pre">...]).</span></code></p>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="p">-</span><span class="ni">import</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="p">[</span><span class="n">format</span><span class="o">/</span><span class="mi">1</span><span class="p">]).</span>
 </pre></div>
 </div>
-</dd>
-<dt>Macro</dt>
-<dd><p class="first">similar to C&#8217;s Macro. They will be replace before compiling.</p>
+</div></blockquote>
+</div>
+<div class="section" id="macro">
+<h4>Macro<a class="headerlink" href="#macro" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>similar to C&#8217;s Macro. They will be replace before compiling.</p>
 <p><code class="docutils literal"><span class="pre">-define(MACRO,</span> <span class="pre">value).</span></code></p>
 <p>Use as <code class="docutils literal"><span class="pre">?MACRO</span></code> inside code.</p>
 <p>e.g.:</p>
-<div class="last highlight-erlang"><div class="highlight"><pre><span class="p">-</span><span class="ni">define</span><span class="p">(</span><span class="no">sub</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">),</span> <span class="nv">X</span> <span class="o">-</span> <span class="nv">Y</span><span class="p">).</span>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="p">-</span><span class="ni">define</span><span class="p">(</span><span class="no">sub</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">),</span> <span class="nv">X</span> <span class="o">-</span> <span class="nv">Y</span><span class="p">).</span>
 </pre></div>
 </div>
-</dd>
-</dl>
+</div></blockquote>
+</div>
 </div>
 <div class="section" id="function">
 <h3>Function<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h3>
-<dl class="docutils">
-<dt>Sytax</dt>
-<dd><p class="first"><code class="docutils literal"><span class="pre">Name(Args)</span> <span class="pre">-&gt;</span> <span class="pre">Body.</span></code></p>
+<div class="section" id="id1">
+<h4>Sytax<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">Name(Args)</span> <span class="pre">-&gt;</span> <span class="pre">Body.</span></code></p>
 <dl class="docutils">
 <dt>Name</dt>
 <dd>an atom</dd>
@@ -106,15 +120,79 @@ They will carry diffrent arity: <code class="docutils literal"><span class="pre"
 <dd>The value of last expression</dd>
 </dl>
 <p>e.g:</p>
-<div class="last highlight-erlang"><div class="highlight"><pre><span class="nf">add</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">)</span> <span class="o">-&gt;</span>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="nf">add</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">)</span> <span class="o">-&gt;</span>
     <span class="nv">X</span> <span class="o">+</span> <span class="nv">Y</span><span class="p">.</span>
 
 <span class="nf">hello</span><span class="p">()</span> <span class="o">-&gt;</span>
     <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;Hello World!</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">).</span>
 </pre></div>
 </div>
-</dd>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="compile-the-code">
+<h3>Compile the code<a class="headerlink" href="#compile-the-code" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">$</span> <span class="pre">erlc</span> <span class="pre">file.erl</span></code></li>
+<li>In shell, <code class="docutils literal"><span class="pre">c(module)</span></code></li>
+<li>In shell or module, <code class="docutils literal"><span class="pre">compile:file(FileName)</span></code></li>
+</ul>
+<div class="section" id="define-compiling-flags-in-module">
+<h4>Define compiling flags in module<a class="headerlink" href="#define-compiling-flags-in-module" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>e.g.:</dt>
+<dd><code class="docutils literal"><span class="pre">-compile([debug_info,</span> <span class="pre">export_all,</span> <span class="pre">...]).</span></code></dd>
 </dl>
+</div></blockquote>
+</div>
+<div class="section" id="compile-into-native-code">
+<h4>Compile into native code<a class="headerlink" href="#compile-into-native-code" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>There is two way to deal with it.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">hipe:c(Module,</span> <span class="pre">OptionList).</span></code></li>
+<li><code class="docutils literal"><span class="pre">c(Module,</span> <span class="pre">native).</span></code></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="more-about-module">
+<h3>More about module<a class="headerlink" href="#more-about-module" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="module-info-0">
+<h4><code class="docutils literal"><span class="pre">module_info/0</span></code><a class="headerlink" href="#module-info-0" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nn">test</span><span class="p">:</span><span class="nf">module_info</span><span class="p">().</span>
+<span class="p">[{</span><span class="n">module</span><span class="p">,</span><span class="n">test</span><span class="p">},</span>
+<span class="p">{</span><span class="n">exports</span><span class="p">,[{</span><span class="n">add</span><span class="p">,</span><span class="mi">2</span><span class="p">},{</span><span class="n">module_info</span><span class="p">,</span><span class="mi">0</span><span class="p">},{</span><span class="n">module_info</span><span class="p">,</span><span class="mi">1</span><span class="p">}]},</span>
+<span class="p">{</span><span class="n">attributes</span><span class="p">,[{</span><span class="n">vsn</span><span class="p">,[</span><span class="mi">146299772997766369192496377694713339991</span><span class="p">]}]},</span>
+<span class="p">{</span><span class="n">compile</span><span class="p">,[{</span><span class="n">options</span><span class="p">,[</span><span class="n">native</span><span class="p">]},</span>
+        <span class="p">{</span><span class="n">version</span><span class="p">,</span><span class="s">&quot;6.0&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="n">time</span><span class="p">,{</span><span class="mi">2015</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">54</span><span class="p">}},</span>
+        <span class="p">{</span><span class="n">source</span><span class="p">,</span><span class="s">&quot;/tmp/test.erl&quot;</span><span class="p">}]},</span>
+<span class="p">{</span><span class="n">native</span><span class="p">,</span><span class="n">true</span><span class="p">},</span>
+<span class="p">{</span><span class="nb">md5</span><span class="p">,</span><span class="o">&lt;&lt;</span><span class="mi">179</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mi">53</span><span class="p">,</span><span class="mi">195</span><span class="p">,</span><span class="mi">122</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">63</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">245</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mi">140</span><span class="p">,</span><span class="mi">79</span><span class="p">,</span>
+        <span class="mi">121</span><span class="p">,</span><span class="mi">143</span><span class="p">,</span><span class="mi">254</span><span class="o">&gt;&gt;</span><span class="p">}]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-info-1">
+<h4><code class="docutils literal"><span class="pre">module_info/1</span></code><a class="headerlink" href="#module-info-1" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nn">test</span><span class="p">:</span><span class="nf">module_info</span><span class="p">(</span><span class="n">exports</span><span class="p">).</span>
+<span class="p">[{</span><span class="n">add</span><span class="p">,</span><span class="mi">2</span><span class="p">},{</span><span class="n">module_info</span><span class="p">,</span><span class="mi">0</span><span class="p">},{</span><span class="n">module_info</span><span class="p">,</span><span class="mi">1</span><span class="p">}]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="vns">
+<h4>vns<a class="headerlink" href="#vns" title="Permalink to this headline">¶</a></h4>
+<p>This is an auto generated version for your code.
+It&#8217;s used for hot-loading.</p>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nb">hd</span><span class="p">(</span><span class="nn">test</span><span class="p">:</span><span class="nf">module_info</span><span class="p">(</span><span class="n">attributes</span><span class="p">)).</span>
+<span class="p">{</span><span class="n">vsn</span><span class="p">,[</span><span class="mi">146299772997766369192496377694713339991</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>It can be set manually.</p>
+<p><code class="docutils literal"><span class="pre">-vsn(VersionNumber).</span></code></p>
+</div>
 </div>
 </div>
 </div>
@@ -129,8 +207,29 @@ They will carry diffrent arity: <code class="docutils literal"><span class="pre"
   <ul>
 <li><a class="reference internal" href="#">Erlang Module</a><ul>
 <li><a class="reference internal" href="#declaration">Declaration</a><ul>
-<li><a class="reference internal" href="#attribute">Attribute</a></li>
-<li><a class="reference internal" href="#function">Function</a></li>
+<li><a class="reference internal" href="#attribute">Attribute</a><ul>
+<li><a class="reference internal" href="#sytax">Sytax</a></li>
+<li><a class="reference internal" href="#required-attribute">Required attribute</a></li>
+<li><a class="reference internal" href="#export-functions">Export functions</a></li>
+<li><a class="reference internal" href="#import-functions">Import functions</a></li>
+<li><a class="reference internal" href="#macro">Macro</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#function">Function</a><ul>
+<li><a class="reference internal" href="#id1">Sytax</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compile-the-code">Compile the code</a><ul>
+<li><a class="reference internal" href="#define-compiling-flags-in-module">Define compiling flags in module</a></li>
+<li><a class="reference internal" href="#compile-into-native-code">Compile into native code</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#more-about-module">More about module</a><ul>
+<li><a class="reference internal" href="#module-info-0"><code class="docutils literal"><span class="pre">module_info/0</span></code></a></li>
+<li><a class="reference internal" href="#module-info-1"><code class="docutils literal"><span class="pre">module_info/1</span></code></a></li>
+<li><a class="reference internal" href="#vns">vns</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
