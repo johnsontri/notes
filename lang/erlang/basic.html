@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Erlang Basic &mdash; Notes  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Notes  documentation" href="../../index.html" />
+    <link rel="up" title="Erlang" href="../erlang.html" />
+    <link rel="prev" title="Erlang" href="../erlang.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="erlang-basic">
+<h1>Erlang Basic<a class="headerlink" href="#erlang-basic" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="shell">
+<h2>Shell<a class="headerlink" href="#shell" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Quit</dt>
+<dd><code class="docutils literal"><span class="pre">^G</span></code> then <code class="docutils literal"><span class="pre">q</span></code></dd>
+<dt>Clean variables</dt>
+<dd><dl class="first last docutils">
+<dt><code class="docutils literal"><span class="pre">f(Var)</span></code></dt>
+<dd>Set the <code class="docutils literal"><span class="pre">Var</span></code> to unbound</dd>
+<dt><code class="docutils literal"><span class="pre">f()</span></code></dt>
+<dd>Clean all variables</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="variable">
+<h2>Variable<a class="headerlink" href="#variable" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Capitalize</li>
+</ul>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nv">One</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Anonymou var</dt>
+<dd><code class="docutils literal"><span class="pre">_</span></code></dd>
+<dt>Pattern matching</dt>
+<dd><code class="docutils literal"><span class="pre">=</span></code></dd>
+</dl>
+</div>
+<div class="section" id="atom">
+<h2>Atom<a class="headerlink" href="#atom" title="Permalink to this headline">¶</a></h2>
+<p>No matter how long,
+cost 4 bytes in 32 bits system,
+8 in 64 bits.</p>
+<p>No overhead in copy, so it&#8217;s good for message passing.</p>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="n">red</span><span class="p">.</span>
+<span class="n">red</span>
+
+<span class="o">&gt;</span> <span class="n">red</span> <span class="o">=</span> <span class="n">&#39;red&#39;</span><span class="p">.</span>
+<span class="n">red</span>
+
+<span class="o">&gt;</span> <span class="n">red</span> <span class="o">==</span> <span class="n">&#39;red&#39;</span><span class="p">.</span>
+<span class="n">true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bool">
+<h2>Bool<a class="headerlink" href="#bool" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">and</span></code></li>
+<li><code class="docutils literal"><span class="pre">or</span></code></li>
+<li><code class="docutils literal"><span class="pre">andalso</span></code>: short-circuit operator</li>
+<li><code class="docutils literal"><span class="pre">orelse</span></code>: short-circuit operator</li>
+<li><code class="docutils literal"><span class="pre">=:=</span></code></li>
+<li><code class="docutils literal"><span class="pre">=/=</span></code></li>
+<li><code class="docutils literal"><span class="pre">==</span></code></li>
+<li><code class="docutils literal"><span class="pre">/=</span></code></li>
+<li><code class="docutils literal"><span class="pre">&gt;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&lt;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&gt;=</span></code></li>
+<li><code class="docutils literal"><span class="pre">=&lt;</span></code> <em>Note this</em></li>
+</ul>
+<dl class="docutils">
+<dt>Order</dt>
+<dd>number &lt; atom &lt; reference &lt; fun &lt; port &lt; pid &lt; tuple &lt; list &lt; bit string</dd>
+</dl>
+</div>
+<div class="section" id="tuples">
+<h2>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nv">Point</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}.</span>
+<span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">}</span>
+
+<span class="o">&gt;</span> <span class="p">{</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">}</span> <span class="o">=</span> <span class="nv">Point</span><span class="p">.</span>
+<span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">}</span>
+
+<span class="o">&gt;</span> <span class="p">{</span><span class="nv">X</span><span class="p">,</span> <span class="p">_}</span> <span class="o">=</span> <span class="nv">Point</span><span class="p">.</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>tagged tuple</dt>
+<dd><code class="docutils literal"><span class="pre">{km,</span> <span class="pre">100}</span></code></dd>
+</dl>
+</div>
+<div class="section" id="list">
+<h2>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Syntax</dt>
+<dd><code class="docutils literal"><span class="pre">[e1,</span> <span class="pre">e2</span> <span class="pre">...]</span></code></dd>
+</dl>
+<p>String is a list (no built-in string type):</p>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="p">[</span><span class="mi">97</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">99</span><span class="p">].</span>
+<span class="s">&quot;abc&quot;</span>
+
+<span class="o">&gt;</span> <span class="p">[</span><span class="mi">97</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">].</span>
+<span class="p">[</span><span class="mi">97</span><span class="p">,</span><span class="mi">98</span><span class="p">,</span><span class="mi">99</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+
+<span class="o">&gt;</span><span class="p">[</span><span class="mi">233</span><span class="p">].</span>
+<span class="s">&quot;é&quot;</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><em>Note</em></dt>
+<dd>Erlang is lack of string manipulations functions.</dd>
+</dl>
+<div class="section" id="operators">
+<h3>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">++</span></code></dt>
+<dd>right-associative, eval from right to left.</dd>
+<dt><code class="docutils literal"><span class="pre">--</span></code></dt>
+<dd>right-associative.</dd>
+</dl>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">--</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">--</span> <span class="p">[</span><span class="mi">3</span><span class="p">].</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="o">&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">--</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">--</span> <span class="p">[</span><span class="mi">2</span><span class="p">].</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>hd (head)</dt>
+<dd><p class="first">pick up the first element:</p>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nb">hd</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]).</span>
+</pre></div>
+</div>
+<p class="last">1</p>
+</dd>
+<dt>tl (tail)</dt>
+<dd><p class="first">pick up [1:]:</p>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nb">tl</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]).</span>
+</pre></div>
+</div>
+<p>[2, 3].</p>
+<p class="last">&gt; tl([1, 97, 98]).
+&#8220;ab&#8221;</p>
+</dd>
+<dt>length</dt>
+<dd><code class="docutils literal"><span class="pre">length(List)</span></code></dd>
+</dl>
+</div>
+<div class="section" id="cons-operator">
+<h3>Cons operator<a class="headerlink" href="#cons-operator" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Constructor operator</li>
+</ul>
+<dl class="docutils">
+<dt>Syntax</dt>
+<dd><code class="docutils literal"><span class="pre">[Term1</span> <span class="pre">|</span> <span class="pre">[Term2</span> <span class="pre">|</span> <span class="pre">[TermN]]]...</span></code></dd>
+</dl>
+<p>e.g.
+<code class="docutils literal"><span class="pre">[Head</span> <span class="pre">|</span> <span class="pre">Tail]</span></code>:</p>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nv">Ls</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">].</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="o">&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">|</span><span class="nv">Ls</span><span class="p">].</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="o">&gt;</span> <span class="p">[</span><span class="nv">Head</span> <span class="p">|</span> <span class="nv">Tail</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="o">&gt;</span> <span class="nv">Head</span><span class="p">.</span>
+<span class="mi">1</span>
+
+<span class="o">&gt;</span> <span class="nv">Tail</span><span class="p">.</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><em>Note</em></dt>
+<dd>Do not use <code class="docutils literal"><span class="pre">[1</span> <span class="pre">|</span> <span class="pre">2]</span></code>.
+This only work in pattern matching, but break all other functions like <code class="docutils literal"><span class="pre">length</span></code>.</dd>
+</dl>
+</div>
+<div class="section" id="list-comprehension">
+<h3>List Comprehension<a class="headerlink" href="#list-comprehension" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Syntax</dt>
+<dd><code class="docutils literal"><span class="pre">NewList</span> <span class="pre">=</span> <span class="pre">[Expression</span> <span class="pre">||</span> <span class="pre">Pattern</span> <span class="pre">&lt;-</span> <span class="pre">List,</span> <span class="pre">Condition1,</span> <span class="pre">Condition2,</span> <span class="pre">...</span> <span class="pre">ConditionN].</span></code></dd>
+</dl>
+<p>e.g.:</p>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="p">[</span><span class="nv">X</span> <span class="o">*</span> <span class="nv">X</span> <span class="p">||</span> <span class="nv">X</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]].</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span>
+
+<span class="o">&gt;</span> <span class="p">[</span><span class="nv">X</span> <span class="o">*</span> <span class="nv">X</span> <span class="p">||</span> <span class="nv">X</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="nv">X</span> <span class="ow">rem</span> <span class="mi">2</span> <span class="o">=:=</span> <span class="mi">0</span><span class="p">].</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Generator expression</dt>
+<dd><p class="first"><code class="docutils literal"><span class="pre">Pattern</span> <span class="pre">&lt;-</span> <span class="pre">List</span></code>.</p>
+<p>This could be more than one in list comprehension:</p>
+<div class="last highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="p">[</span><span class="nv">X</span> <span class="o">+</span> <span class="nv">Y</span> <span class="p">||</span> <span class="nv">X</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="nv">Y</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]].</span>
+<span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">22</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="bit-syntax">
+<h2>Bit Syntax<a class="headerlink" href="#bit-syntax" title="Permalink to this headline">¶</a></h2>
+<p>Erlang provide powerful bit manipulations.</p>
+<p>Syntax, quote in <code class="docutils literal"><span class="pre">&lt;&lt;...&gt;&gt;</span></code>:</p>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="nv">Value</span>
+<span class="nv">Value</span><span class="p">:</span><span class="nv">Size</span>
+<span class="nv">Value</span><span class="o">/</span><span class="nv">TypeSpecifierList</span>
+<span class="nv">Value</span><span class="p">:</span><span class="nv">Size</span><span class="o">/</span><span class="nv">TypeSpecifierList</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Size</dt>
+<dd>bits or bytes, depends on <em>Type</em> or <em>Unit</em>.</dd>
+<dt>TypeSpecifierList</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">integer</span> <span class="pre">|</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">binary</span> <span class="pre">|</span> <span class="pre">bytes</span> <span class="pre">|</span> <span class="pre">bitstring</span> <span class="pre">|</span> <span class="pre">bits</span> <span class="pre">|</span> <span class="pre">utf8</span> <span class="pre">|</span> <span class="pre">utf16</span> <span class="pre">|</span> <span class="pre">utf32</span></code>.</p>
+<dl class="docutils">
+<dt><em>Note</em></dt>
+<dd><ul class="first last simple">
+<li>bits =:= bitstring</li>
+<li>bytes =:= binary</li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Sign:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">signed</span> <span class="pre">|</span> <span class="pre">unsigned</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Endian:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">big</span> <span class="pre">|</span> <span class="pre">little</span> <span class="pre">|</span> <span class="pre">native</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Unit:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">unit:Integer</span></code></p>
+<p class="last">e.g.: <code class="docutils literal"><span class="pre">unit:8</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p>e.g.:</p>
+<div class="highlight-erlang"><div class="highlight"><pre>&gt; Color = 16#1200FF.
+1179903
+&gt; Pixel = &lt;&lt;Color:24&gt;&gt;.
+&lt;&lt;18,0,255&gt;&gt;
+
+&gt; &lt;&lt;X/integer-signed-little&gt;&gt; =  &lt;&lt;-44&gt;&gt;.
+&lt;&lt;&quot;Ô&quot;&gt;&gt;
+&gt; X.
+-44
+</pre></div>
+</div>
+<p>Pattern matching:</p>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="nv">P</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="o">&gt;&gt;</span><span class="p">.</span>
+<span class="o">&lt;&lt;</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="o">&gt;&gt;</span>
+
+<span class="o">&gt;</span> <span class="o">&lt;&lt;</span><span class="nv">Pix1</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span> <span class="nv">Pix2</span><span class="p">:</span><span class="mi">24</span><span class="o">&gt;&gt;</span> <span class="o">=</span> <span class="nv">P</span><span class="p">.</span>
+<span class="o">&lt;&lt;</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Bit string</dt>
+<dd>efficient but hard to manipulate</dd>
+</dl>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&lt;&lt;</span><span class="s">&quot;this is a bit string!&quot;</span><span class="o">&gt;&gt;</span><span class="p">.</span>
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h3>Operators<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">bsl</span></code>: bit shift left</li>
+<li><code class="docutils literal"><span class="pre">bsr</span></code>: bit shift right</li>
+<li><code class="docutils literal"><span class="pre">band</span></code>: and</li>
+<li><code class="docutils literal"><span class="pre">bor</span></code>: or</li>
+<li><code class="docutils literal"><span class="pre">bxor</span></code>: xor</li>
+<li><code class="docutils literal"><span class="pre">bnot</span></code>: not</li>
+</ul>
+</div>
+<div class="section" id="binary-comprehension">
+<h3>Binary Comprehension<a class="headerlink" href="#binary-comprehension" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="o">&gt;</span> <span class="p">[</span> <span class="nv">X</span> <span class="p">||</span> <span class="o">&lt;&lt;</span><span class="nv">X</span><span class="o">&gt;&gt;</span> <span class="o">&lt;=</span> <span class="o">&lt;&lt;</span><span class="s">&quot;abcdefg&quot;</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="nv">X</span> <span class="ow">rem</span> <span class="mi">2</span> <span class="o">=:=</span> <span class="mi">0</span> <span class="p">].</span>
+<span class="s">&quot;bdf&quot;</span>
+
+<span class="o">&gt;</span> <span class="nv">Pixels</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="mi">213</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">132</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">234</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">15</span><span class="o">&gt;&gt;</span><span class="p">.</span>
+<span class="o">&lt;&lt;</span><span class="mi">213</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">132</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">234</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">15</span><span class="o">&gt;&gt;</span>
+<span class="o">&gt;</span> <span class="nv">RGB</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span><span class="nv">R</span><span class="p">,</span><span class="nv">G</span><span class="p">,</span><span class="nv">B</span><span class="p">}</span> <span class="p">||</span> <span class="o">&lt;&lt;</span><span class="nv">R</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="nv">G</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="nv">B</span><span class="p">:</span><span class="mi">8</span><span class="o">&gt;&gt;</span> <span class="o">&lt;=</span> <span class="nv">Pixels</span> <span class="p">].</span>
+<span class="p">[{</span><span class="mi">213</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">132</span><span class="p">},{</span><span class="mi">64</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">32</span><span class="p">},{</span><span class="mi">76</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">},{</span><span class="mi">234</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">15</span><span class="p">}]</span>
+
+<span class="o">&gt;</span> <span class="o">&lt;&lt;</span> <span class="o">&lt;&lt;</span><span class="nv">R</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="nv">G</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="nv">B</span><span class="p">:</span><span class="mi">8</span><span class="o">&gt;&gt;</span> <span class="p">||</span>  <span class="p">{</span><span class="nv">R</span><span class="p">,</span><span class="nv">G</span><span class="p">,</span><span class="nv">B</span><span class="p">}</span> <span class="o">&lt;-</span> <span class="nv">RGB</span> <span class="o">&gt;&gt;</span><span class="p">.</span>
+<span class="o">&lt;&lt;</span><span class="mi">213</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">132</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">234</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">15</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Erlang Basic</a><ul>
+<li><a class="reference internal" href="#shell">Shell</a></li>
+<li><a class="reference internal" href="#variable">Variable</a></li>
+<li><a class="reference internal" href="#atom">Atom</a></li>
+<li><a class="reference internal" href="#bool">Bool</a></li>
+<li><a class="reference internal" href="#tuples">Tuples</a></li>
+<li><a class="reference internal" href="#list">List</a><ul>
+<li><a class="reference internal" href="#operators">Operators</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#cons-operator">Cons operator</a></li>
+<li><a class="reference internal" href="#list-comprehension">List Comprehension</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bit-syntax">Bit Syntax</a><ul>
+<li><a class="reference internal" href="#id1">Operators</a></li>
+<li><a class="reference internal" href="#binary-comprehension">Binary Comprehension</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../erlang.html">Erlang</a><ul>
+      <li>Previous: <a href="../erlang.html" title="previous chapter">Erlang</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/lang/erlang/basic.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Iblis Lin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="../../_sources/lang/erlang/basic.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
