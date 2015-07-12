@@ -32,6 +32,9 @@ Variable
 Anonymou var
     ``_``
 
+Pattern matching
+    ``=``
+
 
 Atom
 ====
@@ -61,6 +64,8 @@ Bool
 + ``/=``
 + ``>``
 + ``<``
++ ``>=``
++ ``=<`` *Note this*
 
 
 order
@@ -103,7 +108,7 @@ string is a list (no built-in string type)::
  "é"
 
 
-Note
+*Note*
     Erlang is lack of string manipulations functions.
 
 
@@ -144,3 +149,33 @@ tl (tail)
 
 length
     ``length(List)``
+
+cons operator
+--------------
+
+* constructor operator
+
+syntax
+    ``[Term1 | [Term2 | [TermN]]]...``
+
+e.g.
+``[Head | Tail]``::
+
+    > Ls = [1, 2, 3, 4].
+    [1,2,3,4]
+
+    > [0|Ls].
+    [0,1,2,3,4]
+
+    > [Head | Tail] = [1, 2, 3].
+    [1,2,3]
+
+    > Head.
+    1
+
+    > Tail.
+    [2,3]
+
+*Note*
+    Do not use ``[1 | 2]``.
+    This only work in pattern matching, but break all other functions like ``length``.
