@@ -207,3 +207,53 @@ Generator expression
 
         > [X + Y || X <- [1, 2], Y <- [10, 20]].
         [11,21,12,22]
+
+
+Bit Syntax
+==========
+
+Erlang provide powerful bit manipulations.
+
+syntax, quote in ``<<...>>``::
+
+    Value
+    Value:Size
+    Value/TypeSpecifierList
+    Value:Size/TypeSpecifierList
+
+Size
+    bits or bytes, depends on *Type* or *Unit*.
+
+TypeSpecifierList
+    :Type: 
+        ``integer | float | binary | bytes | bitstring | bits | utf8 | utf16 | utf32``.
+        
+        *Note*
+            * bits =:= bitstring
+            * bytes =:= binary
+    :Sign: ``signed | unsigned``
+    :Endian: ``big | little | native``
+    :Unit: 
+        ``unit:Integer``
+
+        e.g.: ``unit:8``
+
+e.g.::
+
+    > Color = 16#1200FF.
+    1179903
+    > Pixel = <<Color:24>>.
+    <<18,0,255>>
+
+    > <<X/integer-signed-little>> =  <<-44>>.
+    <<"Ô">>
+    > X.
+    -44
+
+Pattern matching::
+
+    > P = <<255, 0, 0, 0, 0, 255>>.
+    <<255,0,0,0,0,255>>
+
+    > <<Pix1:24, Pix2:24>> = P.
+    <<255,0,0,0,0,255>>
