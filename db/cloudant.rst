@@ -47,8 +47,10 @@ GET
     + group_level -> 
         key in [k1, k2, k3]
 
-      ``group_level=1`` -> group by [k1]
-      ``group_level=2`` -> group by [k1, k2]
+        ``group_level=1`` -> group by [k1]
+
+        ``group_level=2`` -> group by [k1, k2]
+
 
 Reduce Function
 ^^^^^^^^^^^^^^^
@@ -95,7 +97,6 @@ e.g::
 
 Chainable MapReduce
 ^^^^^^^^^^^^^^^^^^^
-
 
 
 Cloudant Search
