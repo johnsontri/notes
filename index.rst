@@ -20,9 +20,9 @@ FreeBSD
 *******
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
-    freebsd/index.rst
+    freebsd/bsdcloudinit/index
 
 
 Language
@@ -31,7 +31,7 @@ Language
 .. toctree::
     :maxdepth: 1
 
-    Erlang <lang/erlang/index>
+    lang/erlang/index
 
 
 Indices and tables
