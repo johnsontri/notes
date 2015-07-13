@@ -16,14 +16,22 @@ Database
     db/*
 
 
+FreeBSD
+*******
+
+.. toctree::
+    :maxdepth: 2
+
+    freebsd/index.rst
+
+
 Language
 ********
 
 .. toctree::
     :maxdepth: 1
-    :glob:
 
-    lang/*
+    Erlang <lang/erlang/index>
 
 
 Indices and tables
