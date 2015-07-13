@@ -6,6 +6,16 @@
 Notes
 =====
 
+Database
+********
+
+.. toctree::
+    :maxdepth: 1
+    :glob:
+
+    db/*
+
+
 Language
 ********
 

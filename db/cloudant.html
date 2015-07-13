@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Cloudant &mdash; Notes  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Notes  documentation" href="../index.html" />
+    <link rel="next" title="Erlang" href="../lang/erlang.html" />
+    <link rel="prev" title="Notes" href="../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cloudant">
+<h1>Cloudant<a class="headerlink" href="#cloudant" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="all-doc">
+<h3>_all_doc<a class="headerlink" href="#all-doc" title="Permalink to this headline">¶</a></h3>
+<p>/_all_doc -&gt; sorted key list</p>
+<div class="section" id="get">
+<h4>GET<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h4>
+<p>params:</p>
+<ul class="simple">
+<li>startkey</li>
+<li>endkey</li>
+<li>include_doc=(true|false) <em>false</em></li>
+<li>descending=(true|false) <em>false</em></li>
+<li>limit=N</li>
+<li>skip=N</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="secondary-index">
+<h2>Secondary index<a class="headerlink" href="#secondary-index" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mapreduce">
+<h3>MapReduce<a class="headerlink" href="#mapreduce" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="map-function">
+<h4>Map Function<a class="headerlink" href="#map-function" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal"><span class="pre">map()</span> <span class="pre">-&gt;</span> <span class="pre">(key,</span> <span class="pre">val)</span></code></p>
+<ul class="simple">
+<li>build-in MapReduce fnuctions was written in Erlang -&gt; faster</li>
+<li>reduce function can be group by <code class="docutils literal"><span class="pre">key</span></code></li>
+</ul>
+<dl class="docutils">
+<dt>GET</dt>
+<dd><ul class="first last">
+<li><p class="first">reduce=true|false</p>
+</li>
+<li><p class="first">group=true|false</p>
+</li>
+<li><p class="first">stale=ok -&gt; optional skip index building</p>
+</li>
+<li><dl class="first docutils">
+<dt>group_level -&gt;</dt>
+<dd><p class="first last">key in [k1, k2, k3]</p>
+</dd>
+</dl>
+<p><code class="docutils literal"><span class="pre">group_level=1</span></code> -&gt; group by [k1]
+<code class="docutils literal"><span class="pre">group_level=2</span></code> -&gt; group by [k1, k2]</p>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="reduce-function">
+<h4>Reduce Function<a class="headerlink" href="#reduce-function" title="Permalink to this headline">¶</a></h4>
+<p>if rereduce is False:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">reduce</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="n">key1</span><span class="p">,</span> <span class="n">id1</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">key2</span><span class="p">,</span> <span class="n">id2</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">key3</span><span class="p">,</span> <span class="n">id3</span><span class="p">]</span>
+    <span class="p">],</span>
+    <span class="p">[</span> <span class="n">value1</span><span class="p">,</span> <span class="n">value2</span><span class="p">,</span> <span class="n">value3</span> <span class="p">],</span>
+    <span class="n">false</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>e.g:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">reduce</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="nb">id</span><span class="p">,</span>
+                <span class="n">val</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="n">id1</span><span class="p">],</span>
+        <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="nb">id</span><span class="p">,</span>
+                <span class="n">val</span><span class="p">,</span>
+            <span class="p">]</span>
+            <span class="p">,</span> <span class="n">id2</span><span class="p">],</span>
+        <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="nb">id</span><span class="p">,</span>
+                <span class="n">val</span><span class="p">,</span>
+            <span class="p">]</span>
+            <span class="p">,</span> <span class="n">id3</span><span class="p">]</span>
+    <span class="p">],</span>
+    <span class="p">[</span> <span class="n">value1</span><span class="p">,</span> <span class="n">value2</span><span class="p">,</span> <span class="n">value3</span> <span class="p">],</span>
+    <span class="n">false</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="chainable-mapreduce">
+<h4>Chainable MapReduce<a class="headerlink" href="#chainable-mapreduce" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="cloudant-search">
+<h2>Cloudant Search<a class="headerlink" href="#cloudant-search" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">build on Apache Lucene</p>
+</li>
+<li><p class="first">text searching</p>
+</li>
+<li><p class="first">text analyzer</p>
+</li>
+<li><dl class="first docutils">
+<dt>ad-hoc query</dt>
+<dd><ul class="first last simple">
+<li>primary index</li>
+<li>secondary index</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">can create index on inside text</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Cloudant</a><ul>
+<li><a class="reference internal" href="#api">API</a><ul>
+<li><a class="reference internal" href="#all-doc">_all_doc</a><ul>
+<li><a class="reference internal" href="#get">GET</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#secondary-index">Secondary index</a><ul>
+<li><a class="reference internal" href="#mapreduce">MapReduce</a><ul>
+<li><a class="reference internal" href="#map-function">Map Function</a></li>
+<li><a class="reference internal" href="#reduce-function">Reduce Function</a></li>
+<li><a class="reference internal" href="#chainable-mapreduce">Chainable MapReduce</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cloudant-search">Cloudant Search</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">Notes</a></li>
+      <li>Next: <a href="../lang/erlang.html" title="next chapter">Erlang</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/db/cloudant.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Iblis Lin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="../_sources/db/cloudant.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
