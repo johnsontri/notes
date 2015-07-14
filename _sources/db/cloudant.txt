@@ -37,14 +37,27 @@ Map Function
 
 + build-in MapReduce fnuctions was written in Erlang -> faster
 
-+ reduce function can be group by ``key``
+reduce function can be group by ``key``
+    + ``pi?group=true``
+    + ``api?group_level=N``
+
+multiple ``emit``
+
+    .. code-block:: javascript
+
+
+        function(doc)
+        {
+            emit(doc.id, 1);
+            emit(doc.other, 2);
+        }
 
 
 GET
-    + reduce=true|false
-    + group=true|false
-    + stale=ok -> optional skip index building
-    + group_level -> 
+    :reduce: ``true|false``
+    :group:  ``true|false``
+    :stale:  ``ok`` -> optional skip index building
+    :group_level:
         key in [k1, k2, k3]
 
         ``group_level=1`` -> group by [k1]
@@ -95,8 +108,26 @@ e.g::
     ) 
 
 
+View Group
+-----------
+
+One design doc can contain multiple view.
+Thus, there is a view group.
+
+Each view group consume one Query Server(one process),
+
+
+
 Chainable MapReduce
 ^^^^^^^^^^^^^^^^^^^
+
+
+Show Function
+=============
+
+
+List Function
+=============
 
 
 Cloudant Search
@@ -109,3 +140,15 @@ Cloudant Search
     + primary index
     + secondary index
 + can create index on inside text
+
+Query Syntax
+-------------
+
+`Lucene query syntax ref <https://lucene.apache.org/core/5_2_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description>`_
+
+
+Index Function
+--------------
+
+``index('field', doc.field, {options: val})``
+

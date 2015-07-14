@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Notes  documentation" href="../index.html" />
-    <link rel="next" title="&lt;no title&gt;" href="../freebsd/index.html" />
+    <link rel="next" title="bsd-cloudinit" href="../freebsd/bsdcloudinit/index.html" />
     <link rel="prev" title="Notes" href="../index.html" />
    
   
@@ -69,26 +69,47 @@
 <p><code class="docutils literal"><span class="pre">map()</span> <span class="pre">-&gt;</span> <span class="pre">(key,</span> <span class="pre">val)</span></code></p>
 <ul class="simple">
 <li>build-in MapReduce fnuctions was written in Erlang -&gt; faster</li>
-<li>reduce function can be group by <code class="docutils literal"><span class="pre">key</span></code></li>
 </ul>
 <dl class="docutils">
-<dt>GET</dt>
-<dd><ul class="first last">
-<li><p class="first">reduce=true|false</p>
-</li>
-<li><p class="first">group=true|false</p>
-</li>
-<li><p class="first">stale=ok -&gt; optional skip index building</p>
-</li>
-<li><dl class="first docutils">
-<dt>group_level -&gt;</dt>
-<dd><p class="first">key in [k1, k2, k3]</p>
-<p><code class="docutils literal"><span class="pre">group_level=1</span></code> -&gt; group by [k1]</p>
-<p class="last"><code class="docutils literal"><span class="pre">group_level=2</span></code> -&gt; group by [k1, k2]</p>
+<dt>reduce function can be group by <code class="docutils literal"><span class="pre">key</span></code></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">pi?group=true</span></code></li>
+<li><code class="docutils literal"><span class="pre">api?group_level=N</span></code></li>
+</ul>
 </dd>
 </dl>
-</li>
-</ul>
+<p>multiple <code class="docutils literal"><span class="pre">emit</span></code></p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">function</span><span class="p">(</span><span class="nx">doc</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nx">emit</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="nx">emit</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">other</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="docutils">
+<dt>GET</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">reduce:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">true|false</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">group:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">true|false</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">stale:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">ok</span></code> -&gt; optional skip index building</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">group_level:</th><td class="field-body"><p class="first">key in [k1, k2, k3]</p>
+<p><code class="docutils literal"><span class="pre">group_level=1</span></code> -&gt; group by [k1]</p>
+<p class="last"><code class="docutils literal"><span class="pre">group_level=2</span></code> -&gt; group by [k1, k2]</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </div>
@@ -134,10 +155,22 @@
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="view-group">
+<h3>View Group<a class="headerlink" href="#view-group" title="Permalink to this headline">¶</a></h3>
+<p>One design doc can contain multiple view.
+Thus, there is a view group.</p>
+<p>Each view group consume one Query Server(one process),</p>
 <div class="section" id="chainable-mapreduce">
 <h4>Chainable MapReduce<a class="headerlink" href="#chainable-mapreduce" title="Permalink to this headline">¶</a></h4>
 </div>
 </div>
+</div>
+<div class="section" id="show-function">
+<h2>Show Function<a class="headerlink" href="#show-function" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="list-function">
+<h2>List Function<a class="headerlink" href="#list-function" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="cloudant-search">
 <h2>Cloudant Search<a class="headerlink" href="#cloudant-search" title="Permalink to this headline">¶</a></h2>
@@ -160,6 +193,14 @@
 <li><p class="first">can create index on inside text</p>
 </li>
 </ul>
+<div class="section" id="query-syntax">
+<h3>Query Syntax<a class="headerlink" href="#query-syntax" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://lucene.apache.org/core/5_2_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description">Lucene query syntax ref</a></p>
+</div>
+<div class="section" id="index-function">
+<h3>Index Function<a class="headerlink" href="#index-function" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">index('field',</span> <span class="pre">doc.field,</span> <span class="pre">{options:</span> <span class="pre">val})</span></code></p>
+</div>
 </div>
 </div>
 
@@ -183,12 +224,21 @@
 <li><a class="reference internal" href="#mapreduce">MapReduce</a><ul>
 <li><a class="reference internal" href="#map-function">Map Function</a></li>
 <li><a class="reference internal" href="#reduce-function">Reduce Function</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#view-group">View Group</a><ul>
 <li><a class="reference internal" href="#chainable-mapreduce">Chainable MapReduce</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#cloudant-search">Cloudant Search</a></li>
+<li><a class="reference internal" href="#show-function">Show Function</a></li>
+<li><a class="reference internal" href="#list-function">List Function</a></li>
+<li><a class="reference internal" href="#cloudant-search">Cloudant Search</a><ul>
+<li><a class="reference internal" href="#query-syntax">Query Syntax</a></li>
+<li><a class="reference internal" href="#index-function">Index Function</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -197,7 +247,7 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="../index.html" title="previous chapter">Notes</a></li>
-      <li>Next: <a href="../freebsd/index.html" title="next chapter">&lt;no title&gt;</a></li>
+      <li>Next: <a href="../freebsd/bsdcloudinit/index.html" title="next chapter">bsd-cloudinit</a></li>
   </ul></li>
 </ul>
 </div>
