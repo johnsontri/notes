@@ -152,3 +152,36 @@ Index Function
 
 ``index('field', doc.field, {options: val})``
 
+
+Security
+=========
+
+Auth
+-----
+
+``local.ini``
+^^^^^^^^^^^^^^
+
+Assume we have the following admin section with unencrypted password.
+
+::
+
+    [admin]
+
+    admin = password
+    foo = bar
+    ...
+
+And restart the cloudant/couchdb, it will auto generate encrypted password for you.
+
+Couchdb:
+
+.. code-block:: shell
+
+        $ sudo service couchdb restart
+
+Cloudant on debian:
+
+.. code-block:: shell
+
+        $ sudo sv restart /etc/service/cloudant
