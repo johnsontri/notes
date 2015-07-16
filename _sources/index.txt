@@ -32,6 +32,7 @@ Language
     :maxdepth: 1
 
     lang/erlang/index
+    lang/python/index
 
 
 Indices and tables

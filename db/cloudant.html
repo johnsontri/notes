@@ -202,6 +202,32 @@ Thus, there is a view group.</p>
 <p><code class="docutils literal"><span class="pre">index('field',</span> <span class="pre">doc.field,</span> <span class="pre">{options:</span> <span class="pre">val})</span></code></p>
 </div>
 </div>
+<div class="section" id="security">
+<h2>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="auth">
+<h3>Auth<a class="headerlink" href="#auth" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="local-ini">
+<h4><code class="docutils literal"><span class="pre">local.ini</span></code><a class="headerlink" href="#local-ini" title="Permalink to this headline">¶</a></h4>
+<p>Assume we have the following admin section with unencrypted password.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">admin</span><span class="p">]</span>
+
+<span class="n">admin</span> <span class="o">=</span> <span class="n">password</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="n">bar</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>And restart the cloudant/couchdb, it will auto generate encrypted password for you.</p>
+<p>Couchdb:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>sudo service couchdb restart
+</pre></div>
+</div>
+<p>Cloudant on debian:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>sudo sv restart /etc/service/cloudant
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -237,6 +263,13 @@ Thus, there is a view group.</p>
 <li><a class="reference internal" href="#cloudant-search">Cloudant Search</a><ul>
 <li><a class="reference internal" href="#query-syntax">Query Syntax</a></li>
 <li><a class="reference internal" href="#index-function">Index Function</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#security">Security</a><ul>
+<li><a class="reference internal" href="#auth">Auth</a><ul>
+<li><a class="reference internal" href="#local-ini"><code class="docutils literal"><span class="pre">local.ini</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
