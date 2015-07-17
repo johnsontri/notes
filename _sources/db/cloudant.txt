@@ -185,3 +185,48 @@ Cloudant on debian:
 .. code-block:: shell
 
         $ sudo sv restart /etc/service/cloudant
+
+
+Comparison
+===========
+
+The following table compare some method in design document.
+
+
++------------+---------------------------+---------------------------+---------------------------+
+| item       | Secondary Index           | Cloudant Search           | Cloudant Query            |
++------------+---------------------------+---------------------------+---------------------------+
+| Require to | V                         | V                         | X                         |
+| build      |                           |                           |                           |
+| index      |                           |                           |                           |
++------------+---------------------------+---------------------------+---------------------------+
+| Senario    | - Map                     | - Search engine           | - Ad-hoc query            |
+|            |    - doc filtering        |    - keyword search       | - module mango            |
+|            |    - doc reshaping        |    - tokenlizer           |    - provide mongo-like   |
+|            |    - multiple ``emit()``  |    - fuzzy search         |      query syntax         |
+|            | - Reduce                  |    - regex                | - SQL-like                |
+|            |    - ``sum``              |    - numeric value        |    - need to define       |
+|            |    - ``stat``             |       - range base        |      schema first         |
+|            |    - ``count``            |                           |                           |
+|            |    - grouping             |                           |                           |
+|            |    - complex key          |                           |                           |
+|            |    - *for reporting*      |                           |                           |
+|            | - Query Server            |                           |                           |
+|            |    - embeded AP           |                           |                           |
+|            |    - special protocol     |                           |                           |
+|            |    - highly customized    |                           |                           |
+|            |                           |                           |                           |
+|            |                           |                           |                           |
+|            |                           |                           |                           |
+|            |                           |                           |                           |
+|            |                           |                           |                           |
+|            |                           |                           |                           |
+|            |                           |                           |                           |
+|            |                           |                           |                           |
++------------+---------------------------+---------------------------+---------------------------+
+
+
+TODO
+=====
+
++ Attachment

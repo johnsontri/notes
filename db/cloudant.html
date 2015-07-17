@@ -228,6 +228,125 @@ Thus, there is a view group.</p>
 </div>
 </div>
 </div>
+<div class="section" id="comparison">
+<h2>Comparison<a class="headerlink" href="#comparison" title="Permalink to this headline">¶</a></h2>
+<p>The following table compare some method in design document.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="29%" />
+<col width="29%" />
+<col width="29%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>item</td>
+<td>Secondary Index</td>
+<td>Cloudant Search</td>
+<td>Cloudant Query</td>
+</tr>
+<tr class="row-even"><td>Require to
+build
+index</td>
+<td>V</td>
+<td>V</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>Senario</td>
+<td><ul class="first last">
+<li><dl class="first docutils">
+<dt>Map</dt>
+<dd><ul class="first last simple">
+<li>doc filtering</li>
+<li>doc reshaping</li>
+<li>multiple <code class="docutils literal"><span class="pre">emit()</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Reduce</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">sum</span></code></li>
+<li><code class="docutils literal"><span class="pre">stat</span></code></li>
+<li><code class="docutils literal"><span class="pre">count</span></code></li>
+<li>grouping</li>
+<li>complex key</li>
+<li><em>for reporting</em></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Query Server</dt>
+<dd><ul class="first last simple">
+<li>embeded AP</li>
+<li>special protocol</li>
+<li>highly customized</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</td>
+<td><ul class="first last">
+<li><dl class="first docutils">
+<dt>Search engine</dt>
+<dd><ul class="first last">
+<li><p class="first">keyword search</p>
+</li>
+<li><p class="first">tokenlizer</p>
+</li>
+<li><p class="first">fuzzy search</p>
+</li>
+<li><p class="first">regex</p>
+</li>
+<li><dl class="first docutils">
+<dt>numeric value</dt>
+<dd><ul class="first last simple">
+<li>range base</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</td>
+<td><ul class="first last">
+<li><p class="first">Ad-hoc query</p>
+</li>
+<li><dl class="first docutils">
+<dt>module mango</dt>
+<dd><ul class="first last simple">
+<li>provide mongo-like
+query syntax</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>SQL-like</dt>
+<dd><ul class="first last simple">
+<li>need to define
+schema first</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="todo">
+<h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Attachment</li>
+</ul>
+</div>
 </div>
 
 
@@ -272,6 +391,8 @@ Thus, there is a view group.</p>
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#comparison">Comparison</a></li>
+<li><a class="reference internal" href="#todo">TODO</a></li>
 </ul>
 </li>
 </ul>
