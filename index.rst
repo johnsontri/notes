@@ -21,8 +21,19 @@ FreeBSD
 
 .. toctree::
     :maxdepth: 1
+    :glob:
 
     freebsd/bsdcloudinit/index
+
+
+Commands
+^^^^^^^^^
+
+.. toctree::
+    :maxdepth: 1
+    :glob:
+
+    freebsd/commands/*
 
 
 Language
