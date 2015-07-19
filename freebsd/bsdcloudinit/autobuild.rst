@@ -11,8 +11,10 @@ Auto Build
 Working Flow
 ============
 
-Create a raw image file, 1.1GB is the min requirement
+Create a raw image file
 --------------------------------------------------------
+
+- 1.1GB is the min requirement
 
 ::
 
