@@ -48,8 +48,11 @@
 </div>
 <div class="section" id="working-flow">
 <h2>Working Flow<a class="headerlink" href="#working-flow" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="create-a-raw-image-file-1-1gb-is-the-min-requirement">
-<h3>Create a raw image file, 1.1GB is the min requirement<a class="headerlink" href="#create-a-raw-image-file-1-1gb-is-the-min-requirement" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="create-a-raw-image-file">
+<h3>Create a raw image file<a class="headerlink" href="#create-a-raw-image-file" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>1.1GB is the min requirement</li>
+</ul>
 <div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>truncate -s 1124M bsdcloudinit.raw
 </pre></div>
 </div>
@@ -168,7 +171,7 @@ sh -e <span class="nv">$INSTALLER</span>
   <ul>
 <li><a class="reference internal" href="#">Auto Build</a><ul>
 <li><a class="reference internal" href="#working-flow">Working Flow</a><ul>
-<li><a class="reference internal" href="#create-a-raw-image-file-1-1gb-is-the-min-requirement">Create a raw image file, 1.1GB is the min requirement</a></li>
+<li><a class="reference internal" href="#create-a-raw-image-file">Create a raw image file</a></li>
 <li><a class="reference internal" href="#link-it-with-mdconfig-8">Link it with <code class="docutils literal"><span class="pre">mdconfig(8)</span></code></a></li>
 <li><a class="reference internal" href="#install-os-via-bsdinstall">Install OS via <code class="docutils literal"><span class="pre">bsdinstall</span></code></a></li>
 <li><a class="reference internal" href="#push-image-to-openstack">Push image to OpenStack</a></li>
