@@ -24,6 +24,6 @@ e.g.::
     -rw-r--r--  1 iblis  iblis   0 /tmp/demo/ foo
     -rw-r--r--  1 iblis  iblis  91 /tmp/demo/ test2.cpp
 
-Trik
+Trick
 ^^^^^
     ``ls -lD $PWD/ | sed -e "s%$PWD/ %$PWD/%g"``
