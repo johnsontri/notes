@@ -81,33 +81,24 @@ md0
 </pre></div>
 </div>
 </li>
-<li><dl class="first docutils">
-<dt>After fetching, where to store distribution files.</dt>
-<dd><p class="first">And we can reuse it, <code class="docutils literal"><span class="pre">bsdinstall</span></code> do fetching only when checksum failed or do not exist:</p>
-<div class="last highlight-shell"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">export </span><span class="nv">BSDINSTALL_DISTDIR</span><span class="o">=</span><span class="s2">&quot;/tmp/dist&quot;</span>
+<li><p class="first">After fetching, where to store distribution files.
+And we can reuse it, <code class="docutils literal"><span class="pre">bsdinstall</span></code> do fetching only when checksum failed or do not exist:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">export </span><span class="nv">BSDINSTALL_DISTDIR</span><span class="o">=</span><span class="s2">&quot;/tmp/dist&quot;</span>
 </pre></div>
 </div>
-</dd>
-</dl>
 </li>
-<li><dl class="first docutils">
-<dt>Partition table.</dt>
-<dd><p class="first">The default schema is <code class="docutils literal"><span class="pre">GPT</span></code>, and we set auto to use entire <em>md0</em>:</p>
-<div class="last highlight-shell"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">export </span><span class="nv">PARTITIONS</span><span class="o">=</span><span class="s2">&quot;md0 { auto freebsd-ufs / }&quot;</span>
+<li><p class="first">Partition table.
+The default schema is <code class="docutils literal"><span class="pre">GPT</span></code>, and we set auto to use entire <em>md0</em>:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">export </span><span class="nv">PARTITIONS</span><span class="o">=</span><span class="s2">&quot;md0 { auto freebsd-ufs / }&quot;</span>
 </pre></div>
 </div>
-</dd>
-</dl>
 </li>
-<li><dl class="first docutils">
-<dt>For post-installation,</dt>
-<dd><p class="first"><code class="docutils literal"><span class="pre">bsdinstall</span></code> will mount our <code class="docutils literal"><span class="pre">md0</span></code>, <code class="docutils literal"><span class="pre">chroot</span></code> to it,
+<li><p class="first">For post-installation,
+<code class="docutils literal"><span class="pre">bsdinstall</span></code> will mount our <code class="docutils literal"><span class="pre">md0</span></code>, <code class="docutils literal"><span class="pre">chroot</span></code> to it,
 and run post-install script provided by us:</p>
-<div class="last highlight-shell"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">export </span><span class="nv">BSDINSTALL_CHROOT</span><span class="o">=</span><span class="nv">$MD_MOUNT_POINT</span>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">export </span><span class="nv">BSDINSTALL_CHROOT</span><span class="o">=</span><span class="nv">$MD_MOUNT_POINT</span>
 </pre></div>
 </div>
-</dd>
-</dl>
 </li>
 <li><dl class="first docutils">
 <dt>Other helpful vars, set it if you want.</dt>

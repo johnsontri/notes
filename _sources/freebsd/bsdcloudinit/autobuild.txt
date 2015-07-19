@@ -44,18 +44,18 @@ Install OS via ``bsdinstall``
         $ export BSDINSTALL_DISTSITE="ftp://ftp.tw.freebsd.org/pub/FreeBSD/releases/amd64/`uname -r`/"
     
     #. After fetching, where to store distribution files.
-        And we can reuse it, ``bsdinstall`` do fetching only when checksum failed or do not exist::
+       And we can reuse it, ``bsdinstall`` do fetching only when checksum failed or do not exist::
 
         $ export BSDINSTALL_DISTDIR="/tmp/dist"
 
     #. Partition table.
-        The default schema is ``GPT``, and we set auto to use entire *md0*::
+       The default schema is ``GPT``, and we set auto to use entire *md0*::
 
         $ export PARTITIONS="md0 { auto freebsd-ufs / }"
 
     #. For post-installation,
-        ``bsdinstall`` will mount our ``md0``, ``chroot`` to it,
-        and run post-install script provided by us::
+       ``bsdinstall`` will mount our ``md0``, ``chroot`` to it,
+       and run post-install script provided by us::
 
         $ export BSDINSTALL_CHROOT=$MD_MOUNT_POINT
 
