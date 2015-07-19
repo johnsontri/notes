@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Erlang &mdash; Notes  documentation</title>
+    <title>ls &mdash; Notes  documentation</title>
     
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -25,8 +25,8 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Notes  documentation" href="../../index.html" />
-    <link rel="next" title="Erlang Basic" href="basic.html" />
-    <link rel="prev" title="bsd-cloudinit Auto Build" href="../../freebsd/bsdcloudinit/autobuild.html" />
+    <link rel="next" title="Erlang" href="../../lang/erlang/index.html" />
+    <link rel="prev" title="Auto Build" href="../bsdcloudinit/autobuild.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
@@ -39,31 +39,34 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="erlang">
-<h1>Erlang<a class="headerlink" href="#erlang" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="ls">
+<h1>ls<a class="headerlink" href="#ls" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="basic.html">Erlang Basic</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic.html#shell">Shell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic.html#variable">Variable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic.html#atom">Atom</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic.html#bool">Bool</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic.html#tuples">Tuples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic.html#list">List</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic.html#bit-syntax">Bit Syntax</a></li>
+<ul class="simple">
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="module.html">Erlang Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="module.html#declaration">Declaration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="module.html#compile-the-code">Compile the code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="module.html#more-about-module">More about module</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="function.html">Erlang Function</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function.html#pattern-matching">Pattern Matching</a></li>
-</ul>
-</li>
-</ul>
+</div>
+<div class="section" id="d">
+<h2><code class="docutils literal"><span class="pre">-D</span></code><a class="headerlink" href="#d" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="syntax">
+<h3>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">-D</span> <span class="pre">{format}</span></code></div></blockquote>
+<p>This will replace <em>date time</em> in <code class="docutils literal"><span class="pre">ls</span> <span class="pre">-l</span></code> with <em>format</em>.</p>
+<p>e.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre>% ls -lD &quot;$PWD/&quot;
+total 4
+-rw-r--r--  1 iblis  iblis   0 /tmp/demo/ README
+-rw-r--r--  1 iblis  iblis   0 /tmp/demo/ bar
+-rw-r--r--  1 iblis  iblis   0 /tmp/demo/ foo
+-rw-r--r--  1 iblis  iblis  91 /tmp/demo/ test2.cpp
+</pre></div>
+</div>
+</div>
+<div class="section" id="trik">
+<h3>Trik<a class="headerlink" href="#trik" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">ls</span> <span class="pre">-lD</span> <span class="pre">$PWD/</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">-e</span> <span class="pre">&quot;s%$PWD/</span> <span class="pre">%$PWD/%g&quot;</span></code></div></blockquote>
+</div>
 </div>
 </div>
 
@@ -72,19 +75,31 @@
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="relations">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ls</a><ul>
+<li><a class="reference internal" href="#d"><code class="docutils literal"><span class="pre">-D</span></code></a><ul>
+<li><a class="reference internal" href="#syntax">Syntax</a></li>
+<li><a class="reference internal" href="#trik">Trik</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../../freebsd/bsdcloudinit/autobuild.html" title="previous chapter">bsd-cloudinit Auto Build</a></li>
-      <li>Next: <a href="basic.html" title="next chapter">Erlang Basic</a></li>
+      <li>Previous: <a href="../bsdcloudinit/autobuild.html" title="previous chapter">Auto Build</a></li>
+      <li>Next: <a href="../../lang/erlang/index.html" title="next chapter">Erlang</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../_sources/lang/erlang/index.txt"
+      <li><a href="../../_sources/freebsd/commands/ls.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -113,7 +128,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
       
       |
-      <a href="../../_sources/lang/erlang/index.txt"
+      <a href="../../_sources/freebsd/commands/ls.txt"
           rel="nofollow">Page source</a>
     </div>
 
