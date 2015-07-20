@@ -45,7 +45,7 @@
 <h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="all-doc">
 <h3>_all_doc<a class="headerlink" href="#all-doc" title="Permalink to this headline">¶</a></h3>
-<p>/_all_doc -&gt; sorted key list</p>
+<p>sorted key list</p>
 <div class="section" id="get">
 <h4>GET<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h4>
 <p>params:</p>
@@ -60,10 +60,25 @@
 </div>
 </div>
 </div>
+<div class="section" id="replication">
+<h2>Replication<a class="headerlink" href="#replication" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>master-master</li>
+<li>Only sync on differ, including change history, deleted docs.</li>
+<li>compression through transfer</li>
+</ul>
+<div class="section" id="single-replication">
+<h3>Single Replication<a class="headerlink" href="#single-replication" title="Permalink to this headline">¶</a></h3>
+<p>For the snapshot of database</p>
+</div>
+</div>
 <div class="section" id="secondary-index">
 <h2>Secondary index<a class="headerlink" href="#secondary-index" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="mapreduce">
 <h3>MapReduce<a class="headerlink" href="#mapreduce" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Unable to join between documents</li>
+</ul>
 <div class="section" id="map-function">
 <h4>Map Function<a class="headerlink" href="#map-function" title="Permalink to this headline">¶</a></h4>
 <p><code class="docutils literal"><span class="pre">map()</span> <span class="pre">-&gt;</span> <span class="pre">(key,</span> <span class="pre">val)</span></code></p>
@@ -163,14 +178,33 @@ Thus, there is a view group.</p>
 <p>Each view group consume one Query Server(one process),</p>
 <div class="section" id="chainable-mapreduce">
 <h4>Chainable MapReduce<a class="headerlink" href="#chainable-mapreduce" title="Permalink to this headline">¶</a></h4>
+<p>Add <code class="docutils literal"><span class="pre">dbcopy</span></code> field in design document</p>
+<ul class="simple">
+<li>cloudant <em>only</em> feature</li>
+</ul>
+<dl class="docutils">
+<dt>TOOD</dt>
+<dd><a class="reference external" href="http://examples.cloudant.com/sales/_design/sales/index.html">ref</a></dd>
+</dl>
 </div>
 </div>
 </div>
+<div class="section" id="couchapp">
+<h2>CouchApp<a class="headerlink" href="#couchapp" title="Permalink to this headline">¶</a></h2>
+<p>Application can live in CouchDB.
+The function defined in design documents will be run with <em>Query Server</em>.
+CouchDB self-shipped a js engine, SpiderMonkey, as default <em>Query Server</em>.
+We can customized our Query Server, also.</p>
+<ul class="simple">
+<li>It contains server-side js engine, earlier than nodejs.</li>
+<li><a class="reference external" href="http://www.freedesktop.org/wiki/Specifications/desktopcouch/">Couch Desktop</a></li>
+</ul>
 <div class="section" id="show-function">
-<h2>Show Function<a class="headerlink" href="#show-function" title="Permalink to this headline">¶</a></h2>
+<h3>Show Function<a class="headerlink" href="#show-function" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="list-function">
-<h2>List Function<a class="headerlink" href="#list-function" title="Permalink to this headline">¶</a></h2>
+<h3>List Function<a class="headerlink" href="#list-function" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 <div class="section" id="cloudant-search">
 <h2>Cloudant Search<a class="headerlink" href="#cloudant-search" title="Permalink to this headline">¶</a></h2>
@@ -365,6 +399,10 @@ schema first</li>
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#replication">Replication</a><ul>
+<li><a class="reference internal" href="#single-replication">Single Replication</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#secondary-index">Secondary index</a><ul>
 <li><a class="reference internal" href="#mapreduce">MapReduce</a><ul>
 <li><a class="reference internal" href="#map-function">Map Function</a></li>
@@ -377,8 +415,11 @@ schema first</li>
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#couchapp">CouchApp</a><ul>
 <li><a class="reference internal" href="#show-function">Show Function</a></li>
 <li><a class="reference internal" href="#list-function">List Function</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#cloudant-search">Cloudant Search</a><ul>
 <li><a class="reference internal" href="#query-syntax">Query Syntax</a></li>
 <li><a class="reference internal" href="#index-function">Index Function</a></li>

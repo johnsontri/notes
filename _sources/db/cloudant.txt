@@ -8,7 +8,7 @@ API
 _all_doc
 --------
 
-/_all_doc -> sorted key list
+sorted key list
 
 
 GET
@@ -24,11 +24,27 @@ params:
 + skip=N
 
 
+Replication
+============
+
++ master-master
++ Only sync on differ, including change history, deleted docs.
++ compression through transfer
+
+
+Single Replication
+------------------
+
+For the snapshot of database
+
+
 Secondary index
 ===============
 
 MapReduce
 ---------
+
++ Unable to join between documents
 
 Map Function
 ^^^^^^^^^^^^^
@@ -121,13 +137,33 @@ Each view group consume one Query Server(one process),
 Chainable MapReduce
 ^^^^^^^^^^^^^^^^^^^
 
+Add ``dbcopy`` field in design document
+
++ cloudant *only* feature
+
+TOOD
+    `ref <http://examples.cloudant.com/sales/_design/sales/index.html>`_
+
+
+CouchApp
+==========
+
+Application can live in CouchDB.
+The function defined in design documents will be run with *Query Server*.
+CouchDB self-shipped a js engine, SpiderMonkey, as default *Query Server*.
+We can customized our Query Server, also.
+
+- It contains server-side js engine, earlier than nodejs.
+
+- `Couch Desktop <http://www.freedesktop.org/wiki/Specifications/desktopcouch/>`_
+
 
 Show Function
-=============
+-------------
 
 
 List Function
-=============
+-------------
 
 
 Cloudant Search
