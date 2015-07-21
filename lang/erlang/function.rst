@@ -35,3 +35,24 @@ In Erlang::
         io:format("Hello, Mrs. ~s", [Name]);
     g(_, Name) ->
         io.format("Hello, ~s", [Name]).
+
+
+Guards
+=======
+
+Addictional clause to check vars.
+
+::
+
+    is_pass(X)
+        when X >= 60, X =< 100 ->
+            true.
+    is_pass(_) ->
+        false.
+
+    > module:is_pass(80).
+    true
+
+    > module:is_pass(a).
+    true
+    %% what happend ?!
