@@ -44,6 +44,7 @@ MongoDB is quite suitable for making ad-hoc/dynamic query.
 
 We provide large amount of (`SQL-like`_) selectors.
 
+
 Syntax
 ^^^^^^^
 
@@ -87,7 +88,7 @@ Selector
 Projection
 ^^^^^^^^^^^^
 
-+ Include Model::
++ Inclusion Model::
 
     db.users.find({   // criteria
         'age': {
@@ -101,7 +102,7 @@ Projection
     { "_id" : ObjectId("55addab1166d94c5f8952452"), "name" : "foo", "age" : 18 }
     { "_id" : ObjectId("55addade166d94c5f8952453"), "name" : "bar", "age" : 20 }
 
-+ Exclude Model::
++ Exclusion Model::
 
     db.users.find({   // criteria
         'age': {
@@ -115,6 +116,14 @@ Projection
     { "_id" : ObjectId("55addade166d94c5f8952453"), "name" : "bar", "status" : "B" }
 
 
+Modifier
+^^^^^^^^^
+
++ ``limits``
++ ``skips``
++ ``sort``
+
+
 Text Search
 ^^^^^^^^^^^^^
 
@@ -123,3 +132,10 @@ Text Search
 
 Currently supported `langs`_
 
+
+Behavior
+^^^^^^^^^
+
++ Each query run in *single* collection
++ Without ``sort``, the order returned is undefined
++

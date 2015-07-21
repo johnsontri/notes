@@ -107,7 +107,7 @@ All the docs in a collection should share similar schema.</p>
 <div class="section" id="projection">
 <h4>Projection<a class="headerlink" href="#projection" title="Permalink to this headline">¶</a></h4>
 <ul>
-<li><p class="first">Include Model:</p>
+<li><p class="first">Inclusion Model:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span>   <span class="c1">// criteria</span>
     <span class="s1">&#39;age&#39;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s1">&#39;$gt&#39;</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
@@ -122,7 +122,7 @@ All the docs in a collection should share similar schema.</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Exclude Model:</p>
+<li><p class="first">Exclusion Model:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span>   <span class="c1">// criteria</span>
     <span class="s1">&#39;age&#39;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s1">&#39;$gt&#39;</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
@@ -138,9 +138,25 @@ All the docs in a collection should share similar schema.</p>
 </li>
 </ul>
 </div>
+<div class="section" id="modifier">
+<h4>Modifier<a class="headerlink" href="#modifier" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">limits</span></code></li>
+<li><code class="docutils literal"><span class="pre">skips</span></code></li>
+<li><code class="docutils literal"><span class="pre">sort</span></code></li>
+</ul>
+</div>
 <div class="section" id="text-search">
 <h4>Text Search<a class="headerlink" href="#text-search" title="Permalink to this headline">¶</a></h4>
 <p>Currently supported <a class="reference external" href="http://docs.mongodb.org/manual/reference/text-search-languages/#text-search-languages">langs</a></p>
+</div>
+<div class="section" id="behavior">
+<h4>Behavior<a class="headerlink" href="#behavior" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Each query run in <em>single</em> collection</li>
+<li>Without <code class="docutils literal"><span class="pre">sort</span></code>, the order returned is undefined</li>
+<li></li>
+</ul>
 </div>
 </div>
 </div>
@@ -166,7 +182,9 @@ All the docs in a collection should share similar schema.</p>
 <li><a class="reference internal" href="#syntax">Syntax</a></li>
 <li><a class="reference internal" href="#selector">Selector</a></li>
 <li><a class="reference internal" href="#projection">Projection</a></li>
+<li><a class="reference internal" href="#modifier">Modifier</a></li>
 <li><a class="reference internal" href="#text-search">Text Search</a></li>
+<li><a class="reference internal" href="#behavior">Behavior</a></li>
 </ul>
 </li>
 </ul>

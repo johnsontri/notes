@@ -71,6 +71,24 @@
 </div>
 </div>
 </div>
+<div class="section" id="guards">
+<h2>Guards<a class="headerlink" href="#guards" title="Permalink to this headline">¶</a></h2>
+<p>Addictional clause to check vars.</p>
+<div class="highlight-erlang"><div class="highlight"><pre><span class="nf">is_pass</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span>
+    <span class="k">when</span> <span class="nv">X</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">,</span> <span class="nv">X</span> <span class="o">=&lt;</span> <span class="mi">100</span> <span class="o">-&gt;</span>
+        <span class="n">true</span><span class="p">.</span>
+<span class="nf">is_pass</span><span class="p">(_)</span> <span class="o">-&gt;</span>
+    <span class="n">false</span><span class="p">.</span>
+
+<span class="o">&gt;</span> <span class="nn">module</span><span class="p">:</span><span class="nf">is_pass</span><span class="p">(</span><span class="mi">80</span><span class="p">).</span>
+<span class="n">true</span>
+
+<span class="o">&gt;</span> <span class="nn">module</span><span class="p">:</span><span class="nf">is_pass</span><span class="p">(</span><span class="n">a</span><span class="p">).</span>
+<span class="n">true</span>
+<span class="c">%% what happend ?!</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -86,6 +104,7 @@
 <li><a class="reference internal" href="#function-clause">Function Clause</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#guards">Guards</a></li>
 </ul>
 </li>
 </ul>

@@ -5,11 +5,15 @@ Cloudant
 .. toctree::
 
 
-API
-===
+REST API
+===========
 
-_all_doc
---------
+The REST api is stateless.
+Thus, there is *no cursor*.
+
+
+/_all_doc
+----------
 
 sorted key list
 
