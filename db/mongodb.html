@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MongoDB &mdash; Notes  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Notes  documentation" href="../index.html" />
+    <link rel="next" title="bsd-cloudinit" href="../freebsd/bsdcloudinit/index.html" />
+    <link rel="prev" title="Cloudant" href="cloudant.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mongodb">
+<h1>MongoDB<a class="headerlink" href="#mongodb" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>MongoDB require driver to communicate with server and transfer bson.</p>
+<div class="section" id="bson-document">
+<h3>BSON document<a class="headerlink" href="#bson-document" title="Permalink to this headline">¶</a></h3>
+<p>Additional type info</p>
+</div>
+<div class="section" id="database">
+<h3>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h3>
+<p>Same as <em>database</em> in RDBMS</p>
+</div>
+<div class="section" id="collection">
+<h3>Collection<a class="headerlink" href="#collection" title="Permalink to this headline">¶</a></h3>
+<p>It&#8217;s analogous to <em>table</em>.
+All the docs in a collection should share similar schema.</p>
+</div>
+</div>
+<div class="section" id="crud">
+<h2>CRUD<a class="headerlink" href="#crud" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="query">
+<h3>Query<a class="headerlink" href="#query" title="Permalink to this headline">¶</a></h3>
+<p>MongoDB is quite suitable for making ad-hoc/dynamic query.</p>
+<p>We provide large amount of (<a class="reference external" href="http://docs.mongodb.org/manual/reference/sql-comparison/">SQL-like</a>) selectors.</p>
+<div class="section" id="syntax">
+<h4>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Collection</li>
+<li>Query Criteria</li>
+<li>Modifier, e.g.: <code class="docutils literal"><span class="pre">sort</span></code>, <code class="docutils literal"><span class="pre">limit</span></code></li>
+<li>Projection: The fields will be returned</li>
+</ul>
+<p>e.g.:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span>   <span class="c1">// criteria</span>
+    <span class="s1">&#39;age&#39;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;$gt&#39;</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">},</span> <span class="p">{</span>   <span class="c1">// projection</span>
+    <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s1">&#39;age&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="p">{</span> <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;55addab1166d94c5f8952452&quot;</span><span class="p">),</span> <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span> <span class="o">:</span> <span class="mi">18</span> <span class="p">}</span>
+<span class="p">{</span> <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;55addade166d94c5f8952453&quot;</span><span class="p">),</span> <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span> <span class="o">:</span> <span class="mi">20</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="selector">
+<h4>Selector<a class="headerlink" href="#selector" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Comparison: <code class="docutils literal"><span class="pre">$eq</span></code>, <code class="docutils literal"><span class="pre">$gt</span></code>, ... etc.</li>
+<li>Logical: <code class="docutils literal"><span class="pre">$or</span></code>, <code class="docutils literal"><span class="pre">$and</span></code>, ... etc.</li>
+<li>Element: <code class="docutils literal"><span class="pre">$exists</span></code>, <code class="docutils literal"><span class="pre">$type</span></code></li>
+<li>Evaluation: <code class="docutils literal"><span class="pre">$regex</span></code>, <a class="reference internal" href="#text-search">$text</a>, <code class="docutils literal"><span class="pre">$where</span></code>, ... etc.</li>
+<li>Geospatial: <code class="docutils literal"><span class="pre">$near</span></code>, ... etc.</li>
+<li>Array: <code class="docutils literal"><span class="pre">$all</span></code>, <code class="docutils literal"><span class="pre">$size</span></code>, ... etc.</li>
+<li>Comment: <code class="docutils literal"><span class="pre">$comment</span></code>.</li>
+<li>Projection: <code class="docutils literal"><span class="pre">$</span></code>, <code class="docutils literal"><span class="pre">$slice</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="projection">
+<h4>Projection<a class="headerlink" href="#projection" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first">Include Model:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span>   <span class="c1">// criteria</span>
+    <span class="s1">&#39;age&#39;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;$gt&#39;</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">},</span> <span class="p">{</span>   <span class="c1">// include projection</span>
+    <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s1">&#39;age&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="p">{</span> <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;55addab1166d94c5f8952452&quot;</span><span class="p">),</span> <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span> <span class="o">:</span> <span class="mi">18</span> <span class="p">}</span>
+<span class="p">{</span> <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;55addade166d94c5f8952453&quot;</span><span class="p">),</span> <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span> <span class="o">:</span> <span class="mi">20</span> <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Exclude Model:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span>   <span class="c1">// criteria</span>
+    <span class="s1">&#39;age&#39;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;$gt&#39;</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">},</span> <span class="p">{</span>   <span class="c1">// exclude projection</span>
+    <span class="s1">&#39;age&#39;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="p">{</span> <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;55addab1166d94c5f8952452&quot;</span><span class="p">),</span> <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span> <span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">}</span>
+<span class="p">{</span> <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;55addade166d94c5f8952453&quot;</span><span class="p">),</span> <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span> <span class="o">:</span> <span class="s2">&quot;B&quot;</span> <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="text-search">
+<h4>Text Search<a class="headerlink" href="#text-search" title="Permalink to this headline">¶</a></h4>
+<p>Currently supported <a class="reference external" href="http://docs.mongodb.org/manual/reference/text-search-languages/#text-search-languages">langs</a></p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">MongoDB</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a><ul>
+<li><a class="reference internal" href="#bson-document">BSON document</a></li>
+<li><a class="reference internal" href="#database">Database</a></li>
+<li><a class="reference internal" href="#collection">Collection</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#crud">CRUD</a><ul>
+<li><a class="reference internal" href="#query">Query</a><ul>
+<li><a class="reference internal" href="#syntax">Syntax</a></li>
+<li><a class="reference internal" href="#selector">Selector</a></li>
+<li><a class="reference internal" href="#projection">Projection</a></li>
+<li><a class="reference internal" href="#text-search">Text Search</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="cloudant.html" title="previous chapter">Cloudant</a></li>
+      <li>Next: <a href="../freebsd/bsdcloudinit/index.html" title="next chapter">bsd-cloudinit</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/db/mongodb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Iblis Lin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="../_sources/db/mongodb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
