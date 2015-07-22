@@ -12,7 +12,7 @@ The REST api is stateless.
 Thus, there is *no cursor*.
 
 
-/_all_doc
+/_all_docs
 ----------
 
 sorted key list

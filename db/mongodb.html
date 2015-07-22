@@ -143,7 +143,7 @@ All the docs in a collection should share similar schema.</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">limits</span></code></li>
 <li><code class="docutils literal"><span class="pre">skips</span></code></li>
-<li><code class="docutils literal"><span class="pre">sort</span></code></li>
+<li><code class="docutils literal"><span class="pre">sort</span></code>, this require all doc loaded in mem</li>
 </ul>
 </div>
 <div class="section" id="text-search">
@@ -155,8 +155,28 @@ All the docs in a collection should share similar schema.</p>
 <ul class="simple">
 <li>Each query run in <em>single</em> collection</li>
 <li>Without <code class="docutils literal"><span class="pre">sort</span></code>, the order returned is undefined</li>
-<li></li>
 </ul>
+</div>
+<div class="section" id="cursor">
+<h4>Cursor<a class="headerlink" href="#cursor" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal"><span class="pre">find()</span></code> will return a <em>cursor</em>.</p>
+<dl class="docutils">
+<dt>Iteration</dt>
+<dd><ol class="first last arabic simple">
+<li>Using <code class="docutils literal"><span class="pre">cursor.next()</span></code></li>
+<li><code class="docutils literal"><span class="pre">cursor.toArray()</span></code></li>
+<li><code class="docutils literal"><span class="pre">cursor.forEach(callback_function)</span></code></li>
+</ol>
+</dd>
+<dt>Isolation problem</dt>
+<dd>Same document maybe return more than on time.
+We using snapshot mode to handle it.</dd>
+</dl>
+</div>
+<div class="section" id="max-doc-size">
+<h4>Max Doc Size<a class="headerlink" href="#max-doc-size" title="Permalink to this headline">¶</a></h4>
+<p>16 MB</p>
+<p>16+ MB -&gt; GridFS, required driver</p>
 </div>
 </div>
 </div>
@@ -185,6 +205,8 @@ All the docs in a collection should share similar schema.</p>
 <li><a class="reference internal" href="#modifier">Modifier</a></li>
 <li><a class="reference internal" href="#text-search">Text Search</a></li>
 <li><a class="reference internal" href="#behavior">Behavior</a></li>
+<li><a class="reference internal" href="#cursor">Cursor</a></li>
+<li><a class="reference internal" href="#max-doc-size">Max Doc Size</a></li>
 </ul>
 </li>
 </ul>
