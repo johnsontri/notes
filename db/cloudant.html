@@ -78,6 +78,25 @@ Thus, there is <em>no cursor</em>.</p>
 <p>For the snapshot of database</p>
 </div>
 </div>
+<div class="section" id="revision">
+<h2>Revision<a class="headerlink" href="#revision" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="limits">
+<h3>limits<a class="headerlink" href="#limits" title="Permalink to this headline">¶</a></h3>
+<p>CouchDB can track document&#8217;s revsion up to 1000 (default limit, configurable)</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>curl <span class="s2">&quot;http://{server}/{db}/_revs_limit&quot;</span>
+1000
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-revisions-list">
+<h3>Get revisions list<a class="headerlink" href="#get-revisions-list" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>curl <span class="s2">&quot;http://{server}/{db}/{doc}?revs=true&quot;</span>
+
+<span class="nv">$ </span>curl <span class="s2">&quot;http://{server}/{db}/{doc}?revs_info=true&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="secondary-index">
 <h2>Secondary index<a class="headerlink" href="#secondary-index" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="mapreduce">
@@ -197,19 +216,53 @@ Thus, there is a view group.</p>
 </div>
 <div class="section" id="couchapp">
 <h2>CouchApp<a class="headerlink" href="#couchapp" title="Permalink to this headline">¶</a></h2>
-<p>Application can live in CouchDB.
-The function defined in design documents will be run with <em>Query Server</em>.
+<p>Application can live in CouchDB.</p>
+<p>The function defined in design documents will be run with <em>Query Server</em>.
 CouchDB self-shipped a js engine, SpiderMonkey, as default <em>Query Server</em>.
 We can customized our Query Server, also.</p>
 <ul class="simple">
 <li>It contains server-side js engine, earlier than nodejs.</li>
 <li><a class="reference external" href="http://www.freedesktop.org/wiki/Specifications/desktopcouch/">Couch Desktop</a></li>
 </ul>
+<div class="section" id="query-server">
+<h3>Query Server<a class="headerlink" href="#query-server" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="protocol">
+<h4>Protocol<a class="headerlink" href="#protocol" title="Permalink to this headline">¶</a></h4>
+<p>CouchDB communicate with it via <cite>stdio</cite>.</p>
+</div>
+<div class="section" id="time-out">
+<h4>Time out<a class="headerlink" href="#time-out" title="Permalink to this headline">¶</a></h4>
+<p>config</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="c"># to show</span>
+<span class="nv">$ </span>curl -X GET deb/_config/couchdb
+<span class="o">{</span>
+    <span class="s2">&quot;uuid&quot;</span>: <span class="s2">&quot;47a043497fb27ffd481a25671220b2c5&quot;</span>,
+    <span class="s2">&quot;max_document_size&quot;</span>: <span class="s2">&quot;67108864&quot;</span>,
+    <span class="s2">&quot;database_dir&quot;</span>: <span class="s2">&quot;/srv/cloudant/db&quot;</span>,
+    <span class="s2">&quot;file_compression&quot;</span>: <span class="s2">&quot;snappy&quot;</span>,
+    <span class="s2">&quot;geo_index_dir&quot;</span>: <span class="s2">&quot;/srv/cloudant/geo_index&quot;</span>,
+    <span class="s2">&quot;attachment_stream_buffer_size&quot;</span>: <span class="s2">&quot;4096&quot;</span>,
+    <span class="s2">&quot;max_dbs_open&quot;</span>: <span class="s2">&quot;500&quot;</span>,
+    <span class="s2">&quot;delayed_commits&quot;</span>: <span class="s2">&quot;false&quot;</span>,
+    <span class="s2">&quot;view_index_dir&quot;</span>: <span class="s2">&quot;/srv/cloudant/view_index&quot;</span>,
+    <span class="s2">&quot;os_process_timeout&quot;</span>: <span class="s2">&quot;5000&quot;</span>
+<span class="o">}</span>
+
+<span class="c"># change config</span>
+<span class="nv">$ </span>curl -X PUT deb/_config/couchdb/os_process_timeout -d <span class="s1">&#39;10000&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="show-function">
 <h3>Show Function<a class="headerlink" href="#show-function" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="list-function">
 <h3>List Function<a class="headerlink" href="#list-function" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="update-function">
+<h3>Update Function<a class="headerlink" href="#update-function" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">updatefuc(doc,</span> <span class="pre">req)</span></code></p>
 </div>
 </div>
 <div class="section" id="cloudant-search">
@@ -241,6 +294,24 @@ We can customized our Query Server, also.</p>
 <h3>Index Function<a class="headerlink" href="#index-function" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal"><span class="pre">index('field',</span> <span class="pre">doc.field,</span> <span class="pre">{options:</span> <span class="pre">val})</span></code></p>
 </div>
+</div>
+<div class="section" id="cloudant-query">
+<h2>Cloudant Query<a class="headerlink" href="#cloudant-query" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">JSON query syntax</p>
+</li>
+<li><dl class="first docutils">
+<dt>store in design doc</dt>
+<dd><ul class="first last simple">
+<li>primary index (out-of-box)</li>
+<li>type <code class="docutils literal"><span class="pre">json</span></code>: store json index in <code class="docutils literal"><span class="pre">view.map</span></code></li>
+<li>search index -&gt; type <code class="docutils literal"><span class="pre">text</span></code></li>
+<li>lang (query server) <code class="docutils literal"><span class="pre">query</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
 <div class="section" id="security">
 <h2>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
@@ -384,7 +455,7 @@ schema first</li>
 <div class="section" id="todo">
 <h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Attachment</li>
+<li>Attachment: survey where to store</li>
 </ul>
 </div>
 </div>
@@ -409,6 +480,11 @@ schema first</li>
 <li><a class="reference internal" href="#single-replication">Single Replication</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#revision">Revision</a><ul>
+<li><a class="reference internal" href="#limits">limits</a></li>
+<li><a class="reference internal" href="#get-revisions-list">Get revisions list</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#secondary-index">Secondary index</a><ul>
 <li><a class="reference internal" href="#mapreduce">MapReduce</a><ul>
 <li><a class="reference internal" href="#map-function">Map Function</a></li>
@@ -422,8 +498,14 @@ schema first</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#couchapp">CouchApp</a><ul>
+<li><a class="reference internal" href="#query-server">Query Server</a><ul>
+<li><a class="reference internal" href="#protocol">Protocol</a></li>
+<li><a class="reference internal" href="#time-out">Time out</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#show-function">Show Function</a></li>
 <li><a class="reference internal" href="#list-function">List Function</a></li>
+<li><a class="reference internal" href="#update-function">Update Function</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#cloudant-search">Cloudant Search</a><ul>
@@ -431,6 +513,7 @@ schema first</li>
 <li><a class="reference internal" href="#index-function">Index Function</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#cloudant-query">Cloudant Query</a></li>
 <li><a class="reference internal" href="#security">Security</a><ul>
 <li><a class="reference internal" href="#auth">Auth</a><ul>
 <li><a class="reference internal" href="#local-ini"><code class="docutils literal"><span class="pre">local.ini</span></code></a></li>
