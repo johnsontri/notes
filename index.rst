@@ -26,6 +26,15 @@ FreeBSD
     freebsd/bsdcloudinit/index
 
 
+Linux
+******
+
+.. toctree::
+    :maxdepth: 1
+
+    linux/fuse
+
+
 Commands
 ^^^^^^^^^
 
