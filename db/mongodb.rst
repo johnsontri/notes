@@ -121,7 +121,7 @@ Modifier
 
 + ``limits``
 + ``skips``
-+ ``sort``
++ ``sort``, this require all doc loaded in mem
 
 
 Text Search
@@ -138,4 +138,31 @@ Behavior
 
 + Each query run in *single* collection
 + Without ``sort``, the order returned is undefined
-+
+
+
+Cursor
+^^^^^^^
+
+The ``find()`` will return a *cursor*.
+
+Iteration
+    1. Using ``cursor.next()``
+    #. ``cursor.toArray()``
+    #. ``cursor.forEach(callback_function)``
+
+Isolation problem
+    Same document maybe return more than on time.
+    We using snapshot mode to handle it.
+
+Max Doc Size
+^^^^^^^^^^^^^
+
+16 MB
+
+16+ MB -> GridFS, required driver
+
+Update
+--------
+
+- MongoDB natively support in-place update. Change the fields we want.
+-
