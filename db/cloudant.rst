@@ -5,6 +5,14 @@ Cloudant
 .. toctree::
 
 
+
+CouchDB is the database for hackers.
+The philosophy of design is totally different from Mongo.
+
+CouchDB let application built/stored inside database (via design document).
+And hackers can make a customized query server to create magical data service!
+
+
 REST API
 ===========
 
@@ -43,6 +51,29 @@ Single Replication
 ------------------
 
 For the snapshot of database
+
+
+Revision
+=========
+
+limits
+-------
+
+CouchDB can track document's revsion up to 1000 (default limit, configurable)
+
+.. code-block:: shell
+
+    $ curl "http://{server}/{db}/_revs_limit"
+    1000
+
+Get revisions list
+-------------------
+
+.. code-block:: shell
+
+    $ curl "http://{server}/{db}/{doc}?revs=true"
+
+    $ curl "http://{server}/{db}/{doc}?revs_info=true"
 
 
 Secondary index
@@ -155,7 +186,10 @@ TOOD
 CouchApp
 ==========
 
+This is the killer feature of CouchDB.
+
 Application can live in CouchDB.
+
 The function defined in design documents will be run with *Query Server*.
 CouchDB self-shipped a js engine, SpiderMonkey, as default *Query Server*.
 We can customized our Query Server, also.
@@ -164,6 +198,40 @@ We can customized our Query Server, also.
 
 - `Couch Desktop <http://www.freedesktop.org/wiki/Specifications/desktopcouch/>`_
 
+- CouchApp can be distributed via `Replication`_ .
+
+Query Server
+-------------
+
+Protocol
+^^^^^^^^^^
+CouchDB communicate with it via `stdio`.
+
+Time out
+^^^^^^^^^
+
+config
+
+.. code-block:: shell
+
+    # to show
+    $ curl -X GET deb/_config/couchdb
+    {
+        "uuid": "47a043497fb27ffd481a25671220b2c5",
+        "max_document_size": "67108864",
+        "database_dir": "/srv/cloudant/db",
+        "file_compression": "snappy",
+        "geo_index_dir": "/srv/cloudant/geo_index",
+        "attachment_stream_buffer_size": "4096",
+        "max_dbs_open": "500",
+        "delayed_commits": "false",
+        "view_index_dir": "/srv/cloudant/view_index",
+        "os_process_timeout": "5000"
+    }
+
+    # change config
+    $ curl -X PUT deb/_config/couchdb/os_process_timeout -d '10000'
+
 
 Show Function
 -------------
@@ -171,6 +239,12 @@ Show Function
 
 List Function
 -------------
+
+
+Update Function
+----------------
+
+``updatefuc(doc, req)``
 
 
 Cloudant Search
@@ -194,6 +268,17 @@ Index Function
 --------------
 
 ``index('field', doc.field, {options: val})``
+
+
+Cloudant Query
+===============
+
++ JSON query syntax
++ store in design doc
+    + primary index (out-of-box)
+    + type ``json``: store json index in ``view.map``
+    + search index -> type ``text``
+    + lang (query server) ``query``
 
 
 Security
@@ -268,8 +353,41 @@ The following table compare some method in design document.
 |            |                           |                           |                           |
 +------------+---------------------------+---------------------------+---------------------------+
 
+Attachment
+===========
 
-TODO
-=====
+All data (whatever readable or unreadable) store in the database B-tree.
 
-+ Attachment
+An attachment should be store under a document.
+
+
+API
+----
+
+e.g.: We have a doc ``user``
+
+.. code-block:: shell
+
+    $ curl -X GET http://{server}/{db}/{user}
+
+.. code-block:: javascript
+
+    {
+        "id": "user",
+        ...
+        "_attachments": {
+            "filename": {
+                "content_type": "...",
+                ... // meta datas
+            }
+        }
+    }
+
+
+Create
+^^^^^^^
+
+Via ``PUT`` to ::
+
+    http://{server}/{db}/{user}/{filename}
+
