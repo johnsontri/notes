@@ -5,6 +5,14 @@ Cloudant
 .. toctree::
 
 
+
+CouchDB is the database for hackers.
+The philosophy of design is totally different from Mongo.
+
+CouchDB let application built/stored inside database (via design document).
+And hackers can make a customized query server to create magical data service!
+
+
 REST API
 ===========
 
@@ -66,7 +74,6 @@ Get revisions list
     $ curl "http://{server}/{db}/{doc}?revs=true"
 
     $ curl "http://{server}/{db}/{doc}?revs_info=true"
-
 
 
 Secondary index
@@ -179,6 +186,8 @@ TOOD
 CouchApp
 ==========
 
+This is the killer feature of CouchDB.
+
 Application can live in CouchDB.
 
 The function defined in design documents will be run with *Query Server*.
@@ -188,6 +197,8 @@ We can customized our Query Server, also.
 - It contains server-side js engine, earlier than nodejs.
 
 - `Couch Desktop <http://www.freedesktop.org/wiki/Specifications/desktopcouch/>`_
+
+- CouchApp can be distributed via `Replication`_ .
 
 Query Server
 -------------
@@ -342,8 +353,41 @@ The following table compare some method in design document.
 |            |                           |                           |                           |
 +------------+---------------------------+---------------------------+---------------------------+
 
+Attachment
+===========
 
-TODO
-=====
+All data (whatever readable or unreadable) store in the database B-tree.
 
-+ Attachment: survey where to store
+An attachment should be store under a document.
+
+
+API
+----
+
+e.g.: We have a doc ``user``
+
+.. code-block:: shell
+
+    $ curl -X GET http://{server}/{db}/{user}
+
+.. code-block:: javascript
+
+    {
+        "id": "user",
+        ...
+        "_attachments": {
+            "filename": {
+                "content_type": "...",
+                ... // meta datas
+            }
+        }
+    }
+
+
+Create
+^^^^^^^
+
+Via ``PUT`` to ::
+
+    http://{server}/{db}/{user}/{filename}
+

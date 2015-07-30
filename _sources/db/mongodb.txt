@@ -160,3 +160,9 @@ Max Doc Size
 16 MB
 
 16+ MB -> GridFS, required driver
+
+Update
+--------
+
+- MongoDB natively support in-place update. Change the fields we want.
+-
