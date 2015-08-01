@@ -391,3 +391,30 @@ Via ``PUT`` to ::
 
     http://{server}/{db}/{user}/{filename}
 
+
+Cluster
+=========
+
+API
+----
+
+GET /_up
+^^^^^^^^^^
+
+GET /_haproxy
+^^^^^^^^^^^^^^^
+
+GET /_haproxy_health_check
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Idea
+======
+
+Create ecosystem
+------------------
+
+#. CouchApp + ``http://codepen.io``
+    clone app from codepen!
+
+#. CouchApp + ``deck.js``
