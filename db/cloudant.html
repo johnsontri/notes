@@ -72,14 +72,47 @@ Thus, there is <em>no cursor</em>.</p>
 </div>
 <div class="section" id="replication">
 <h2>Replication<a class="headerlink" href="#replication" title="Permalink to this headline">¶</a></h2>
+<p>CouchDB developes a well-defined replication protocol.</p>
 <ul class="simple">
-<li>master-master</li>
 <li>Only sync on differ, including change history, deleted docs.</li>
 <li>compression through transfer</li>
 </ul>
+<div class="section" id="master-to-master">
+<h3>Master To Master<a class="headerlink" href="#master-to-master" title="Permalink to this headline">¶</a></h3>
+<p>CouchDB can just setup replicator on both end to achieve this.</p>
+</div>
 <div class="section" id="single-replication">
 <h3>Single Replication<a class="headerlink" href="#single-replication" title="Permalink to this headline">¶</a></h3>
 <p>For the snapshot of database</p>
+</div>
+<div class="section" id="local-doc">
+<h3><code class="docutils literal"><span class="pre">_local</span></code> doc<a class="headerlink" href="#local-doc" title="Permalink to this headline">¶</a></h3>
+<p>The doc recorded in <code class="docutils literal"><span class="pre">_local</span></code> won&#8217;t be sent through replication.</p>
+<div class="section" id="api">
+<h4>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">METHOD</span> <span class="o">/</span><span class="n">database</span><span class="o">/</span><span class="n">_local</span><span class="o">/</span><span class="nb">id</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="alternative">
+<h4>Alternative<a class="headerlink" href="#alternative" title="Permalink to this headline">¶</a></h4>
+<p>If we want to use including method, we can use <code class="docutils literal"><span class="pre">docs_id</span></code> in replication doc:</p>
+<div class="highlight-python"><div class="highlight"><pre>doc_ids (optional)  Array of document IDs to be synchronized
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="replicator-database">
+<h3>Replicator Database<a class="headerlink" href="#replicator-database" title="Permalink to this headline">¶</a></h3>
+<p>The field <code class="docutils literal"><span class="pre">_replication_state</span></code> always is <code class="docutils literal"><span class="pre">triggered</span></code>,
+if this replication is set to <code class="docutils literal"><span class="pre">continue</span></code>.</p>
+</div>
+<div class="section" id="idea">
+<h3>Idea<a class="headerlink" href="#idea" title="Permalink to this headline">¶</a></h3>
+<p>We can build a application understanding this protocol to</p>
+<ol class="arabic simple">
+<li>make a backup service</li>
+</ol>
 </div>
 </div>
 <div class="section" id="revision">
@@ -462,8 +495,8 @@ schema first</li>
 <h2>Attachment<a class="headerlink" href="#attachment" title="Permalink to this headline">¶</a></h2>
 <p>All data (whatever readable or unreadable) store in the database B-tree.</p>
 <p>An attachment should be store under a document.</p>
-<div class="section" id="api">
-<h3>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>API<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>e.g.: We have a doc <code class="docutils literal"><span class="pre">user</span></code></p>
 <div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>curl -X GET http://<span class="o">{</span>server<span class="o">}</span>/<span class="o">{</span>db<span class="o">}</span>/<span class="o">{</span>user<span class="o">}</span>
 </pre></div>
@@ -491,8 +524,8 @@ schema first</li>
 </div>
 <div class="section" id="cluster">
 <h2>Cluster<a class="headerlink" href="#cluster" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>API<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>API<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="get-up">
 <h4>GET /_up<a class="headerlink" href="#get-up" title="Permalink to this headline">¶</a></h4>
 </div>
@@ -504,8 +537,8 @@ schema first</li>
 </div>
 </div>
 </div>
-<div class="section" id="idea">
-<h2>Idea<a class="headerlink" href="#idea" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>Idea<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="create-ecosystem">
 <h3>Create ecosystem<a class="headerlink" href="#create-ecosystem" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
@@ -539,7 +572,15 @@ schema first</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#replication">Replication</a><ul>
+<li><a class="reference internal" href="#master-to-master">Master To Master</a></li>
 <li><a class="reference internal" href="#single-replication">Single Replication</a></li>
+<li><a class="reference internal" href="#local-doc"><code class="docutils literal"><span class="pre">_local</span></code> doc</a><ul>
+<li><a class="reference internal" href="#api">API</a></li>
+<li><a class="reference internal" href="#alternative">Alternative</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#replicator-database">Replicator Database</a></li>
+<li><a class="reference internal" href="#idea">Idea</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#revision">Revision</a><ul>
@@ -585,14 +626,14 @@ schema first</li>
 </li>
 <li><a class="reference internal" href="#comparison">Comparison</a></li>
 <li><a class="reference internal" href="#attachment">Attachment</a><ul>
-<li><a class="reference internal" href="#api">API</a><ul>
+<li><a class="reference internal" href="#id1">API</a><ul>
 <li><a class="reference internal" href="#create">Create</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a class="reference internal" href="#cluster">Cluster</a><ul>
-<li><a class="reference internal" href="#id1">API</a><ul>
+<li><a class="reference internal" href="#id2">API</a><ul>
 <li><a class="reference internal" href="#get-up">GET /_up</a></li>
 <li><a class="reference internal" href="#get-haproxy">GET /_haproxy</a></li>
 <li><a class="reference internal" href="#get-haproxy-health-check">GET /_haproxy_health_check</a></li>
@@ -600,7 +641,7 @@ schema first</li>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#idea">Idea</a><ul>
+<li><a class="reference internal" href="#id3">Idea</a><ul>
 <li><a class="reference internal" href="#create-ecosystem">Create ecosystem</a></li>
 </ul>
 </li>

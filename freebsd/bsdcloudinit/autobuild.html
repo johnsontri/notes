@@ -26,7 +26,7 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Notes  documentation" href="../../index.html" />
     <link rel="up" title="bsd-cloudinit" href="index.html" />
-    <link rel="next" title="ls" href="../commands/ls.html" />
+    <link rel="next" title="Fuse" href="../../linux/fuse.html" />
     <link rel="prev" title="bsd-cloudinit" href="index.html" />
    
   
@@ -94,9 +94,10 @@ The default schema is <code class="docutils literal"><span class="pre">GPT</span
 </div>
 </li>
 <li><p class="first">For post-installation,
-<code class="docutils literal"><span class="pre">bsdinstall</span></code> will mount our <code class="docutils literal"><span class="pre">md0</span></code>, <code class="docutils literal"><span class="pre">chroot</span></code> to it,
+<code class="docutils literal"><span class="pre">bsdinstall</span></code> will mount our <code class="docutils literal"><span class="pre">md0</span></code> at <code class="docutils literal"><span class="pre">$BSDINSTALL_CHROOT</span></code>,
+<code class="docutils literal"><span class="pre">chroot</span></code> to it,
 and run post-install script provided by us:</p>
-<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">export </span><span class="nv">BSDINSTALL_CHROOT</span><span class="o">=</span><span class="nv">$MD_MOUNT_POINT</span>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">export </span><span class="nv">BSDINSTALL_CHROOT</span><span class="o">=</span>/any/path/you/want
 </pre></div>
 </div>
 </li>
@@ -177,7 +178,7 @@ sh -e <span class="nv">$INSTALLER</span>
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="index.html">bsd-cloudinit</a><ul>
       <li>Previous: <a href="index.html" title="previous chapter">bsd-cloudinit</a></li>
-      <li>Next: <a href="../commands/ls.html" title="next chapter">ls</a></li>
+      <li>Next: <a href="../../linux/fuse.html" title="next chapter">Fuse</a></li>
   </ul></li>
   </ul></li>
 </ul>
