@@ -54,10 +54,11 @@ Install OS via ``bsdinstall``
         $ export PARTITIONS="md0 { auto freebsd-ufs / }"
 
     #. For post-installation,
-       ``bsdinstall`` will mount our ``md0``, ``chroot`` to it,
+       ``bsdinstall`` will mount our ``md0`` at ``$BSDINSTALL_CHROOT``,
+       ``chroot`` to it,
        and run post-install script provided by us::
 
-        $ export BSDINSTALL_CHROOT=$MD_MOUNT_POINT
+        $ export BSDINSTALL_CHROOT=/any/path/you/want
 
     #. Other helpful vars, set it if you want.
         - ``BSDINSTALL_LOG``
