@@ -5,7 +5,6 @@ Cloudant
 .. toctree::
 
 
-
 CouchDB is the database for hackers.
 The philosophy of design is totally different from Mongo.
 
@@ -42,15 +41,55 @@ params:
 Replication
 ============
 
-+ master-master
+CouchDB developes a well-defined replication protocol.
+
 + Only sync on differ, including change history, deleted docs.
 + compression through transfer
 
+Master To Master
+----------------
+
+CouchDB can just setup replicator on both end to achieve this.
 
 Single Replication
 ------------------
 
 For the snapshot of database
+
+``_local`` doc
+----------------
+
+The doc recorded in ``_local`` won't be sent through replication.
+
+API
+^^^^
+
+::
+
+    METHOD /database/_local/id
+
+
+Alternative
+^^^^^^^^^^^^^
+
+If we want to use including method, we can use ``docs_id`` in replication doc::
+
+    doc_ids (optional)  Array of document IDs to be synchronized
+
+
+Replicator Database
+--------------------
+
+The field ``_replication_state`` always is ``triggered``,
+if this replication is set to ``continue``.
+
+
+Idea
+------
+
+We can build a application understanding this protocol to
+
+#. make a backup service
 
 
 Revision
