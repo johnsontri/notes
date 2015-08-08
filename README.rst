@@ -2,4 +2,4 @@
 Notes
 *****
 
-https://iblis17.github.io/notes/
+http://iblis-notes.readthedocs.org
