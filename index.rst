@@ -24,16 +24,6 @@ FreeBSD
     :glob:
 
     freebsd/bsdcloudinit/index
-    freebsd/commands/index
-
-
-Linux
-******
-
-.. toctree::
-    :maxdepth: 1
-
-    linux/fuse
 
 
 Commands
@@ -44,6 +34,15 @@ Commands
     :glob:
 
     freebsd/commands/*
+
+
+Linux
+******
+
+.. toctree::
+    :maxdepth: 1
+
+    linux/fuse
 
 
 Language
