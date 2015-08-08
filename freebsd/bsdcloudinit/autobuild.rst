@@ -68,11 +68,11 @@ Install OS via ``bsdinstall``
 
 2. Fetch distribution files::
 
-    $ sudo bsdinstall distfetch
+    $ sudo -E bsdinstall distfetch
 
 3. Partition::
 
-    $ sudo bsdinstall scriptedpart $PARTITIONS
+    $ sudo -E bsdinstall scriptedpart $PARTITIONS
 
 4. Install OS::
     
@@ -92,7 +92,7 @@ Install OS via ``bsdinstall``
     fetch --no-verify-peer https://raw.github.com/pellaeon/bsd-cloudinit-installer/master/installer.sh
 
     sh -e $INSTALLER
-    $ sudo bsdinstall script post_install.sh
+    $ sudo -E bsdinstall script post_install.sh
 
 
 Push image to OpenStack
