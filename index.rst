@@ -24,6 +24,7 @@ FreeBSD
     :glob:
 
     freebsd/bsdcloudinit/index
+    freebsd/commands/index
 
 
 Linux
