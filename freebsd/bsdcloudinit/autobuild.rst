@@ -79,6 +79,8 @@ Install OS via ``bsdinstall``
     $ cat post_install.sh
     #!/bin/sh
 
+    #!/bin/sh
+
     INSTALLER='/root/installer.sh'
 
     # network
