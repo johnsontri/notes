@@ -6,6 +6,9 @@
 Notes
 =====
 
+*I'm a programmer, I control your life*
+
+
 Database
 ********
 
