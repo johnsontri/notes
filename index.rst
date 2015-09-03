@@ -58,6 +58,16 @@ Language
     lang/python/index
 
 
+Web
+***
+
+.. toctree::
+    :maxdepth: 1
+    :glob:
+
+    web/*
+
+
 Indices and tables
 ******************
 
