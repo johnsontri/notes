@@ -11,7 +11,7 @@ X11
 Turn off Screen
 ===============
 
+::
 
-```
-xset -display :0.0 dpms force off
-```
+    xset -display :0.0 dpms force off
+
