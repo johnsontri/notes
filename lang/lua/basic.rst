@@ -6,7 +6,7 @@ Quote
 
 ::
 
-    'hello' == "hello"
+    'hello' == "hello"  -- true
 
 
 Function
