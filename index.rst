@@ -58,6 +58,7 @@ Language
     lang/erlang/index
     lang/python/index
     lang/lua/index
+    lang/julia/index
 
 
 Web
