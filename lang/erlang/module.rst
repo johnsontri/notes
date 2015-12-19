@@ -171,3 +171,15 @@ It's used for hot-loading.
 It can be set manually.
 
 ``-vsn(VersionNumber).``
+
+
+Other directives
+------------------------------------------------------------
+
+- ``-author(Name)``
+
+- ``-date(Date)``
+
+- ``-behavior(Behavior)``
+
+- ``-record(Name, Field)``
