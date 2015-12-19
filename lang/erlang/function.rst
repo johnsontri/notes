@@ -13,9 +13,14 @@ Basic
 
 ::
 
-    1> Fun = fun(X) ->
-                 math:sqrt(X) * 10
-             end.
+    1> F = fun(X) ->
+               math:sqrt(X) * 10
+           end.
+
+    2> G = fun(X) ->
+               Y = math:sqrt(X),
+               10 * Y
+           end.
 
 
 Pattern Matching
