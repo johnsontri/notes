@@ -22,6 +22,14 @@ Basic
                10 * Y
            end.
 
+Bind function from module
+------------------------------------------------------------
+
+Assume we have a function ``f/1`` in the module ``hello``.
+If we want to bind ``hello:f`` to variable::
+
+    1> F = fun hello:f/1.
+    2> F(...).
 
 Pattern Matching
 ================
