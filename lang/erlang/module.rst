@@ -183,3 +183,25 @@ Other directives
 - ``-behavior(Behavior)``
 
 - ``-record(Name, Field)``
+
+
+Documenting Modules
+======================================================================
+
+Erlang includes doc system called *EDoc*.
+
+Sample module called ``hello.erl``::
+
+    %% @author Iblis Lin <iblis@example.com> [https://github.com/iblis17]
+    %% @doc The features of this module.
+    %% @version
+
+    - module(name).
+    ...
+
+Then we can build it via shell::
+
+    1> edoc:files(["hello.erl"], [{dir, "docs"}]).
+    ok
+
+Now we will get some html files in ``docs`` folder.
