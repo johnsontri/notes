@@ -46,11 +46,26 @@ Export functions
 
 Import functions
 ^^^^^^^^^^^^^^^^
+    Invoking an external function do not require imported,
+    just do this like we do in the shell::
+
+        -module(name)
+        ...
+        g -> 10 * other_module:some_f(100).
+
+    But this maybe get too verbose when we using lots of
+    external functions.
+
+    So we have ``-import`` directive for removing the module
+    prefix during invoking.
+
     ``-import(Module, [Function/Arity, ...]).``
 
     ::
 
         -import(io, [format/1]).
+        ...
+        g - > format(...).  % not io:format
 
 Macro
 ^^^^^
