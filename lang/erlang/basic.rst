@@ -14,7 +14,16 @@ Shell
 Quit
     ``^G`` then ``q``
 
-Clean variables
+History
+    ``h()``
+        list history
+    ``v(N)``
+        show the value of ``history n``
+
+Show variable bindings
+    ``b()``
+
+Clean variable binding(s)
     ``f(Var)``
         Set the ``Var`` to unbound
     ``f()``
