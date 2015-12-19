@@ -29,6 +29,9 @@ Clean variable binding(s)
     ``f()``
         Clean all variables
 
+Compile Module
+    ``c(module_name)``
+
 
 Variable
 ========
