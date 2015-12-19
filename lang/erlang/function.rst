@@ -8,6 +8,15 @@ Erlang Function
 .. highlight:: erlang
 
 
+Basic
+======================================================================
+
+::
+    1> Fun = fun(X) ->
+                 math:sqrt(X) * 10
+             end.
+
+
 Pattern Matching
 ================
 
