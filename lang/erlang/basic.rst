@@ -114,6 +114,25 @@ tagged tuple
     ``{km, 100}``
 
 
+Builtins
+------------------------------------------------------------
+
+``element``::
+
+    > element(2, Point).
+    3
+
+``setelement``::
+
+    > setelement(2, Point, 100).
+    {3, 100}
+
+``tuple_size``::
+
+    > tuple_size(Point).
+    2
+
+
 List
 ====
 
