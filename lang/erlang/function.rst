@@ -64,6 +64,18 @@ Guards
 =======
 
 Addictional clause to check vars.
+Let us check the content of argument, not only shape/position.
+
+It's indicated by ``when``.
+
+It can use only a small set of builtin functions to
+guarantee there is'nt no side effect.
+
+Multiple conditions:
+
+- ``,`` (commas): like *and*,
+  e.g.: ``when X >= 60, X =< 100 -> ...``
+- ``;`` (semicolons): like *or*
 
 ::
 
