@@ -77,6 +77,7 @@ Bool
 
 + ``and``
 + ``or``
++ ``xor``
 + ``andalso``: short-circuit operator
 + ``orelse``: short-circuit operator
 + ``=:=``
