@@ -80,6 +80,7 @@ Bool
 + ``xor``
 + ``andalso``: short-circuit operator
 + ``orelse``: short-circuit operator
++ ``not``
 + ``=:=``
 + ``=/=``
 + ``==``
