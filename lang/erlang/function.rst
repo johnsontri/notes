@@ -91,3 +91,15 @@ Multiple conditions:
     > module:is_pass(a).
     true
     %% what happend ?!
+
+
+``case`` expression
+============================================================
+
+It let you move pattern matching inside function.
+
+
+``if`` expression
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+It's similar to ``case`` but without pattern matching.
