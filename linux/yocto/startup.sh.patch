@@ -1,0 +1,47 @@
+--- startup.sh.orig
++++ startup.sh
+@@ -1,9 +1,12 @@
+ #!/bin/sh
+ 
+-LOG=~/easyconnect/ec/log/startup.log
++EC_HOME=~/easyconnect
++PYTHON=$EC_HOME/.venv/bin/python
++LOG=$EC_HOME/ec/log/startup.log
+ 
+-cd ~/easyconnect
++cd $EC_HOME
+ screen -dmS easyconnect > $LOG 2>&1
++
+ add_to_screen() {
+     TITLE=$1
+     DIR=$2
+@@ -17,23 +20,16 @@
+ 
+ # wait for screen.
+ while [ 1 ]; do
+-    ps aux | grep -v grep | grep SCREEN | grep easyconnect > /dev/null 2>&1
++    ps | grep -v grep | grep SCREEN | grep easyconnect > /dev/null 2>&1
+     if [ $? -eq 0 ]; then
+         break
+     fi
+     sleep 1
+ done
+ 
+-add_to_screen Comm. ec/ './server.py >> log/server.log 2>&1' >> $LOG 2>&1
+-add_to_screen Exec. ec/ './main_na.py' >> $LOG  2>&1
+-add_to_screen sim   ec/ './simulator.py' >> $LOG 2>&1
+-add_to_screen CCM   ccm/ 'python3 main.py' >> $LOG 2>&1
++# virtualenv
+ 
+-sleep 5
+-#firefox http://localhost:7788/connection > /dev/null 2> /dev/null &
+-/opt/google/chrome/google-chrome --app=http://localhost:7788/connection \
+-    > /dev/null 2>&1 &
+-
+-sleep 2
+-add_to_screen arrange ccm/arrangement/ './arrange_window.sh' >> $LOG 2>&1
+-
++add_to_screen Comm. ec/ "$PYTHON ./server.py >> log/server.log 2>&1" >> $LOG 2>&1
++add_to_screen Exec. ec/ "$PYTHON ./main_na.py" >> $LOG  2>&1
++add_to_screen sim   ec/ "$PYTHON ./simulator.py" >> $LOG 2>&1
++add_to_screen CCM   ccm/ "$PYTHON ./main.py" >> $LOG 2>&1

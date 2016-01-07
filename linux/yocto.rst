@@ -52,33 +52,9 @@ Run EC
 Patch the ``startup.sh``
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. code-block:: diff
-
-    --- startup.sh.orig
-    +++ startup.sh
-    @@ -17,7 +17,7 @@
-    
-     # wait for screen.
-     while [ 1 ]; do
-    -    ps aux | grep -v grep | grep SCREEN | grep easyconnect > /dev/null 2>&1
-    +    ps | grep -v grep | grep SCREEN | grep easyconnect > /dev/null 2>&1
-         if [ $? -eq 0 ]; then
-             break
-         fi
-    @@ -28,12 +28,3 @@
-     add_to_screen Exec. ec/ './main_na.py' >> $LOG  2>&1
-     add_to_screen sim   ec/ './simulator.py' >> $LOG 2>&1
-     add_to_screen CCM   ccm/ 'python3 main.py' >> $LOG 2>&1
-    -
-    -sleep 5
-    -#firefox http://localhost:7788/connection > /dev/null 2> /dev/null &
-    -/opt/google/chrome/google-chrome --app=http://localhost:7788/connection \
-    -    > /dev/null 2>&1 &
-    -
-    -sleep 2
-    -add_to_screen arrange ccm/arrangement/ './arrange_window.sh' >> $LOG 2>&1
-    -
-
+.. literalinclude:: yocto/startup.sh.patch
+    :language: diff
+    :linenos:
 
 Prepare ``virtualenv``
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -94,6 +70,7 @@ Patch the ``ec/requirements.txt``
 **************************************************
 
 .. code-block:: diff
+    :linenos:
 
     --- requirements.txt.orig
     +++ requirements.txt
