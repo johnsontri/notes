@@ -93,4 +93,22 @@ Run it!
 
 	$ /path/to/ec/startup.sh
 
+
+Make EC Run at System Started
+----------------------------------------------------------------------
+
+::
+
+    $ vi /etc/rc.local
+    $ cat /etc/rc.local
+    #!/bin/sh
+
+    echo 'Boostrap EC'
+    /home/root/easyconnect/setup/startup.sh
+    $ chomd +x /etc/rc.local
+
+
+Then reboot for checking.
+
+
 Then relax.
