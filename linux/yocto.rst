@@ -64,7 +64,7 @@ When the edison in host ap mode, the default gateway gone.
 The orignial code bind socket to all interface,
 thus cause udp broadcasting failed.
 
-.. literalinclude:: yocto/main_na.patch
+.. literalinclude:: yocto/main_na.py.patch
     :language: diff
     :linenos:
 
@@ -124,4 +124,15 @@ Make EC Run at System Started
 Then reboot for checking.
 
 
-Then relax.
+Make Yocto in AP Mode
+----------------------------------------------------------------------
+
+::
+
+    $ /usr/bin/configure_edison --enableOneTimeSetup --persist
+
+
+Relax
+----------------------------------------------------------------------
+
+Enjoy!
