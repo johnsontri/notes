@@ -56,6 +56,19 @@ Patch the ``startup.sh``
     :language: diff
     :linenos:
 
+
+Patch the ``ec/main_na.py``
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+When the edison in host ap mode, the default gateway gone.
+The orignial code bind socket to all interface,
+thus cause udp broadcasting failed.
+
+.. literalinclude:: yocto/main_na.patch
+    :language: diff
+    :linenos:
+
+
 Prepare ``virtualenv``
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

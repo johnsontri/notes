@@ -1,0 +1,50 @@
+--- main_na.py.orig
++++ main_na.py
+@@ -5,6 +5,8 @@
+ import time
+ import os
+ import socket
++import fcntl
++import struct
+ from urllib.error import HTTPError, URLError
+ import logging
+ from logging.handlers import TimedRotatingFileHandler
+@@ -30,6 +32,7 @@
+ SHELL_PORT_FILE = 'run/main.port'
+ SHELL_HOST = '127.0.0.1'
+ 
++INTERFACE = 'wlan0'
+ BROADCAST_PORT = 17000
+ 
+ 
+@@ -228,6 +231,18 @@
+     session.close()
+ 
+ 
++def get_ip_address(s, interface):
++    '''
++    :param s: the socket instance
++    :param interface: e.g. eth0, wlan0.
++    '''
++    return socket.inet_ntoa(fcntl.ioctl(
++        s.fileno(),
++        0x8915,  # SIOCGIFADDR
++        struct.pack(b'256s', interface[:15].encode())
++    )[20:24])
++
++
+ def main():
+     log = logging.getLogger(__name__)
+ 
+@@ -240,7 +255,10 @@
+     skt = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+     skt.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+     skt.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+-    skt.bind(('', 0))
++
++    bind_ip = get_ip_address(skt, INTERFACE)
++    skt.bind((bind_ip, 0))
++    log.info('Bind socket on {} {}'.format(INTERFACE, bind_ip))
+ 
+     log.info('started')
+ 
