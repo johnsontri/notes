@@ -10,8 +10,8 @@ long-term
 inter-day
 *********
 
-- «e¤Ñªº vol ¤p©ó avg(10), attempt to go up, higher va => slowing
-- ¬Q¤Ñ vol ¥ç¤p©ó avg(10), attempt to down, lower va => non-facilitate?  
+- å‰å¤©çš„ vol å°æ–¼ avg(10), attempt to go up, higher va => slowing
+- æ˜¨å¤© vol äº¦å°æ–¼ avg(10), attempt to down, lower va => non-facilitate?  
   slowing, balancing?
 - top @ 7850?
 - buttom @ 7600 -> 7640?
@@ -31,24 +31,24 @@ short-term
 
 - the high/low point support by previous VA
 
-- ¦V¤W¸õªÅ
-    - 70 ÂI¡]¤j¡^
+- å‘ä¸Šè·³ç©º
+    - 70 é»žï¼ˆå¤§ï¼‰
     - previous VA: 50 point
 
-- ¦­½L
-    - ¦V¤W´ú¸Õ¨â¦¸
+- æ—©ç›¤
+    - å‘ä¸Šæ¸¬è©¦å…©æ¬¡
     - new seller
 - 10 am & 12
     - seller 7859 -> 7834 
-    - ¹J¨ì¬Q¤Ñªº HVA ¦³¤ä¼µ
-    - ¤U¶^³t«× slowing
-    - ´ú HVA 2¦¸
+    - é‡åˆ°æ˜¨å¤©çš„ HVA æœ‰æ”¯æ’
+    - ä¸‹è·Œé€Ÿåº¦ slowing
+    - æ¸¬ HVA 2æ¬¡
 
-- §À½L
+- å°¾ç›¤
     - seller covering
     - buyer: 7778 -> 7790: 12 points
 
-30¤À K
+30åˆ† K
 *********
 
 - buyer has logger time-frame
