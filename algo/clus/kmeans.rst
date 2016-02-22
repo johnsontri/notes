@@ -21,13 +21,14 @@ For each iteration:
 
 Stop rule:
 
-- 兩次無改的 delegation
+- continuously same delegation twice
 - Or, hit the max iteration user assigned
 
 
-e.g.
+e.g. Assume we have following data set:
 
-{1, 2, 3, 4, 11, 12}
+.. math::
+    \{1, 2, 3, 4, 11, 12\}
 
 
 Iteration
@@ -36,7 +37,7 @@ Iteration
 The both action in an iteration can reduce TSSE (total sum of square error).
 
 #. 給定任意集合，則用幾何中心作為代表，TSSE 最小。用偏微方證明。
-#. change delegation 是因為 :math:`|X - C_new| < |X - C_orig|`
+#. change delegation 是因為 :math:`|X - C_{new}| < |X - C_{orig}|`
 
 
 Convergency
@@ -44,12 +45,17 @@ Convergency
 
 K-mean *MUST* converge.
 
-Any iteration in this algo will not repeat. The TSSE is always less then
-previous.
+Any iteration in this algo will not be repeat.
+The TSSE is always less then previous.
 
-::
+.. math::
 
-TSSE_new < TSSE_old
+    \text{TSSE}_{new} < \text{TSSE}_{old}
+
+Otherwise, this algo will stop.
+
+.. math::
+    \because \text{TSSE}_{new} = \text{TSSE}_{old}
 
 
 Pros and Cons
@@ -72,7 +78,8 @@ e.g. loacl min: {98, 99, 100, 101, 102, 154, 200}
 Iter 1: k=2, {98, 99, 100, 101, 102, 154}, {200}
 Iter 2: same as 1, stop.
 
-TSSE = :math:`11^2 + 10^2 + 9^2 + 8^2 + 7^2 + 45^2 + 0^2 = 2440 > 1068`.
+.. math::
+    \text{TSSE} = 11^2 + 10^2 + 9^2 + 8^2 + 7^2 + 45^2 + 0^2 = 2440 > 1068
 
 The number 1068 came from {98, 99, ..., 102}, {154, 200}.
 So the result from k-means isn't the global min.
