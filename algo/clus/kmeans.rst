@@ -64,8 +64,8 @@ Pros:
 Cons:
 
 - min the TSSE may let us fall into local min, not the global min
-- the init point affect the result
-- cannot avoid noise
+- the init points affect the result
+- cannot avoid noise (outliner)
 
 e.g. loacl min: {98, 99, 100, 101, 102, 154, 200}
 
@@ -76,3 +76,29 @@ TSSE = :math:`11^2 + 10^2 + 9^2 + 8^2 + 7^2 + 45^2 + 0^2 = 2440 > 1068`.
 
 The number 1068 came from {98, 99, ..., 102}, {154, 200}.
 So the result from k-means isn't the global min.
+
+
+Cluster Center Initialization Algorithm
+----------------------------------------------------------------------
+
+To solve the init points effect.
+
+- apply k-means to _each_ dimension.
+- we use standard distribution to find center for _each_ dimension.
+- construct clustering string from each dimension.
+
+
+ISO Data
+----------------------------------------------------------------------
+
+when k-means algo stopped,
+
+#. we can drop the groups which contain mush less elements.
+   (drop outliners)
+#. 
+    #. the # of groups too less (e.g. < 0.5*threshold),
+       then split the large groups.
+    #. the # of groups too many (e.g > 2*threshold),
+       then merge the similar groups.
+    #. else: 某段時間 split; merge
+#. restart step 1.
