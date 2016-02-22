@@ -1,7 +1,7 @@
 K-Means
 ===============================================================================
 
-_n_ point seperated into _k_ groups.
+*n* point seperated into *k* groups.
 
 
 Init
