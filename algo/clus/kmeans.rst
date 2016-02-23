@@ -45,7 +45,7 @@ Convergency
 
 K-mean *MUST* converge.
 
-Any iteration in this algo will not be repeat.
+Any iteration in this algo will not be repeated.
 The TSSE is always less then previous.
 
 .. math::
