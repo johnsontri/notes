@@ -5,4 +5,4 @@ Clustering
     :maxdepth: 2
 
     clus/kmeans
-    clus/hierarctical
+    clus/hierarchical
