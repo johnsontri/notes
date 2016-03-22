@@ -34,5 +34,8 @@ If ``gtest`` do not ship with share library, the default cmake module,
 will raise error.
 
 ref:
--
+- https://github.com/dmonopoly/gtest-cmake-example
+
 - http://stackoverflow.com/questions/9689183/cmake-googletest
+
+- http://stackoverflow.com/questions/21237341/testing-with-gtest-and-gmock-shared-vs-static-libraries
