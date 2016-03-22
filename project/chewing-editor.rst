@@ -26,7 +26,7 @@ When building ``chewing-editor``, we will need it.
 Issues
 ----------------------------------------------------------------------
 
-#43
+#43 - Use system gtest
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 If ``gtest`` do not ship with share library, the default cmake module,
