@@ -30,10 +30,11 @@ Issues
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 If ``gtest`` do not ship with share library, the default cmake module,
-`FindGTest <https://cmake.org/cmake/help/latest/module/FindGTest.html>`,
+`FindGTest <https://cmake.org/cmake/help/latest/module/FindGTest.html>`_,
 will raise error.
 
 ref:
+
 - `module FindGTest source <https://github.com/Kitware/CMake/blob/master/Modules/FindGTest.cmake>`_
 
 - https://github.com/dmonopoly/gtest-cmake-example
