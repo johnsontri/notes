@@ -42,3 +42,8 @@ ref:
 - http://stackoverflow.com/questions/9689183/cmake-googletest
 
 - http://stackoverflow.com/questions/21237341/testing-with-gtest-and-gmock-shared-vs-static-libraries
+
+- http://stackoverflow.com/questions/10765885/how-to-install-your-custom-cmake-find-module
+
+- `Ubuntu libgtest-dev package list <http://packages.ubuntu.com/zh-tw/trusty/all/libgtest-dev/filelist>`_
+  It's source only.
