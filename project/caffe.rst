@@ -4,6 +4,8 @@ Caffe
 Installation
 ----------------------------------------------------------------------
 
+Requirements:
+
 - aur/openblas-lapack
 
 - community/cuda
@@ -39,3 +41,8 @@ Installation
 ::
 
     cp Makefile.config.example Makefile.config
+
+Patch ``Makefile.config``:
+
+.. literalinclude:: files/Makefile.config.patch
+    :language: diff
