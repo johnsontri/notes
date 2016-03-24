@@ -1,0 +1,61 @@
+--- Makefile.config.example	2016-03-24 19:34:31.112015456 +0800
++++ Makefile.config	2016-03-24 20:40:14.378707671 +0800
+@@ -5,12 +5,12 @@
+ # USE_CUDNN := 1
+ 
+ # CPU-only switch (uncomment to build without GPU support).
+-# CPU_ONLY := 1
++CPU_ONLY := 1
+ 
+ # uncomment to disable IO dependencies and corresponding data layers
+-# USE_OPENCV := 0
+-# USE_LEVELDB := 0
+-# USE_LMDB := 0
++USE_OPENCV := 1
++USE_LEVELDB := 1
++USE_LMDB := 1
+ 
+ # uncomment to allow MDB_NOLOCK when reading LMDB files (only if necessary)
+ #	You should not set this flag if you will be reading LMDBs with any
+@@ -25,7 +25,7 @@
+ # CUSTOM_CXX := g++
+ 
+ # CUDA directory contains bin/ and lib/ directories that we need.
+-CUDA_DIR := /usr/local/cuda
++CUDA_DIR := /opt/cuda
+ # On Ubuntu 14.04, if cuda tools are installed via
+ # "sudo apt-get install nvidia-cuda-toolkit" then use this instead:
+ # CUDA_DIR := /usr
+@@ -43,7 +43,7 @@
+ # atlas for ATLAS (default)
+ # mkl for MKL
+ # open for OpenBlas
+-BLAS := atlas
++BLAS := open
+ # Custom (MKL/ATLAS/OpenBLAS) include and lib directories.
+ # Leave commented to accept the defaults for your choice of BLAS
+ # (which should work)!
+@@ -61,8 +61,8 @@
+ 
+ # NOTE: this is required only if you will compile the python interface.
+ # We need to be able to find Python.h and numpy/arrayobject.h.
+-PYTHON_INCLUDE := /usr/include/python2.7 \
+-		/usr/lib/python2.7/dist-packages/numpy/core/include
++# PYTHON_INCLUDE := /usr/include/python2.7 \
++# 		/usr/lib/python2.7/dist-packages/numpy/core/include
+ # Anaconda Python distribution is quite popular. Include path:
+ # Verify anaconda location, sometimes it's in root.
+ # ANACONDA_HOME := $(HOME)/anaconda
+@@ -71,9 +71,9 @@
+ 		# $(ANACONDA_HOME)/lib/python2.7/site-packages/numpy/core/include \
+ 
+ # Uncomment to use Python 3 (default is Python 2)
+-# PYTHON_LIBRARIES := boost_python3 python3.5m
+-# PYTHON_INCLUDE := /usr/include/python3.5m \
+-#                 /usr/lib/python3.5/dist-packages/numpy/core/include
++PYTHON_LIBRARIES := boost_python3 python3.5m
++PYTHON_INCLUDE := /usr/include/python3.5m \
++                /usr/lib/python3.5/dist-packages/numpy/core/include
+ 
+ # We need to be able to find libpythonX.X.so or .dylib.
+ PYTHON_LIB := /usr/lib
