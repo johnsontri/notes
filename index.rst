@@ -65,6 +65,7 @@ Language
 .. toctree::
     :maxdepth: 1
 
+    lang/c/index
     lang/erlang/index
     lang/python/index
     lang/lua/index
