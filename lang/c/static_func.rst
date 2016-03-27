@@ -1,6 +1,8 @@
 Static Function
 ===============================================================================
 
+.. highlight:: console
+
 - scope limited to current source file
 
 ..
@@ -20,12 +22,16 @@ https://github.com/iblis17/notes/tree/master/lang/c/static_func
 
 ::
 
-    make
-    ./main
+	$ make
+	cc -O2 -pipe   -Wall -c foo.c
+	cc -O2 -pipe   -Wall main.c foo.o -o main
+	$ ./main
+	func f
+
 
 Break It Down
 ----------------------------------------------------------------------
 
 ::
 
-    make break
+    $ make break

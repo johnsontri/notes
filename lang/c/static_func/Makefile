@@ -1,4 +1,5 @@
 RM?= rm -vf
+CFLAGS+= -Wall
 
 .PHONY: all 
 all: main
