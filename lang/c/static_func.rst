@@ -15,6 +15,7 @@ Static Function
     If the function or variable is *not* visible outside of the current source file,
     it is said to have *local*, or *static* scope.
 
+
 Sample
 ----------------------------------------------------------------------
 
