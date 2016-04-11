@@ -251,22 +251,25 @@ Fact 1: 1746, Steward proof that
 
     \frac{n}{m + n} l^2 + \frac{m}{m + n} t^2 = s^2 + mn
 
-
 .. math::
 
     \draw (1,0) -- (0,0) -- (0,1) -- cycle
 
-    \text{Proof that } \vec{T} = \vec{S} - \vec{N}
 
-    \begin{aligned}
-    \therefore t^2 & = \|\vec{S} - \vec{N}\| ^2 \\
-        & = \|\vec{S}\|^2 + \|\vec{N}\|^2 -
-            2 \|\vec{S}\| \|\vec{N}\| \\
-        & = s^2 + n^2 - 2 s n \cos{\theta} \\
-    \end{aligned}
+Proof that :math:`\vec{T} = \vec{S} - \vec{N}`
 
-               l^2 = s^2 + m^2 - 2 s m \cos{180 - \theta}
-                   =  ...      +  ... \cos{\theta}
+.. math::
+
+    \begin{align}
+    \therefore
+    t^2 & = \|\vec{S} - \vec{N}\| ^2 \\
+        & = \| \vec{S} \|^2 + \| \vec{N} \|^2 -
+            2 \| \vec{S} \| \| \vec{N} \| \\
+        & = \| \vec{S} \| ^2 + \| \vec{N} \|^2 -
+            2 \| \vec{S} \| \| \vec{N} \| \cos{\theta} \\
+    l^2 & = s^2 + m^2 - 2 s m \cos{180 - \theta} \\
+        & = s^2 + m^2 + 2 s m \cos{\theta}
+    \end{align}
 
     \because A \cup B = R
 
