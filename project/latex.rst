@@ -25,3 +25,30 @@ e.g:
 .. math::
 
     \TeX and{} \LaTeX.
+
+Comments
+----------------------------------------------------------------------
+
+::
+    %
+
+e.g.:
+
+.. math::
+
+    Hello % comment
+    , World
+
+
+File Structure
+----------------------------------------------------------------------
+
+::
+
+    \documentclass{...}  % LaTeX2e doc required This
+    \usepackage{...}     % setup
+    \begin{document}
+
+    content
+
+    \end{document}
