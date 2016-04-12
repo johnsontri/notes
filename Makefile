@@ -200,3 +200,6 @@ serve:
 	cd $(BUILDDIR)/html && python -m http.server
 
 publish: clean html push
+
+livehtml:
+	sphinx-autobuild -b html -p 8018 -H 0.0.0.0 $(ALLSPHINXOPTS) $(BUILDDIR)/html
