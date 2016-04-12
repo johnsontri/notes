@@ -202,4 +202,5 @@ serve:
 publish: clean html push
 
 livehtml:
-	sphinx-autobuild -b html -p 8018 -H 0.0.0.0 $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	sphinx-autobuild -b html -p 8018 -H 0.0.0.0 -i '.git/*' \
+		$(ALLSPHINXOPTS) $(BUILDDIR)/html
