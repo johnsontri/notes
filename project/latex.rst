@@ -122,7 +122,14 @@ Preamble::
 ::
 
     \begin{tikzpicture}
-        % \draw (1,0) -- (0,0) -- (0,1) -- cycle;
         \draw (0, 0) to (2, 2) -- (4, 0) -- cycle;
         \draw (2, 2) -- (1, 0);
     \end{tikzpicture}
+
+Plot function::
+
+    \draw[green, ultra thick, domain=0:0.5] plot (\x, {0.025+\x+\x*\x});
+
+Plot label::
+
+    \node [above left] at (1, 1) {$x$};
