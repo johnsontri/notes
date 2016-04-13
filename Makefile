@@ -19,7 +19,7 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
-.PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest coverage gettext
+.PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest coverage gettext livehtml img
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -51,7 +51,7 @@ help:
 clean:
 	rm -rf $(BUILDDIR)/*
 
-html:
+html: img
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	touch $(BUILDDIR)/html/.nojekyll
 	@echo
@@ -204,3 +204,6 @@ publish: clean html push
 livehtml:
 	sphinx-autobuild -b html -p 8018 -H 0.0.0.0 -i '.git/*' \
 		$(ALLSPHINXOPTS) $(BUILDDIR)/html
+
+img:
+	(cd algo/clus/img/ && pdflatex -shell-escape hier_triangle.tex)

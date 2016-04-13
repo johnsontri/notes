@@ -202,7 +202,7 @@ Average Distance
 
 .. math::
 
-    \begin{aligned}
+    \begin{align}
         D_{average}(R, Q)
             & = \displaystyle\sum_{\substack{\vec{r} \in R \\
                                              \vec{q} \in Q}}
@@ -237,7 +237,7 @@ Average Distance
                 \Big) \\
             & = \frac{|A|}{|R|}
                 D_{average}(A, Q) + \frac{|B|}{|R|} D_{average}(B, Q)
-    \end{aligned}
+    \end{align}
 
 
 Centroid Distance
@@ -251,30 +251,36 @@ Fact 1: 1746, Steward proof that
 
     \frac{n}{m + n} l^2 + \frac{m}{m + n} t^2 = s^2 + mn
 
-.. math::
-
-    \draw (1,0) -- (0,0) -- (0,1) -- cycle
-
 
 Proof that :math:`\vec{T} = \vec{S} - \vec{N}`
+
+.. image:: img/hier_triangle.png
 
 .. math::
 
     \begin{align}
-    \therefore
-    t^2 & = \|\vec{S} - \vec{N}\| ^2 \\
-        & = \| \vec{S} \|^2 + \| \vec{N} \|^2 -
-            2 \| \vec{S} \| \| \vec{N} \| \\
-        & = \| \vec{S} \| ^2 + \| \vec{N} \|^2 -
-            2 \| \vec{S} \| \| \vec{N} \| \cos{\theta} \\
-    l^2 & = s^2 + m^2 - 2 s m \cos{180 - \theta} \\
-        & = s^2 + m^2 + 2 s m \cos{\theta}
+        \therefore
+        t^2 & = \|\vec{S} - \vec{N}\| ^2 \\
+            & = \| \vec{S} \|^2 + \| \vec{N} \|^2 -
+                2 \| \vec{S} \| \| \vec{N} \| \\
+            & = \| \vec{S} \| ^2 + \| \vec{N} \|^2 -
+                2 \| \vec{S} \| \| \vec{N} \| \cos{\theta} \\
+        l^2 & = s^2 + m^2 - 2 s m \cos{(\pi - \theta)} \\
+            & = s^2 + m^2 + 2 s m \cos{\theta}
     \end{align}
 
-    \because A \cup B = R
+.. math::
 
-    \therefore \bar{r} = (|A|/|R|) \bar{a} + (|B|/|R|) \bar{b}
-                   = \bar a + (|B|/|R|) (\bar b - \bar a)
+    \begin{align}
+        \because A \cup B & = R \\
+    \end{align}
+
+.. math::
+
+    \begin{align}
+        \therefore \bar{r} & = \frac{|A|}{|R|} \bar{a} + \frac{|B|}{|R|} \bar{b} \\
+            & = \bar a + \frac{|B|}{|R|}(\bar b - \bar a)
+    \end{align}
 
 \therefor (\bar r - \bar a) = (|B|/|R|)(\bar b - \bar a)
    \bar r 在 a b 連線上
@@ -374,10 +380,10 @@ step3
 
 .. math::
 
-    \begin{aligned}
+    \begin{align}
     Dimt(\{a, b\}) & = max(\{2\}) & = 2 \\
     Dimt(\{c, d, e\}) & = max(\{4, 5, 3\}) & = 5  & -> \text{split } \{c, d, e\}
-    \end{aligned}
+    \end{align}
 
 
 若 群數未指定
