@@ -202,42 +202,40 @@ Average Distance
 
 .. math::
 
-    \begin{align}
-        D_{average}(R, Q)
-            & = \displaystyle\sum_{\substack{\vec{r} \in R \\
-                                             \vec{q} \in Q}}
-                \frac{\| \overline{r} - \overline{q} \|}{|R| \times |Q|},
-                \text{ where } \overline{r}, \overline{q} \text{ is centroid}
-                & \text{By def}
-                \\
-            & = \frac{1}{|R| \times |Q|}
-                (
+    D_{average}(R, Q)
+        & = \displaystyle\sum_{\substack{\vec{r} \in R \\
+                                            \vec{q} \in Q}}
+            \frac{\| \overline{r} - \overline{q} \|}{|R| \times |Q|},
+            \text{ where } \overline{r}, \overline{q} \text{ is centroid}
+            & \text{By def}
+            \\
+        & = \frac{1}{|R| \times |Q|}
+            (
+            \sum_{\substack{\vec{a} \in A \\
+                            \vec{q} \in Q}}
+                \|\vec{a} - \vec{q}\|
+            +
+            \sum_{\substack{\vec{b} \in B \\
+                            \vec{q} \in Q}}
+                \|\vec{b} - \vec{q}\|
+            ) \\
+        & = \frac{|A|}{|R|}
+            \Big(
+                \frac{1}{|Q| \times |A|}
                 \sum_{\substack{\vec{a} \in A \\
                                 \vec{q} \in Q}}
-                    \|\vec{a} - \vec{q}\|
-                +
+                \|\vec{a} - \vec{q}\|
+            \Big)
+            +
+            \frac{|B|}{|R|}
+            \Big(
+                \frac{1}{|Q| \times |B|}
                 \sum_{\substack{\vec{b} \in B \\
                                 \vec{q} \in Q}}
-                    \|\vec{b} - \vec{q}\|
-                ) \\
-            & = \frac{|A|}{|R|}
-                \Big(
-                    \frac{1}{|Q| \times |A|}
-                    \sum_{\substack{\vec{a} \in A \\
-                                    \vec{q} \in Q}}
-                    \|\vec{a} - \vec{q}\|
-                \Big)
-                +
-                \frac{|B|}{|R|}
-                \Big(
-                    \frac{1}{|Q| \times |B|}
-                    \sum_{\substack{\vec{b} \in B \\
-                                    \vec{q} \in Q}}
-                    \|\vec{b} - \vec{q}\|
-                \Big) \\
-            & = \frac{|A|}{|R|}
-                D_{average}(A, Q) + \frac{|B|}{|R|} D_{average}(B, Q)
-    \end{align}
+                \|\vec{b} - \vec{q}\|
+            \Big) \\
+        & = \frac{|A|}{|R|}
+            D_{average}(A, Q) + \frac{|B|}{|R|} D_{average}(B, Q)
 
 
 Centroid Distance
@@ -258,38 +256,32 @@ Proof that :math:`\vec{T} = \vec{S} - \vec{N}`
 
 .. math::
 
-    \begin{align}
-        \therefore
-        t^2 & = \|\vec{S} - \vec{N}\| ^2 \\
-            & = \| \vec{S} \|^2 + \| \vec{N} \|^2 -
-                2 \| \vec{S} \| \| \vec{N} \| \\
-            & = \| \vec{S} \| ^2 + \| \vec{N} \|^2 -
-                2 \| \vec{S} \| \| \vec{N} \| \cos{\theta} \\
-        l^2 & = s^2 + m^2 - 2 s m \cos{(\pi - \theta)} \\
-            & = s^2 + m^2 + 2 s m \cos{\theta}
-    \end{align}
-
-.. math::
-
-    \begin{align}
-        \because A \cup B & = R \\
-    \end{align}
-
-.. math::
-
-    \begin{align}
-        \therefore \bar{r} & = \frac{|A|}{|R|} \bar{a} + \frac{|B|}{|R|} \bar{b} \\
-            & = \bar a + \frac{|B|}{|R|}(\bar b - \bar a)
-    \end{align}
-
-\therefor (\bar r - \bar a) = (|B|/|R|)(\bar b - \bar a)
-   \bar r 在 a b 連線上
-
-   m = | \bar r - \bar a | = (|B|/|R|) ( m + n )
-   m / (m+n) = |B| / |R|
-   n / (m+n) = (1- m/ m+n) = |A| / |R|
-
-   S^2 = n/(m+n) n^2 +  ... - mn
+    \therefore
+    t^2 & = \|\vec{S} - \vec{N}\| ^2 \\
+        & = \| \vec{S} \|^2 + \| \vec{N} \|^2 -
+            2 \| \vec{S} \| \| \vec{N} \| \\
+        & = \| \vec{S} \| ^2 + \| \vec{N} \|^2 -
+            2 \| \vec{S} \| \| \vec{N} \| \cos{\theta}
+    \newline
+    l^2 & = s^2 + m^2 - 2 s m \cos{(\pi - \theta)} \\
+        & = s^2 + m^2 + 2 s m \cos{\theta}
+    \newline
+    \text{Also, } \because A \cup B & = R
+    \newline
+    \therefore
+    \bar{r} & = \frac{|A|}{|R|} \bar{a} + \frac{|B|}{|R|} \bar{b} \\
+            & = \bar a + \frac{|B|}{|R|} (\bar b - \bar a)
+    \newline
+    \therefore (\bar r - \bar a) & = \frac{|B|}{|R|} (\bar b - \bar a)
+        & (\bar{r} \in \overline{a b})
+    \newline
+            m       & = | \bar r - \bar a | \\
+                    & = \frac{|B|}{|R|} (m + n) \\
+    \frac{m}{m + n} & = \frac{|B|}{|R|} \\
+    \frac{n}{m + n} & = \frac{1- m}{m + n} \\
+                    & = \frac{|A|}{|R|}
+    \newline
+    \|S\|^2 & = \frac{n}{m + n} n^2 + \frac{m}{m + n} m ^ 2 - mn
 
 
 Update Formula of Divisive
@@ -297,9 +289,10 @@ Update Formula of Divisive
 
 一分為二的可能太多了
 
-n 點 分 2 clusters => (2 ^ n  - 2 ) / 2 種可能
+n 點 分 2 clusters =>
+:math:`\frac{2^n  - 2}{2}` 種可能
 
-遠大於 m  (Agglomerative) 的 merge
+遠大於 Agglomerative 的 merge
 
 proof::
 
