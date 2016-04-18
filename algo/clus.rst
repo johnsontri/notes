@@ -11,4 +11,4 @@ Clustering
     clus/fuzzy
     clus/mono
     clus/analy
-    clus/annealing
+    clus/vq
