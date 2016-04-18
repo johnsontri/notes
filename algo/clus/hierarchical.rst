@@ -269,7 +269,8 @@ Proof that :math:`\vec{T} = \vec{S} - \vec{N}`
     \text{Also, } \because A \cup B & = R
     \newline
     \therefore
-    \bar{r} & = \frac{|A|}{|R|} \bar{a} + \frac{|B|}{|R|} \bar{b} \\
+    \bar{r} & = \frac{|A|}{|R|} \bar{a} + \frac{|B|}{|R|} \bar{b}
+            & \text{consider weighted average} \\
             & = \bar a + \frac{|B|}{|R|} (\bar b - \bar a)
     \newline
     \therefore (\bar r - \bar a) & = \frac{|B|}{|R|} (\bar b - \bar a)
