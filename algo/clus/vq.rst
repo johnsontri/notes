@@ -57,3 +57,19 @@ e.g.: Assume we use our own codebook
 
 - Data --(classification) --> near to which cluster
 
+
+Side-Matched VQ (SMVQ)
+----------------------------------------------------------------------
+
+Goal
+    To provide better visual image quality than VQ.
+
+- Porposed by Kim in 1992
+
+Seed Block
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+最左邊以及最上邊的 :math:`\frac{512}{4} = 128` 個 :math:`4 \times 4` block
+，共 128 + 128 - 1 = 255 個 blocks 為 seed blocks
+
+seed block 用傳統的 VQ ，且立刻解壓縮（用 codeword 蓋掉 seed blocks）
