@@ -125,3 +125,9 @@ step 2.
        3 3    4 4
 
 再用 original photo 挑出相對好的候選 codeword，且立刻解壓縮
+
+
+Disscusion
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- "classical blocks" more => the quality of image raise
