@@ -73,3 +73,55 @@ Seed Block
 ，共 128 + 128 - 1 = 255 個 blocks 為 seed blocks
 
 seed block 用傳統的 VQ ，且立刻解壓縮（用 codeword 蓋掉 seed blocks）
+
+
+Example
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+假設照片 (512 x 512) 切成 2-by-2 之區塊
+codebook 有 256 個 codewords (8bit for index)
+
+codewords:
+    0.
+           0 0
+           0 0
+    #.
+           1 1
+           1 1
+    ...
+    255.
+           255 255
+           255 255
+
+Compression algorithm:
+
+step 1.
+    可平行；
+    最上以及最左邊為 seed blocks, 用傳統的 VQ 做壓縮，得到 index file
+    ，且立刻解壓縮 (in-place)
+
+step 2.
+    部分可平行；剩餘的 250 x 250 blocks 一定要由左至右由上而下依序做。
+
+    上方以及左方至親友團推薦
+
+::
+
+    -
+            4 4
+            4 4
+        + - -
+    3 3 | x y
+    3 3 | z w
+
+
+.. math::
+
+    find
+    \| x - 4 \| + \| y - 4 \| + \| x - 3\| + \| z -3 \| (親友誤差)
+    最小之候選 codewords
+
+    得 3 3 與 4 4
+       3 3    4 4
+
+再用 original photo 挑出相對好的候選 codeword，且立刻解壓縮
