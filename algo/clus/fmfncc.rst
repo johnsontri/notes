@@ -112,3 +112,105 @@ IEEE-T-Com
 
 
 則 \vec{y_i} 不可能小於 \vec{y^{cur}_{min}}
+
+
+Fast Kick-out by an Inequality
+----------------------------------------------------------------------
+
+IEEE-T-C.S.V.T 2000
+K.S. Wu
+
+.. math::
+
+    \| \vec{x} - \vet{y_i} \| ^2 = (x - y_i) \dot (x - y_i)
+        = \|x\|^2 + \|y_i\|^2 - 2 x \dot y_i
+
+    let \telda d ^2 (x, y_i) = \| x - y_i \| - \| x \| ^2
+
+在此新的定義之下，不影響結果
+
+Now
+
+.. math::
+
+    d^2(x, y_i) = \| x - y_i \|^2 - \|x \|^2
+        = (x - y_i)(x - y_i) - \|x\|^2
+        = \|y_i\|^2 - 2 x \dot y_i
+        >= \|y_i\|^2 - 2 \|x\| \|y\|
+        = \|y_i\|(\|y_i\| - 2\|x\|)
+
+    \therefore if \|y_i\|(\|y_i\| - 2 \|x\|) >= \telda d^{2 (current)}_{min}
+
+    則 \telda d^2(x, y_i) >= \|y_i\|(\|y_i\| - 2 \|x\|)
+       >= \telda d^{2 (current)}_{min}
+       (define as \|x - y_i^{current}_{min}\|^2 - \|x\|^2)
+
+    \therefore y_i 不會筆 y^{current}_{min} 跟近 x
+
+Implementation
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+先 sort \vec{y_1} ... \vec{y_128}
+
+使 \|y_1\| <= \| y_2 \| <= ... <= \|y_128\|
+
+Goal
+    找 最靠近 x 的 y_i
+
+Step 1
+    算 2 \|x\|, 猜一個 y_{init} 當作 y^{current}_{min}
+
+    let \telda d^2_{min} = \telda d^2(x, y_init)
+
+    let remaining set R = {拿掉 y_init 的 centroid}
+
+Step 2
+    a. if R is empty set, the y^{current}_{min} is the answer;
+       從 R 挑個 y_i
+    b. 若 \|y_i\| (\|y_i\| - 2 \|x\|) >= \telda d^2_min,
+       則
+       case i.
+            若 \|y_i\| >= \|x\| 則扔掉所有的  \{y_l | l>=i\}, goto step 2a
+       case ii.
+                       <=                              <=   , goto step 2a
+    c. \telda d (x, y_i) 從 R 扔掉 y_i,
+       若 \telda d^2 (x, y_i) >= \telda d^2_min, goto 2a
+    d.
+        Let d^2_min = \telda d^2(x, y_i)
+        Let y^{current}_{min} = y_i
+        goto step 2a
+
+
+Step 2b case i and ii 是
+
+.. math::
+
+
+    \because \|y_l\|(\|y_l\| - 2\|x\|)
+    >= \|y_i\|(\|y_i\| - 2 \|x\|)
+    >= \deta d ^2_{min}
+
+    \because f(t) = t(t - 2\|x\|)
+                  = t^2 - 2\|x\| t
+    是拋物線，且在 t = \|x\| 時最小
+
+
+Conclusion
+----------------------------------------------------------------------
+
+| 方法 | 三角不等式  | 乙法 1994    | 投影法 1995            | Inequality  |
++------+-------------+--------------+------------------------+-------------+
+| 儲存 | C^128_2     | 至少 3 x 128 | 128 + 128(\sqrt(16))   | 128         |
+|      |             |              | 128(\sqrt{16})         |             |
+
+* 512x512 切成 4-by-4 做 VQ 壓縮之時間
+
++---------------+-------------+---------+-----------+------------+
+| Codebook Size | Full Search | 三角    | 乙        | Inequality |
++---------------+-------------+---------+-----------+------------+
+| 128           | 30 s        | 4.5     | 5.3       | 1.89       |
++---------------+-------------+---------+-----------+------------+
+| 256           | 73          | 8       | 14.37     | 4.15       |
++---------------+-------------+---------+-----------+------------+
+| 512           | 146         | 13.7    | 27.24     | 7.23       |
++---------------+-------------+---------+-----------+------------+
