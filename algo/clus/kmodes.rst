@@ -74,3 +74,5 @@ for B
 diff measurement for (x_7, z_A) = (1 - (3 次) / 3) + (1- 3/3) + 1 = 1 維不同
 
 (x_7, z_A) = (1- 2/3) + (1 - 2/3) + 1 = 1.6666 維不同
+
+\therefore x_7 分到 A
