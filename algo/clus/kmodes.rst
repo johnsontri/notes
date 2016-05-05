@@ -151,3 +151,17 @@ Step 3: Selection
     i.e (Total Distortion 最小化)
 
     Then, output best FM_i
+
+
+Experiment
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+| Accurarcy | Better initail method | Random initial |
+| 98%       | 14 次                 |  5 次          |
+| 94%       |                       |  2             |
+| 89%       |                       |  2             |
+| 77%       |                       |  3             |
+| 70%       | 5                     |  0             |
+
+| 68%       | 0  可能 sampling 不好 |  5             |
+| 66%       | 1                     |  3             |
