@@ -89,6 +89,7 @@ Trading
     :maxdepth: 1
 
     trading/txf/index
+    trading/mkt-in-profile
 
 
 Web
