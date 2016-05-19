@@ -12,3 +12,7 @@ Clustering
     clus/mono
     clus/analy
     clus/vq
+    clus/kmodes
+    clus/fmfncc
+    clus/noise_hierar
+    clus/clus_aggregation
