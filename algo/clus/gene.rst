@@ -263,5 +263,3 @@ e.g. Iris data
 .. note::
 
     DB-index 亦可換成其他指標
-
-
