@@ -25,14 +25,14 @@ Link it with ``mdconfig(8)``
 
 ::
 
-    $ sudo mdconfig -a -f bsdcloudinit.raw 
+    $ sudo mdconfig -a -f bsdcloudinit.raw
     md0
 
 Install OS via ``bsdinstall``
 ------------------------------
 
 ``bsdinstall`` provide scripting to automate the whole procedure.
-    
+
 1. Prepare environment variables
 
     #. We only want *kernel* and *base*::
@@ -42,7 +42,7 @@ Install OS via ``bsdinstall``
     #. Where ``bsdinstall`` can fetch distribution files::
 
         $ export BSDINSTALL_DISTSITE="ftp://ftp.tw.freebsd.org/pub/FreeBSD/releases/amd64/`uname -r`/"
-    
+
     #. After fetching, where to store distribution files.
        And we can reuse it, ``bsdinstall`` do fetching only when checksum failed or do not exist::
 
@@ -75,7 +75,7 @@ Install OS via ``bsdinstall``
     $ sudo -E bsdinstall scriptedpart $PARTITIONS
 
 4. Install OS::
-    
+
     $ cat post_install.sh
     #!/bin/sh
 
@@ -103,3 +103,8 @@ Push image to OpenStack
 -----------------------
 
 
+
+Related Resource
+----------------------------------------------------------------------
+
+- man pc-sysinstall
