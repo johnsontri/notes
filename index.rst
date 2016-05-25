@@ -78,6 +78,7 @@ Language
     lang/c/index
     lang/erlang/index
     lang/python/index
+    lang/r/index
     lang/lua/index
     lang/julia/index
 
