@@ -77,3 +77,23 @@ Let Z is original data, 然後 包住 Z 產生一個長方體
 若沿 Principal Axis of Data Z, 產生長方體,則效果好
 
 
+答案是最小之 k in {2, 3, ... k_max}
+滿足
+ ~
+ \sigma^{人造}_{k + 1} >= Gap(k + 1) - Gap(k)
+
+Algo
+    \forall k = 2, \dots, k_max
+    #. Z 分 k 群, 算 log(W_k)
+
+    #. 10 組人造點，各分 k clusters
+       各算 log(W^{人造}_k),
+       然後算 10 個 log 之 average 得 \bar{log(W^{人造}_k)}
+
+    #. Gap(k) = \bar{log(W^{人造}_k)} - log(W_k)
+
+    #. \sigma^{人造}_k 是這 10 組 log^{人造} 的 standard diviation
+
+而
+ ~
+ \sigma^{人造}_{k} = sqrt( 1 + \frac{1}{10 組} ) \times \sigma^{人造}_k
