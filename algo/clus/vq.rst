@@ -2,13 +2,22 @@ Vector Quantization
 ===============================================================================
 
 If we want to transfer 10000 vector data
-:math:`\{\vec{x_1}, \vec{x_2}, \dots, \vec{x_{10000}}\}`
-:math:`\forall \vec{x}` is high-dimension(e.g. 16-dim).
+
+.. math::
+
+    \{\vec{x_1}, \vec{x_2}, \dots, \vec{x_{10000}}\}
+
+.. math::
+
+    \forall \vec{x} \text{ is high-dimension (e.g. 16-dim).}
+
 
 Problem
 ----------------------------------------------------------------------
 
-How to speed up the data transfer? If we can accept error.
+How to speed up the data transfer?
+If we can accept error;
+we can accept losely transfer.
 
 
 Solution
@@ -20,26 +29,27 @@ First, we can cluster vectors into 8 clusters.
 Then we get 8 centroid.
 
 Thus, we only need to transfer
-:math:`\{ \vec{centroid_0}, \dots,\vec{centroid_7} \}`
+:math:`\{ \vec{centroid_0}, \dots, \vec{centroid_7} \}`
 and 10,000 numbers which represent the cluster belongs to.
 
-And, :math:`\forall` 10000 numbers, it only 3 bits to transfer (000 - 111).
+And, :math:`\forall` 10,000 numbers, it only 3 bits to transfer (000 - 111).
+
 
 Results
-    This method will get high transfer speed, but the error is quite larger.
+----------------------------------------------------------------------
+This method will get high transfer speed, but the error is quite larger.
 
 .. note::
-    The 8 clusters so-called *codebook*.
+    This 8 cluster centroids are so-called *codebook*.
     Each centroid is a *codeword* (*codevector*).
-
 
 
 Codebook Generation
 ----------------------------------------------------------------------
 
+The commonly used Linde-Buzo-Gray (LBG) algorithm to create codebook.
 
-The commonly used Linde-Buzo-Gray (LBG) algorithm to create codebook
-*is in face k-means*.
+*In fact, it is k-means*.
 
 
 Conclusion
@@ -48,29 +58,31 @@ Conclusion
 - If centroid come from known public data, then your vector data called
   *Outside Data*.(Data may irrelavent to centroid)
 
-- If codebook is generated from data, we call them *inside data*.
-  Then, the error will lower, but the transfer cost raise.
+- If codebook is generated from data, we call them *Inside Data*.
+  Then, the error will be lower, but the transfer cost raises.
 
 
 e.g.: Assume we use our own codebook
-- Data --(clustering) --> 8 clusters
 
-- Data --(classification) --> near to which cluster
+- Data --> *clustering* --> 8 clusters
+
+- Data --> *classification* --> more near to which cluster
 
 
 Side-Matched VQ (SMVQ)
 ----------------------------------------------------------------------
 
 Goal
-    To provide better visual image quality than VQ.
+    To provide better visual image quality than original VQ.
 
 - Porposed by Kim in 1992
+
 
 Seed Block
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-最左邊以及最上邊的 :math:`\frac{512}{4} = 128` 個 :math:`4 \times 4` block
-，共 128 + 128 - 1 = 255 個 blocks 為 seed blocks
+最左邊以及最上邊的 :math:`\frac{512}{4} = 128` 個 :math:`4 \times 4` 的
+blocks ，共 128 + 128 - 1 = 255 個 blocks 為 seed blocks
 
 seed block 用傳統的 VQ ，且立刻解壓縮（用 codeword 蓋掉 seed blocks）
 
@@ -88,7 +100,11 @@ codewords:
     #.
            1 1
            1 1
-    ...
+
+           .. math::
+
+               \dots
+
     255.
            255 255
            255 255
@@ -108,8 +124,8 @@ step 2.
 ::
 
     -
-            4 4
-            4 4
+          4 4
+          4 4
         + - -
     3 3 | x y
     3 3 | z w
@@ -117,9 +133,14 @@ step 2.
 
 .. math::
 
-    find
-    \| x - 4 \| + \| y - 4 \| + \| x - 3\| + \| z -3 \| (親友誤差)
-    最小之候選 codewords
+    \text{find}
+
+.. math::
+
+    | x - 4 | + | y - 4 | + | x - 3| + | z -3 |
+    \text{(親友誤差)}
+
+    \text{最小之候選 codewords}
 
     得 3 3 與 4 4
        3 3    4 4
