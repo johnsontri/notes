@@ -39,7 +39,7 @@ Agglomerative
 
 At first, each point form a cluster.
 
-:math:`\therefore` *n* point => *n* clusters.
+:math:`\therefore` *n* point :math:`\geq` *n* clusters.
 
 Then, we will merge the most similar two clusters via following step.
 
@@ -59,6 +59,8 @@ Definition 1: Centroid
 
     D(A, B) = \| \overline{a} - \overline{b} \|
 
+.. math::
+
     \text{where }
     \overline{a} = \frac{\sum_{\vec{x} \in A} \vec{x}}{ | a | }
 
@@ -71,6 +73,8 @@ Definition 2: Min Distance
 .. math::
 
     D_{min}(A, B) = min(\| \vec{a} - \vec{b} \|)
+
+.. math::
 
     \text{where }
     \vec{a} \in A,
@@ -127,7 +131,8 @@ We can consider this formula as:
 
 .. math::
 
-    \text{a coefficient related to size of clusters} \times \text{centroid distance}
+    \text{(a coefficient related to size of clusters)} \times
+    \text{(centroid distance)}
 
 
 Distance Matrix
@@ -148,7 +153,7 @@ Assume there is a n-by-n matrix :math:`A_{n \times n}`.
     \end{matrix}
 
 
-It's symmetric matrix.
+It's a symmetric matrix.
 
 :math:`\because d_{12} = d_{21} = | \vec{x_2} - \vec{x_1} |`
 
@@ -290,7 +295,7 @@ Update Formula of Divisive
 
 一分為二的可能太多了
 
-n 點 分 2 clusters =>
+n 點 分 2 clusters 有
 :math:`\frac{2^n  - 2}{2}` 種可能
 
 遠大於 Agglomerative 的 merge
@@ -300,13 +305,14 @@ proof::
     x1 x2 x3 ... xn
     A  B  B ...  A
 
-binary string
+Consider we encode vector as a binary string.
 
-2 ^ n  - 2 (不能全為 A or B)
+且 :math:`2^n  - 2` (不能全為 A or B)
 
 又 binary complement 視為 相同
 e.g. AABAA v.s. BBABB 都是兩群
-\therefore / 2
+
+:math:`\therefore \frac{2^n - 2}{2}`
 
 
 Divisive by Splinter Party
@@ -348,25 +354,41 @@ Init, cal Distance Matrix
 
     \{a\} \text{ vs } \{b, c, d, e \}
 
-step2, old cluster 問 「我恨舊黨 還是 新黨」
+step 2, old cluster 問 「我恨舊黨 還是 新黨」
 
-   distance to old     distance to new  :math:`\delta`
-b  (5, 9, 8) = 7.33    2                5.33
-c                      6
-d                      10
-e                      9
-
-In :math:`\delta > 0` , 中 最大者脫黨，b 脫黨
++---+--------------------+-----------------+----------------+
+|   | distance to old    | distance to new | :math:`\delta` |
++===+====================+=================+================+
+| b | (5, 9, 8) = 7.33   | 2               |  5.33          |
++---+--------------------+-----------------+----------------+
+| c |                    | 6               |                |
++---+--------------------+-----------------+----------------+
+| d |                    | 10              |                |
++---+--------------------+-----------------+----------------+
+| e |                    | 9               |                |
++---+--------------------+-----------------+----------------+
 
 .. math::
 
+    \forall \delta > 0, \delta_{max} = b
+
+    \therefore b \text{ leave}
+
+.. math::
+
+    \therefore
+
     \{a, b\} \text{ vs } \{c, d, e\}
 
-step3
-    :math:`\{c, e, d\}` 跑 step2
+step 3
+    :math:`\{c, e, d\}` goto step2
 
-:math:`\forall \delta < 0`, 不再有人脫黨
-{a, b}, {c, d, e}
+.. math::
+
+    \forall \delta < 0 \text{, then stop.}
+
+    \text{reslut: }
+    \{a, b\} \text{ vs } \{c, d, e\}
 
 
 若要再分裂，應分裂何者？
