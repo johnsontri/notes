@@ -80,6 +80,7 @@ Language
     lang/python/index
     lang/r/index
     lang/lua/index
+    lang/js/index
     lang/julia/index
 
 

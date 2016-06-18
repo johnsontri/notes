@@ -6,24 +6,24 @@ Basic
 ----------------------------------------------------------------------
 
 .. toctree::
-    :maxdepth: 2
+   :maxdepth: 2
 
-    builtin
+   builtin
 
 
 Web
 ----------------------------------------------------------------------
 
 .. toctree::
-    :maxdepth: 2
+   :maxdepth: 2
 
-    web/django
+   web/django
 
 
 Project
 ----------------------------------------------------------------------
 
 .. toctree::
-    :maxdepth: 2
+   :maxdepth: 2
 
-    proj/*
+   proj/*
