@@ -37,6 +37,7 @@ FreeBSD
     :glob:
 
     freebsd/bsdcloudinit/index
+    freebsd/jails
 
 
 Commands
