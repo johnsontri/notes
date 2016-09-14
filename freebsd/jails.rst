@@ -81,7 +81,7 @@ Post-install
 ----------------------------------------------------------------------
 
 
-`` /home/jail/myjail/etc/make.conf``
+``/home/jail/myjail/etc/make.conf``
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ``/usr/ports`` is readonly in the jail.
