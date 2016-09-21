@@ -11,3 +11,5 @@ Vue Instance
 
 - properties created by vue will be prefixed with ``$``.
   e.g.: ``vm.$el``, ``vm.$watch``
+
+- Instance hook: ``created``, ``compiled``, ``ready``, ``destroyed`` ... etc.
