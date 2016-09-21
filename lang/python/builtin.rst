@@ -45,3 +45,40 @@ Handy ``args``
     >>> e = Exception('reason', 'detail')
     >>> e.args
     ('reason', 'detail')
+
+
+``property`` decorator
+----------------------------------------------------------------------
+
+How dose it work? It return a *Descriptor Object*.
+
+
+:Data Descriptor: An object defines both ``__get__()`` and ``__set__()``
+
+:Non-data Descriptor: An object only defines ``__get__()``
+
+
+Make read-only data descriptor: make ``__set__`` raise ``AttributeError``.
+
+
+Attribute Lookup
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+``a.x``
+
+Order:
+
+#. Data descriptor
+
+#. ``a.__dict__['x']``
+
+#. ``type(a).__dict__['x']``
+
+#. Non-data descriptor
+
+
+Ref:
+
+- http://stackoverflow.com/questions/17330160/how-does-the-property-decorator-work
+
+- https://docs.python.org/3.6/howto/descriptor.html
