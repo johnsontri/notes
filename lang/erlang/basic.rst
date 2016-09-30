@@ -156,20 +156,22 @@ String is a list (no built-in string type)::
 
 
 Operators
----------
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 ``++``
     right-associative, eval from right to left.
 ``--``
     right-associative.
 
+They are *right-associative*.
+
 ::
 
- > [1,2,3] -- [1,2] -- [3].
- [3]
-
- > [1,2,3] -- [1,2] -- [2].
- [2,3]
+    9> [1,2,3] -- [1,2] -- [3].
+    [3]
+    10> [1,2,3] -- [1,2] -- [2].
+    [2,3]
 
 
 Functions
@@ -270,15 +272,15 @@ Size
 
 TypeSpecifierList
 ^^^^^^^^^^^^^^^^^
-    :Type: 
+    :Type:
         ``integer | float | binary | bytes | bitstring | bits | utf8 | utf16 | utf32``.
-        
+
         *Note*
             * bits =:= bitstring
             * bytes =:= binary
     :Sign: ``signed | unsigned``
     :Endian: ``big | little | native``
-    :Unit: 
+    :Unit:
         ``unit:Integer``
 
         e.g.: ``unit:8``
@@ -309,7 +311,7 @@ Pattern matching
 
 Bit string
 ^^^^^^^^^^
-    efficient but hard to manipulate    
+    efficient but hard to manipulate
 
     ::
 
@@ -332,7 +334,7 @@ Binary Comprehension
 
 ::
 
-    > [ X || <<X>> <= <<"abcdefg">>, X rem 2 =:= 0 ].    
+    > [ X || <<X>> <= <<"abcdefg">>, X rem 2 =:= 0 ].
     "bdf"
 
     > Pixels = <<213,45,132,64,76,32,76,0,0,234,32,15>>.
