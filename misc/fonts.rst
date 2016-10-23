@@ -1,29 +1,18 @@
-Python
+Fonts
 ===============================================================================
 
-
-Basic
+Installation
 ----------------------------------------------------------------------
 
-.. toctree::
-   :maxdepth: 2
+#. Copy to ``~/.local/share/fonts`` (``~/.fonts`` is deprecated)
 
-   builtin
+#. ``fc-cache -fv``
 
 
-Web
+CNS11643
 ----------------------------------------------------------------------
 
-.. toctree::
-   :maxdepth: 2
+http://data.gov.tw/node/5961
 
-   web/django
+* License: http://data.gov.tw/license
 
-
-Project
-----------------------------------------------------------------------
-
-.. toctree::
-   :maxdepth: 2
-
-   proj/*

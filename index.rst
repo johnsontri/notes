@@ -37,6 +37,7 @@ FreeBSD
     :glob:
 
     freebsd/bsdcloudinit/index
+    freebsd/jails
 
 
 Commands
@@ -80,6 +81,7 @@ Language
     lang/python/index
     lang/r/index
     lang/lua/index
+    lang/js/index
     lang/julia/index
 
 
@@ -111,6 +113,16 @@ Web
     :glob:
 
     web/*
+
+
+Misc
+----------------------------------------------------------------------
+
+.. toctree::
+    :maxdepth: 1
+    :glob:
+
+    misc/*
 
 
 Indices and tables
