@@ -161,6 +161,11 @@ Operators
 
 ``++``
     right-associative, eval from right to left.
+
+    This operator (or ``append`` function) will build a *NEW* copy of list,
+    it will cost more and more memory in recursive function.
+
+    ref: http://erlang.org/doc/efficiency_guide/listHandling.html
 ``--``
     right-associative.
 
