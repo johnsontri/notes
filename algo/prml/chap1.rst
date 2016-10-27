@@ -36,3 +36,25 @@ the error function.
 
 - 上述做法統計學上叫做 *shrinkage*
 - Neuro network 裡叫做 *weight decay*
+
+
+Probability Theory
+----------------------------------------------------------------------
+
+- random variable is a *function*, e.g `X`, output can be `foo` or `bar`.
+
+.. math::
+
+    P(X=foo) -> 0.4;
+    P(X=bar) -> 0.6.
+
+    P(foo) + P(bar) = 1.
+
+
+
+Joint Probability
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:X: a random var, possibile outcome is :math:`\{ a, b, c \}`
+
+:Y: a random var, :math:`\{\}`
