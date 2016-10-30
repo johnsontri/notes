@@ -135,7 +135,9 @@ Bayes' Theorem
 Example
 **************************************************
 
-給定 :math:`x_i` 是實驗中的已知。我們關心 :math:`Y` 的結果。
+有個實驗有兩個參數 :math:`X \& Y` （或想象成兩個步驟）。
+假設給定 :math:`x_i` 是實驗中的已知（想象成 :math:`X` 會比較早拿到）。
+我們關心 :math:`Y` 的結果。
 
 :prior probability: 事前機率。
     在還沒實驗之前，我們還沒有拿到任何已知( :math:`x_i` )時，
@@ -144,6 +146,13 @@ Example
 .. math::
 
     p(Y)
+
+:posterior probability: 事後機率。
+    在實驗中我們觀察到了 :math:`x_i`
+
+.. math::
+
+    p(Y|x_i)
 
 
 Likelihood
@@ -154,3 +163,73 @@ Likelihood
     Likelihood = p(x_i|y_j)
 
 The :math:`x_i` is the given outcome.
+
+
+Probability Density
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+如果我們的 outcome 從原本離散的事件變成 連續的實數。
+則 :math:`p(x \in (a, b))` 之間 是面積。
+
+.. math::
+
+    p(x \in (a, b)) = \int_a^b p(x) dx
+
+
+Cummulative Distribution Function
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. math::
+
+    P(z) = \int_{-\infty}^z p(x) dx
+
+
+Condictional Expectation
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. math::
+
+    E[f|y] = \sum_x p(x|y)f(x)
+
+
+Variance
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+.. math::
+
+    var[x] = E[x^2] - E[x]^2
+
+
+Covariance
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. math::
+
+    cov[x, y] = E_{x, y}[xy] - E[x]E[y]
+
+Matrix version:
+
+.. math::
+
+    cov[X, Y] = E_{X, Y}[XY^T] - E[X]E[Y^T]
+
+
+Bayesian Probability
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:Curve fitting problem:
+    我們有多項式參數 :math:`\vec{w}` 跟一些已知的 data point
+    :math:`D = \{t_1, t_2, \dots, t_n \}` 。
+    在這個 curve fitting 的問題中，我們關心的是 :math:`\vec{w}`
+
+:posterior probability:
+    在我們觀察到 :math:`D` 之後得。
+
+.. math::
+
+    p(\vec{w}|D) = \frac{p(D|\vec{w})p(w)}{p(D)}
+
+其中，上述 right-hand side 的 :math:`p(D|\vec{w})` 被稱為
+`likelihood function` ，這個 function 的 parameter 為 :math:`\vec{w}` 。
+其表達了 :math:`D` 對於不同 :math:`\vec{w}` 的陪適度（原文用： probable）。
