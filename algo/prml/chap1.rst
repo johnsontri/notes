@@ -162,7 +162,17 @@ Likelihood
 
     Likelihood = p(x_i|y_j)
 
-The :math:`x_i` is the given outcome.
+:math:`x_i` 為已知的。
+這個 Likelihood function 的值越大，我們會認為「在 :math:`y_j` 的條件下，
+觀察到 :math:`x_i` 是很合理的」
+
+e.g.
+
+.. math::
+
+    Likelihood = p(我沒中樂透|樂透中獎率=10^{-8}) -> 極大
+
+所以 「我沒中樂透」 這個觀測結果很合理。
 
 
 Probability Density
@@ -232,4 +242,36 @@ Bayesian Probability
 
 其中，上述 right-hand side 的 :math:`p(D|\vec{w})` 被稱為
 `likelihood function` ，這個 function 的 parameter 為 :math:`\vec{w}` 。
-其表達了 :math:`D` 對於不同 :math:`\vec{w}` 的陪適度（原文用： probable）。
+其表達了 :math:`D` 對於不同 :math:`\vec{w}` 的合理程度（原文用： probable）。
+
+我們可以得到
+
+.. math::
+
+    \text{posterior} \propto \text{likelihood} \times \text{prior}
+
+:maximum likelihood:
+    最大化 likelihood function 的函數值
+
+:error function:
+    通常是將 likelihood function 的函數值取負號作為 error function。
+    而為了計算上方便，會先取 log 在負號。
+
+    為何取 log ? 在計算 :math:`p(D|\vec{w})` 時，其中 D 是多次的實驗結果
+    :math:`\{t_1, \dots. t_n\}` 。
+
+    .. math::
+
+        p(D|\vec{w}) = \frac{p(D=t_1) p(D=t_2) \dots p(D=t_n)}{p(\vec{w})}
+
+    取 log 會使得分子的連乘改為連加，且意義不變。
+
+
+Data Sets Bootstrap
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:Original data set: :math:`X = \{ x_1, \dots, \x_N \}`
+
+:New data set: :math:`X_B` 透過 random sampling with replacement。
+    e.g.: 箱子中 10 顆骰子，抽出 original data set 的其中 3 個，再放回，
+    抽到 10 個為止，即形成 :math:`X_B`
