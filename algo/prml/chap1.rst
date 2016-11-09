@@ -266,12 +266,22 @@ Bayesian Probability
 
     取 log 會使得分子的連乘改為連加，且意義不變。
 
+:hyperparamter: :math:`\vec{w}` 是 model, 而決定 model 的 parameter 稱為
+                hyperparamter.
+
+    .. math::
+
+        p(\vec{w}|\alpha)
+        \text{, where } \alpha \text{ is the precision of the distribution.}
+
 
 Data Sets Bootstrap
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-:Original data set: :math:`X = \{ x_1, \dots, \x_N \}`
+:Original data set:
+    :math:`X = \{ x_1, \dots, x_N \}`
 
-:New data set: :math:`X_B` 透過 random sampling with replacement。
+:New data set:
+    :math:`X_B` 透過 random sampling with replacement。
     e.g.: 箱子中 10 顆骰子，抽出 original data set 的其中 3 個，再放回，
     抽到 10 個為止，即形成 :math:`X_B`
