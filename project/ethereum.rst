@@ -26,3 +26,11 @@ Create custom genesis block::
         "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
         "timestamp"  : "0x00"
     }
+
+
+Flags
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    geth --nodiscover --maxpeers 0 --identity "MyNodeName" --datadir=~/.ethapc --networkid 42
