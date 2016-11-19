@@ -7,7 +7,7 @@ After FreeBSD 10.0, the implementation of ``make(1)`` is ``bmake(1)``.
 ref: http://www.crufty.net/help/sjg/bmake.html
 
 
-``bsdmake`` and ``gnu make`` compatible Makefile
+``bmake`` and ``gmake`` compatible Makefile
 ----------------------------------------------------------------------
 
 Quote from stackoverflow:
@@ -20,7 +20,7 @@ Quote from stackoverflow:
     Upside, you'll only be editing 1.
 
 
-``bsdmake``
+``bmake``
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The file ``BSDmakefile`` has highest priority.
@@ -37,3 +37,19 @@ Ref
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 https://stackoverflow.com/questions/3848656/bsd-make-and-gnu-make-compatible-makefile
+
+
+`bmake` Suffix Rules
+----------------------------------------------------------------------
+
+::
+
+    man make
+
+and search ``SUFFIXES``
+
+::
+
+    .SUFFIXES: .o
+    .c.o:
+        cc -o ${.TARGET} -c ${.IMPSRC}
