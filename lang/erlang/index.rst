@@ -7,3 +7,4 @@ Erlang
     basic
     module
     function
+    ds
