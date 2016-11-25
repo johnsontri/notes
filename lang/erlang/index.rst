@@ -8,3 +8,4 @@ Erlang
     module
     function
     ds
+    concurrent
