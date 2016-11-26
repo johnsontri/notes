@@ -274,6 +274,16 @@ Bayesian Probability
         p(\vec{w}|\alpha)
         \text{, where } \alpha \text{ is the precision of the distribution.}
 
+:predictive distribution:
+    我們透過 maximum likelihood 找到了 :math:`\vec{w_{ML}}` ，
+    再得到 :math:`\beta_{ML}` 後，我們建立了 probabilistic model ，可以在給定
+    一個 :math:`x` 來做預測。
+
+    .. math::
+
+        p(t|x, \vec{w_{ML}}, \beta_{ML}) =
+            \mathcal{N}(t|y(x, \vec{w_{ML}}), \beta_{ML}^{-1})
+
 
 Data Sets Bootstrap
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -285,3 +295,21 @@ Data Sets Bootstrap
     :math:`X_B` 透過 random sampling with replacement。
     e.g.: 箱子中 10 顆骰子，抽出 original data set 的其中 3 個，再放回，
     抽到 10 個為止，即形成 :math:`X_B`
+
+
+Decision Theory
+----------------------------------------------------------------------
+
+Make optimal decisions in situations involving uncertainty
+(with probability theorem)
+
+:input value: :math:`\vet{x}`
+
+:target value: :math:`\vec{t}`
+
+:joint probability distribution:
+    :math:`p(\vec{x}, \vec{t})` 是對於這兩個變數 summary of the uncertainty.
+
+:inference:
+    Determine the *joint probability distribution*
+    ( :math:`p(\vec{x}, \vec{t})` ) from training data set.
