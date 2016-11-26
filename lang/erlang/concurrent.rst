@@ -47,4 +47,38 @@ And get exception via ``receive`` expression, e.g.::
 
 The ``kill`` signal cannot be trapped::
 
-    exit(self(), kill)
+    > process_flag(trap_exit, true).
+    false
+    > exit(self(), kill).
+    ** exception exit: killed
+
+.. note::
+    Because the ``kill`` signal cannot be trapped, so the it will be changed to
+    ``killed`` when other process receive the message.
+
+
+Monitor
+----------------------------------------------------------------------
+
+It's special type of ``link`` with
+
+* unidirection
+
+* can be stacked
+
+::
+
+    erlang:monitor(process, Pid).
+
+Note the potential race condiction in following code::
+
+    erlang:monitor(process, spawn(fun() -> ok end)).
+
+So here is an atomic function::
+
+    spawn_monitor(fun() -> ok end).
+
+Demonitor::
+
+    erlang:demonitor(Ref).
+    erlang:demonitor(Ref, [flush, info]).
