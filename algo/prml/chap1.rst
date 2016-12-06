@@ -313,3 +313,49 @@ Make optimal decisions in situations involving uncertainty
 :inference:
     Determine the *joint probability distribution*
     ( :math:`p(\vec{x}, \vec{t})` ) from training data set.
+
+
+Information Theory
+----------------------------------------------------------------------
+
+假設我們有個 discrete random variable :math:`x`.
+
+資訊量被視為不一樣的程度，觀測 :math:`x` 若長得很不一樣，
+就是有新的資訊，資訊量高，反之亦然。
+
+假設有 probability distribution :math:`p(x)`,
+我們想要尋找一個 `Monotonic function`_ :math:`h(x)` 來代表觀測 x 後，有多少的
+information gain
+
+先想象，假設 :math:`x, y` 為獨立的 random variable, :math:`h(x, y)` 應該長成:
+
+.. math::
+
+    h(x, y) = h(x) + h(y)
+
+而根據獨立的這個假設，知道:
+
+.. math::
+
+    p(x, y) = p(x)p(y)
+
+
+從上面的關係我們可以定出:
+
+.. math::
+
+    h(x) = - \log_2 p(x)
+
+而且 :math:`h(x) >= 0` 。
+
+對於所有可能的 :math:`x` , 他們的平均資訊量用 期望值表示:
+
+.. math::
+
+    H(x) & = \sum_x p(x) h(x) \\
+         & = - \sum_x p(x) \log_2 p(x)
+
+此為 :math:`entropy` 的定義。
+
+
+.. _Monotonic function: https://en.wikipedia.org/wiki/Monotonic_function
