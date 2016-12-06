@@ -13,6 +13,56 @@ Two Classes
 
 :math:`w_0` is `bias`, sometimes a negative :math:`w_0` is called `threshold`
 
+Multiple Classes
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:problem: 如果現在要分 3 類，而此時我們選用兩個 `one-versus-the-rest`
+    classifier 形成的 hyperplane 做切割，在 feature space 上是兩條
+    decision boundary ，而這兩條 boundary 會切出 4 個
+    decision region ，但是我們只有 3 類，會有一塊在 testing 時是未知的區域。
+    (p183. Figure 4.2)
+
+:sol: Single K-class discriminant function, 然後用 K 個組合起來。
+
+.. math::
+
+    y_k(\vec{x}) = \vec{w_k}^T \vec{x} + w_{k0}
+
+e.g. 假設要分 3 類 :math:`C_1`, :math:`C_2`, :math:`C_3`
+
+.. math::
+
+    \begin{cases}
+    y_1(\vec{x}) = \vec{w_1}^T \vec{x} + w_{10} \\
+    y_2(\vec{x}) = \vec{w_2}^T \vec{x} + w_{20} \\
+    y_3(\vec{x}) = \vec{w_3}^T \vec{x} + w_{30}
+    \end{cases}
+
+
+Let :math:`\vec{x} \in C_k \text{ if } y_k > y_j, \forall j \neq k`
+
+Decision boundary 產生在 :math:`y_k = y_j` 時
+
+.. math::
+
+    \begin{cases}
+    y_1 = y_2 \\
+    y_2 = y_3 \\
+    y_3 = y_1
+    \end{cases}
+
+    \implies \begin{cases}
+    y_1 - y_2 = 0 \\
+    y_2 - y_3 = 0 \\
+    y_3 - y_1 = 0
+    \end{cases}
+
+.. math::
+
+    \to
+    (\vec{w_k} - \vec{w_j})^T \vec{x} + (\vec{w_{k0}} - \vec{w_{j0}}) = 0
+
+
 
 Perceptron
 ----------------------------------------------------------------------
