@@ -4,5 +4,6 @@ PRML
 
 .. toctree::
    :maxdepth: 2
+   :glob:
 
-   prml/chap1
+   prml/chap*

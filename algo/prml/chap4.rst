@@ -1,3 +1,17 @@
+Classification
+===============================================================================
+
+Discriminant Function
+----------------------------------------------------------------------
+
+Two Classes
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. math::
+
+    y(x) = \vec{w}^T x + w_0
+
+:math:`w_0` is `bias`, sometimes a negative :math:`w_0` is called `threshold`
 
 
 Perceptron
