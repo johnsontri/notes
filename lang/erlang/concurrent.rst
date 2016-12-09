@@ -82,3 +82,14 @@ Demonitor::
 
     erlang:demonitor(Ref).
     erlang:demonitor(Ref, [flush, info]).
+
+
+Naming Porcess
+----------------------------------------------------------------------
+
+* ``register(atom, Pid)``
+
+And just send via atom::
+
+    > atom ! {self(), hello}
+    {<pid>, hello}
