@@ -22,6 +22,8 @@ receive
 Link
 ----------------------------------------------------------------------
 
+> "I am going to die if my partner dies."
+
 Here is a race condiction::
 
     link(spawn(...)).
