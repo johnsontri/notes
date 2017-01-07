@@ -60,6 +60,8 @@ Probability Theorem
 Joint Probability
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+發生 :math:`X` 且 :math:`Y` 的機率。
+
 :X: a random var, possibile outcome is :math:`\{ a, b, c \}`
 
 :Y: a random var, :math:`\{ foo, bar, baz \}`
