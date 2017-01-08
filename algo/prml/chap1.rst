@@ -230,13 +230,20 @@ Matrix version:
 Bayesian Probability
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+Aka, Subjective Probability.
+
+當一個事件的機率不能用 觀察頻率 而得到時，我們會選擇用 Bayesian probability
+來解釋。 e.g. 某人被雷打中的機率，這個機率顯然不能透過觀測頻率而得到。
+
 :Curve fitting problem:
     我們有多項式參數 :math:`\vec{w}` 跟一些已知的 data point
     :math:`D = \{t_1, t_2, \dots, t_n \}` 。
     在這個 curve fitting 的問題中，我們關心的是 :math:`\vec{w}`
 
 :posterior probability:
-    在我們觀察到 :math:`D` 之後得。
+    在我們觀察到 :math:`D` 之後所得。
+
+    一個 隨機事件 (Event) 的 posterior probability 是給出相關證據後的條件機率。
 
 .. math::
 
@@ -305,7 +312,7 @@ Decision Theory
 Make optimal decisions in situations involving uncertainty
 (with probability theorem)
 
-:input value: :math:`\vet{x}`
+:input value: :math:`\vec{x}`
 
 :target value: :math:`\vec{t}`
 
@@ -319,6 +326,8 @@ Make optimal decisions in situations involving uncertainty
 
 Information Theory
 ----------------------------------------------------------------------
+
+資訊量怎麼計算？
 
 假設我們有個 discrete random variable :math:`x`.
 
