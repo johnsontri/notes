@@ -329,14 +329,15 @@ Information Theory
 
 資訊量怎麼計算？
 
-假設我們有個 discrete random variable :math:`x`.
+假設我們有個 discrete random variable :math:`x` , 代表資訊.
 
 資訊量被視為不一樣的程度，觀測 :math:`x` 若長得很不一樣，
 就是有新的資訊，資訊量高，反之亦然。
 
-假設有 probability distribution :math:`p(x)`,
+假設有 probability distribution :math:`p(x)`
+代表資訊的分佈（資訊出現頻率各有高低）,
 我們想要尋找一個 `Monotonic function`_ :math:`h(x)` 來代表觀測 x 後，有多少的
-information gain
+information gain ，或是說有多 suprise
 
 先想象，假設 :math:`x, y` 為獨立的 random variable, :math:`h(x, y)` 應該長成:
 
@@ -370,3 +371,15 @@ information gain
 
 
 .. _Monotonic function: https://en.wikipedia.org/wiki/Monotonic_function
+
+
+Continueous Var
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+將 :math:`entropy` 推廣到 Continueous variable 上得：
+
+.. math::
+
+    H(\vec{x}) = - \int p(\vec{x}) \ln p(\vec{x}) d\vec{x}
+
+上式稱為 :math:`differential entropy`
