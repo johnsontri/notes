@@ -118,3 +118,83 @@ IRLS
 是 二次近似
 
 (而 Gradient Descent 是一次近似)
+
+
+Generative Model and Discriminative Model
+----------------------------------------------------------------------
+
+給定一個分兩類的問題，
+
+* :math:`C_k, k \in \{1, 2\}` 為 output
+
+* :math:`X \in \{ \vec{x_1}, \dots, \vec{x_n} \}` 為 data, input
+
+
+以 `Naive Bayes classifier`_ 與 Logistic Regression 為例：
+
+- Naive Bayes 是 Generative Model
+
+- Logistic Regression 是 Discriminative Model
+
+
+  .. _Naive Bayes classifier: https://en.wikipedia.org/wiki/Naive_Bayes_classifier
+
+
+Naive Bayes classifier
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+從找 posterior 出發， 「給 data 問 class」 即 :math:`p(C_k | X = \vec{x_{n+1}})`
+，這個問題是分兩類，所以比較兩個 posterior 即可的出結果。
+
+Build model 的部分:
+
+.. math::
+
+    p(C_k = 1 | X) = \frac{ p(C_k = 1, X) }{ p(X) }
+
+    p(C_k = 2 | X) = \frac{ P(C_k = 2, X) }{ p(X) }
+
+分母 :math:`p(X)` 的部分相同，在比較上可以不管。
+所以問題變成 model joint probability
+
+.. math::
+
+    p(C_k = 1, X) = p(X | C_k = 1) p(C_k = 1)
+
+    p(C_k = 2, X) = p(X | C_k = 2) p(C_k = 2)
+
+對 :math:`p(X | C_k)` 再展開
+
+.. math::
+
+    p(X | C_k = 1) =
+    \begin{cases}
+        p(X = {\vec{x_1}} | C_k = 1) \\
+        \dots \\
+        p(X = {\vec{x_n}} | C_k = 1)
+    \end{cases}
+
+    p(X | C_k = 2) =
+    \begin{cases}
+        p(X = {\vec{x_1}} | C_k = 2) \\
+        \dots \\
+        p(X = {\vec{x_n}} | C_k = 2)
+    \end{cases}
+
+Naive Bayes 在這裡計算時，用了一個很強的假設，每個 :math:`\vec{x}` 之間獨立，
+這樣 :math:`p(X | C_k)` 的計算即全部連乘。計算量大。
+
+
+Logistic Regression
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+做了一個 model 為 linear model 的假設。
+
+直接給出 posterior 的 formula
+
+.. math::
+
+    p(C_k = 1 | X) = \dots
+
+    p(C_k = 2 | X) = \dots
+
