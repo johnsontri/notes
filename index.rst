@@ -38,6 +38,7 @@ FreeBSD
 
     freebsd/bsdcloudinit/index
     freebsd/jails
+    freebsd/tuning
 
 
 Commands
