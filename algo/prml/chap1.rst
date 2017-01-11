@@ -115,6 +115,8 @@ Product Rule
 Bayes' Theorem
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+兩個 joint probability 相等的結論。
+
 .. math::
 
     p(Y|X) = \frac{p(X|Y)p(Y)}{p(X)}
