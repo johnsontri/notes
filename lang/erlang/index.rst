@@ -10,3 +10,12 @@ Erlang
     ds
     concurrent
     design-a-concurrent-app
+
+
+stdlib
+----------------------------------------------------------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    eunit
