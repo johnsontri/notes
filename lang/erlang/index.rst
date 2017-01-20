@@ -10,6 +10,7 @@ Erlang
     ds
     concurrent
     design-a-concurrent-app
+    fsm
 
 
 stdlib
