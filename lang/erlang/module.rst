@@ -114,8 +114,17 @@ Compile the code
 
 Define compiling flags in module
 --------------------------------
-    e.g.:
-        ``-compile([debug_info, export_all, ...]).``
+
+e.g.:
+    ``-compile([debug_info, export_all, ...]).``
+
+.. note::
+    ``export_all`` make native compiler conservative.
+    But using ``export_all`` with normal BEAM vm is almost not affected.
+
+    Ref: https://stackoverflow.com/questions/6964392/speed-comparison-with-project-euler-c-vs-python-vs-erlang-vs-haskell#answer-6967420
+
+
 
 Compile into native code
 ------------------------
