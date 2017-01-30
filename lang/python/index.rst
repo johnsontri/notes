@@ -9,6 +9,7 @@ Basic
    :maxdepth: 2
 
    builtin
+   stdlib
 
 
 Web
