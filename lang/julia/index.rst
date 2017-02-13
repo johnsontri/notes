@@ -5,8 +5,8 @@ Basic
 ----------------------------------------------------------------------
 
 .. toctree::
-    :maxdepth: 2
+   :maxdepth: 2
 
-    type
-    ccall
-    funcs
+   type
+   ccall
+   funcs
