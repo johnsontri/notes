@@ -1,12 +1,12 @@
-Julia
+Functions
 ===============================================================================
 
-Basic
+.. highlight:: julia
+
+built-in
 ----------------------------------------------------------------------
 
-.. toctree::
-    :maxdepth: 2
+``typeof``::
 
-    type
-    ccall
-    funcs
+    julia> typeof(:foo)
+    Symbol
