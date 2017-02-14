@@ -90,10 +90,16 @@ Project
 ----------------------------------------------------------------------
 
 .. toctree::
-    :maxdepth: 1
-    :glob:
+   :maxdepth: 1
+   :glob:
 
-    project/*
+   project/*
+
+
+.. toctree::
+   :maxdepth: 2
+
+   compiler/index
 
 
 Trading
