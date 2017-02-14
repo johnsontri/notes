@@ -1,7 +1,10 @@
 Compiler
 ===============================================================================
 
-Book: Compilers Principles, Techniques and Tools
+Dragon book
+----------------------------------------------------------------------
+
+Compilers Principles, Techniques and Tools
 
 .. toctree::
    :maxdepth: 2
