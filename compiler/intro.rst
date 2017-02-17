@@ -34,3 +34,73 @@ Quote from ``clang(1)``:
 
         -c     Run all of the above, plus the assembler, generating a target
             ".o" object file.
+
+
+Structure of Compiler
+----------------------------------------------------------------------
+
+- token stream
+
+- AST
+
+- IR: 常用 *three address code*. 然後 optimizer 就對 IR 做優化。
+
+- target native code
+
+- symbol table
+
+
+Phases and Passes
+----------------------------------------------------------------------
+
+phase
+    是 compiler 在邏輯上操作的切分
+
+pass
+    把多個 phase group 起來， compiler 完成一次的 read file -> write file
+
+front-end pass
+    - :lexical analysis: output token
+    - :syntax analysis: or *parsing*
+    - :semantic analysis: 蒐集 type 資訊做檢查， *type checking*;
+      語言定義的 type conversion -- *coercions*
+    - IR code gen:
+        - syntax tree is a form of IR
+        - three address code
+    - symbol table management
+
+optional pass
+    - optimization
+
+back-end
+    - code gen
+
+
+Toolchains
+----------------------------------------------------------------------
+
+:parser generator:
+    - `PEG.js <https://pegjs.org/>`_
+    - `peg <https://github.com/pointlander/peg>`_
+    - YACC
+    - `Bison <https://www.gnu.org/software/bison/>`_
+
+:scanner generator:
+    - lex
+    - `flex <https://github.com/westes/flex.git>`_
+
+:syntax-directed translation engine:
+
+:code-generator generator:
+
+:data-flow analysis engine:
+
+:compiler-contruction toolkits:
+    - `RPython <https://rpython.readthedocs.io/en/latest/>`_
+
+
+Misc
+----------------------------------------------------------------------
+
+- compiler-rt 可以對相容的 platform (e.g. x86 & amd64) 提高
+  object file portability. 或是對 cross-compiling 做處理
