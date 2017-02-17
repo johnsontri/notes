@@ -71,8 +71,9 @@ front-end pass
 
 optional pass
     - optimization
+        - data-flow optimizations
 
-back-end
+back-end pass
     - code gen
 
 
@@ -104,3 +105,8 @@ Misc
 
 - compiler-rt 可以對相容的 platform (e.g. x86 & amd64) 提高
   object file portability. 或是對 cross-compiling 做處理
+
+- 這個年代的 low-level resource allocation 做的很好了，如， C 有 ``register``
+  這個 keyword 讓 programmer 自己控制 register 相關操作；但實際上，使用
+  ``register`` 的效果反而容易造成效能損失，因為現代的 compiler 對 register
+  management 已經有自己一套很好的 policy 了。
