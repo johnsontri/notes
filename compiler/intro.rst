@@ -72,6 +72,9 @@ front-end pass
 optional pass
     - optimization
         - data-flow optimizations
+        - instruction level parallelism, e.g. re-order instruction, SIMD
+        - proccessor level parallelism
+        - optimization for memory hierarchy
 
 back-end pass
     - code gen
