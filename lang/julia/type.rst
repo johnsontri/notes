@@ -35,6 +35,9 @@ Array
 
     a = [1, 2, 3]
 
+    a[1]    # 1
+    a[end]  # 3
+
 with type::
 
     a = Float64[1, 2, 3]
