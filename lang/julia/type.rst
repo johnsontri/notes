@@ -28,6 +28,25 @@ Float
     false
 
 
+functions
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- ``isequal(x, y)``::
+
+    julia> isequal(1.0000000000000000000000001, 1.0000000000000001)
+    true
+
+    # Note
+    julia> isequal(NaN, NaN)
+    ture
+    # diff from ``NaN == NaN``
+
+    julia> isequal([1 NaN], [1 NaN])
+    true
+
+- ``isnan(x)``
+
+
 Array
 ----------------------------------------------------------------------
 
@@ -111,20 +130,76 @@ Dict
     haskey(d, "foo")
 
 
-functions
+Pair
 ----------------------------------------------------------------------
 
-- ``isequal(x, y)``::
+::
 
-    julia> isequal(1.0000000000000000000000001, 1.0000000000000001)
-    true
+    p = "foo" => 1
+    p[1] == "foo"
+    p[2] == 1
 
-    # Note
-    julia> isequal(NaN, NaN)
-    ture
-    # diff from ``NaN == NaN``
 
-    julia> isequal([1 NaN], [1 NaN])
-    true
+typeof
+----------------------------------------------------------------------
 
-- ``isnan(x)``
+Int64::
+
+    julia> typeof(42)
+    Int64
+
+    julia> typeof(Int64)
+    DataType
+
+    julia> typeof(42)
+    Int64
+
+    julia> supertype(Int64)
+    Signed
+
+    julia> supertype(Signed)
+    Integer
+
+    julia> supertype(Integer)
+    Real
+
+    julia> supertype(Real)
+    Number
+
+    julia> supertype(Number)
+    Any
+
+    julia> supertype(Any)
+    Any
+
+String::
+
+    julia> typeof("test")
+    String
+
+    julia> supertype(String)
+    AbstractString
+
+    julia> supertype(AbstractString)
+    Any
+
+
+Class
+----------------------------------------------------------------------
+
+::
+
+    type Cat
+        name::String
+        age::Int
+    end
+
+    Cat("meow", Int)
+
+
+- concrete type cannot have subtype::
+
+    struct S
+        ...
+    end
+
