@@ -36,3 +36,21 @@ built-in
 
     julia> size(a)
     (2, 3)
+
+
+Multiple-Dispatch
+----------------------------------------------------------------------
+
+::
+
+    julia> function λ(a::Int, b::Int)
+            a + b
+        end
+    λ (generic function with 1 method)
+
+    julia> function λ(a::Float, b::Float
+    Float16 Float32  Float64
+    julia> function λ(a::Float64, b::Float64)
+            a * b
+        end
+    λ (generic function with 2 methods)
