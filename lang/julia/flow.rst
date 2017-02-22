@@ -119,3 +119,11 @@ Keyword *only* arguments::
     λ(10; y=3)
     # or
     λ(10; :y=>3)
+
+Keyword args function call::
+
+    λ(; y=2, z=10)
+
+    λ(; :y=>2, :z=>10)
+
+    λ(; (:y,2), (:z, 10))
