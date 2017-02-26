@@ -18,5 +18,5 @@ e.g.::
     @generated function foo(x)
         # x denote type here
         # will show Int, Float64, String, ... etc
-        println(x)
+        println(x) # invoke at copmile, and only *once*
         return :(x * x)
