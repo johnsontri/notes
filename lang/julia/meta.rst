@@ -20,3 +20,6 @@ e.g.::
         # will show Int, Float64, String, ... etc
         println(x) # invoke at copmile, and only *once*
         return :(x * x)
+
+
+- 可以做出 loop unroll 的效果

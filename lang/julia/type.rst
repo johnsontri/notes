@@ -3,6 +3,9 @@ Type
 
 .. highlight:: julia
 
+- optional static type
+
+
 Float
 ----------------------------------------------------------------------
 
@@ -197,9 +200,82 @@ Class
     Cat("meow", Int)
 
 
+- note that ``::`` is type annotation.
+
+- ``a::C`` can read as "a is an instance of C".
+
 - concrete type cannot have subtype::
 
     struct S
         ...
     end
 
+- ``struct`` are immutable
+
+
+Type Assertion
+----------------------------------------------------------------------
+
+::
+
+    (1 + 2)::Int
+
+    (1 + 2)::Float64  # error
+
+
+Type Declaration
+----------------------------------------------------------------------
+
+::
+
+    julia> function λ()
+            x::Int8 = 10
+            x
+        end
+    λ (generic function with 2 methods)
+
+    julia> λ()
+    10
+
+    julia> typeof(λ())
+    Int8
+
+On function definition::
+
+    julia> function λ()::Int64
+            42.0
+        end
+    λ (generic function with 1 method)
+
+    julia> λ()
+    42           # alway be converted to Int64
+
+
+Abstract Types
+----------------------------------------------------------------------
+
+Declaration::
+
+    abstract type MyType end
+    abstract type MyType <: MySupperType end
+
+- ``<:`` can read as "is subtype of"::
+
+    julia> Int64 <: Int
+    true
+
+    julia> Int64 <: Real
+    true
+
+    julia> Int64 <: Float64
+    false
+
+- function will be compiled on demand with concrete type::
+
+    f(x) = x * 2
+
+means::
+
+    f(x::Any) = x * 2
+
+If we invoke ``f(1)``, the function ``f(x::Int) = ...`` will be compiled.
