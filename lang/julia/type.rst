@@ -279,3 +279,11 @@ means::
     f(x::Any) = x * 2
 
 If we invoke ``f(1)``, the function ``f(x::Int) = ...`` will be compiled.
+
+
+Parametric Types
+----------------------------------------------------------------------
+
+- like template in C++
+
+- Generic programming: https://en.wikipedia.org/wiki/Generic_programming
