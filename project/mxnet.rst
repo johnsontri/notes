@@ -6,7 +6,7 @@ MXNet.jl
 
 Get network weight
 
-    ``model.arg_params`` -> ``Dict``
+    ``model.arg_params`` -> ``Dict{Symbol => NDArray}``
 
 
 Extract data from NDArray
