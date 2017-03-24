@@ -19,6 +19,11 @@ Extract data from NDArray
         arr = zeros(eltype(w), size(w))
         mx.copy!(arr, w)
 
+    or breifly::
+
+        # w
+        arr = copy(w)
+
 Show net layers::
 
     julia> mx.list_arguments(net)
