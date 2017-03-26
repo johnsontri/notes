@@ -13,6 +13,12 @@ Linear Model
 Linear Regression
 ----------------------------------------------------------------------
 
+Multivariate Linear Regression:
+
+.. math::
+
+    h_{\vec{\theta}}(\vec{x}) = \theta^T \vec{x}
+
 * 常用 MSE 作為 cost function
 
 .. math::
