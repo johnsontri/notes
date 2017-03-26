@@ -104,3 +104,21 @@ https://en.wikipedia.org/wiki/Rectifier_(neural_networks)
 - ReLU 在 x 輸出是 0 的部分，造成了某種 topology 的選擇，
   如果採用 fully connected NN ， outcome 為 0 的部分可以想象成把 connection
   拔掉。
+
+
+Feature Scaling
+----------------------------------------------------------------------
+
+* 以 Linear Regression 的 MSE 做 GD ，如果你的 feature 之間的 scale 差太多，
+  cost function 會出現很扁的山谷，使 GD 收斂效果差。 Rescaling 之後可以是
+  cost function 接近圓，而 GD 收斂比較好。
+
+
+Mean Normalization
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. math::
+
+    x' = \frac{x - \mu}{x_{max} - x_{min}}
+
+或是分母亦可以用 standard deviation
