@@ -10,6 +10,55 @@ Linear Model
   或是 NN 的轉換 座標空間 來解。
 
 
+Linear Regression
+----------------------------------------------------------------------
+
+* 常用 MSE 作為 cost function
+
+.. math::
+
+    J(\vec{\theta}) = \frac{1}{2m} \sum_i^m (h_{\vec{\theta}}(x) - y)^2
+
+
+Univariable Linear Regression
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+* Univariable -> 單變數
+
+Assume:
+
+.. math::
+
+    h_{\theta_0, \theta_1}(x) = \theta_0 + \theta_1 x
+
+The cost function will be:
+
+.. math::
+
+    J(\theta_0, \theta_1) =
+    \frac{1}{2m} \sum_i^m (h_{\theta_0, \theta_1}(x_i) - y_i)^2
+
+
+Then, if we simplify :math:`h`, let :math:`\theta_0 = 0`,
+
+.. math::
+
+    \begin{align}
+        J(\theta_1) & = \frac{1}{2m} \sum_i^m (h_{\theta_1}(x_i) - y_i)^2 \\
+                    & = \frac{1}{2m} \sum_i^m (\theta_1 x_i - y_i)^2
+    \end{align}
+
+Objective function:
+
+.. math::
+
+    arg\min_{\theta_1} J(\theta_1)
+
+It looks like this:
+
+.. image:: ./img/uni_linreg_cost.png
+
+This objective function is *convex* and has a close form solution.
 
 ReLU
 ----------------------------------------------------------------------
