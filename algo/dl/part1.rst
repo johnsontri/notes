@@ -19,6 +19,9 @@ Linear Regression
 
     J(\vec{\theta}) = \frac{1}{2m} \sum_i^m (h_{\vec{\theta}}(x) - y)^2
 
+* 這個 cost function 有 close form solution, 可使用 Normal Equation Method
+  求解，但是在高維度會用 GD， why ?
+
 
 Univariable Linear Regression
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
