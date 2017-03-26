@@ -60,6 +60,18 @@ It looks like this:
 
 This objective function is *convex* and has a close form solution.
 
+
+Gradian Descent
+----------------------------------------------------------------------
+
+* learning rate :math:`\eta` 對 linear regression 的影響：
+
+  * 在接近 minimum 而且 :math:`\eta` 過大時，下一次 iteration 會穿過 minimum
+    然後 cost function 的微分量可能會更大，若更大會造成後續 iteration 發散。
+
+* Batch Gradian Descent, 對所有的 training set 都考慮後的計算。
+
+
 ReLU
 ----------------------------------------------------------------------
 
