@@ -17,10 +17,12 @@ Linear Regression
 
 .. math::
 
-    J(\vec{\theta}) = \frac{1}{2m} \sum_i^m (h_{\vec{\theta}}(x) - y)^2
+    J(\vec{\theta}) = \frac{1}{2m} \sum_i^m (h_{\vec{\theta}}(\vec{x}) - y)^2
 
 * 這個 cost function 有 close form solution, 可使用 Normal Equation Method
   求解，但是在高維度會用 GD， why ?
+
+    * http://stats.stackexchange.com/questions/23128
 
 
 Univariable Linear Regression
@@ -73,6 +75,8 @@ Gradian Descent
     然後 cost function 的微分量可能會更大，若更大會造成後續 iteration 發散。
 
 * Batch Gradian Descent, 對所有的 training set 都考慮後的計算。
+
+* http://mccormickml.com/2014/03/04/gradient-descent-derivation/
 
 
 ReLU
