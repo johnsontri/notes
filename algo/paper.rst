@@ -2,8 +2,10 @@ Paper
 ===============================================================================
 
 
-Handwritten Digit Recognition with a Committee of Deep Neural Nets on GPUs
---------------------------------------------------------------------------
+.. _deep-nn-mnist:
+
+Deep Big Simple Neural Nets Excel on Hand-written Digit Recognition
+----------------------------------------------------------------------
 
 :tag: NN, MLP, GPU, training set deformations, MNIST, BP
 :ref: https://arxiv.org/pdf/1003.0358.pdf
