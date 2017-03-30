@@ -3,6 +3,19 @@ Part I
 
 Math basic
 
+Machine Learning
+----------------------------------------------------------------------
+
+Problem setting:
+
+#. 已知有 meta-rule ，但 meta-rule 難以量化或是量化過程繁雜。
+   e.g. 人臉辨識；人腦能夠辨識，有 meta-rule ，但人們難以敘述此 meta-rule
+
+#. 我們相信 :math:`x` 為 :math:`y` 的成因之一。希望透過 learning 的
+   optimization 來得到關係。
+    e.g. DNS and cancer
+
+
 Linear Model
 ----------------------------------------------------------------------
 
@@ -122,3 +135,17 @@ Mean Normalization
     x' = \frac{x - \mu}{x_{max} - x_{min}}
 
 或是分母亦可以用 standard deviation
+
+
+Data 量的問題
+----------------------------------------------------------------------
+
+* 以 face detection 舉例：
+    * 我的資料中給你整張臉，這個資料量很充足，做 learning 沒問題。
+
+    * 資料有缺損，給你半張臉，或許還是 learn 的出來。
+
+    * 資料中，只給你兩根頭髮，這根本無法 learning ，前提不足。
+
+    * 那麼 financial data 的資料量完整性足夠嗎？
+
