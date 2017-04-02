@@ -10,6 +10,8 @@ Regularization
 
 * Bigging, boosting
 
+* DropOut: for NN
+  http://cs.nyu.edu/~wanli/dropc/
 
 Data Augmented
 ----------------------------------------------------------------------
