@@ -100,6 +100,35 @@ Gradian Descent
 * http://mccormickml.com/2014/03/04/gradient-descent-derivation/
 
 
+Logistic Regression
+----------------------------------------------------------------------
+
+實際上是 classifcation algo.
+
+outcome
+
+.. math::
+
+    0 \leq h(x) \leq 1
+
+Sigmoid function (logistic function):
+
+.. math::
+
+    \sigma(z) = \frac{1}{1 + e^{-z}}
+
+.. image:: ./img/sigmoid.png
+
+Model
+
+.. math::
+
+    \begin{align}
+        h_{\vec{\theta}}(\vec{x}) & = \sigma(\theta^T \vec{x}) \\
+            & = \frac{1}{1 + e^{-\theta^T \vec{x}}}
+    \end{align}
+
+
 .. _normal-equation-method:
 
 Normal Equation Method
