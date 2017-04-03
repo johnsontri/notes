@@ -12,6 +12,20 @@ function uni_linreg_cost()
     J
 end
 
+
+"""
+Sigmoid function
+"""
+σ(x) = 1 / (1 + e^(-x))
+
+function plot_σ()
+    plot(σ, -20, 20, label="σ(z)")
+    savefig(joinpath(img_dir, "sigmoid.png"))
+end
+
+
 if !isinteractive()
     uni_linreg_cost()
+
+    plot_σ()
 end
