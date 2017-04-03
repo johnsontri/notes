@@ -116,6 +116,25 @@ Julia code:
     pinv(X' * X) * X' * y
 
 
+If Non-interible
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+* ``pinv`` vs ``inv`` 的差別？
+
+    * ``pinv`` -- psudo-inverse
+
+causes:
+
+    * Redundant feature -- linear dependent (?)
+        * 如果這個發生在 GD 上面？
+
+    * Too many feature
+        * 換句話說， training 的 data 筆數不夠。
+
+        * 在 linear regression 之下， feature 數目即 :math:`\theta` 的量，
+          在 parameter 過多之下需要 :ref:`dl-regularization`
+
+
 ReLU
 ----------------------------------------------------------------------
 
@@ -167,3 +186,11 @@ Data 量的問題
 
     * 那麼 financial data 的資料量完整性足夠嗎？
 
+
+Learning Rate Selection
+----------------------------------------------------------------------
+
+Learning rate :math:`\eta` 是個 hyper parameter，必須在啟動 algo 之前就決定。
+而在 linear regression 之下使用 fixed learning rate 已可以使 GD 收斂。
+過大過過小的 :math:`\eta` 都會造成發散。建議透過觀測 cost function 在
+iteration/epoch 的 plotting 來調整 learning rate。
