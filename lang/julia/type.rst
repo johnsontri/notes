@@ -287,3 +287,16 @@ Parametric Types
 - like template in C++
 
 - Generic programming: https://en.wikipedia.org/wiki/Generic_programming
+
+
+Parametric Method
+----------------------------------------------------------------------
+
+julia 0.5::
+
+    same_type{T}(x::T, y::T) = true
+
+
+0.6::
+
+    same_type(x::T, y::T) where {T} = true
