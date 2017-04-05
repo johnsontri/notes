@@ -296,7 +296,12 @@ julia 0.5::
 
     same_type{T}(x::T, y::T) = true
 
+    # abstract type
+    same_type{T<:AbsType}(x::T, y::T) = true
 
 0.6::
 
     same_type(x::T, y::T) where {T} = true
+
+    # abstract type
+    same_type(x::T, y::T) where {T<:AbsType} = true
