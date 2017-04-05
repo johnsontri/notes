@@ -38,6 +38,11 @@ Multivariate Linear Regression:
 
     J(\vec{\theta}) = \frac{1}{2m} \sum_i^m (h_{\vec{\theta}}(\vec{x}) - y)^2
 
+這個 cost function 是由 :math:`X = \{ \vec{x_1}, \dots, \vec{x_m} \}`
+決定； data set :math:`X` 要先給定才有 :math:`J(\theta)` 。即，給不同的
+data set 會有不同的 :math:`J(\theta)` ， :math:`\theta`
+前面的常數項會不同，但都是二次式。
+
 * 這個 cost function 有 close form solution, 可使用 :ref:`normal-equation-method`
   求解，但是在高維度會用 GD， why ?
 
@@ -85,6 +90,19 @@ It looks like this:
 .. image:: ./img/uni_linreg_cost.png
 
 This objective function is *convex* and has a close form solution.
+
+
+Polynomial Regression
+----------------------------------------------------------------------
+
+Change linear to higher-order ploynomial model
+
+e.g.
+
+.. math::
+
+    h(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 +
+           \theta_3 x_1^2 + \theta_4 x_2^2
 
 
 Gradian Descent
@@ -155,7 +173,10 @@ If Non-interible
 causes:
 
     * Redundant feature -- linear dependent (?)
+        * e.g. :math:`x_1 = 3 x_2`
+
         * 如果這個發生在 GD 上面？
+          還是可以得到 cost function :math:`J` ，照算
 
     * Too many feature
         * 換句話說， training 的 data 筆數不夠。
