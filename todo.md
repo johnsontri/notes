@@ -1,6 +1,7 @@
 MXNet
-    * ploting cost function
-        * http://dmlc.ml/MXNet.jl/latest/api/callback/
+   * [ ] ploting cost function
+       * http://dmlc.ml/MXNet.jl/latest/api/callback/
+   * [ ] etc
 
 idea
    * [ ] classification 用 regression 的 \theta 做 othogonal ?
