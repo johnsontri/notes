@@ -1,5 +1,7 @@
 using Plots
 
+plotlyjs()
+
 img_dir = joinpath(dirname(@__FILE__), "..", "img")
 
 
@@ -24,8 +26,21 @@ function plot_σ()
 end
 
 
-if !isinteractive()
+function plot_σ_mse()
+    σ(θ, x) = 1 / (1 + e ^ - (θ * x))
+
+    # assume we have training data (5, 1), (1, 0), (10, 1)
+    plot(θ -> (σ(θ, 5) - 1)^2 + (σ(θ, 1) - 0)^2 + (σ(θ, 10) - 1)^2,
+         -10, 10,
+         label="J(θ)", xlabel="θ")
+    savefig(joinpath(img_dir, "logistic-mse.png"))
+end
+
+
+function main()
     uni_linreg_cost()
 
     plot_σ()
+
+    plot_σ_mse()
 end

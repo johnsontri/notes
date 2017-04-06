@@ -147,6 +147,20 @@ Model
     \end{align}
 
 
+Logistic Regression with MSE
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+If we select MSE as cost function,
+we will obtain non-convex cost function.
+
+.. image:: ./img/logistic-mse.png
+
+在上圖中會看到 :math:`< 0` 附近的點出現了 local optima；
+在 :math:`> 0` 附近的點有 global optima 。
+
+所以顯然 MSE 在 Logistic Regression 身上不上很好的選擇。
+
+
 .. _normal-equation-method:
 
 Normal Equation Method
