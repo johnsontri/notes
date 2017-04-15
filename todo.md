@@ -15,6 +15,6 @@ idea
 Weekend Project
 
   * [ ] BinDeps
-  * [ ] CouchApp
+  * [x] CouchApp
   * [ ] Julia issue
   * [ ] MarketTA.jl
