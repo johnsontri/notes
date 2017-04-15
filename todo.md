@@ -12,6 +12,11 @@ idea
    
    * [ ] pickup concept of RNN, LMST training
 
+couch
+
+   * [ ] capp-market
+       * [ ] plot via ChartJS
+
 Weekend Project
 
   * [ ] BinDeps
