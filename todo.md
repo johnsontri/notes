@@ -11,3 +11,10 @@ idea
    * [ ] pickup concept of reinforcement learning
    
    * [ ] pickup concept of RNN, LMST training
+
+Weekend Project
+
+  * [ ] BinDeps
+  * [ ] CouchApp
+  * [ ] Julia issue
+  * [ ] MarketTA.jl
