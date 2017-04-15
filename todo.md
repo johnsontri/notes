@@ -18,3 +18,4 @@ Weekend Project
   * [x] CouchApp
   * [ ] Julia issue
   * [ ] MarketTA.jl
+  * [ ] FreeBSD Oatuh
