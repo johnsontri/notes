@@ -170,11 +170,14 @@ Logistic Regression Cost Function
 
 .. math::
 
-    Cost(h_\theta(x), y) =
-    \begin{cases}
-        -log(h_\theta(x)),     & \text{if $y = 1$} \\
-        -log(1 - h_\theta(x)), & \text{if $y = 0$}
-    \end{cases}
+    \begin{align}
+        Cost(h_\theta(x), y) & =
+        \begin{cases}
+            - \log(h_\theta(x)),     & \text{if $y = 1$} \\
+            - \log(1 - h_\theta(x)), & \text{if $y = 0$}
+        \end{cases} \\
+        & = -y \log(h_\theta(x)) - (1 - y) \log(1 - h_\theta(x))
+    \end{align}
 
 In case of :math:`y = 1`
 
