@@ -192,6 +192,11 @@ In case of :math:`y = 0`
 .. image:: ./img/logistic-cost-2.png
 
 
+Differentiation
+    長得跟 Linear Regression with MSE 一樣
+    why?
+
+
 .. _normal-equation-method:
 
 Normal Equation Method
