@@ -37,6 +37,23 @@ function plot_σ_mse()
 end
 
 
+function plot_logistic_cost()
+    σ(θ, x) = 1 / (1 + e ^ - (θ * x))
+
+    # assume we have training data (5, 1), (1, 0), (10, 1)
+    plot(x -> σ(5, x), x -> -log(σ(5, x)), -2, 2,
+         ylabel="-log(h_θ(x))", xlabel="h_θ(x)")
+    # the first argument reveals the Domain of x-axis:
+    # the Range of σ, (0, 1), become the Domain of x-axis
+    # and the second argument is the Range
+    savefig(joinpath(img_dir, "logistic-cost-1.png"))
+
+    plot(x -> σ(1, x), x -> -log(1- σ(1, x)), -10, 10,
+         ylabel="-log(1 - h_θ(x))", xlabel="h_θ(x)")
+    savefig(joinpath(img_dir, "logistic-cost-2.png"))
+end
+
+
 function main()
     uni_linreg_cost()
 
