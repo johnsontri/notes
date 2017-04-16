@@ -161,6 +161,34 @@ we will obtain non-convex cost function.
 所以顯然 MSE 在 Logistic Regression 身上不上很好的選擇。
 
 
+Logistic Regression Cost Function
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. math::
+
+    J(\theta) = \frac{1}{m} \sum_i^m Cost(h_\theta(x_i), y_i)
+
+.. math::
+
+    Cost(h_\theta(x), y) =
+    \begin{cases}
+        -log(h_\theta(x)),     & \text{if $y = 1$} \\
+        -log(1 - h_\theta(x)), & \text{if $y = 0$}
+    \end{cases}
+
+In case of :math:`y = 1`
+
+.. image:: ./img/logistic-cost-1.png
+
+此圖橫軸為 :math:`h_\theta(x)` , 而 :math:`h_\theta(x)` 的值域為
+:math:`(0, 1)` ， 所以在此圖的 Domain 為 :math:`(0, 1)` ，
+而對於 0 到 1 的數值取 負 log 得到 convex function
+
+In case of :math:`y = 0`
+
+.. image:: ./img/logistic-cost-2.png
+
+
 .. _normal-equation-method:
 
 Normal Equation Method
