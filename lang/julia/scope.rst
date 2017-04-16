@@ -25,3 +25,8 @@ Hard Local Scope
     * function
     * ``struct``
     * ``macro``
+
+
+No new scope
+    * ``begin``
+    * ``if``
