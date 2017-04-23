@@ -98,9 +98,20 @@ Properties
 
         P(A) = P(A - B) + P(A \cap B)
 
-
 #.
 
     .. math::
 
         P(A \cup B) = P(A) + P(B) - P(A \cap B)
+
+#. 只要找得到 :math:`S` 的切割方法， :math:`A` 的機率就有算法
+
+    .. math::
+
+        C_1, C_2, \dots, C_n \text{ Mutual Exclude, and }
+
+        C_2 \cup C_2 \cup \dots \cup C_n = S
+
+        \forall \text{ Event $A$ }
+
+        P(A) = P(A \cap C_1) + P(A \cap C_2) + \dots + P(A \cap C_n)
