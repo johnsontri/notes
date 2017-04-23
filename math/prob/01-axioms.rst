@@ -115,3 +115,23 @@ Properties
         \forall \text{ Event $A$ }
 
         P(A) = P(A \cap C_1) + P(A \cap C_2) + \dots + P(A \cap C_n)
+
+#.
+
+    .. math::
+
+        A \subset B, \text{ then } P(A) < P(B)
+
+
+#. Boole's 不等式。對任意事件 :math:`A_i`
+
+    .. math::
+
+        P(\cup_{i=1}^n A_i) \le \sum_{i=1}^n P(A_i)
+
+
+#. Bonferroni's 不等式。對任意事件 :math:`A_i`
+
+    .. math::
+
+        P(\cap_{i=1}^n A_i) \ge 1 - \sum_{i=1}^n P(A^c_i)
