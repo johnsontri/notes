@@ -51,7 +51,7 @@ Probability Theorem
 
 - Two rules:
 
-    - sum rule
+    - sum rule: 即 :ref:`prob-total-prob`
 
     - product rule
 
@@ -81,6 +81,12 @@ Joint Probability
 .. math::
 
     p(X=x_i, Y=y_j) = \frac{n_{ij}}{N}
+
+or
+
+.. math::
+
+    P(X \cap Y)
 
 e.g.
 
