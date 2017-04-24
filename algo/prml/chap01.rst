@@ -197,6 +197,8 @@ Probability Density
 如果我們的 outcome 從原本離散的事件變成 連續的實數。
 則 :math:`p(x \in (a, b))` 之間 是面積。
 
+原本的離散的 :math:`p(x)` 稱為 *probability mass function*
+
 .. math::
 
     p(x \in (a, b)) = \int_a^b p(x) dx
@@ -224,9 +226,34 @@ ref: https://www.cl.cam.ac.uk/teaching/2003/Probability/prob11.pdf
 Cummulative Distribution Function
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+:math:`p(x)` 拿去積分是 :math:`P(x)` ，換句話說 :math:`P'(x)` 是 :math:`p(x)`
+
 .. math::
 
     P(z) = \int_{-\infty}^z p(x) dx
+
+
+Multi-variable
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+推廣到多變量 :math:`\vec{x} = [x_1, x_2, \dots, x_D]` 都是
+continueous variable
+
+現在這個叫做 *join probability density function*:
+
+.. math::
+
+    p(\vec{x}) = p(x_1, \dots, x_D)
+
+仍要滿足機率公理:
+
+.. math::
+
+    p(\vec{x}) \ge 0
+
+.. math::
+
+    \int p(\vec{x}) d\vec{x} = 1
 
 
 Condictional Expectation
