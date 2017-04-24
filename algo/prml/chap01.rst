@@ -197,11 +197,13 @@ Probability Density
 如果我們的 outcome 從原本離散的事件變成 連續的實數。
 則 :math:`p(x \in (a, b))` 之間 是面積。
 
-原本的離散的 :math:`p(x)` 稱為 *probability mass function*
-
 .. math::
 
     p(x \in (a, b)) = \int_a^b p(x) dx
+
+.. note::
+
+    原本的離散的 :math:`p(x)` 稱為 *probability mass function*
 
 
 Transformation of Probability Densities
@@ -255,8 +257,19 @@ continueous variable
 
     \int p(\vec{x}) d\vec{x} = 1
 
+Sum Rule and Product Rule:
 
-Condictional Expectation
+.. math::
+
+    \begin{align}
+        p(x)    & = \int p(x, y) dy \\
+        p(x, y) & = p(y|x)p(x)
+    \end{align}
+
+證明需透過 *measure theory*
+
+
+Conditional Expectation
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. math::
