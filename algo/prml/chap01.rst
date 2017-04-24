@@ -352,22 +352,27 @@ Aka, Subjective Probability.
 來解釋。 e.g. 某人被雷打中的機率，這個機率顯然不能透過觀測頻率而得到。
 
 :Curve fitting problem:
+    在原本是用 frequentist 的方法。
+    而這裡我們希望 model parameter :math:`w` 的 uncertainty
+
+    觀察是從 prior probability 到 posterior probability 的過程。
+
     我們有多項式參數 :math:`\vec{w}` 跟一些已知的 data point
-    :math:`D = \{t_1, t_2, \dots, t_n \}` 。
+    :math:`\mathcal{D} = \{t_1, t_2, \dots, t_n \}` 。
     在這個 curve fitting 的問題中，我們關心的是 :math:`\vec{w}`
 
 :posterior probability:
-    在我們觀察到 :math:`D` 之後所得。
+    在我們觀察到 :math:`\mathcal{D}` 之後所得。
 
     一個 隨機事件 (Event) 的 posterior probability 是給出相關證據後的條件機率。
 
 .. math::
 
-    p(\vec{w}|D) = \frac{p(D|\vec{w})p(w)}{p(D)}
+    p(\vec{w}|\mathcal{D}) = \frac{p(\mathcal{D}|\vec{w})p(w)}{p(\mathcal{D})}
 
-其中，上述 right-hand side 的 :math:`p(D|\vec{w})` 被稱為
+其中，上述 right-hand side 的 :math:`p(\mathcal{D}|\vec{w})` 被稱為
 `likelihood function` ，這個 function 的 parameter 為 :math:`\vec{w}` 。
-其表達了 :math:`D` 對於不同 :math:`\vec{w}` 的合理程度（原文用： probable）。
+其表達了 :math:`\mathcal{D}` 對於不同 :math:`\vec{w}` 的合理程度（原文用： probable）。
 
 我們可以得到
 
@@ -375,14 +380,40 @@ Aka, Subjective Probability.
 
     \text{posterior} \propto \text{likelihood} \times \text{prior}
 
+
+上式中所有 function 都是 :math:`\vec{w}` 的 function 。
+只有分母 :math:`p(\mathcal{D})` 是作為 normalization constant 用的。
+分母是為了讓 :math:`p(\vec{w}|\mathcal{D})` sum 起來是 1 。
+觀察:
+
+.. math::
+
+    p(\mathcal{D}) = \int p(\mathcal{D}|\vec{w}) p(\vec{w}) dw
+
+這個分母可以透過 *likelihood function* 對 :math:`\vec{w}` 積分，
+:math:`\vec{w}` 會被積分掉，
+整個 :math:`p(\mathcal{D})` 中就沒有 :math:`\vec{w}` 。
+觀察上式的 :math:`p(\vec{w})` 是個 distribution ，
+想象一下有各種的 :math:`\vec{w}` ，
+:math:`\vec{w}` 有各種可能性、不確定性 (uncertainty) ；
+比起 frequentist 是使用的 fixed parameter
+，是透過估算 error 來決定 :math:`\vec{w}` 。
+
+
 :maximum likelihood:
-    最大化 likelihood function 的函數值
+    frequentist 的技術： 最大化 likelihood function 的函數值
+
+    * ref: https://stats.stackexchange.com/questions/74082/
+    * ref: https://stats.stackexchange.com/questions/180420/
+
+    要導入整個 data set 下去得到一個 error function 的 outcome
 
 :error function:
     通常是將 likelihood function 的函數值取負號作為 error function。
     而為了計算上方便，會先取 log 在負號。
 
-    為何取 log ? 在計算 :math:`p(D|\vec{w})` 時，其中 D 是多次的實驗結果
+    為何取 log ?
+    在計算 :math:`p(\mathcal{D}|\vec{w})` 時，其中 D 是多次的實驗結果
     :math:`\{t_1, \dots. t_n\}` 。
 
     .. math::
