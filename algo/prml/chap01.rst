@@ -202,6 +202,25 @@ Probability Density
     p(x \in (a, b)) = \int_a^b p(x) dx
 
 
+Transformation of Probability Densities
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+運用在微積分上變數代換的技巧。
+
+令 :math:`x = g(y)` 是 :math:`x` 與 :math:`y` 之間的非線性轉換
+
+.. math::
+
+    \begin{align}
+        p_y(y) dy & = p_x(x) dx \\
+        p_y(y)    & = p_x(x) \frac{dx}{dy} \\
+                  & = p_x(x) g'(y) \\
+                  & = p_x(g(y)) g'(y)
+    \end{align}
+
+ref: https://www.cl.cam.ac.uk/teaching/2003/Probability/prob11.pdf
+
+
 Cummulative Distribution Function
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
