@@ -269,12 +269,41 @@ Sum Rule and Product Rule:
 證明需透過 *measure theory*
 
 
+Expectation
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+目的是計算 加權平均。
+
+首先我們有 function :math:`f(x)`,
+計算 :math:`f(x)` under :math:`p(x)` 的加權平均。
+
+discrete 版本:
+
+.. math::
+
+    \mathbb{E}[f] = \sum_x p(x) f(x)
+
+
+continueous 版本:
+
+.. math::
+
+    \mathbb{E}[f] = \int p(x) f(x) dx
+
+在 continueous 的 probability density function 取點 N 點做近似。
+想象一下，取越多點，原來 :math:`p(x)` 比較高的 :math:`x` 就會比較多:
+
+.. math::
+
+    \mathbb{E}[f] \simeq \frac{1}{N} \sum_{n=1}^N f(x_n)
+
+
 Conditional Expectation
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. math::
 
-    E[f|y] = \sum_x p(x|y)f(x)
+    \mathbb{E}[f|y] = \sum_x p(x|y)f(x)
 
 
 Variance
