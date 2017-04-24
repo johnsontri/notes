@@ -298,6 +298,14 @@ continueous 版本:
     \mathbb{E}[f] \simeq \frac{1}{N} \sum_{n=1}^N f(x_n)
 
 
+multi-variable 是用下標代表對哪個變數做加權平均(積分)，
+在下面的例子中， :math:`x` 會被積分掉，所以下式實際上積分後是個 y 的 function:
+
+.. math::
+
+    \mathbb{E}_x[f(x, y)]
+
+
 Conditional Expectation
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -309,24 +317,30 @@ Conditional Expectation
 Variance
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+variance of :math:`f(x)`
+
 
 .. math::
 
-    var[x] = E[x^2] - E[x]^2
+    var[f] = \mathbb{E}[(f(x) - \mathbb{E}[f(x)])^2]
+
+即 :math:`value - mean` 是差量，差量平方的 mean
 
 
 Covariance
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+有兩 random variables :math:`x, y`
+
 .. math::
 
-    cov[x, y] = E_{x, y}[xy] - E[x]E[y]
+    cov[x, y] = \mathbb{E}_{x, y}[xy] - \mathbb{E}[x]E[y]
 
 Matrix version:
 
 .. math::
 
-    cov[X, Y] = E_{X, Y}[XY^T] - E[X]E[Y^T]
+    cov[X, Y] = \mathbb{E}_{X, Y}[XY^T] - \mathbb{E}[X]E[Y^T]
 
 
 Bayesian Probability
