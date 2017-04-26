@@ -19,6 +19,10 @@ idea
     * https://developer.yahoo.com/yql/guide/running-chapt.html
     * https://developer.yahoo.com/yql/console/?q=select%20*%20from%20yahoo.finance.quote%20where%20symbol%20in%20(%22YHOO%22%2C%22AAPL%22%2C%22GOOG%22%2C%22MSFT%22)&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
     
+  * [ ] cluster
+    * 國網中心用 LSF
+    * http://jura.wi.mit.edu/bio/education/hot_topics/lsf/Running_jobs_on_Linux_Cluster.pdf
+    * WRDS 用 GridEngin https://zh.wikipedia.org/wiki/Oracle_Grid_Engine
 couch
 
    * [ ] capp-market
