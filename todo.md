@@ -18,6 +18,10 @@ idea
   * [ ] YQL 
     * https://developer.yahoo.com/yql/guide/running-chapt.html
     * https://developer.yahoo.com/yql/console/?q=select%20*%20from%20yahoo.finance.quote%20where%20symbol%20in%20(%22YHOO%22%2C%22AAPL%22%2C%22GOOG%22%2C%22MSFT%22)&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
+    * add for `MarketData.jl` ?
+  
+  * [ ] math optimization
+    * https://github.com/JuliaNLSolvers
     
   * [ ] cluster
     * 國網中心用 LSF
