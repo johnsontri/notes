@@ -35,7 +35,7 @@ couch
 Weekend Project
 
   * [ ] BinDeps
-  * [x] CouchApp
+  * [ ] CouchApp
   * [ ] Julia issue
   * [ ] MarketTA.jl
   * [ ] FreeBSD Oatuh
