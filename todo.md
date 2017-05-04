@@ -31,6 +31,12 @@ couch
 
    * [ ] capp-market
        * [ ] plot via ChartJS
+       
+   * course note
+       * pricing
+           * beta: CAPM
+           * volatility
+           * tracking error (?)
 
 Weekend Project
 
