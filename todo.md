@@ -49,3 +49,4 @@ Weekend Project
   * [ ] Julia issue
   * [ ] MarketTA.jl
   * [ ] FreeBSD Oatuh
+  * [ ] VerneMQ
