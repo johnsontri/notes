@@ -37,6 +37,10 @@ couch
            * beta: CAPM
            * volatility
            * tracking error (?)
+   
+   * 5/15 期貨電子盤
+       * https://www.taifex.com.tw/chinese/event/afterhourstrading/index.asp
+       * check txf.py
 
 Weekend Project
 
