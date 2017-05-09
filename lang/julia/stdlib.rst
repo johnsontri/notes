@@ -61,6 +61,8 @@ Date
 Filesystem
 ----------------------------------------------------------------------
 
-like python's ``__file``::
+like python's ``__file__``::
 
     dirname(@__FILE__)
+
+* 0.6+ has ``@__DIR__``
