@@ -412,6 +412,8 @@ Aka, Subjective Probability.
     通常是將 likelihood function 的函數值取負號作為 error function。
     而為了計算上方便，會先取 log 在負號。
 
+    maximizing likelihood 相當於 minimizing error function 。
+
     為何取 log ?
     在計算 :math:`p(\mathcal{D}|\vec{w})` 時，其中 D 是多次的實驗結果
     :math:`\{t_1, \dots. t_n\}` 。
@@ -420,7 +422,12 @@ Aka, Subjective Probability.
 
         p(D|\vec{w}) = \frac{p(D=t_1) p(D=t_2) \dots p(D=t_n)}{p(\vec{w})}
 
-    取 log 會使得分子的連乘改為連加，且意義不變。
+    取 log 會使得分子的連乘改為連加， log function 是 monotonically decreasing
+    function, 會 convex, 而 maximum likelihood 的意義不變。
+
+
+以 Bayesian 的觀點，會把 prior 考慮進來，而不只有 likelihood 。
+可以解決 overfitting 的問題。
 
 :hyperparamter: :math:`\vec{w}` 是 model, 而決定 model 的 parameter 稱為
                 hyperparamter.
@@ -443,6 +450,8 @@ Aka, Subjective Probability.
 
 Data Sets Bootstrap
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+其他 frequentist 的手法
 
 :Original data set:
     :math:`X = \{ x_1, \dots, x_N \}`
