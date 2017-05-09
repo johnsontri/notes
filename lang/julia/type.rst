@@ -320,6 +320,14 @@ e.g. ``Point{Float64}``, ``Point{String}`` ...
 Julia 的 type parameter 是 *invariant* 。 *invariant* 代表的是我們原本 type
 parameter 之間的關係，並不會帶入到新的 type 上面。
 上面 ``Real`` vs ``Float64`` 的例子展現 *invariant* 的特性。
+在 julia 的記憶體管理上， ``Point{Float64}`` 就會顯得比較有效率, 內容是已知的
+64-bits。
+
+在 function argument 中定義 ``Point{T}``, 且 ``T`` 是 ``Real`` 的 subtype 方法
+如下:
+
+.. literalinclude:: ./code/param_func.jl
+
 
 
 Parametric Method
