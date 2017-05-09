@@ -312,10 +312,14 @@ e.g. ``Point{Float64}``, ``Point{String}`` ...
     julia> Point{Float64} <: Point{String}
     false
 
-即使是 ``Real`` 於 ``Float64`` 之間也是平行的::
+即使是 ``Real`` 之於 ``Float64`` 也是平行的::
 
     julia> Point{Float64} <: Point{Real}
     false
+
+Julia 的 type parameter 是 *invariant* 。 *invariant* 代表的是我們原本 type
+parameter 之間的關係，並不會帶入到新的 type 上面。
+上面 ``Real`` vs ``Float64`` 的例子展現 *invariant* 的特性。
 
 
 Parametric Method
