@@ -288,6 +288,35 @@ Parametric Types
 
 - Generic programming: https://en.wikipedia.org/wiki/Generic_programming
 
+一個 Parametric Type 長成這樣
+
+.. literalinclude:: ./code/param_type.jl
+
+這個實際上可以生產無數種 concrete type,
+e.g. ``Point{Float64}``, ``Point{String}`` ...
+
+而 ``Point`` 這個 id 本身是個 type object,
+想像成所有 ``Point{...}`` 的集合::
+
+    julia> Point{Float64} <: Point
+    true
+
+    julia> Point{AbstractString} <: Point
+    true
+
+    julia> Point{AbstractVector{Int}} <: Point
+    true
+
+每個 concrete type 彼此之間互相平行::
+
+    julia> Point{Float64} <: Point{String}
+    false
+
+即使是 ``Real`` 於 ``Float64`` 之間也是平行的::
+
+    julia> Point{Float64} <: Point{Real}
+    false
+
 
 Parametric Method
 ----------------------------------------------------------------------
