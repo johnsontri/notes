@@ -323,6 +323,16 @@ parameter 之間的關係，並不會帶入到新的 type 上面。
 在 julia 的記憶體管理上， ``Point{Float64}`` 就會顯得比較有效率, 內容是已知的
 64-bits。
 
+如果想要類似 *covariant type* 的效果還是有的::
+
+    Point{Float64} <: Point{<:Real}
+    true
+
+*contravariant*::
+
+    Point{Real} <: Point{>:Float64}
+    true
+
 在 function argument 中定義 ``Point{T}``, 且 ``T`` 是 ``Real`` 的 subtype 方法
 如下:
 
