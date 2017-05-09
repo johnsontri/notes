@@ -42,6 +42,11 @@ couch
        * https://www.taifex.com.tw/chinese/event/afterhourstrading/index.asp
        * check txf.py
 
+   * TimeSerise.jl
+       ```
+       TimeArray(StepRange{Date}, ...)
+       ```
+
 Weekend Project
 
   * [ ] BinDeps
