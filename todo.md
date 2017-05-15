@@ -37,7 +37,9 @@ couch
            * beta: CAPM
            * volatility
            * tracking error (?)
-   
+
+misc
+
    * 5/15 期貨電子盤
        * https://www.taifex.com.tw/chinese/event/afterhourstrading/index.asp
        * check txf.py
@@ -46,6 +48,8 @@ couch
        ```
        TimeArray(StepRange{Date}, ...)
        ```
+       
+   * https://bugs.archlinux.org/task/53499?project=0&order=id&sort=desc&string=tar
 
 Weekend Project
 
