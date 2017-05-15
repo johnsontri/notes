@@ -50,6 +50,9 @@ misc
        ```
        
    * https://bugs.archlinux.org/task/53499?project=0&order=id&sort=desc&string=tar
+   
+   * [ ] check rss
+     https://arxiv.org/
 
 Weekend Project
 
