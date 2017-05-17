@@ -32,6 +32,8 @@ couch
    * [ ] capp-market
        * [ ] plot via ChartJS
        
+   * [ ] update ZMQ doc
+       
    * course note
        * pricing
            * beta: CAPM
