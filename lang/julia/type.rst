@@ -356,3 +356,9 @@ julia 0.5::
 
     # abstract type
     same_type(x::T, y::T) where {T<:AbsType} = true
+
+
+Tuple Type
+----------------------------------------------------------------------
+
+https://docs.julialang.org/en/latest/manual/types.html#Tuple-Types-1
