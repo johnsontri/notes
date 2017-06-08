@@ -52,8 +52,37 @@ Intro
         Annualized\{R_t[k]\} =
             \exp \Bigg[ \frac{1}{k} \sum_{i=0}^{k-1} \ln{1 + R_{t-i}} \Bigg] - 1
 
-    用 Taylor expansion 做近似 (?)
+    用 Taylor expansion 做近似 (but why?)
 
     .. math::
 
         Annualized\{R_t[k]\} = \frac{1}{k} \sum_{i=1}^{k-1} R_{t-j}
+
+
+`Countinuous Compounding`
+
+    * `proof <http://www-stat.wharton.upenn.edu/~waterman/Teaching/IntroMath99/Class04/Notes/node13.htm>`_
+
+    Net value of a asset :math:`A`
+
+    .. math::
+
+        \begin{align*}
+            A & = C e^{rm} \\
+            C & = A e^{-rm} & \text{(present value)}
+        \end{align*}
+
+    where :math:`r` is the interest rate per annum,
+    :math:`C` is the initial capital.
+
+    *present value* 的想法是， 5 年後的 100 元，現在是多少？ 肯定小於 100 元
+
+
+`Continuously Compounded Return`
+
+    :def: natural logarithm of the simple gross return
+    :A.k.a.: log return
+
+    .. math::
+
+        r_t = \ln(1 + R_t) = \ln \frac{P_t}{P_{t-1}}
