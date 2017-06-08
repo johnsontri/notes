@@ -83,6 +83,21 @@ Intro
     :def: natural logarithm of the simple gross return
     :A.k.a.: log return
 
+    In one-period:
+
     .. math::
 
         r_t = \ln(1 + R_t) = \ln \frac{P_t}{P_{t-1}}
+
+    Extend to Multiperiod:
+
+    .. math::
+
+        \begin{align*}
+            r_t[k] & = \ln(1 + R_t[k]) \\
+                   & = \ln \Bigg[ \prod_{i=0}^{k-1} (1 + R_{t-i}) \Bigg] \\
+                   & = \sum_{i=0}^{k-1} \ln (1 + R_{t-i}) \\
+                   & = \sum_{i=0}^{k-1} r_{t-i}
+        \end{align*}
+
+    所以 multiperiod 就是把 one-period sum 起來。
