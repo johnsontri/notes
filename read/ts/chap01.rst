@@ -14,7 +14,7 @@ Intro
 
         1 + R_t = \frac{P_t}{P_{t-1}}
 
-    上面的公式完全等同於 `相對前一個 period 的漲跌幅`
+    上面的公式完全等同於 `相對前一個 period 的漲跌幅` , 即一階微分。
 
 
 `Multiperiod Simple Return`
@@ -44,3 +44,16 @@ Intro
 
     上式可以理解成 :math:`R_t[k]` 開根號是去做 geometric mean, 因為
     multiperiod 可以寫成每個 period 連乘。
+
+    整理後得
+
+    .. math::
+
+        Annualized\{R_t[k]\} =
+            \exp \Bigg[ \frac{1}{k} \sum_{i=0}^{k-1} \ln{1 + R_{t-i}} \Bigg] - 1
+
+    用 Taylor expansion 做近似 (?)
+
+    .. math::
+
+        Annualized\{R_t[k]\} = \frac{1}{k} \sum_{i=1}^{k-1} R_{t-j}
