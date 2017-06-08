@@ -101,3 +101,18 @@ Intro
         \end{align*}
 
     所以 multiperiod 就是把 one-period sum 起來。
+
+
+`Portfolio Return`
+
+    simple portfolio return 直接計算 simple return 的 weighting 得。
+
+    continuously compounded protfolio return 只有近似
+    :math:`r_{p, t} \approx \sum w_i r_{it}`,
+    且有 assumption: "simple returns Rit are all small in magnitude" (?)
+
+`Excess Return`
+
+    相對對於 risk free asset 的 return
+
+    也可以理解成 long asset + short risk free asset 的 total return
