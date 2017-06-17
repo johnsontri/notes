@@ -1,9 +1,9 @@
-MXNet
+**MXNet**
   * [ ] ploting cost function
     * http://dmlc.ml/MXNet.jl/latest/api/callback/
   * [ ] etc
 
-idea
+**idea**
   * [ ] classification 用 regression 的 \theta 做 othogonal ?
       * adaboost 的 learner 用 regression othogonal \theta?
   * [x] ~嘗試用 MSE for logistic regression 畫出奇形怪狀的 error function 。 Andrew Ng 說 MSE for logistic regression is non-convex, really?~
@@ -27,44 +27,49 @@ idea
     * 國網中心用 LSF
     * http://jura.wi.mit.edu/bio/education/hot_topics/lsf/Running_jobs_on_Linux_Cluster.pdf
     * WRDS 用 GridEngin https://zh.wikipedia.org/wiki/Oracle_Grid_Engine
-couch
 
-   * [ ] capp-market
-       * [ ] plot via ChartJS
-       
-   * [ ] update ZMQ doc
-       
-   * course note
-       * pricing
-           * beta: CAPM
-           * volatility
-           * tracking error (?)
-           
-   * [ ] 試一下　realtime pushing 的能力 
-       * https://github.com/rethinkdb/rethinkdb
 
-FreeBSD
+**CouchDB**
+
+  * [ ] capp-market
+    * [ ] plot via ChartJS
+       
+  * [ ] update ZMQ doc
+       
+  * course note
+     * pricing
+       * beta: CAPM
+       * volatility
+       * tracking error (?)
+
+
+**FreeBSD**
+
    * [ ] fix lang/julia build in current
    
    * [ ] update mosquitto to 1.4.12
 
-misc
 
-   * 5/15 期貨電子盤
-       * https://www.taifex.com.tw/chinese/event/afterhourstrading/index.asp
-       * ~~check txf.py~~
+**Misc**
 
-   * TimeSerise.jl
-       ```
-       TimeArray(StepRange{Date}, ...)
-       ```
+  * 5/15 期貨電子盤
+    * https://www.taifex.com.tw/chinese/event/afterhourstrading/index.asp
+    * ~~check txf.py~~
+
+  * TimeSerise.jl
+     ```
+     TimeArray(StepRange{Date}, ...)
+     ```
        
-   * https://bugs.archlinux.org/task/53499?project=0&order=id&sort=desc&string=tar
+  * https://bugs.archlinux.org/task/53499?project=0&order=id&sort=desc&string=tar
    
-   * [ ] check rss
+  * [ ] check rss
      https://arxiv.org/
+     
+  * [ ] 試一下　realtime pushing 的能力 
+    * https://github.com/rethinkdb/rethinkdb
 
-Weekend Project
+**Weekend Project**
 
   * [ ] BinDeps
   * [ ] CouchApp
