@@ -39,6 +39,9 @@ couch
            * beta: CAPM
            * volatility
            * tracking error (?)
+           
+   * [ ] 試一下　realtime pushing 的能力 
+       * https://github.com/rethinkdb/rethinkdb
 
 misc
 
