@@ -43,11 +43,16 @@ couch
    * [ ] 試一下　realtime pushing 的能力 
        * https://github.com/rethinkdb/rethinkdb
 
+FreeBSD
+   * [ ] fix lang/julia build in current
+   
+   * [ ] update mosquitto to 1.4.12
+
 misc
 
    * 5/15 期貨電子盤
        * https://www.taifex.com.tw/chinese/event/afterhourstrading/index.asp
-       * check txf.py
+       * ~~check txf.py~~
 
    * TimeSerise.jl
        ```
@@ -65,5 +70,7 @@ Weekend Project
   * [ ] CouchApp
   * [ ] Julia issue
   * [ ] MarketTA.jl
+      * add plot recipe
+
   * [ ] FreeBSD Oatuh
   * [ ] VerneMQ
