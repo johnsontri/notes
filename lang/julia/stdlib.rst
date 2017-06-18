@@ -9,6 +9,13 @@ Array
 
 * ``fill("", 10)``: like ``[""] * 10`` in python.
 
+* ``mapslices(f, A, dims)``:
+  把 Array 做 slice 後丟進去 ``f`` 。
+  ``dims`` 用來選第幾個維度要用 ``:`` 做 slice 。
+
+  假設 ``f`` 是 :math:`2 \times 3 \times 4 \times 5` ，
+  ``dim = [3, 4]`` 會看到 ``[i, j, :, :]``
+
 
 Iterations
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
