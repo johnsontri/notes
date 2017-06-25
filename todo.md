@@ -71,21 +71,36 @@
 
 **Paper**
 
-Deep Direct Reinforcement Learning for Financial Signal Representation and Trading
-Reinforcement learning and savings behavior
-Performance functions and reinforcement learning for trading systems and portfolios
-Learning to trade via direct reinforcement
-An automated FX trading system using adaptive reinforcement learning
-Learning competitive pricing strategies by multi-agent reinforcement learning
-Intraday FX trading: An evolutionary reinforcement learning approach
-A comprehensive survey of multiagent reinforcement learning
-Stock trading with cycles: A financial application of ANFIS and reinforcement learning
-Reinforcement learning in energy trading game among smart microgrids
-Reinforcement learning for constrained energy trading games with incomplete information
-Pairs trading strategy optimization using the reinforcement learning method: a cointegration approach
-Algorithm Trading using Q-Learning and Recurrent Reinforcement Learning
-Accelerating Multiagent Reinforcement Learning by Equilibrium Transfer
-FMRQ—A Multiagent Reinforcement Learning Algorithm for Fully Cooperative Tasks
+  * [ ] Deep Direct Reinforcement Learning for Financial Signal Representation and Trading
+
+  * [ ] Reinforcement learning and savings behavior
+
+  * [ ] Performance functions and reinforcement learning for trading systems and portfolios
+
+  * [ ] Learning to trade via direct reinforcement
+
+  * [ ] An automated FX trading system using adaptive reinforcement learning
+
+  * [ ] Learning competitive pricing strategies by multi-agent reinforcement learning
+
+  * [ ] Intraday FX trading: An evolutionary reinforcement learning approach
+
+  * [ ] A comprehensive survey of multiagent reinforcement learning
+
+  * [ ] Stock trading with cycles: A financial application of ANFIS and reinforcement learning
+
+  * [ ] Reinforcement learning in energy trading game among smart microgrids
+
+  * [ ] Reinforcement learning for constrained energy trading games with incomplete information
+
+  * [ ] Pairs trading strategy optimization using the reinforcement learning method: a cointegration approach
+
+  * [ ] Algorithm Trading using Q-Learning and Recurrent Reinforcement Learning
+
+  * [ ] Accelerating Multiagent Reinforcement Learning by Equilibrium Transfer
+
+  * [ ] FMRQ—A Multiagent Reinforcement Learning Algorithm for Fully Cooperative Tasks
+
 
 **Weekend Project**
 
