@@ -10,7 +10,7 @@ Equation 的三個觀點：
 * numerically
 
 
-`Intercepts`:
+`Intercepts`
     有些比較有用的解，如方程式的 :math:`(a, 0)` or
     :math:`(0, b)` 。
 
@@ -23,7 +23,7 @@ Equation 的三個觀點：
     一個方程式可以沒 intercept , 相當於沒與座標軸相交。
 
 
-`Transformation of Functions`:
+`Transformation of Functions`
 
     .. math::
 
@@ -38,3 +38,24 @@ Equation 的三個觀點：
     * Reflection 對 y-axis :math:`y = f(-x)`
 
     * Reflection 對 原點 :math:`y = -f(-x)`
+
+
+`Algebraic Functions`
+    用 `有限的項` 來表達的 function,
+    且只有 `algebraic operations`
+
+
+`Algebraic Operations`
+    包含加、減、乘、除、整數次方、整數開方（即有理數次方）
+
+
+`Transcendental Functions`
+    即 非 `Algebraic Functions`,
+    如三角函數
+
+
+`Composite Function`
+
+    .. math::
+
+        (f \circ g) = f(g(x))
