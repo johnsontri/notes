@@ -1,9 +1,8 @@
-DL
+Reinforcement Learning
 ===============================================================================
 
 .. toctree::
    :maxdepth: 2
    :glob:
 
-   dl/part1
-   dl/chap*
+   rl/*
