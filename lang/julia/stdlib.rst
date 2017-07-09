@@ -93,3 +93,13 @@ Network
 ----------------------------------------------------------------------
 
 * ``download``
+
+
+OS Utils
+----------------------------------------------------------------------
+
+* ``withenv``: temporary change env var(s)::
+
+    withenv("PWD" => nothing) do  # ``nothing`` can delete the var
+         println(ENV["PWD"])
+    end
