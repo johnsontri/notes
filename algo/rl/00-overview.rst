@@ -20,6 +20,21 @@ Reinforcement Learning and Markov Decision Processes
 
 #. "sequential decision making can be viewed as instances of MDPs."
 
+#. `policy` a function maps state into actions.
+
+#. 各種對 decision making problem 的解法
+   * rule base -- 全部 programming 出來，窮舉
+
+   * search and planning
+
+   * probabilistic planning algorithms
+
+   * learning
+
+#. Online -- 拿個實際的環境來操作
+
+#. Offline -- 使用 *simulator*
+
 
 Reference
 ----------------------------------------------------------------------
