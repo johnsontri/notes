@@ -67,7 +67,7 @@ Performance
 
   *concept drift*
 
-- supervised/unsupervised learning 的 data prieror dirstribution 你都知道。
+- supervised/unsupervised learning 的 data prieror distribution 你都知道。
 
 - 注意 subgoals
 
@@ -75,11 +75,62 @@ Performance
 Markov Decision Process
 ----------------------------------------------------------------------
 
-- 可以被視為 stochastic extension of finit automata
+- 可以被視為 stochastic extension of finite automata
 
 - 雖然廣義上的 MDP 是 infinit
 
+- key componement
 
+    - states
+
+    - actions
+
+    - transitions
+
+    - reward function
+
+
+States
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+A finite set :math:`S = \{s^1, \dots, s^N\}`
+
+The size of set space is :math:`N`. :math:`\| S \| = N`
+
+use `features` to describe a `state`
+
+
+Actions
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+A finite set :math:`A = \{a^1, \dots, a^K\}`
+
+:math:`\| A \| = K`
+
+Actions can control the system states.
+
+一坨 action 對某個 state 操作: :math:`A(s)`
+
+
+Transitions
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Apply action :math:`a` in a state :math:`s`, make a transitions
+from :math:`s` to new state :math:`s'`
+
+Transition function :math:`T` define as :math:`S \time A \time S -> [0, 1]`
+
+Notation: 現在是 :math:`s`, apply :math:`a` action, 得到 :math:`s'`
+
+.. math::
+
+    T(s, a, s')
+
+:math:`T` 形成機率分佈, `probability distribution over possible next states`
+
+.. math::
+
+    \sum_{s' \in S} T(s, a, s') = 1
 
 Reference
 ----------------------------------------------------------------------
