@@ -36,6 +36,51 @@ Reinforcement Learning and Markov Decision Processes
 #. Offline -- 使用 *simulator*
 
 
+Credit Assignment
+----------------------------------------------------------------------
+
+我的機器做了個決定，但是這個決定對後面影響大；
+整個 training 過程可能要到結束你才會知道 credit 。
+可能前面的決定 contribute 比較多。
+我能不能先給 credit ?
+
+*temporal credit assignment* problem
+
+*structural credit assignment* problem (?)
+agent 的 policy 可以用 任意 function 表示時， e.g. NN 的 params
+這個時候 如何 update NN 的參數便是 structural credit assignment problem
+
+
+Exploration-Exploitation Trade-off
+----------------------------------------------------------------------
+
+Exploration 為了找到新招
+
+Exploitation 有招之後的優化
+
+
+Performance
+----------------------------------------------------------------------
+
+
+- RL 的 performance measurement 是 stochastic, policy 一直 update
+
+  *concept drift*
+
+- supervised/unsupervised learning 的 data prieror dirstribution 你都知道。
+
+- 注意 subgoals
+
+
+Markov Decision Process
+----------------------------------------------------------------------
+
+- 可以被視為 stochastic extension of finit automata
+
+- 雖然廣義上的 MDP 是 infinit
+
+
+
 Reference
 ----------------------------------------------------------------------
 
