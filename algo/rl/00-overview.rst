@@ -111,6 +111,8 @@ Actions can control the system states.
 
 一坨 action 對某個 state 操作: :math:`A(s)`
 
+描述 action `order`, 使用 `global clock` :math:`t = 1, 2, \dots`
+
 
 Transitions
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
