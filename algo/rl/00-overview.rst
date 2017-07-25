@@ -120,7 +120,8 @@ Transitions
 Apply action :math:`a` in a state :math:`s`, make a transitions
 from :math:`s` to new state :math:`s'`
 
-Transition function :math:`T` define as :math:`S \time A \time S -> [0, 1]`
+Transition function :math:`T` define as
+:math:`S \times A \times S \rightarrow [0, 1]`
 
 Notation: 現在是 :math:`s`, apply :math:`a` action, 得到 :math:`s'`
 
@@ -130,9 +131,41 @@ Notation: 現在是 :math:`s`, apply :math:`a` action, 得到 :math:`s'`
 
 :math:`T` 形成機率分佈, `probability distribution over possible next states`
 
+(如果是離散的也可以想成是一張表)
+
 .. math::
 
     \sum_{s' \in S} T(s, a, s') = 1
+
+
+Reward Function
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+在某個 state 上，我有多少 reward
+
+.. math::
+
+    R: S \rightarrow \mathbb{R}
+
+通常有 :math:`\gamma \in [0, 1]` 作為 discount factor,
+離某 :math:`s` 越遠的 reward discount 越多。
+
+
+Initial State distribution
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Initial state 落在哪裡的表
+
+.. math::
+
+    I: S \rightarrow [0, 1]
+
+
+Model
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+即 :math:`T` 跟 :math:`R`
+
 
 Reference
 ----------------------------------------------------------------------
