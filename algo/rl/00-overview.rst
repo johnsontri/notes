@@ -167,6 +167,15 @@ Model
 即 :math:`T` 跟 :math:`R`
 
 
+Task
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- finite, fixed horizon task
+
+- infinite horizon task
+
+- continuous task
+
 Reference
 ----------------------------------------------------------------------
 
