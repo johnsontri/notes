@@ -112,3 +112,14 @@
 
   * [ ] FreeBSD Oatuh
   * [ ] VerneMQ
+
+2017/07/27
+
+  * [ ] SlackGadfly
+  
+  * [ ] MarketTA: Renko
+
+  * [ ] HDF5.jl BSDpkg
+
+  * [ ] Julia old Document banner:
+      https://github.com/JuliaLang/julia/issues/22936
