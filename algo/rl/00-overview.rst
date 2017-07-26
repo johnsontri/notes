@@ -176,6 +176,26 @@ Task
 
 - continuous task
 
+
+Policy
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- deterministic policy: 就直接的 mapping
+
+.. math::
+
+    \pi: S \rightarrow A
+
+- stochastic policy: 給 :math:`s,\ a` output 機率
+
+.. math::
+
+    \pi: S \times A \rightarrow [0, 1]
+
+
+在整個 process 中，如果 policy function 都沒變動，那麼就是 stationary
+
+
 Reference
 ----------------------------------------------------------------------
 
