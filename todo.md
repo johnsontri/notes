@@ -113,7 +113,7 @@
   * [ ] FreeBSD Oatuh
   * [ ] VerneMQ
 
-2017/07/28
+** 2017/07/28 **
 
   * [ ] SlackGadfly
       * [ ] port DandelionWebsockets
@@ -128,7 +128,7 @@
   
   * [ ] freebsd ci time limit: 2hr
   
-  * [v] ~~fix maxrss~~
+  * [x] ~~fix maxrss~~
   
   * [ ] https://github.com/JuliaLang/julia/issues/22004
   
