@@ -117,6 +117,7 @@
 
   * [ ] SlackGadfly
       * [ ] port DandelionWebsockets
+           * [ ] test it on 0.7
   
   * [ ] MarketTA: Renko
 
