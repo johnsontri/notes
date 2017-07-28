@@ -129,3 +129,5 @@
   * [ ] freebsd ci time limit: 2hr
   
   * [ ] fix maxrss
+  
+  * [ ] https://github.com/JuliaLang/julia/issues/22004
