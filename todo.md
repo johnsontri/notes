@@ -128,6 +128,8 @@
   
   * [ ] freebsd ci time limit: 2hr
   
-  * [ ] fix maxrss
+  * [v] ~~fix maxrss~~
   
   * [ ] https://github.com/JuliaLang/julia/issues/22004
+  
+  * [ ] fix julia ipv6 const
