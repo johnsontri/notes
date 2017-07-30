@@ -135,7 +135,9 @@
   
   * [ ] fix julia ipv6 const
   
-  * [ ] TimeSeries upgrade plot recipe
+  * TimeSeries
+      * [ ] upgrade plot recipe
+      * [ ] check julia typed exceptions
 
   * [ ] idea: `@recipe (x, y) ->`
   
