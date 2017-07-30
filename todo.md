@@ -138,3 +138,6 @@
   * [ ] TimeSeries upgrade plot recipe
 
   * [ ] idea: `@recipe (x, y) ->`
+  
+  * [ ] check Evolutionary.jl
+    https://github.com/wildart/Evolutionary.jl
