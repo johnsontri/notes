@@ -118,17 +118,19 @@
   
 **2017/07/30**
 
+  * [x] Julia old Document banner:
+      https://github.com/JuliaLang/julia/issues/22936
+      
+**2017/07/31**
+
   * [ ] SlackGadfly
       * [ ] port DandelionWebsockets
            * [ ] test it on 0.7
-  
+
   * [ ] MarketTA: Renko
 
   * [ ] HDF5.jl BSDpkg
 
-  * [ ] Julia old Document banner:
-      https://github.com/JuliaLang/julia/issues/22936
-  
   * [ ] freebsd ci time limit: 2hr
   
   * [ ] https://github.com/JuliaLang/julia/issues/22004
