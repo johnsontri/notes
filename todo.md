@@ -140,6 +140,7 @@
   * TimeSeries
       * [ ] upgrade plot recipe
       * [ ] check julia typed exceptions
+      * [ ] mapslice
 
   * [ ] idea: `@recipe (x, y) ->`
   
