@@ -121,7 +121,7 @@
   * [x] Julia old Document banner:
       https://github.com/JuliaLang/julia/issues/22936
       
-**2017/07/31**
+**2017/08/01**
 
   * [ ] SlackGadfly
       * [ ] port DandelionWebsockets
@@ -146,3 +146,5 @@
   
   * [ ] check Evolutionary.jl
     https://github.com/wildart/Evolutionary.jl
+    
+  * [ ] idea: Julia formatter
