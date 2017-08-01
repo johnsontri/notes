@@ -129,7 +129,7 @@
 
   * [ ] MarketTA: Renko
 
-  * [ ] HDF5.jl BSDpkg
+  * [x] ~~HDF5.jl BSDpkg~~
 
   * [ ] freebsd ci time limit: 2hr
   
