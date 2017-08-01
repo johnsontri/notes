@@ -148,3 +148,5 @@
     https://github.com/wildart/Evolutionary.jl
     
   * [ ] idea: Julia formatter
+
+  * [ ] SMTPClient
