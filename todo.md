@@ -121,7 +121,7 @@
   * [x] Julia old Document banner:
       https://github.com/JuliaLang/julia/issues/22936
       
-**2017/08/01**
+**2017/08/05**
 
   * [ ] SlackGadfly
       * [ ] port DandelionWebsockets
@@ -149,4 +149,10 @@
     
   * [ ] idea: Julia formatter
 
-  * [ ] SMTPClient
+  * [ ] SMTPClient.jl
+  
+  * [ ] autoregression
+    http://machinelearningmastery.com/autoregression-models-time-series-forecasting-python/
+    
+  * [ ] TimeModels.jl
+      * [ ] porting
