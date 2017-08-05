@@ -147,7 +147,7 @@
   * [ ] check Evolutionary.jl
     https://github.com/wildart/Evolutionary.jl
     
-  * [ ] idea: Julia formatter
+  * [x] ~~idea: Julia formatter~~ DocumentFormater.jl
 
   * [ ] SMTPClient.jl
   
