@@ -362,3 +362,11 @@ Tuple Type
 ----------------------------------------------------------------------
 
 https://docs.julialang.org/en/latest/manual/types.html#Tuple-Types-1
+
+:NTuple: 如果 Tuple 裡面的 type 一致，有 compact representation::
+
+    julia> NTuple{3, Int}
+    Tuple{Int64,Int64,Int64}
+
+    julia> NTuple{6, Int}
+    NTuple{6,Int64}
