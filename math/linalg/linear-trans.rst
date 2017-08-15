@@ -60,3 +60,14 @@ Matrix Form
 .. math::
 
     T(\vec{v}) = A \vec{v}
+
+
+根據 :math:`A` 的 shape ，如： :math:`(3, 2)` ， 那麼知道
+
+.. math::
+
+    T: R^2 \rightarrow R^3
+
+
+拿到一個 :math:`\vec{v}` 想要知道 image ，直接做矩陣乘法 :math:`A\vec{v}`
+即可。
