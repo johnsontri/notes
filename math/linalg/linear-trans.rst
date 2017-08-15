@@ -71,3 +71,44 @@ Matrix Form
 
 拿到一個 :math:`\vec{v}` 想要知道 image ，直接做矩陣乘法 :math:`A\vec{v}`
 即可。
+
+
+Rotation in :math:`R^2`
+----------------------------------------------------------------------
+
+.. math::
+
+    T: R^2 \rightarrow R^2
+
+.. math::
+
+    A = \begin{bmatrix}
+        \cos \theta & - \sin \theta \\
+        \sin \theta & \cos \theta
+    \end{bmatrix}
+
+逆時針轉 :math:`\theta`
+
+
+Other Examples
+----------------------------------------------------------------------
+
+* :math:`R^3` 中的點投影到 x-y 平面，其實就把 z = 0 即可。
+  而實際上可以用 linear transform 表達。
+
+.. math::
+
+    A = \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 0
+    \end{bmatrix}
+
+
+* 對矩陣做 transpose 實際上是 linear transform
+
+.. math::
+
+    T: M_{m, n} \rightarrow M_{n, m}
+
+    T(A): A^T
