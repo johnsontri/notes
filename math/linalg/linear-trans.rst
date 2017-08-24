@@ -112,3 +112,21 @@ Other Examples
     T: M_{m, n} \rightarrow M_{n, m}
 
     T(A): A^T
+
+* Differential Operator :math:`D_x` 在 :math:`f`, :math:`f'` 都在 :math:`[a, b]` 上
+  continuous 時，是 linear transform.
+
+    * for polynomial function, :math:`D_x` 是 :math:`P_n` 到 :math:`P_{n-1}`
+      的 linear transform
+
+.. math::
+
+    D_x(a_n x^n + \dots + a_1 x + a_0) = n a_n x^{n-1} + \dots + a_1
+
+* Definite Integral 對 polynomial function 也是
+
+.. math::
+
+    T: P \rightarrow R\ \text{defined by}
+
+    T(p) = \int_a^b p(x) dx
