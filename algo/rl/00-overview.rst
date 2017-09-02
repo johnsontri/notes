@@ -196,6 +196,40 @@ Policy
 在整個 process 中，如果 policy function 都沒變動，那麼就是 stationary
 
 
+Optimality
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+agent 的目的是啥、想要啥形狀的 reward，average 平穩的 or ？
+通常是獲得儘可能多的 rewards, 且夠有效率。
+
+optimality 是 整個 process reward 的期望值, reward 的算法可以直接 sum,
+導入 discount, 或是採用 一個 process 的 average rewards.
+
+Finite horizon: 我希望在 h 步之內(即 finite horizon) 有最大的 rewards.
+`h-step optimal action`
+
+.. math::
+
+    E[ \sum_0^h r_t ]
+
+導入 discount 的 finite horizon:
+
+.. math::
+
+    E[ \sum_0^h \gamma r_t ]
+
+
+Sepcial case of discount finite horizon model: Immediate reward
+
+.. math::
+
+    \text{Let}\ \gamma = 0
+
+    E[r_t]
+
+
+
+
 Reference
 ----------------------------------------------------------------------
 
