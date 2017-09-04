@@ -210,14 +210,13 @@ Finite horizon: 我希望在 h 步之內(即 finite horizon) 有最大的 reward
 
 .. math::
 
-    E[ \sum_0^h r_t ]
+    E[ \sum_{t=0}^h r_t ]
 
 導入 discount 的 finite horizon:
 
 .. math::
 
-    E[ \sum_0^h \gamma r_t ]
-
+    E[ \sum_{t=0}^h \gamma^t r_t ]
 
 Sepcial case of discount finite horizon model: Immediate reward
 
@@ -228,6 +227,53 @@ Sepcial case of discount finite horizon model: Immediate reward
     E[r_t]
 
 
+導入 discount 的 infinite horizon:
+
+.. math::
+
+    E[ \sum_{t=0}^\infty \gamma^t r_t ]
+
+
+Value Function
+----------------------------------------------------------------------
+
+link `optimality` and `policy`.
+
+algo learning target:
+
+* value function, aka criti-based algorithms
+
+    * Q-Learning
+
+    * TD-Learning
+
+* actor-based algorithms
+
+當我的 agent 停在某個 state 時，多好？ (`how good` in certain state)
+
+`多好` 這件事情用 optimality criterion 表達， e.g. average rewords
+    "The notion of how good is expressed in terms of an optimality criterion,
+    i.e. in terms of the expected return."
+
+所以 :math:`\pi` 是 hyper parameter? 要先給定
+    "Value functions are defined for particular policies."
+
+input 是 :math:`s` ， :math:`\pi` 是已知
+    "value of a state :math:`s` under policy :math:`\pi`"
+
+.. math::
+
+    V^\pi(s)
+
+e.g. 假設 optimality 是 finite-horizon, discounted model,
+given policy :math:`\pi`, 且正在 state :math:`s`
+
+.. math::
+
+    V^\pi(s) = E_{\pi}[ \sum_{k=0}^h \gamma^k r_{t+k} | s_t = s ]
+
+看到 :math:`r_{t+k}` 代表前面已經過了 :math:`t` ，前面就不管了。
+我們只關心往後的 :math:`k` 步
 
 
 Reference
