@@ -270,10 +270,75 @@ given policy :math:`\pi`, 且正在 state :math:`s`
 
 .. math::
 
-    V^\pi(s) = E_{\pi}[ \sum_{k=0}^h \gamma^k r_{t+k} | s_t = s ]
+    V^\pi(s) = E_{\pi}[ \sum_{k=0}^h \gamma^k r_{t+k} | s_t = s ] \tag{v.1}
 
 看到 :math:`r_{t+k}` 代表前面已經過了 :math:`t` ，前面就不管了。
 我們只關心往後的 :math:`k` 步
+
+
+`state-action value function` :math:`Q: S \times A \rightarrow \mathbb{R}`
+
+從 state :math:`s`, 根據 :math:`\pi` 採取 :math:`a`
+
+.. math::
+
+    Q^\pi(s, a) = E_{\pi}[ \sum_{k=0}^h \gamma^k r_{t+k} | s_t = s, a_t = a ]
+
+
+Bellman Equation
+----------------------------------------------------------------------
+
+Aka. Dynamic Programming Equation
+
+用在 discrete-time 的問題
+
+e.g. 對 :math:`(v.1)` 的 sum 展開，再寫成 Bellman Equation
+
+.. math::
+
+    \begin{align}
+        V^\pi(s) & = E_\pi[ r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \dots | s_t = t] \\
+                 & = E_\pi[ r_t + \gamma V^\pi(s_{t+1}) | s_t = s] \\
+                 & = \sum_{s'} T(s, \pi(s), s') \bigg( R(s, a, s') + \gamma V^\pi (s') \bigg)
+    \end{align}
+
+Expectation 就是乘上 transition probabilistic 後 sum 起來。
+觀察：這個 Expectation 被定義成 Immediate reward + value of next step
+
+:optimal :math:`\pi`: :math:`\pi^*`
+
+:optimal :math:`V`: :math:`V^{\pi^*} = V^*`
+
+`Bellman optimality equation`
+
+.. math::
+
+    V^*(x) = \max_{a \in A} \sum_{s' \in S}
+             T(s, \pi(s), s') \bigg( R(s, a, s') + \gamma V^\pi (s') \bigg)
+
+.. math::
+
+    \pi^*(s) = \arg \max_a \sum_{s' \in S}
+             T(s, \pi(s), s') \bigg( R(s, a, s') + \gamma V^\pi (s') \bigg)
+
+上面這個 policy 是 `greedy policy` 、是 deterministic。
+直接用 value function 去選 best action。
+
+想對應的 optimal state-action value function:
+
+.. math::
+
+    Q^*(s, a) = \sim_{s'} T(s, a, s')
+                \bigg( R(s, a, s') + \gamma \max_{a'} Q^*(s', a') \bigg)
+
+這裡 state-action 的 policy 是 stochastic policy。
+裡面 :math:`\max_{a'} Q^*` 的部分，是要選使 :math:`Q` 最大的 next action。
+
+.. math::
+
+    \because \sum_{a' \in A} \pi(s', a') = 1
+
+是 stochastic 的形狀。
 
 
 Reference
