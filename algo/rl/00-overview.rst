@@ -328,7 +328,7 @@ Expectation 就是乘上 transition probabilistic 後 sum 起來。
 
 .. math::
 
-    Q^*(s, a) = \sim_{s'} T(s, a, s')
+    Q^*(s, a) = \sum_{s'} T(s, a, s')
                 \bigg( R(s, a, s') + \gamma \max_{a'} Q^*(s', a') \bigg)
 
 這裡 state-action 的 policy 是 stochastic policy。
@@ -340,8 +340,41 @@ Expectation 就是乘上 transition probabilistic 後 sum 起來。
 
 是 stochastic 的形狀。
 
+Model-free
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q function 是 model-free approach。
+`T` 跟 `R` 是環境，而我們可能根本不知道這個環境的 model，
+若不需要 `T` 跟 `R` 的 method 稱為 model-free algorithms。
+    "Q-functions are useful because they make the weighted summation over different
+    alternatives (such as in Equation v.1) using the transition function unnecessary.
+    This is the reason that in model-free approaches, i.e. in case T and R are
+    unknown, Q-functions are learned instead of V-functions."
+
+如果有 `T` 跟 `R` ，在 MDP framework 之下，可以直接算出最好的 policy，
+而不用丟出 agent 去嘗試。
+
+
+Relation between :math:`Q^*` and :math:`V^*`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. math::
+
+    V^*(s) = \max_a Q^*(s, a)
+
+.. math::
+
+    Q^*(s, a) = \sum_{s'} T(s, a, s')
+                \bigg( R(s, a, s') + \gamma V^*(s') \bigg)
+
+.. math::
+
+    \pi^*(s) = \arg \max_a Q^*(s, a)
+
 
 Reference
 ----------------------------------------------------------------------
 
 * https://en.wikipedia.org/wiki/Reinforcement_learning
+
+* https://www.quora.com/What-is-the-difference-between-model-based-and-model-free-reinforcement-learning
