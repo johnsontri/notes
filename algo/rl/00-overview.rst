@@ -67,7 +67,7 @@ Performance
 
   *concept drift*
 
-- supervised/unsupervised learning 的 data prieror distribution 你都知道。
+- supervised/unsupervised learning 的 data prior distribution 你都知道。
 
 - 注意 subgoals
 
@@ -340,8 +340,29 @@ Expectation 就是乘上 transition probabilistic 後 sum 起來。
 
 是 stochastic 的形狀。
 
-Model-free
+Model-based and Model-free
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Model 是指 model of MDP，而 MDP 裡面的參數有 :math:`(S, A, T, R)` ，
+而 :math:`T` 跟 :math:`R` 是構成 environment 的主要參數。
+
+:Model-based algorithms:
+    "Model-based algorithms exist under the general name of DP."
+    「一般來說，以 DP 之名」
+    可能有些 prior ，用 agent 去蒐集 env 的 data，得到 model。
+    基本上在有 model 後會用 DP，去最佳化 Bellman Equation，
+    得到 optimal policy。
+
+:Model-free algorithms:
+    "Model-free algorithms, under the general name of RL"
+    我們沒有完整的 model （如： :math:`T,\ R` ），就會直接丟 agent 下去
+    用 policy 戳環境，看看 :math:`T,\ R` 跑出啥。
+
+        "a simulation of the policy thereby generating samples of state transitions and
+        rewards."
+
+    然後我們就可以估測 state-action function (e.g. Q-function)
+
 
 Q function 是 model-free approach。
 `T` 跟 `R` 是環境，而我們可能根本不知道這個環境的 model，
