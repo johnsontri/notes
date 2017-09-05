@@ -393,6 +393,32 @@ Relation between :math:`Q^*` and :math:`V^*`
     \pi^*(s) = \arg \max_a Q^*(s, a)
 
 
+Generalized Policy Iteration (GPI)
+----------------------------------------------------------------------
+
+Two steps:
+
+* `policy evaluation`: 根據目前的 :math:`\pi` 得出 :math:`V^\pi`
+
+* `policy improvement`:
+  在這個階段，我們已經蒐集了各種 state 跟 action 的結果。
+  去看看目前 :math:`\pi` 在每個 states 給出的 action 如何？
+  可能在某個 state 之下， :math:`\pi` 給出的 action 有改進的空間。
+
+  用 :math:`V^\pi` 來 improve :math:`\pi` 得到 :math:`\pi'`
+
+
+我們可以只有 value function 被明確定義，
+policy 可以根據每個 state 需要時再生出來。
+這種 case 對 model-free 很常見(?)；反之亦然。
+
+    "Note that it is also possible to have an `implicit` representation of the policy,
+    which means that only the value function is stored, and a policy is computed
+    on-the-fly for each state based on the value function when needed."
+
+另外 value function 不需要特別精確，只需要能夠有鑑別度，
+能明確的分出最好跟次好是有差的。
+
 Reference
 ----------------------------------------------------------------------
 
