@@ -428,3 +428,13 @@ https://docs.julialang.org/en/latest/manual/types.html#Tuple-Types-1
 
     julia> NTuple{6, Int}
     NTuple{6,Int64}
+
+
+* 是 covariant
+
+* ``Vararg`` 跟 ``Tuple`` 都是 covariant
+
+::
+
+    julia> Vararg{Int, 3} <: Vararg{Integer, 3}
+    true
