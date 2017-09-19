@@ -462,6 +462,56 @@ Data Sets Bootstrap
     抽到 10 個為止，即形成 :math:`X_B`
 
 
+Model Selection
+----------------------------------------------------------------------
+
+假設 model 為 order :math:`M` ploynomial model
+
+.. math::
+
+    y = p(x)
+
+而 :math:`M` 的覺得也是個 hyperparamter。
+
+:math:`M` 太大就容易有 over-fitting 的問題。
+
+
+Cross-Validation
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+可用於檢驗 over-fitting
+
+舉例，所有的 data point 是 100%， 拆成
+
+- train set
+
+- validation set
+
+- test set
+
+通常先拆成 8:2 = (train + validation):test
+
+而 train + validation 裡面在拆，如 4:1
+
+在 4:1 的 case，這個部分的 data 有 5 段，
+就會做 5 個 training run，每次 run 都選一段作為 validation set。
+
+但是這樣的缺點是每個 :math:`M` 的 computation 量都增加 5 倍。
+
+
+Akaike Information Criterion (AIC)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+我們覺得 cross-validation 的計算量增加太多了。
+
+.. math::
+
+    \ln p(\mathcal{D} | \vec{w}_{ML}) - M
+
+我們有好多個 :math:`M` 要選一個。
+每個 :math:`M` 都有自己的 max likelihood 的那個 :math:`\vec{w}` 。
+
+
 Decision Theory
 ----------------------------------------------------------------------
 
