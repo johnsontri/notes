@@ -545,7 +545,8 @@ Information Theory
 我們想要尋找一個 `Monotonic function`_ :math:`h(x)` 來代表觀測 x 後，有多少的
 information gain ，或是說有多 suprise
 
-先想象，假設 :math:`x, y` 為獨立的 random variable, :math:`h(x, y)` 應該長成:
+先想象，假設 :math:`x, y` 為獨立 (independent) 的 random variable,
+:math:`h(x, y)` 應該長成:
 
 .. math::
 
@@ -588,4 +589,18 @@ Continueous Var
 
     H(\vec{x}) = - \int p(\vec{x}) \ln p(\vec{x}) d\vec{x}
 
-上式稱為 :math:`differential entropy`
+上式稱為 `differential entropy`
+
+
+Mutual Information
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+描述兩份資訊（兩個 random variables）dependent 的多寡。
+
+換句話說，量測兩個 random variables 之間 share 了多少資訊。
+讓我們在已知其中一個的狀態下，可以去除多少另一個 variable 的不確定選項。
+
+.. math::
+
+    I(X; Y) = \sum_{x \in X} \sum_{y \in Y} p(x, y)
+        \log \Big( \frac{p(x, y)}{p(x)p(y)} \Big)
