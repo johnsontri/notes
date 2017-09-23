@@ -74,5 +74,3 @@ One variable composite with finite number of
 - constants
 
 包含 三角函數
-
-
