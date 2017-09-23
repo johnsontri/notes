@@ -35,6 +35,22 @@ Examples
     lineplot(f(2, 0, 3), -10, 10)
 
 
+Probility Density Function
+----------------------------------------------------------------------
+
+.. math::
+
+    g(x) = \frac{1}{\sigma \sqrt 2\pi} e^{-\frac{(x - \mu)^2}{2\sigma^2}}
+
+
+因為，根據機率公理
+
+.. math::
+
+    \int f(x) & = 1 \\
+    \int_{-\infty}^{\infty} \alpha e^{-\frac{(x - \beta)^2}{2\gamma^2}} dx & = 1
+
+
 Reference
 ----------------------------------------------------------------------
 
