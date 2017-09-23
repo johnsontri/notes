@@ -604,3 +604,11 @@ Mutual Information
 
     I(X; Y) = \sum_{x \in X} \sum_{y \in Y} p(x, y)
         \log \Big( \frac{p(x, y)}{p(x)p(y)} \Big)
+
+如果 random variable 為 independent 則
+
+.. math::
+
+    \log \Big( \frac{p(x, y)}{p(x)p(y)} \Big) =
+    \log \Big( \frac{p(x)p(y)}{p(x)p(y)} \Big) = \log 1 = 0
+
