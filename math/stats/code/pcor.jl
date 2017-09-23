@@ -22,8 +22,10 @@ function pcor(x::Vector, y::Vector, z::Vector)
     n = length(x)
 
     # Normal Equation Method
-    w_x = pinv(z' * z) * z' * x
-    w_y = pinv(z' * z) * z' * y
+    #= w_x = pinv(z' * z) * z' * x =#
+    #= w_y = pinv(z' * z) * z' * y =#
+    w_x = first(z \ x)
+    w_y = first(z \ y)
 
     e_x = x .- w_x * z
     e_y = y .- w_y * z
