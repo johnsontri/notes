@@ -42,6 +42,6 @@ end
 o = Float64[]
 for i ∈ 1:size(class1, 1)
     x = class1[i, 1:2]'
-    ϕ = @. exp(-(x - μ)^2 / (2σ^2))
-    o = [o; reshape(ϕ', 1, length(ϕ))]
+    ϕ = exp.(-sum((x .- μ).^2, 2) ./ (2 .* sum(σ.^2, 2)))
+    o = [o; ϕ']
 end
