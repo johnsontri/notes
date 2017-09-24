@@ -368,11 +368,13 @@ Aka, Subjective Probability.
 
 .. math::
 
-    p(\vec{w}|\mathcal{D}) = \frac{p(\mathcal{D}|\vec{w})p(w)}{p(\mathcal{D})}
+    p(\vec{w}|\mathcal{D}) = \frac{p(\mathcal{D}|\vec{w})p(\vec{w})}{p(\mathcal{D})}
 
 其中，上述 right-hand side 的 :math:`p(\mathcal{D}|\vec{w})` 被稱為
-`likelihood function` ，這個 function 的 parameter 為 :math:`\vec{w}` 。
-其表達了 :math:`\mathcal{D}` 對於不同 :math:`\vec{w}` 的合理程度（原文用： probable）。
+`likelihood function` ，這個 likelihood function 的 hyperparameter 為
+:math:`\vec{w}` 。
+其表達了 :math:`\mathcal{D}` 對於每一組 :math:`\vec{w}` 的合理程度
+（原文用： probable）。
 
 我們可以得到
 
@@ -388,7 +390,13 @@ Aka, Subjective Probability.
 
 .. math::
 
-    p(\mathcal{D}) = \int p(\mathcal{D}|\vec{w}) p(\vec{w}) dw
+    \int p(\vec{w}|\mathcal{D}) d\vec{w} & =
+        \int \frac{p(\mathcal{D}|\vec{w}) p(\vec{w})}{p(\mathcal{D})} d\vec{w} \\
+    1 & =
+        \int \frac{p(\mathcal{D}|\vec{w}) p(\vec{w})}{p(\mathcal{D})} d\vec{w} \\
+    1 & =
+        \frac{1}{p(\mathcal{D})}\int p(\mathcal{D}|\vec{w}) p(\vec{w}) d\vec{w} \\
+    p(\mathcal{D}) & = \int p(\mathcal{D}|\vec{w}) p(\vec{w}) d\vec{w}
 
 這個分母可以透過 *likelihood function* 對 :math:`\vec{w}` 積分，
 :math:`\vec{w}` 會被積分掉，
