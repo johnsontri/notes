@@ -390,13 +390,16 @@ Aka, Subjective Probability.
 
 .. math::
 
-    \int p(\vec{w}|\mathcal{D}) d\vec{w} & =
+    \begin{alignat}{2}
+    & & \int p(\vec{w}|\mathcal{D}) d\vec{w} & =
         \int \frac{p(\mathcal{D}|\vec{w}) p(\vec{w})}{p(\mathcal{D})} d\vec{w} \\
-    1 & =
+    & \Rightarrow & 1 & =
         \int \frac{p(\mathcal{D}|\vec{w}) p(\vec{w})}{p(\mathcal{D})} d\vec{w} \\
-    1 & =
+    & \Rightarrow & 1 & =
         \frac{1}{p(\mathcal{D})}\int p(\mathcal{D}|\vec{w}) p(\vec{w}) d\vec{w} \\
-    p(\mathcal{D}) & = \int p(\mathcal{D}|\vec{w}) p(\vec{w}) d\vec{w}
+    & \Rightarrow & p(\mathcal{D}) & =
+        \int p(\mathcal{D}|\vec{w}) p(\vec{w}) d\vec{w}
+    \end{alignat}
 
 這個分母可以透過 *likelihood function* 對 :math:`\vec{w}` 積分，
 :math:`\vec{w}` 會被積分掉，
@@ -431,11 +434,16 @@ Aka, Subjective Probability.
         p(D|\vec{w}) = \frac{p(D=t_1) p(D=t_2) \dots p(D=t_n)}{p(\vec{w})}
 
     取 log 會使得分子的連乘改為連加， log function 是 monotonically decreasing
-    function, 會 convex, 而 maximum likelihood 的意義不變。
-
+    function, imply convex, 而且 maximum likelihood 的意義不變。
 
 以 Bayesian 的觀點，會把 prior 考慮進來，而不只有 likelihood 。
 可以解決 overfitting 的問題。
+舉例來說，我們丟了 3 次公正的硬幣，但剛好都是 head，
+這時如果只 maximum likelihood 會得到 :math:`p(head) = 1` 這是 overfitting。
+而相對的 Bayesian 加上了些 prior，會比單純 maximum likelihood 好。
+
+但是 frequentist 跟 Bayesian 的爭論一直很多。像是 Bayesian 有時候選擇 prior
+是為了數學上的方便，而不一定是與事實有關。
 
 :hyperparamter: :math:`\vec{w}` 是 model, 而決定 model 的 parameter 稱為
                 hyperparamter.
