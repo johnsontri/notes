@@ -8,7 +8,7 @@ Gaussian Function
 Def
 ----------------------------------------------------------------------
 
-Generic form:
+Generic univariable form:
 
 .. math::
 
@@ -51,6 +51,16 @@ Probility Density Function
 
     \int f(x) & = 1 \\
     \int_{-\infty}^{\infty} \alpha e^{-\frac{(x - \beta)^2}{2\gamma^2}} dx & = 1
+
+
+D-dimensional form:
+
+.. math::
+
+    g(x) = \frac{1}{(2\pi)^{\frac{D}{2}} | \Sigma | ^{\frac{1}{2}} }
+        e^{- \frac{ (\vec{x} - \vec{\mu})^T \Sigma^{-1} (\vec{x} - \vec{\mu})}{2}}
+
+where :math:`\Sigma` is the covariance matrix
 
 
 Reference
