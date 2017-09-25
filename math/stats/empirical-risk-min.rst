@@ -1,3 +1,5 @@
+.. _empirical-risk-min:
+
 Empirical Risk Minimization
 ===============================================================================
 
@@ -25,6 +27,12 @@ where :math:`p(x, y)` is the join probility distribution.
     R_{emp}(h) = \frac{1}{m} \sum_i^m L(h(x_i), y_i)
 
 就被稱為 Empirical Risk
+
+
+Examples
+----------------------------------------------------------------------
+
+像是 MSE
 
 
 Reference
