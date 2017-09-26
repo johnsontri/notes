@@ -1,11 +1,10 @@
-data = readcsv("dataset.csv")
+data = readcsv(joinpath(@__DIR__, "dataset.csv"))
 
 class1 = data[data[:, 3] .== 1, :]
 class2 = data[data[:, 3] .== 2, :]
 
 center1 = class1[rand(1:size(class1, 1), 10), :]
 center2 = class2[rand(1:size(class2, 1), 10), :]
-
 
 for i in 1:20
     info(i)
