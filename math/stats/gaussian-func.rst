@@ -42,7 +42,7 @@ Probility Density Function
 
 .. math::
 
-    g(x) = \frac{1}{\sigma \sqrt 2\pi} e^{-\frac{(x - \mu)^2}{2\sigma^2}}
+    g(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}
 
 
 因為，根據機率公理
