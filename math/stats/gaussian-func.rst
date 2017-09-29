@@ -118,6 +118,12 @@ Density Estimation
 
 就是 `simple variance`
 
+但是 :math:`\sigma_{ML}` 是被低估的需要修正為
+
+.. math::
+
+    \frac{1}{N - 1} \sum_n^N (x_n - \mu_{ML})^2
+
 
 Reference
 ----------------------------------------------------------------------
