@@ -42,7 +42,7 @@ Probility Density Function
 
 .. math::
 
-    g(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}
+    \mathcal{N}(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}
 
 
 因為，根據機率公理
@@ -57,10 +57,66 @@ D-dimensional form:
 
 .. math::
 
-    g(x) = \frac{1}{(2\pi)^{\frac{D}{2}} | \Sigma | ^{\frac{1}{2}} }
+    \mathcal{N}(x) = \frac{1}{(2\pi)^{\frac{D}{2}} | \Sigma | ^{\frac{1}{2}} }
         e^{- \frac{ (\vec{x} - \vec{\mu})^T \Sigma^{-1} (\vec{x} - \vec{\mu})}{2}}
 
 where :math:`\Sigma` is the covariance matrix
+
+
+Density Estimation
+----------------------------------------------------------------------
+
+假設我們有 dataset :math:`\mathcal{D}` 。
+假設 data distribution 是 gaussian 但 :math:`\mu,\ \sigma` 未知，
+且 dataset 裡面每個 observation 都是 i.i.d.
+
+.. math::
+
+    p(\mathcal{D} | \mu, \sigma) = \prod_{x \in \mathcal{D}} \mathcal{N} (x | \mu, \sigma)
+
+觀察 :math:`\mathcal{N}(x | \mu, \sigma)` 這個其實就是 likelihood function
+:math:`\mathcal{L}(data | model)`
+
+所以簡單的 maximum likelihood，就可以得到 :math:`\mu, \sigma` ，
+就可以完成 density function 的估測。
+
+實際上會用 log likelihood function，避免計算上的 underflow
+(多個機率連乘造成的)。
+
+.. math::
+
+    \begin{alignat}{2}
+    & & p(\mathcal{D} | \mu, \sigma) & = \prod \mathcal{N}(x | \mu, \sigma) \\
+    & \Rightarrow & \ln p(\mathcal{D} | \mu, \sigma) & =
+        \ln \prod \mathcal{N}(x | \mu, \sigma) \\
+    & \Rightarrow & & =
+        \sum \ln \mathcal{N}(x | \mu, \sigma) \\
+    & \Rightarrow & & =
+        \sum \ln \Big(
+            \frac{1}{\sigma \sqrt{2\pi}} e ^{- \frac{(x - \mu)^2}{2 \sigma^2}}
+        \Big) \\
+    & \Rightarrow & & = \sum \Big\{
+            - \frac{(x - \mu)^2}{2 \sigma^2} + \ln \frac{1}{\sigma \sqrt{2\pi}}
+        \Big\} \\
+    & \Rightarrow & & = - \sum \frac{(x - \mu)^2}{2 \sigma^2} -
+        N \ln \sigma \sqrt{2\pi} \\
+    & \Rightarrow & & = - \sum \frac{(x - \mu)^2}{2 \sigma^2} -
+        N \ln \sigma - \frac{N}{2} \ln 2\pi
+    \end{alignat}
+
+然後 maximum log likelihood 得
+
+.. math::
+
+    \mu_{ML} = \frac{1}{N} \sum_n^N x_n
+
+發現就是對 data 做 `simple mean`
+
+.. math::
+
+    \sigma^2_{ML} = \frac{1}{N} \sum_n^N (x_n - \mu_{ML})^2
+
+就是 `simple variance`
 
 
 Reference
