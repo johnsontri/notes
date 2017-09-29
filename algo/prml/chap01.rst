@@ -528,6 +528,12 @@ Akaike Information Criterion (AIC)
 每個 :math:`M` 都有自己的 max likelihood 的那個 :math:`\vec{w}` 。
 
 
+Gaussian Distribution
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+See :ref:`gaussian-func`
+
+
 Decision Theory
 ----------------------------------------------------------------------
 

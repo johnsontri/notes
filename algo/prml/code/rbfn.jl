@@ -44,3 +44,10 @@ for i ∈ 1:size(class1, 1)
     ϕ = exp.(-sum((x .- μ).^2, 2) ./ (2 .* sum(σ.^2, 2)))
     o = [o; ϕ']
 end
+
+# Example for plotting
+# plot(
+#     layer(x=center1[:, 1], y=center1[:, 2], Geom.point, Theme(default_color="red")),
+#     layer(x=class1[:, 1], y=class1[:, 2], Geom.point),
+#     layer(x=class2[:, 1], y=class2[:, 2], Geom.point, Theme(default_color="lightgreen"))
+# )
