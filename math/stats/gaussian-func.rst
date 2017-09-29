@@ -118,7 +118,7 @@ Density Estimation
 
 就是 `simple variance`
 
-但是 :math:`\sigma_{ML}` 是被低估的需要修正為
+但是 :math:`\sigma_{ML}` 是被低估的，需要修正為
 
 .. math::
 

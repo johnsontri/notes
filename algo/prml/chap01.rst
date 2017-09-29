@@ -478,6 +478,29 @@ Data Sets Bootstrap
     抽到 10 個為止，即形成 :math:`X_B`
 
 
+Curve fitting Re-visited
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+再次來看看 curve fitting 問題，前面我們用 polynomial 與 frequentist 的 maximizing
+likelihood 的技術來得到我們的 model。
+
+Probabilistic perspective，我們用
+「單一一個 target value 現在是個 distribution」來表達 uncertainty。
+
+舉例來說，現在我們假設，（在給定 :math:`x` 之下） :math:`t` 的值 是一個
+gaussian distribution，而且這個 distribution :math:`\mu = y(x, \vec{w})`
+
+我們現在是要做 curve fitting，就是求曲線 :math:`y(x, \vec{w})` ,
+所以想象成這曲線上有無限多個 target 就有 無限多個 distribution。
+
+每個 distribution 寫成
+
+.. math::
+
+    p(t | x, \vec{w}, \beta) & = \mathcal{N}(t | \mu, \beta^{-1}) \\
+                             & = \mathcal{N}(t | y(x, \vec{w}), \beta^{-1})
+
+
 Model Selection
 ----------------------------------------------------------------------
 
