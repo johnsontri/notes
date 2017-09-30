@@ -481,8 +481,8 @@ Data Sets Bootstrap
 Curve fitting Re-visited
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-再次來看看 curve fitting 問題，前面我們用 polynomial 與 frequentist 的 maximizing
-likelihood 的技術來得到我們的 model。
+再次來看看 curve fitting 問題，前面我們用 polynomial 與 frequentist 的
+maximum likelihood 的技術來得到我們的 model。
 
 Probabilistic perspective，我們用
 「單一一個 target value 現在是個 distribution」來表達 uncertainty。
@@ -499,6 +499,77 @@ gaussian distribution，而且這個 distribution :math:`\mu = y(x, \vec{w})`
 
     p(t | x, \vec{w}, \beta) & = \mathcal{N}(t | \mu, \beta^{-1}) \\
                              & = \mathcal{N}(t | y(x, \vec{w}), \beta^{-1})
+
+Where the precision :math:`\beta^{-1} = \sigma^2`
+
+然後用 training data :math:`\{\vec{x}, \vec{t}\}` maximum likelihood
+來決定 :math:`\vec{w},\ \beta` ，
+加上 i.i.d 的假設，得 likelihood function
+
+.. math::
+
+    p(\vec{t} | \vec{x}, \vec{w}, \beta) =
+        \prod_n^N \mathcal{N} (t_n | y(x_n, \vec{w}), \beta^{-1})
+
+再用 :ref:`gaussian-func` 得出的 log likelihood form
+
+.. math::
+
+    \ln p(\vec{t} | \vec{x}, \vec{w}, \beta) =
+        - \frac{\beta}{2} \sum \big( y(x_n, \vec{w}) - t_n \big)^2 +
+        \frac{N}{2} \ln \beta - \frac{N}{2} ln (2\pi)
+
+現在我們要 maximum log likelihood with respect with :math:`\vec{w}` ，
+上面式子中後面兩項與 :math:`\vec{w}` 無關，省略掉。
+而第一項中的 :math:`\beta` 可以視為常數；得
+
+.. math::
+
+    & & \max - & \frac{1}{2} \sum \big( y(x_n, \vec{w}) - t_n \big)^2 \\
+    & \Rightarrow & \min & \frac{1}{2} \sum_n^N \big( y(x_n, \vec{w}) - t_n \big)^2
+
+這就是 `sum-of-square error function` 。
+`sum-of-square error function` 正是基於 Gaussian noise distribution 的假設，
+執行 maximum likelihood 的結果。
+
+同理，求 precision
+
+.. math::
+
+    \frac{1}{\beta} = \frac{1}{N} \sum_n^N \big( y(x_n, \vec{w_{ML}}) - t_n \big)^2
+
+接下來我們導入 Bayesian probability 中的 prior，call this
+
+.. math::
+
+    posterior \propto likelihood \times prior
+
+假設我們的 model :math:`\vec{w}` 的 distribution 是個 D-dimension Gaussian
+
+.. math::
+
+    p(\vec{w} | \alpha)a & = \mathcal{N}(\vec{w} | \vec{0}, \alpha^{-1} I) \\
+        & = \Big( \frac{\alpha}{2\pi} \Big)^{\frac{M+1}{2}} e^{-\frac{\alpha}{2} \vec{w}^T \vec{w}}
+
+where :math:`\alpha` is the precision (:math:`\alpha^{-1} = \sigma^2`)
+
+然後我們求 :math:`\vec{w}` 透過 maximum posterior，
+取 log posterior，會得到 likelihood 的 exp 與 prior 的 exp 相加。
+
+.. math::
+
+    & & \frac{\beta}{2} \sum_n^N \big( y(x_n, \vec{w}) - t_n \big)^2 +
+    \frac{\alpha}{2} \vec{w}^T \vec{w} \\
+    & = & \frac{1}{2} \sum_n^N \big( y(x_n, \vec{w}) - t_n \big)^2 +
+    \frac{\alpha}{2\beta} \vec{w}^T \vec{w} \\
+    & = & \frac{1}{2} \sum_n^N \big( y(x_n, \vec{w}) - t_n \big)^2 +
+    \frac{\lambda}{2} \vec{w}^T \vec{w}
+
+這個就是 `sum-of-square error function with regularization term`, given
+:math:`\lambda = \frac{\alpha}{\beta}`
+
+導入的 prior 的 maximum posterior 就會得到 regularization term，可以對抗
+over-fitting problem。但這個是到 Gaussian distribution 的假設之下。
 
 
 Model Selection
