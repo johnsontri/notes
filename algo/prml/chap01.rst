@@ -569,7 +569,7 @@ where :math:`\alpha` is the precision (:math:`\alpha^{-1} = \sigma^2`)
 :math:`\lambda = \frac{\alpha}{\beta}`
 
 導入的 prior 的 maximum posterior 就會得到 regularization term，可以對抗
-over-fitting problem。但這個是到 Gaussian distribution 的假設之下。
+over-fitting problem。但這個是 Gaussian distribution 的假設之下。
 
 
 Model Selection
