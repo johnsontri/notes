@@ -445,8 +445,8 @@ Aka, Subjective Probability.
 但是 frequentist 跟 Bayesian 的爭論一直很多。像是 Bayesian 有時候選擇 prior
 是為了數學上的方便，而不一定是與事實有關。
 
-:hyperparamter: :math:`\vec{w}` 是 model, 而決定 model 的 parameter 稱為
-                hyperparamter.
+:hyperparameter: :math:`\vec{w}` 是 model, 而決定 model 的 parameter 稱為
+                hyperparameter.
 
     .. math::
 
@@ -538,7 +538,14 @@ Where the precision :math:`\beta^{-1} = \sigma^2`
 
     \frac{1}{\beta} = \frac{1}{N} \sum_n^N \big( y(x_n, \vec{w_{ML}}) - t_n \big)^2
 
-接下來我們導入 Bayesian probability 中的 prior，call this
+有了 :math:`\vec{w_{ML}},\ \beta_{ML}` ，以下給了 :math:`x`
+被稱為 predictive distribution
+
+.. math::
+
+    p(t | x, \vec{w_{ML}}, \beta_{ML}) = \mathcal{N}(t | y(x, \vec{w_{ML}}), \beta_{ML}^{-1})
+
+接下來我們導入 Bayes' theorem 中的 prior，recall this
 
 .. math::
 
@@ -572,6 +579,35 @@ where :math:`\alpha` is the precision (:math:`\alpha^{-1} = \sigma^2`)
 over-fitting problem。但這個是 Gaussian distribution 的假設之下。
 
 
+Bayesian curve fitting
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+即使我們導入了 prior distribution :math:`p(\vec{w} | \alpha)` 做了 maximum
+posterior，但這些目前都是對 :math:`\vec{w}` 做點估計（定值估計），
+還不是 Bayesian 的角度。在 Bayesian 的方法之下，會使用 product rule and
+sum rules，也就是會對 :math:`\vec{w}` 積分。
+這種積分的手法 (marginalization) 是 Bayesian method 的核心。
+
+現在考慮 predictive distribution 的拆解，裡面有 posterior
+
+.. math::
+
+    p(t | x, \vec{x}, \vec{t}) = p(t | x, \mathcal{D}) =
+    \int p(t | x, \vec{w}) p(\vec{w} | \mathcal{D}) d \vec{w}
+
+實際上還有 :math:`\alpha,\ \beta` 是 hyperparameter，省略了沒寫。
+上式中 :math:`p(\vec{w} | \mathcal{D})` 為 posterior。
+
+我們之前假設了 posterior 為 Gaussian ，而現在的 predictive distribution
+也將會是 Gaussian
+
+.. math::
+
+    p(t | x, \vec{x}, \vec{t}) = \mathcal{N}(t | m(x), s^2(x))
+
+然後 :math:`m(x),\ s^2(x)` 長得很奇怪，我們之後再證明。
+
+
 Model Selection
 ----------------------------------------------------------------------
 
@@ -581,7 +617,7 @@ Model Selection
 
     y = p(x)
 
-而 :math:`M` 的覺得也是個 hyperparamter。
+而 :math:`M` 的覺得也是個 hyperparameter。
 
 :math:`M` 太大就容易有 over-fitting 的問題。
 
