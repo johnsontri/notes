@@ -678,8 +678,74 @@ Make optimal decisions in situations involving uncertainty
     :math:`p(\vec{x}, \vec{t})` 是對於這兩個變數 summary of the uncertainty.
 
 :inference:
-    Determine the *joint probability distribution*
-    ( :math:`p(\vec{x}, \vec{t})` ) from training data set.
+    決定 *joint probability distribution* 就是 `inference` 的其中一種實作方法
+    ( :math:`p(\vec{x}, \vec{t})` from training data set).
+    但這是個很困難的問題。
+
+
+Minimizing the misclassification rate
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+假設我們現在在做兩個 class :math:`C_1, C_2` 的 classification，
+input dataset :math:`X = {\vec{x_1}, \dots, \vec{x_n}}`
+每個 data 都是 feature vector :math:`\vec{x_i}`
+
+objective function 就是要 minimizing misclassification rate，
+或是其對偶問題 maximizing correct rate
+
+.. math::
+
+    p(mistake) & = p(\vec{x} \in R_1, C_2) + p(\vec{x} \in R_2, C_1) \\
+               & = \int_{R_1} p(\vec{x}, C_2) d\vec{x} + \int_{R_2} p(\vec{x}, C_1) d\vec{x}
+
+Where :math:`R_1,\ R_2` 是 decision region，就是我們畫的。
+
+在 minimizing 完之後要做 decision，拿一個 input :math:`\vec{x}`
+就直接比較
+:math:`p(\vec{x}, C_1)` vs :math:`p(\vec{x}, C_2)`
+
+在比較的時候，可以寫成
+:math:`p(C_1|\vec{x})p(\vec{x})` vs :math:`p(C_2|\vec{x})p(\vec{x})`
+然後拿掉 :math:`p(\vec{x})` 就就是直接比較 posterior。
+
+在類別很多的時候，會需要列出太多 misclassification。
+e.g. 有 4 類，要寫 1 v {2, 3, 4}, 2 vs {3, 4}, 3 vs {4}。
+但是換成 maximizing :math:`p(correct)` 則只有 4 項
+
+.. math::
+
+    p(correct) = \sum_{k=1}^4 \int_{R_k} p(\vec{x}, C_k) d\vec{x}
+
+是對偶。
+
+
+Minimizing the expected loss
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+很多時候我們的 Type I error vs Type II error 有不同的嚴重程度。
+所以我們希望有不同的 loss 權重。
+
+e.g. 是 癌症 但是判定成 健康，這個很嚴重；是 健康 判定成 癌症，這還好
+
+.. math::
+
+    E(L) = \sum_k \sum_j \int_{R_j} L_{kj} p(\vec{x}, C_k) d\vec{x}
+
+這是 expected loss。
+
+:math:`L_{kj}` 就是 k 類但判成 j 的 loss，
+當然 :math:`k = j` 時 :math:`L_{kj} = 0`
+
+然而實際上給定了一個 input :math:`\vec{x}` 之後，這個 :math:`\vec{x}` 只會坐落
+在其中一個 :math:`R_j` ，所以我們只要求
+
+.. math::
+
+    & & \sum_k L_{kj} p(\vec{x}, C_k) \\
+    & = & \sum_k L_{kj} p(C_k | \vec{x}) p(\vec{x}) \\
+    & \Rightarrow & \sum_j L_{kj} p(C_k | \vec{x})
+
+因為做 minimizing 所以 :math:`p(\vec{x})` 就拿掉了，結果不變。
 
 
 Information Theory
