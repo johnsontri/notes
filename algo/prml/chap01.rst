@@ -784,6 +784,74 @@ Inference and decision
 #. 直接找一個 function :math:`f(\vec{x})` （被稱為 discriminant function）。
    這個 function 的 output 就直接是 class。整個過程沒有機率。
 
+`generative models` 的優點在於我們會算出 :math:`p(x)` ，我們可以拿著這個
+:math:`p(x)` 來看看 new data 是不是 outlier
+(`outlier detection and novelty detection`)。
+
+相對的，如果我們只想做 classification，就只需要 posterior，那麼
+`discriminative models` 所需要的計算量比較小。
+
+最後，`discriminant function` 是直接用 data 求這個 function，
+直接結合 `inference` 跟 `decision` stage 成為單一的 learning problem。
+像是直接拿到一個 function，這個 function 是個切平面，平面的兩邊就是兩個 class。
+這裡就都看不到 posterior 了。
+
+然而這裡提一下 posterior 的好處：
+
+Minimizing risk
+    考慮一下，如果你的 loss matrix 會一直變動
+    (maybe in financial applications)。
+    手上有 posterior 的話，loss function (objective function)
+    就可以隨時改完算出來。如果是 discriminant function 的話，整個 model
+    要重新 training。
+
+Reject option
+    有 posterior 就可以設定個 threshold :math:`\theta` 來處理兩個 posterior
+    接近的狀況。
+
+
+Compensating form class priors
+    可以對 unbalance dataset 做處理。想象兩個 class 在 training dataset 的
+    數量是 :math:`1:1000` 。
+    首先 :math:`posterior \propto prior` 這個 prior 就是 :math:`p(C_k)` 就是
+    training class 的各個百分比。
+    那麼我們現在製作一組 balance 的 dataset 這個 prior
+    就會是 :math:`\frac{1}{K}` 。我們在這個 balance dataset 裡面求完
+    posterior 之後，只要 :math:`posterior \times K \times original\ prior`
+    然後在做 normalization，就能完成這種 unbalance 的 training。
+    不然直接 training 的 generalization 很差，因為 :math:`1:1000` 。
+
+Combining models
+    假設我們希望把問題的 size 縮小，拆成兩個問題。
+    e.g. 原本我們做 cancer detection 的 input 有 X-ray imgage 與 血液資訊。
+    那麼現在我們把 input vector :math:`\vec{x}` 拆成
+    :math:`\vec{x_I},\ \vec{x_B}` 。
+
+    現在我們做個很強烈的假設：這兩個 input vectors 是 independent。
+    得
+
+    .. math::
+
+        p(\vec{x_I}, \vec{x_B} | C_k) = p(\vec{x_I} | C_k) p(\vec{x_B} | C_k)
+
+    因為我們假設了 independent，joint probability 就是相乘，上面這個是
+    `conditional independence`
+
+    得 posterior:
+
+    .. math::
+
+        p(C_k | \vec{x_I}, \vec{x_B}) & \propto p(\vec{x_I}, \vec{x_B})p(C_k) \\
+            & \propto p(\vec{x_I}|C_k) p(\vec{x_B}|C_k) p(C_k) \\
+            & \propto \frac{p(\vec{x_I}|C_k) p(C_k) p(\vec{x_B}|C_k) p(C_k)}{p(C_k)} \\
+            & \propto \frac{p(C_k|\vec{x_I}) p(C_k | \vec{x_B})}{p(C_k)}
+
+    整個問題的 posterior 會正比於 兩個 posterior 相乘後處以
+    training data 的比例 (:math:`p(C_k)`)。最後做 normalization 就可以得到
+    精確的 posterior。
+
+    這是個 `naive Bayesian model` 的例子。
+    後面的章節會介紹不需要這個 conditional independent 假設的方法。
 
 Information Theory
 ----------------------------------------------------------------------
