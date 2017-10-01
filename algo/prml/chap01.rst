@@ -105,7 +105,7 @@ e.g.
     p(X=x_i) = \sum_j p(X=x_i, Y=y_j)
 
 
-Condiction Probability
+Condition Probability
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Given :math:`X = x_i`
@@ -746,6 +746,43 @@ e.g. 是 癌症 但是判定成 健康，這個很嚴重；是 健康 判定成 
     & \Rightarrow & \sum_j L_{kj} p(C_k | \vec{x})
 
 因為做 minimizing 所以 :math:`p(\vec{x})` 就拿掉了，結果不變。
+
+
+Inference and decision
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+解決一個 classification 的問題需要兩個 stage:
+
+#. `inference`: 用 training dataset 得出 :math:`p(C_k | \vec{x})` 的 model
+
+#. `decision`: 用剛剛得到的 posterior distribution 去做 testing，選出個 class
+
+解 decision problem 的三大方法，照複雜度排序：
+
+#. 先解 class-conditional densities :math:`p(\vec{x} | C_k)` ，
+   class 有 k 個就個別解 k 次。同樣的還要找 prior :math:`p(C_k)` ，
+   然後用 Bayes' Theorem 算出所有的 posterior probabilities
+
+   .. math::
+
+       p(C_k | \vec{x}) & = \frac{p(\vec{x} | C_k) p(C_k)}{p(\vec{x})} \\
+                        & = \frac{p(\vec{x} | C_k) p(C_k)}{\sum_k p(\vec{x} | C_k) p(C_k)}
+
+   或是直接 model joint distribution :math:`p(x, C_k)` 然後 normalize 後
+   就會得到 posterior。
+
+   在找到 posterior probabilities 之後，就把 input :math:`\vec{x}` 丟入所有的
+   posterior probabilities 算算誰的值大，決定一下 class。
+
+   這種 model input 跟 output 的 distribution 的方法被稱作 `generative models`，
+   因為有 distribution 就可以 sampling 出 synthetic data point。
+
+#. 直接去 model :math:`p(C_k | \vec{x})` ，
+   這個 posterior 可能裡面就是用個 approximator。然後我們就可以用 decision stage
+   得到答案。這個被稱為 `discriminative models`
+
+#. 直接找一個 function :math:`f(\vec{x})` （被稱為 discriminant function）。
+   這個 function 的 output 就直接是 class。整個過程沒有機率。
 
 
 Information Theory
