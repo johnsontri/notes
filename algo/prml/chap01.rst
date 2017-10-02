@@ -853,6 +853,28 @@ Combining models
     這是個 `naive Bayesian model` 的例子。
     後面的章節會介紹不需要這個 conditional independent 假設的方法。
 
+
+Loss functions for regression
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+.. math::
+
+    E(L) = \int \int L(t, y(\vec{x})) p(\vec{x}, t) d\vec{x} dt
+
+看到 :math:`\int \int f(\cdot) d\vec{x} dt` 的意義就是：
+排列組合所有的 :math:`d\vec{x}` 跟 :math:`dt` ，每個排列組合都乘上
+:math:`f(\cdot)`
+
+舉個例子是 :math:`L(t, y(\vec{x})) = (y(\vec{x}) - t)^2` square lose function
+
+.. math::
+
+    E(L) = \int \int (y(\vec{x}) - t)^2 p(\vec{x}, t) d\vec{x} dt
+
+我們的目標時 minimizing 後選出 :math:`y(x)` (model)。
+
+
 Information Theory
 ----------------------------------------------------------------------
 
