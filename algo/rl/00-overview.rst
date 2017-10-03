@@ -77,7 +77,7 @@ Markov Decision Process
 
 - 可以被視為 stochastic extension of finite automata
 
-- 雖然廣義上的 MDP 是 infinit
+- 雖然廣義上的 MDP 是 infinite
 
 - key componement
 
@@ -212,7 +212,8 @@ Finite horizon: 我希望在 h 步之內(即 finite horizon) 有最大的 reward
 
     E[ \sum_{t=0}^h r_t ]
 
-導入 discount 的 finite horizon:
+導入 discount 的 finite horizon，這個 discount
+代表我們比較不喜歡未來才拿到 reward，傾向是立即的:
 
 .. math::
 
@@ -273,7 +274,7 @@ given policy :math:`\pi`, 且正在 state :math:`s`
     V^\pi(s) = E_{\pi}[ \sum_{k=0}^h \gamma^k r_{t+k} | s_t = s ] \tag{v.1}
 
 看到 :math:`r_{t+k}` 代表前面已經過了 :math:`t` ，前面就不管了。
-我們只關心往後的 :math:`k` 步
+我們只關心 *往後* 的 :math:`k` 步
 
 
 `state-action value function` :math:`Q: S \times A \rightarrow \mathbb{R}`
@@ -418,6 +419,48 @@ policy 可以根據每個 state 需要時再生出來。
 
 另外 value function 不需要特別精確，只需要能夠有鑑別度，
 能明確的分出最好跟次好是有差的。
+
+
+Dynamic Programming
+----------------------------------------------------------------------
+
+DP 在有完美的環境 model，就能給你 optimal policies。
+    "The term DP refers to a class of algorithms that is able to compute optimal
+    policies in the presence of a perfect model of the environment."
+
+
+Fundamental DP Algorithms
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Two core method:
+
+* `policy iteration`
+
+* `value iteration`
+
+
+Policy Iteration
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Policy Evaluation 階段
+    這裡有點像是 decision theorem 的 inference stage。
+
+    首先就是算出 value function :math:`V^\pi`
+    (given a fixed policy :math:`\pi`).
+
+    如果 MDP 的 model 都知道，那麼 :math:`V^\pi`
+    就可以寫成一組方程組，未知元是 :math:`S`.
+    然後就可以用 linear programming 來解這個最佳化問題。
+
+    當然，有 iterative 的解法：把 Bellman Equation 轉成
+    一個 `update rule`: 窮舉下一個 state :math:`s'` ，
+    而且算出 horizon 縮小一步的 :math:`V_k^\pi`。
+    :math:`V_{k+1}^\pi \leftarrow F[V_k(s')]`
+
+    :math:`V_{k+1}^\pi` 的 horizon 是 :math:`k + 1`,
+    同理 :math:`V_k^\pi` 為 :math:`k` ；
+    原本的 :math:`V^\pi` 是 infinite-horizon。
+
 
 Reference
 ----------------------------------------------------------------------
