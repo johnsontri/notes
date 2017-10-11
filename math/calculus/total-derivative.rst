@@ -38,6 +38,9 @@ Total Derivative
         & =
         2x
 
+簡單來說就是有 dependent，需要 chain rule，而直接寫出 chain rule 即是
+general form，因為 independent 的 chain rule 項就直接是 0。
+
 Ref
 ----------------------------------------------------------------------
 
