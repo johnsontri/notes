@@ -177,20 +177,32 @@ Task
 - continuous task
 
 
-Policy
+Policy function
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 - deterministic policy: 就直接的 mapping
 
 .. math::
 
-    \pi: S \rightarrow A
+    & \pi: S \rightarrow A \\
+    & a = \pi(s)
 
-- stochastic policy: 給 :math:`s,\ a` output 機率
+- stochastic policy: 給 :math:`s,\ a` output 機率，
+  那就就把所有的 output 拿來比較，就會得出一個 :math:`a`
 
 .. math::
 
-    \pi: S \times A \rightarrow [0, 1]
+    & \pi: S \times A \rightarrow [0, 1] \\
+    & a \sim \pi(a | s)
+
+
+- parameterized policies :math:`\pi_\theta`
+  有參數的 :math:`\pi` 。e.g. 用 NN 做 function approximator，
+  output 一組機率值。
+
+    - deterministic: :math:`a = \pi(s, \theta)`
+
+    - stochastic: :math:`a \sim \pi(a | s, \theta)`
 
 
 在整個 process 中，如果 policy function 都沒變動，那麼就是 stationary
@@ -382,16 +394,10 @@ Relation between :math:`Q^*` and :math:`V^*`
 
 .. math::
 
-    V^*(s) = \max_a Q^*(s, a)
-
-.. math::
-
-    Q^*(s, a) = \sum_{s'} T(s, a, s')
-                \bigg( R(s, a, s') + \gamma V^*(s') \bigg)
-
-.. math::
-
-    \pi^*(s) = \arg \max_a Q^*(s, a)
+    V^*(s)    & = \max_a Q^*(s, a) \\
+    Q^*(s, a) & = \sum_{s'} T(s, a, s')
+                \bigg( R(s, a, s') + \gamma V^*(s') \bigg) \\
+    \pi^*(s)  & = \arg \max_a Q^*(s, a)
 
 
 Generalized Policy Iteration (GPI)
@@ -442,8 +448,10 @@ Two core method:
 Policy Iteration
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Policy Evaluation 階段
+Policy Evaluation stage
+
     這裡有點像是 decision theorem 的 inference stage。
+    這個 stage 是給定了一個 policy :math:`\pi` ，來評估看看。
 
     首先就是算出 value function :math:`V^\pi`
     (given a fixed policy :math:`\pi`).
@@ -461,6 +469,75 @@ Policy Evaluation 階段
     同理 :math:`V_k^\pi` 為 :math:`k` ；
     原本的 :math:`V^\pi` 是 infinite-horizon。
 
+    .. math::
+
+        V^\pi_{k+1}(s)
+        & = E_\pi[ r_t + \gamma r_{t+1} + \dots + \gamma^{k+1} r_{t+k+1}] \\
+        & = E_\pi[ r_t + \gamma \Big( r_{t+1} + \dots + \gamma^{k} r_{t+k+1} \Big)] \\
+        & = E_\pi[ r_t + \gamma V_k^\pi(s') ] \\
+        & = \sum_{s'} T(s, \pi(s), s') \Big( R(s, \pi(s), s') + \gamma  V_k^\pi(s') \Big)
+
+    iteration 則是一直改變 :math:`k`, :math:`k=1:\inf`，一直往上算出
+    較大的 :math:`k`，來達成收斂。這樣看起來就像是在填表格，
+    從小的開始填，每次填都需要上一次的資訊，這個就很 DP。
+
+    每個 iteration（即每個 :math:`k`）裡面都要 iter 過每個 :math:`s`，才
+    選出某個最好的 :math:`s`。
+    這樣的做法被稱為 `full backup`，
+    因為我們考慮了所有 transition probabilities。
+
+    general formulation 會導入 `backup operator` :math:`B^\pi`
+    over :math:`\phi`。這個 :math:`\phi` 會 map state space 到實數值。
+    e.g. 這個 :math:`\phi` 是 value function
+
+    .. math::
+
+        (B^\pi \phi)(s) =
+            \sum_{s' \in S} T(s, \pi(s), s')
+                \Big( R(s, \pi(s), s') + \gamma \phi(s') \Big)
+
+    找 optimal value function :math:`V^*`，objective function 訂成
+
+    .. math::
+
+        & V^* = \arg \max_V \sum_{s \in S'} V(s) \\
+        & \text{s.t.} \\
+        & \forall a, \forall s, V(s) \ge (B^a V)(s)
+
+    :math:`B^a V` 直接給定 action。
+
+Policy Improvement stage
+
+    找新的 policy, s.t. :math:`V^{\pi_1}(s) \geq V^{\pi_0}(s), \forall s \in S`
+
+    :math:`\pi_0` 就是初始隨便挑的 policy，
+    e.g 走迷宮都先走右邊，然後才是下...etc
+
+Pseudo code::
+
+    k = 1  # horizon
+    pi[1] = ...  # baseline policy
+
+    while not converge
+
+        # policy evaluation
+        for s in S
+            pi[k, ...] = ...
+        end
+
+        # policy improvement
+        for s in S
+            pi[k+1, ...] = indmax(...)
+        end
+
+        k += 1
+    end
+
+
+Modified policy iteration (MPI)
+----------------------------------------------------------------------
+
+
 
 Reference
 ----------------------------------------------------------------------
@@ -468,3 +545,5 @@ Reference
 * https://en.wikipedia.org/wiki/Reinforcement_learning
 
 * https://www.quora.com/What-is-the-difference-between-model-based-and-model-free-reinforcement-learning
+
+* https://ocw.mit.edu/courses/aeronautics-and-astronautics/16-410-principles-of-autonomy-and-decision-making-fall-2010/lecture-notes/MIT16_410F10_lec23.pdf
