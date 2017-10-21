@@ -632,10 +632,68 @@ TD(0)
 
 .. math::
 
-    \pi(s) = \arg \max_a R(s, a) + V(s)
+    \pi(s) = \arg \max_a \sum_s R(s, a) + V(s)
 
-然後我們的 :math:`s'` 只有一個，從 experience 來。
+然後我們的 :math:`s'` 只從 experience 來。
 若不是像 DP 用 expectation over transition distribution。
+
+
+Q-Learning
+**************************************************
+
+Model-free
+    靠經驗
+
+Q function 是 `state-action` value function。
+
+.. math::
+
+    Q: (s, \vec{a}) \rightarrow \mathbb{R}
+
+上面是 infinite horizon Q function
+
+:math:`k` step horizon
+
+.. math::
+
+    Q_{k}: (s, \vec{a}) \rightarrow \mathbb{R}
+
+Where :math:`\vec{a}` is a :math:`k` element vector
+
+跟 TD(0) 相比，直接對 Q function 做估測，用 sampling。
+這樣在做 action selection 時，就不需要 transition model。
+
+Hyper Parameters
+    - :math:`\gamma` discount factor
+
+    - :math:`\alpha` learning rate
+
+Initialization
+    - baseline (arbitrarily or trivial) :math:`Q`
+
+    - e.g. :math:`Q(s, a) = 0, \forall s \in S, \forall a \in A`
+
+::
+
+    function choose_action()
+        if exploration
+            random action
+        else
+            base on current Q
+        end
+    end
+
+    for each episode
+        s <- starting state
+
+        while (s' != goal state)
+            a <- choose_action()
+            perform action a
+
+            Q_k+1(s, a) <- Q_k(s, a) + α(r + γ max Q_k(s', a') - Q_k(s, a))
+            s <- s'
+        end
+    end
 
 
 Reference
