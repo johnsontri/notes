@@ -652,14 +652,6 @@ Q function 是 `state-action` value function。
 
 上面是 infinite horizon Q function
 
-:math:`k` step horizon
-
-.. math::
-
-    Q_{k}: (s, \vec{a}) \rightarrow \mathbb{R}
-
-Where :math:`\vec{a}` is a :math:`k` element vector
-
 跟 TD(0) 相比，直接對 Q function 做估測，用 sampling。
 這樣在做 action selection 時，就不需要 transition model。
 
@@ -690,10 +682,36 @@ Initialization
             a <- choose_action()
             perform action a
 
-            Q_k+1(s, a) <- Q_k(s, a) + α(r + γ max Q_k(s', a') - Q_k(s, a))
+            Q(s, a) <- Q(s, a) + α(r + γ max Q(s', a') - Q(s, a))
             s <- s'
         end
     end
+
+
+Off-policy
+    Q 就是用 max operator，可以用到以前（非這次的 episode）的經驗。
+
+    "while following some exploration policy :math:`\pi`,
+    it aims at estimating the optimal policy :math:`\pi^{*}`"
+
+
+SARSA
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+`State-Action-Reward-State-Action`
+
+Update rule:
+
+.. math::
+
+    Q_{t+1}(s_t, a_t) = Q_t(s_t, a_t) +
+        \alpha (r_t + \gamma Q_t(s_{t+1}, a_{t+1}) - Q_t(s_t, a_t))
+
+這個 action :math:`a_{t+1}` 是實際上根據目前的 :math:`\pi(s_{t+1)` 。
+這裡就沒有 Q-learning 中的 max operator，
+max operator 被換成 下一個 action 的 Q value。
+
+Q 跟 SARSA 在給夠多的時間後都會收斂。
 
 
 Reference
