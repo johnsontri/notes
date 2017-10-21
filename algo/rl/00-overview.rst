@@ -592,6 +592,52 @@ Model-free
         of values (see Section 1.7.3).""
 
 
+Temporal Difference Learning
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+TD learning 的中心思想是：我不用等到整個 episode 結束才去 update。
+舉例來說，我估計未來某個時間點的 value，如 30 分鐘後。
+隨著時間經過，我多看到了點資訊，然後不斷的 update 我對那未來時間的估測。
+
+TD 系列的 algo 透過 `bootstrapping` 來計算估測值。
+
+
+TD(0)
+**************************************************
+
+給定 policy function :math:`\pi` ，
+對 :math:`V^\pi` 的估測方，是法使用 online RL。
+
+.. math::
+
+    V_{k+1}(s) \leftarrow V_k(s) + \alpha (r + \gamma V_k(s') - V_k(s))
+
+這個 :math:`\alpha` 是 learning rate。
+
+.. note::
+
+    learning rate :math:`\alpha` 的選擇可以使用 fixed，或是隨著時間遞減的；
+    或是根據我看到 s' 的次數，次數多的 s' 用比較小的 learning rate
+    :math:`\alpha(s)`
+
+從 update rule 來看，只根據看過的 transition 來 update。
+這個跟 DP 的 `full backup` 不同，只有 `experience` ，
+是 `simple backup`
+
+在估測 :math:`V_{k+1}` 時，是只使用了單一的 :math:`s'` ，
+而不是 iter 完整的 state space。
+
+到 testing phase，拿 value function :math:`V^\pi` 做 action selection，
+是用
+
+.. math::
+
+    \pi(s) = \arg \max_a R(s, a) + V(s)
+
+然後我們的 :math:`s'` 只有一個，從 experience 來。
+若不是像 DP 用 expectation over transition distribution。
+
+
 Reference
 ----------------------------------------------------------------------
 
