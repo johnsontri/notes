@@ -534,9 +534,62 @@ Pseudo code::
     end
 
 
+Updating style
+----------------------------------------------------------------------
+
+Sync
+    A.k.a `Jacobi-style` 。
+    最原始的，新的值在新的 table
+
+In-place
+    如字面的意思。
+
+Async
+    extend of `in-place`, but in any order.
+
+
 Modified policy iteration (MPI)
 ----------------------------------------------------------------------
 
+Two steps:
+
+- policy evaluation
+
+- policy improvement
+
+It's general method of *async update*
+
+
+Heuristics and Search
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Heuristics general 來說是 async DP。
+
+Goal-based reward function
+    只有到達 goal state 才有 positive reward。
+
+
+RL
+----------------------------------------------------------------------
+
+Model-free
+    MDP with approximation and incomplete information，然後需要 sampling、
+    exploration。
+
+    而且沒有 transition model 的 prior 或是 reword function 的 prior。
+
+    在 model-free 的解法大概有兩種，
+
+    - 學出 transition and reward models，透過跟環境互動。然後有了 model，
+      直接用 DP 解。 `indircet RL` or `model-based RL`
+
+    - `direct RL` ，直接去算 action 的 value，跳過估測 model 的動作。
+
+    - 可以混合
+        "For example, one can still do
+        model-free estimation of action values, but use an approximated model to speed up
+        value learning by using this model to perform more, and in addition, full backups
+        of values (see Section 1.7.3).""
 
 
 Reference
