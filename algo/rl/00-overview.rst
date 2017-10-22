@@ -254,7 +254,7 @@ link `optimality` and `policy`.
 
 algo learning target:
 
-* value function, aka criti-based algorithms
+* value function, aka critic-based algorithms
 
     * Q-Learning
 
@@ -707,11 +707,45 @@ Update rule:
     Q_{t+1}(s_t, a_t) = Q_t(s_t, a_t) +
         \alpha (r_t + \gamma Q_t(s_{t+1}, a_{t+1}) - Q_t(s_t, a_t))
 
-這個 action :math:`a_{t+1}` 是實際上根據目前的 :math:`\pi(s_{t+1)` 。
-這裡就沒有 Q-learning 中的 max operator，
-max operator 被換成 下一個 action 的 Q value。
+On-policy
+    這個 action :math:`a_{t+1}` 是實際上根據目前的 :math:`\pi(s_{t+1)` 。
+    這裡就沒有 Q-learning 中的 max operator，
+    max operator 被換成 下一個 action 的 Q value。
 
 Q 跟 SARSA 在給夠多的時間後都會收斂。
+
+SARSA 可以用在 non-stationary 的環境中。
+
+
+Actor-Critic Learning
+**************************************************
+
+On-policy
+    讓 policy 跟 value function 脫鉤。
+
+Actor
+    Policy function
+
+Critic
+    Value function
+    通常是 state-value function :math:`V`
+
+流程是在做了 action selection 後，critic 用 TD-error 來評估 action 的好壞
+
+.. math::
+
+    \delta_t = r_t + \gamma V(s_t + 1) - V(s_t)
+
+`preference` of an action :math:`a` in state :math:`s` defined as
+:math:`p(s, a)`, update rule:
+
+.. math::
+
+    p(s_t, a_t) <- p(s_t, a_t) + \beta \delta_t
+
+所以我們可以看到這個 TD-error 用來加強/減弱 action 的 `preference` 。
+這個 preference update rule 的定法的不同，就是不同的 actor-critic method。
+切開 policy 的好處之一是，容易導入 prior。
 
 
 Reference
