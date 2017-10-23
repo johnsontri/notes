@@ -477,7 +477,7 @@ Policy Evaluation stage
         & = E_\pi[ r_t + \gamma V_k^\pi(s') ] \\
         & = \sum_{s'} T(s, \pi(s), s') \Big( R(s, \pi(s), s') + \gamma  V_k^\pi(s') \Big)
 
-    iteration 則是一直改變 :math:`k`, :math:`k=1:\inf`，一直往上算出
+    iteration 就是 :math:`k`, :math:`k=1:\inf`，一直往上算出
     較大的 :math:`k`，來達成收斂。這樣看起來就像是在填表格，
     從小的開始填，每次填都需要上一次的資訊，這個就很 DP。
 
@@ -746,6 +746,14 @@ Critic
 所以我們可以看到這個 TD-error 用來加強/減弱 action 的 `preference` 。
 這個 preference update rule 的定法的不同，就是不同的 actor-critic method。
 切開 policy 的好處之一是，容易導入 prior。
+
+
+Monte Carlo Method
+**************************************************
+
+`unbiased` estimate
+
+:math:`TD(\lambda)` where :math:`\lambda = 1` 就是 Monte Carlo。
 
 
 Reference
