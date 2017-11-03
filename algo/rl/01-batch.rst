@@ -45,3 +45,20 @@ Foundations of Batch RL Algorithms
 Q 在小的 learning system，小的問題底下適用，
 但是 Q 的 Q table 是 discrete，遇到較大的 state space 或是連續的 state space
 無法應用。
+
+大致上來說，遇到的瓶頸有三種：
+
+- exploration overhead
+
+- stochastic approximation 沒效率
+
+- function approximation 不好收斂
+
+
+Experience Replay
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+在原本 pure online 的 Q-Learning，會在 current optimal action
+跟 exploration 之間選擇，像是 ϵ-greedy。
+然後在觀測到下一個 state 之後，Q table 就馬上更新，這樣是 greedy 的，
+得到的是 greedy policy。
