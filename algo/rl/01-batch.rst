@@ -62,3 +62,5 @@ Experience Replay
 跟 exploration 之間選擇，像是 ϵ-greedy。
 然後在觀測到下一個 state 之後，Q table 就馬上更新，這樣是 greedy 的，
 得到的是 greedy policy。
+往後的演算法中就忘了 transition tuple :math:`(s, a, r, s')`
+（只看 update 後的 :math:`Q'(s, a)` table）。這是 "local" update
