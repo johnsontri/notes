@@ -18,3 +18,27 @@ cryptanalysis
 
 cryptology
     cryptography + cryptanalysis
+
+
+Symmetric Cipher Model
+----------------------------------------------------------------------
+
+#. Plaintext
+
+#. Encryption Algorithm
+
+#. Secret key: 作為 encryption algorithm 的其中一個 input 參數
+
+#. Ciphertext: algo 的 output
+
+#. Decryption Algorithm
+
+額外的兩個條件：
+
+#. Encryption algorithm 的強度要做到，
+   即使中間人拿到了一個或多個 ciphertext，
+   還是無法在有限時間做 decryption（拿到 secret key）。
+   更好的狀況是，中間人即使拿到了成對的 plaintext 跟 ciphertext，
+   還是找不出 secret key。
+
+#. Sender 跟 receiver 之間 share 的 secret key，不能被拿到。
