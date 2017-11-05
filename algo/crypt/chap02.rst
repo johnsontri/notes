@@ -90,3 +90,40 @@ Cryptanalysis attack
         - cost 超越解出 plaintext 的價值
 
         - computation 時間
+
+            - DES: 56 bits
+
+            - triple DES: 168 bits
+
+            - AES: 128 bits
+
+
+Substitution Techniques
+----------------------------------------------------------------------
+
+Substitution and transposition
+
+
+Caesar Cipher
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+凱撒
+
+.. math::
+
+    E(k, p) = (p + k) \mod 26
+
+    D(k, c) = (p - c) \mod 26
+
+Key space 只有 25
+
+
+Monoalphabetic Cipher
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+對前面 Caesar Cipher 做 permutation，所以 key space 會有 26!
+
+而 cryptanalysis 的做法會是用額外的知識規則，
+e.g. ciphertext 是英文，那麼就建立 frequency table，
+對 ciphertext 做統計後去猜，但比較統計需要資料量夠。
+
