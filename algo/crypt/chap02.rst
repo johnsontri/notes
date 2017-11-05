@@ -208,3 +208,27 @@ Improve Vernam Cipher.
 這樣 cryptanalysis 上，沒統計的關係，不可解。
 
 *perfect secrecy*
+
+
+Transposition Techniques
+----------------------------------------------------------------------
+
+透過些 permutation
+
+
+Rail Fence
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+msg: meet me after the party
+
+::
+
+    m e m a t r h p r y
+     e t e f e t e a t
+
+這種簡單的 transposition cipher 的 frequency 就是 plaintext frequency。
+Digram/Trigram table 可解。
+
+
+Rotor Machine
+----------------------------------------------------------------------
