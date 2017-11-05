@@ -127,3 +127,58 @@ Monoalphabetic Cipher
 e.g. ciphertext 是英文，那麼就建立 frequency table，
 對 ciphertext 做統計後去猜，但比較統計需要資料量夠。
 
+
+Playfair Cipher
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Multiletter cipher
+
+兩個字母一組。
+
+
+Hill Cipher
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Multiletter cipher
+
+.. math::
+
+    \vec{c} = \vec{p} K mod 26
+    \vec{p} = \vec{c} K^{-1} mod 26
+
+
+Vigenere Cipher
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Let :math:`k_i` 是 key 為 :math:`j` (shift j) 的 Caesar Cipher。
+
+.. math::
+
+    c_i = (p_i + k_{i mod m}) mod 26
+    p_i = (c_i - k_{i mod m}) mod 26
+
+實作上 key 就 repeat 到跟 plaintext 一樣長即可
+
+E.g.::
+
+    key = hellohellohe
+    msg = magic number
+    c   = ...
+
+    julia> caesar(k, p) = Char((Int(p) - Int('a') + Int(k) - Int('a')) % 26 + Int('a'))
+    caesar (generic function with 1 method)
+
+    julia> map(x->caesar(x...), zip(key, msg))
+    12-element Array{Char,1}:
+     't'
+     'e'
+     'r'
+     't'
+     'q'
+     '['
+     'r'
+     'f'
+     'x'
+     'p'
+     'l'
+     'v'
