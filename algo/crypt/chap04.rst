@@ -59,3 +59,15 @@ The set with modulo arithmetic operations denote as :math:`GF(p) = Z_n`
 .. math::
 
     Z_p
+
+當 :math:`a, bb` 互質時，
+求 multiplication inverse 時，用 extended Euclidean algorithm
+
+.. math::
+
+    ax + by & = 1 = gcd(a, b) \\
+    [(ax \mod a) + (by \mod a)] \mod a & = 1 \mod a \\
+    [0 + (by \mod a)] \mod a & = 1 \\
+    by \mod a & = 1
+
+:math:`\therefore y = b^{-1}` is multiplication inverse of :math:`b`.
