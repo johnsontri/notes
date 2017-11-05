@@ -182,3 +182,29 @@ E.g.::
      'p'
      'l'
      'v'
+
+
+Vernam Cipher
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+對 binary data，然後 cryptanalysis 沒 frequency table 可以用。
+
+.. math::
+
+    c_i = p_i ⊻ k_i
+    p_i = c_i ⊻ k_i
+
+(xor)
+
+
+One-Time Pad
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Improve Vernam Cipher.
+
+用 Random key，長度跟 plaintext 同，不做 repeat。
+
+每個 key 對一個 message 只用一次就丟掉。
+這樣 cryptanalysis 上，沒統計的關係，不可解。
+
+*perfect secrecy*
