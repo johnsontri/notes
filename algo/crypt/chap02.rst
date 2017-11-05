@@ -42,3 +42,51 @@ Symmetric Cipher Model
    還是找不出 secret key。
 
 #. Sender 跟 receiver 之間 share 的 secret key，不能被拿到。
+
+我們這些假設，讓我們只需要保護 secret key，而不需要保護 algorithm，
+algorithm 可以公開。
+
+
+Cryptography
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#. Operations：基本上是 substitution，是因為需要 reversible，
+   轉換後資料不能有損。
+   一連串的 substitution 就是 product systems。
+
+#. Key 的數量：
+   一個 shared key，是 symmetric。
+   sender / receiver 兩個不同的 key 是 asymmetric。
+
+#. Plaintext 的處理方式：
+
+    - `block cipher`
+
+    - `stream cipher`
+
+
+Cryptanalysis attack
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- Ciphertext only
+
+- Known plaintext
+    - 有 plaintext-ciphertext pair(s)
+
+- Chosen plaintext
+
+- Chosen ciphertext
+
+- Chose Text
+
+
+強度
+
+    - unconditional secure
+
+        - 理想
+
+    - computational secure
+        - cost 超越解出 plaintext 的價值
+
+        - computation 時間
