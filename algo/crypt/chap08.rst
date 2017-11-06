@@ -106,3 +106,5 @@ Primitive Root
 其他的次方都不是 1
 
 那麼 :math:`a` 就是 :math:`p` 的 primitive root
+
+不一定每個 integer 都有 primitive root
