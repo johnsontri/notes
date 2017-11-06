@@ -1,4 +1,4 @@
-Chaper 2: Symmetric Cipher
+Chapter 2: Symmetric Cipher
 ===============================================================================
 
 A.k.a
