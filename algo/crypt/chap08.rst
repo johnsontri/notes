@@ -39,3 +39,26 @@ Euler's Totient Function
 .. math::
 
     \phi(21) = \phi(3 \times 7) = \phi(3) \times \phi(7) = (3 - 1)(7 - 1) = 12
+
+
+Euler's Theorem
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:math:`a, n` 互質
+
+.. math::
+
+    a^{\phi(n)} \equiv 1 (\mod n)
+
+意思就是
+
+.. math::
+
+    a^{\phi(n)} \mod n = 1
+
+
+alternative form
+
+.. math::
+
+    a^{\phi(n) + 1} \equiv a (\mod n)
