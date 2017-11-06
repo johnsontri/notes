@@ -101,3 +101,19 @@ Finite Fields of :math:`GF(2^n)`
 因此如果我們是以 8 bits 為單位的處理資料，有用到除法的話必須是 Field，
 我們 251~255 這段是不能用的，造成浪費。
 
+
+.. math::
+
+    f(x) mod m(x) = m(x) - f(x)
+
+
+Generator
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+用 generator 可以簡化乘法
+
+次方用 (mod order-1)
+
+:math:`G(2^n)` with irreducible polynomial :math:`f(x)`
+
+然後 Let :math:`f(x) = 0` 就可以得到 generator :math:`g`
