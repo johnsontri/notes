@@ -62,3 +62,33 @@ alternative form
 .. math::
 
     a^{\phi(n) + 1} \equiv a (\mod n)
+
+
+Testing for Primality
+----------------------------------------------------------------------
+
+Miller-Rabin Algorithm
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+property of prime
+
+First property:
+:math:`p` is a prime, :math:`n < p, n \in \mathbb{N}`
+
+.. math::
+
+    (a \mod p) \times (a \mod p) = (a^2 \mod p)
+
+
+Given
+
+.. math::
+
+    a \mod p & = 1 & (\text{or})\\
+    a \mod p & = -1
+
+iff
+
+.. math::
+
+    a^2 mod p = 1
