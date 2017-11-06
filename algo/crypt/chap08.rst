@@ -91,4 +91,18 @@ iff
 
 .. math::
 
-    a^2 mod p = 1
+    a^2 \mod p = 1
+
+
+Discrete Logarithm
+----------------------------------------------------------------------
+
+Primitive Root
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:math:`a, p` 互質
+
+如果 :math:`a` 只有 :math:`a^{\phi(p)} \equiv 1 (\mod p)`
+其他的次方都不是 1
+
+那麼 :math:`a` 就是 :math:`p` 的 primitive root
