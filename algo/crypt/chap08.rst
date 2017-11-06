@@ -102,9 +102,28 @@ Primitive Root
 
 :math:`a, p` 互質
 
-如果 :math:`a` 只有 :math:`a^{\phi(p)} \equiv 1 (\mod p)`
-其他的次方都不是 1
+如果 :math:`a` 只有 :math:`a^{\phi(p) = p - 1} \equiv 1 (\mod p)`
+其他的次方都不是 1。
+
+意味著 :math:`a^1, a^2, \dots, a^{p - 1}` mod 的 output 都完全不同。
+
+對非 primitive root 的 餘數是 就會呈現 規律狀。
 
 那麼 :math:`a` 就是 :math:`p` 的 primitive root
 
 不一定每個 integer 都有 primitive root
+
+
+Logarithm for Modular Arithmetic
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+首先我們有 :math:`p` 的 primitive root :math:`a`
+
+對任意整數 :math:`b`
+
+.. math::
+
+    b \equiv a^i (\mod p)
+
+因為 :math:`a` 是 primitive root ，所以 :math:`a^i` 形成的集合就是
+:math:`\{ 1, \dot, p - 1\}`
