@@ -38,6 +38,13 @@ Fields
     3 跟 :math:`\frac{1}{3}`，但 :math:`\frac{1}{3}` 不在 integer 這個 set 裡面
 
 
+E.g.
+
+    - 實數
+
+    - 有理數
+
+
 Finite Fields
 ----------------------------------------------------------------------
 
@@ -71,3 +78,26 @@ The set with modulo arithmetic operations denote as :math:`GF(p) = Z_n`
     by \mod a & = 1
 
 :math:`\therefore y = b^{-1}` is multiplication inverse of :math:`b`.
+
+
+Polynomial Arithmetic
+----------------------------------------------------------------------
+
+
+Ordinary Polynomial Arithmetic
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- 有加減乘。
+
+- 除要是 Field。
+  所以 :math:`\mathbb{N}` 沒有除法。
+
+
+Finite Fields of :math:`GF(2^n)`
+----------------------------------------------------------------------
+
+假設我們要處理 8 bits data，8 bits 的範圍是 0~255
+但是 :math:`GF(2^8)` 的 order 不是質數，最近的質數是 251
+因此如果我們是以 8 bits 為單位的處理資料，有用到除法的話必須是 Field，
+我們 251~255 這段是不能用的，造成浪費。
+
