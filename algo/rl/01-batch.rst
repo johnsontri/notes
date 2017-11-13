@@ -64,3 +64,15 @@ Experience Replay
 得到的是 greedy policy。
 往後的演算法中就忘了 transition tuple :math:`(s, a, r, s')`
 （只看 update 後的 :math:`Q'(s, a)` table）。這是 "local" update
+
+`experience replay` 的提出就是為了解決 `exploration overhead`.
+
+這個 experience replay 的技術，雖然簡單，但被視為第一個用來解決 growing batch
+problem 的技術。目的是為了加速收斂。
+
+可以對於 experience，我們留多留少都可以，反正就設定個數字，
+然後在跟系統的每一個互動後，我們有 n 跟 experience，那麼就 apply update rule
+n 次（iter 過每個 experience）
+這樣有 back-propagate 的意義在。
+
+
