@@ -97,4 +97,42 @@ Idea of `Fitting` 是用 function approximation
 但是這個的收斂條件建立在特定的 update structure，e.g reward 的形式...etc。
 這個吃工程上的經驗。
 
+Fitting 的做法則是對 update rule 做改變。
+
+Stable Function Approximation in Dynamic Programming
+****************************************************
+
+有些 function approximator 適合 TD methods 有些不適合，
+這篇用 K-nearest-nieghbor, linear interpolation(?),
+跟一些 local weight averaging 來做 approximation。
+而且是有條件才收斂。
+
+Algo:
+
+#. 先抽 a set of :math:`s \in S` (state space)，先稱這個 set 為 :math:`A`.
+   這些 :math:`s` 要具有代表性，能夠涵蓋整個 distribution。
+   sampling 的原因是 state space 太大，要降低問題的難度。
+
+#. Initial guess 的 value function :math:`V_0`
+
+#. :math:`M_A` 是 learning algorithm，使用了 training set :math:`A`
+   然後 :math:`f(A)` 是這個 training set 的 labels。
+
+   .. math::
+
+       M_A(f(A), A) \rightarrow \hat{f}
+
+   :math:`M_A` 吃了 label 跟 training data 得到了一個 function approximator
+   (e.g. a neural nets) :math:`\hat{f}`
+
+#. 收斂的過程：
+
+   .. math::
+
+       V_0 & \\
+       V_1 & \leftarrow M_A(V_0, A_0) & \\
+       A_1 & \leftarrow T_A(V_1)      & \text{ (sampling)} \\
+       V_2 & \leftarrow M_A(V_1, A_1) & \\
+       \dots
+
 
