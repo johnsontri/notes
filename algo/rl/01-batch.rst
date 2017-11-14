@@ -76,3 +76,25 @@ n 次（iter 過每個 experience）
 這樣有 back-propagate 的意義在。
 
 
+Stability Issues
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Idea of `Fitting`
+
+Online RL 用 `asynchronous` updates，而且我們只更新我們目前的 state，
+其他以前看過的 state 都不會動到。
+
+Q table 是個 discrete case，我們 update 了某個 state-action pair，
+而其他的都不會動到。
+
+Idea of `Fitting` 是用 function approximation
+
+.. math::
+
+    f'(s, a) & = f(s, a) + \alpha(r + \max_{a' \in A} f(a', s') - f(s, a)) \\
+             & = f(s, a) + \alpha(\bar{q}_{s, a} - f(s, a))
+
+但是這個的收斂條件建立在特定的 update structure，e.g reward 的形式...etc。
+這個吃工程上的經驗。
+
+
