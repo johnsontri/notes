@@ -112,6 +112,7 @@ Algo:
 #. 先抽 a set of :math:`s \in S` (state space)，先稱這個 set 為 :math:`A`.
    這些 :math:`s` 要具有代表性，能夠涵蓋整個 distribution。
    sampling 的原因是 state space 太大，要降低問題的難度。
+   這些 sampling 出來的點稱為 `supports`.
 
 #. Initial guess 的 value function :math:`V_0`
 
@@ -136,3 +137,20 @@ Algo:
        \dots
 
 
+Replace Inefficient Stochastic Approximation
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+接下來就是用了前面 fitting 的想法，
+發展出了 `model-free-sample-based`
+
+Ormoneit (2002) 建議不要用 random sampling 出來的 `supports` 來算
+:math:`\hat{f}` ，
+而用 sampled transition + kernel-based approximator 來求 :math:`\hat{f}`
+
+簡單來說就是，我們只用 已觀測到的 transition samples
+(a set of state-action pair)，
+(given current state)然後用附近的 transition 求近似的 value，
+e.g. 對附近的 transition 的 value 做 averaging
+
+這個做法可以想象成 Ormoneit 透過 averaging，估測了 transition model，
+this implies from random sampling to the true distribution.
