@@ -154,3 +154,19 @@ e.g. 對附近的 transition 的 value 做 averaging
 
 這個做法可以想象成 Ormoneit 透過 averaging，估測了 transition model，
 this implies from random sampling to the true distribution.
+
+
+Batch RL Algorithms
+----------------------------------------------------------------------
+
+Ormoneit 提出了 kernel-based framework。
+
+`kernel-based approximate dynamic programming` (KADP)
+
+內含：
+
+* experience replay
+
+* fitting
+
+* kernel-based self-approximation (sample-based)
