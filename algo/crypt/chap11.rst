@@ -141,3 +141,7 @@ Requirements (table 11.1)
 
     - Strong collision resistant: :math:`\forall (x, y)` pair, no collision.
       (computational infeasible)
+
+    - Pseudorandomness: hash value 通過 pseudorandomness 的測試。
+
+
