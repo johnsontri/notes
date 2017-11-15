@@ -67,3 +67,32 @@ Practices: SSL/TLS
 .. math::
 
     E(K, H(M))
+
+
+- MAC 沒辦法區分是兩者中誰送出的，因為是 shared secret key。
+
+- Chap 12
+
+
+Digital Signature
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#. 假設 message 不 sensitive，就在 M 後面加上 digital signature
+   就好了。證明是 Alice sign 的即可。
+
+
+#. 如果 message 很重要，先 sign 一下 ，也可以整個兩個做對稱式加密。
+
+
+Other Hash Functions Uses
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- Password saved in DataBases.
+  (One-way password file)
+
+- intrusion detection
+
+- virus detection
+
+- 實作 pseudorandom function (PRF) or a pseudorandom number generator (PRNG)
+
