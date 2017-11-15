@@ -145,3 +145,8 @@ Requirements (table 11.1)
     - Pseudorandomness: hash value 通過 pseudorandomness 的測試。
 
 
+Attacks
+
+    #. Brute-Force
+
+    #. Cryptanalysis: attack the algorithm property.
