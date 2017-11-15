@@ -43,9 +43,13 @@ Bob 收到的時候只要把後面的 Hash values 拿起來看看，可以知道
 Darth 還是可以在中間加料後，append hash value 上去，讓 Bob 覺得東西好像沒
 壞掉。
 
-解法：
+解法： Figure 11.3
 
 #. 導入 data encryption 就好了。
 
 #. 對 hash value 做簽章就好了。
 
+#. 當資料很大時，我們就不會想要加密整個 data。
+   在製作 hash value 的同時導入一個 shared 的 key 就好了。
+
+#. double protection.
