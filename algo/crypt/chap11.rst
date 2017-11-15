@@ -96,3 +96,19 @@ Other Hash Functions Uses
 
 - 實作 pseudorandom function (PRF) or a pseudorandom number generator (PRNG)
 
+
+Two Simple Hash Functions
+----------------------------------------------------------------------
+
+input 長度不定，所以用 iteration。
+
+這裡介紹簡單的，雖然 insecure。
+
+#. 切 n 個 block，每個 block 直接 bit-by-bit XOR。
+
+#. 每個 block + circular shift。
+   第一個 block shift 1，第二個 shift 2 之類的。
+
+上面這兩個 Hash functions 的弱點是，我們只要特製一下最後一個 block，
+就能夠作出 collision。
+因為這兩個 hash functions 就只是重複的做 XOR。
