@@ -112,3 +112,32 @@ input 長度不定，所以用 iteration。
 上面這兩個 Hash functions 的弱點是，我們只要特製一下最後一個 block，
 就能夠作出 collision。
 因為這兩個 hash functions 就只是重複的做 XOR。
+
+
+Requirements and Security
+----------------------------------------------------------------------
+
+Preimage
+
+    :math:`x` is the preimage of :math:`h` for a hash values
+
+
+Collision
+
+    If :math:`x \neq y`, but :math:`H(x) = H(y)`
+
+Requirements (table 11.1)
+
+    - 不定長度 input
+
+    - 固定長度 output
+
+    - Efficiency: forward pass 簡單。
+
+    - preimage resistant: one-way.
+
+    - Second preimage resistant: weak collision resistant.
+      Given :math:`x` 找不到 collision (computational infeasible)
+
+    - Strong collision resistant: :math:`\forall (x, y)` pair, no collision.
+      (computational infeasible)
