@@ -150,3 +150,33 @@ Attacks
     #. Brute-Force
 
     #. Cryptanalysis: attack the algorithm property.
+
+
+Brute-Force Attacks
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+m-bit hash value,
+
+給你 hash value :math:`h` ，然後找 preimage (input)
+random 產出 input，每個 input 都有 hash value，有 :math:`2^m` 種可能。
+
+期望值上至少也要 :math:`2^{m-1}` （一半）
+
+
+那麼 second preimage?
+給定 :math:`x` ，然後有 :math:`h` ，找到個 :math:`y, s.t. H(y) = H(x)`
+:math:`2^m`
+
+Collision Resistant: :math:`2^{m/2}` ?
+
+MD4/MD5 -> 128 bit
+
+
+Cryptanalysis
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+11.8
+MD4/MD5/SHA-family 的結構都長這樣。
+
+
+
