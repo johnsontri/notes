@@ -53,3 +53,17 @@ Darth 還是可以在中間加料後，append hash value 上去，讓 Bob 覺得
    在製作 hash value 的同時導入一個 shared 的 key 就好了。
 
 #. double protection.
+
+
+Message Authentication Code
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+A.k.a `keyed hash function`
+
+兩邊要 shared 一個 secret key 來做 authentication
+
+Practices: SSL/TLS
+
+.. math::
+
+    E(K, H(M))
