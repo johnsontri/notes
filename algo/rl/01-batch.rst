@@ -126,14 +126,14 @@ Algo:
    :math:`M_A` 吃了 label 跟 training data 得到了一個 function approximator
    (e.g. a neural nets) :math:`\hat{f}`
 
-#. 收斂的過程：
+#. 收斂的過程，上標是 iteration：
 
    .. math::
 
-       V_0 & \\
-       V_1 & \leftarrow M_A(V_0, A_0) & \\
-       A_1 & \leftarrow T_A(V_1)      & \text{ (sampling)} \\
-       V_2 & \leftarrow M_A(V_1, A_1) & \\
+       V^0 & \\
+       V^1 & \leftarrow M_A(V^0, A^0) & \\
+       A^1 & \leftarrow T_A(V^1)      & \text{ (sampling)} \\
+       V^2 & \leftarrow M_A(V^1, A^1) & \\
        \dots
 
 
@@ -170,3 +170,38 @@ Ormoneit 提出了 kernel-based framework。
 * fitting
 
 * kernel-based self-approximation (sample-based)
+
+
+Kernel-Based Approximate Dynamic Programming
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+去解 Bellman equation 的近似 function。
+
+.. math::
+
+    V = HV
+
+變成
+
+.. math::
+
+    \hat{V} = \hat{H} \hat{V}
+
+這裡的 :math:`H` 就是 DP-operator
+
+Iteration process, where :math:`\hat{V}^0` is the initial guess:
+
+.. math::
+
+    \hat{V}^{i+1} & = \hat{H} \hat{V}^i \\
+    \text{where } \hat{H} & = H_{max} \hat{H}^a_{dp} \\
+    \therefore
+    \hat{V}^{i+1} & = H_{max} \hat{H}^a_{dp} \hat{V}^i \\
+
+with a given exp set
+
+.. math::
+
+    \mathscr{F} = \{(s_t, a_t, r_{t+1}, s_{t+1}) | t = 1 \dots p\}
+
+先看方程式的後半 :math:`H`
