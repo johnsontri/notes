@@ -150,7 +150,7 @@ Ormoneit (2002) 建議不要用 random sampling 出來的 `supports` 來算
 簡單來說就是，我們只用 已觀測到的 transition samples
 (a set of state-action pair)，
 (given current state)然後用附近的 transition 求近似的 value，
-e.g. 對附近的 transition 的 value 做 averaging
+e.g. 對附近的 transition 的 value 做 averaging (or kernel-based averaging)
 
 這個做法可以想象成 Ormoneit 透過 averaging，估測了 transition model，
 this implies from random sampling to the true distribution.
@@ -205,3 +205,30 @@ with a given exp set
     \mathscr{F} = \{(s_t, a_t, r_{t+1}, s_{t+1}) | t = 1 \dots p\}
 
 先看方程式的後半 :math:`H`
+
+
+Kernel-Based Reinforcement Learning
+**************************************************
+
+- Ormoneit (2002)
+
+在 continuous state-space 的 TD 用了 parametric function approximator
+(e.g neural nets, linear regression) 很難收斂。
+本篇提出的方法是對 Bellman equation 做近似，無論怎樣的 initialization value。
+本篇發現 bias 對 reinforcement learning algorithm 的影響很大，
+e.g 比 bias 在 regression problem 之中的影響還大。
+
+
+Bias-variance tradeoff
+
+    - bias: underfitting
+
+    - variance: overfitting
+
+
+- discounted-cost problem：本篇討論的
+
+- average-cost problem：Ormoneit & Glynn (2002)
+
+
+Kernel-based averaging (inspired by idea of local averaging).
