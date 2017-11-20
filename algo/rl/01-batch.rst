@@ -204,7 +204,31 @@ with a given exp set
 
     \mathscr{F} = \{(s_t, a_t, r_{t+1}, s_{t+1}) | t = 1 \dots p\}
 
-先看方程式的後半 :math:`H`
+先看方程式的後半 :math:`\hat{H}^a_{dp} \hat{V}^i` 的部分。
+
+.. math::
+
+    \hat{H}^a_{dp} \hat{V}^i & =
+        \sum_{(s,a,r,s') \in \mathscr{F}_a} k(s, \sigma) \big(r + \gamma \hat{V}^i(s') \big) \\
+    \implies \hat{Q}_a^{i+1}(\sigma) & =
+        \sum_{(s,a,r,s') \in \mathscr{F}_a} k(s, \sigma)
+        \big(r + \gamma \max_{a' \in A} \hat{Q}^i(s', a') \big) \\
+
+這裡的 :math:`\mathscr{F}_a` 是 given :math:`a` 之後的 set。
+同理 :math:`\hat{Q}_a^{i+1}` 是 given :math:`a` 。
+
+然後把 Bellman equation 前半部的 max operator 合起來
+
+.. math::
+
+    \hat{V}^{i+1}(s) & = H_{max} \hat{Q}^{i+1}_a (s) \\
+        & = \max_{a \in A} \hat{Q}^{i+1}_a (s)
+
+那麼 policy 和之前一樣就是做 `argmax`
+
+.. math::
+
+    \pi(s) = \arg \max_{a \in A} \hat{V}^{i+1} (s)
 
 
 Kernel-Based Reinforcement Learning
@@ -232,3 +256,6 @@ Bias-variance tradeoff
 
 
 Kernel-based averaging (inspired by idea of local averaging).
+
+MDP setting
+    - discrete time steps :math:`t = 1, 2, \dots T`
