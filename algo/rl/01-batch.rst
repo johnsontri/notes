@@ -230,6 +230,23 @@ with a given exp set
 
     \pi(s) = \arg \max_{a \in A} \hat{V}^{i+1} (s)
 
+這裡就會把 policy update rule 寫成
+
+.. math::
+
+    \pi^{i+1}(\sigma)
+    & = \arg \max_{a \in A} \hat{V}^{i+1}(\sigma)
+    \\
+    & = \arg \max_{a \in A}
+        \sum_{(s,a,r,s') \in \mathscr{F}_a} k(s, \sigma)
+        \big(r + \gamma \max_{a' \in A} \hat{Q}^i(s', a') \big)
+
+Constrain from kernel:
+
+.. math::
+
+    \sum_{\mathscr{F}_a} k(s, \sigma) = 1, \ \forall \sigma \in S
+
 
 Kernel-Based Reinforcement Learning
 **************************************************
