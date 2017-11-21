@@ -332,6 +332,8 @@ Algo:
 
     \hat{Q}^{i+1}_a (\sigma) = \sum_{(s,a,q_{s,a}^{-i+1})} k(s, \sigma) q_{s,a}^{-i+1}
 
+KADP 跟 FQI 的關係就是透過這樣連起來的。
+
 注意這個方法中的是對每個 discrete action :math:`a \in A`
 都算出一個 :math:`\hat{Q}_a^{i+1}(s)` ，是對每個 action 獨立的 approximation。
 然後概念上是可以合併出 :math:`\hat{Q}^{i+1}(s,a)` ，
