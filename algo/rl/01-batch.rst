@@ -323,6 +323,12 @@ Algo:
 
    where :math:`M` is the learning algorithm.
 
+#. Derive policy function
+
+   .. math::
+
+       \pi^{i+1}(s) = \arg \max_{a \in A} \hat{Q}^{i+1}(s, a)
+
 
 原始 paper 中使用 randomized tree。
 如果導入的 kernel-based 的方式，
@@ -339,3 +345,6 @@ KADP 跟 FQI 的關係就是透過這樣連起來的。
 然後概念上是可以合併出 :math:`\hat{Q}^{i+1}(s,a)` ，
 實作上就是對 action 做 table 即可。
 然後 Ernst 有提出 continuous action space 的版本。
+
+對 continuous action space 是 single function approximator。
+discrete action space 是一堆 function approximator。
