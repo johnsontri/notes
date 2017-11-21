@@ -10,7 +10,7 @@ def html_visit_pseudocode(self, node):
     self.body.append('<pre id="{}" style="display: none;">'.format(node['tagid']))
     self.body.append(r'\begin{algorithm}')
     self.body.append('\n')
-    self.body.append(r'\caption{test algo}')
+    self.body.append(r'\caption{}')
     self.body.append('\n')
     self.body.append(r'\begin{algorithmic}')
     self.body.append('\n')
@@ -57,8 +57,8 @@ class PseudoCodeDirective(Directive):
 
 
 def builder_inited(app):
-    app.add_stylesheet('css/katex.min.css')
-    app.add_javascript('js/katex.min.js')
+    app.add_stylesheet('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css')
+    app.add_javascript('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.js')
 
     app.add_stylesheet('css/pseudocode.min.css')
     app.add_javascript('js/pseudocode.min.js')
