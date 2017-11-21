@@ -281,7 +281,7 @@ MDP setting
 Fitted Q Iteration
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Ernst (2005)
+Ernst (2005) Tree-Based Batch Mode Reinforcement Learning
 
 Q-learning of batch RL
 
@@ -324,9 +324,16 @@ Algo:
    where :math:`M` is the learning algorithm.
 
 
+原始 paper 中使用 randomized tree。
 如果導入的 kernel-based 的方式，
 最後一部分估測 :math:`\hat{Q}^{i+1}` 的部分就直接變成：
 
 .. math::
 
     \hat{Q}^{i+1}_a (\sigma) = \sum_{(s,a,q_{s,a}^{-i+1})} k(s, \sigma) q_{s,a}^{-i+1}
+
+注意這個方法中的是對每個 discrete action :math:`a \in A`
+都算出一個 :math:`\hat{Q}_a^{i+1}(s)` ，是對每個 action 獨立的 approximation。
+然後概念上是可以合併出 :math:`\hat{Q}^{i+1}(s,a)` ，
+實作上就是對 action 做 table 即可。
+然後 Ernst 有提出 continuous action space 的版本。
