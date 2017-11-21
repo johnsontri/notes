@@ -276,3 +276,43 @@ Kernel-based averaging (inspired by idea of local averaging).
 
 MDP setting
     - discrete time steps :math:`t = 1, 2, \dots T`
+
+
+Fitted Q Iteration
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Ernst (2005)
+
+Q-learning of batch RL
+
+Algo:
+
+#. Initialization:
+
+   給定 Fixed experience set
+   :math:`\mathscr{F} = \{(s_t, a_t, r, s_{t+1}) | t = 1, \dot, p\}`
+   這個 set 裡面有 :math:`p` 個 transition tuple :math:`(s, a, r, s')`
+
+   Initial Q value: :math:`q^{-0} = 0`
+
+   Initial Q function
+
+   .. math::
+
+       \hat{Q}^0 (s, a) = 0,\ \forall (s, a) \in S \times A
+
+   這個 :math:`\hat{Q}(s, a)` 即 :math:`Q(s, a)` 的 approximation
+
+#. Iteration 過整個 :math:`\mathscr{F}`
+   得出 training patter set :math:`P^{i+1}`:
+
+   .. pseudo-code::
+
+       \state $P^{i+1} \leftarrow \{\}$
+       \forall{$(s, a, r, s') \in$ ℱ}
+           \state $q_{s,a}^{-i+1} = r + \gamma \max_{a' \in A} \hat{Q}^{i}(s', a')$
+           \state $P^{i+1} \leftarrow P^{i+1} \cup {(s,a,q_{s,a}^{-i+1})}$
+       \endfor
+
+
+#. 對 pattern set :math:`P^{i+1}` supervise learning 得出 :math:`\hat{Q}^{i+1}`
