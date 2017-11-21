@@ -316,3 +316,17 @@ Algo:
 
 
 #. 對 pattern set :math:`P^{i+1}` supervise learning 得出 :math:`\hat{Q}^{i+1}`
+
+   .. math::
+
+       \hat{Q}^{i+1} (s, a) = M(P^{i+1})
+
+   where :math:`M` is the learning algorithm.
+
+
+如果導入的 kernel-based 的方式，
+最後一部分估測 :math:`\hat{Q}^{i+1}` 的部分就直接變成：
+
+.. math::
+
+    \hat{Q}^{i+1}_a (\sigma) = \sum_{(s,a,q_{s,a}^{-i+1})} k(s, \sigma) q_{s,a}^{-i+1}
