@@ -372,4 +372,10 @@ Parametric linear approximation
     除了這些 functions，
     外加一個 weight vector :math:`\vec{w} = (w_1, \dots, w_k)^T`
 
+所以 :math:`\hat{Q}` 長這樣
+
+.. math::
+
+    \hat{Q}(s, a; \vec{w}) = \sum_i^k \phi_i (s, a) w_i = \Phi \vec{w}
+
 
