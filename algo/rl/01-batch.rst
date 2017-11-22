@@ -348,3 +348,28 @@ KADP 跟 FQI 的關係就是透過這樣連起來的。
 
 對 continuous action space 是 single function approximator。
 discrete action space 是一堆 function approximator。
+
+
+Least-Squares Policy Iteration
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+A.k.a. `LSPI`
+
+Lagoudakis and Parr (2003)
+
+？
+    LSPI explicitly embeds the task of solving
+    control problems into the framework of policy iteration.
+
+Parametric linear approximation
+    用 k 個 pre-defined basis 的 function；用 k 個 bias 不調整的 function 所
+    形成的 set。裡面每個 function 長這樣:
+
+    .. math::
+
+        \phi_i: S \times A
+
+    除了這些 functions，
+    外加一個 weight vector :math:`\vec{w} = (w_1, \dots, w_k)^T`
+
+
