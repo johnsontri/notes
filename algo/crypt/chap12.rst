@@ -18,4 +18,12 @@ Lower level function: authenticator
     - Message Authentication Code (MAC)
 
 
+FCS: Frame check sequence, aka checksum
+為了做 error-detection，要做在 encryption 之前。
+
+兩種做法, figer 12.2：
+
+    - internal error control
+
+    - external error control
 
