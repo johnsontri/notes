@@ -195,3 +195,55 @@ SHA-512
 Message 切 block ，不夠就 padding
 
 用 chain 中最後一個的 result
+
+
+SHA-3
+----------------------------------------------------------------------
+
+Sponge function
+
+
+
+Sponge construction
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+message + padding 後切 blocks
+
+- sponge function
+
+    - :math:`f` internal function for handle input block
+
+    - :math:`r` input block 的大小，單位是 bit
+
+    - :math:`pad` padding algorithm
+
+sponge function 的 input/output 都是 variable，所以可以作為
+
+    - hash function: fixed-length output
+
+    - pseudo-random number generator: fixed length input
+
+input 大小為 :math:`n` 的 message，會被切成 k 個固定大小的 block，
+:math:`r` bits for each block。
+有需要的話，會加上 padding。
+
+
+Iteration Function :math:`f`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+.. math::
+
+    R = i \circ \chi \circ \pi \circ \rho \circ \theta
+
+Table 11.6
+
+
+:math:`\theta` step
+
+    Substitution
+
+
+:math:`\rho` step
+
+...
