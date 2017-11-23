@@ -429,4 +429,8 @@ Riedmiller (2005)
 
         - so-called `hint-to-goal`
 
-    #. Normalized Q value (Riedmiller 2011)
+    #. Normalized Q value (Riedmiller 2011): Qmin-heuristic
+
+        - 第二種手法是，平移；所有的 training Q value 減掉其中最小的值。
+
+
