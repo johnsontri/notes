@@ -15,6 +15,7 @@ def html_visit_pseudocode(self, node):
     self.body.append(r'\begin{algorithmic}')
     self.body.append('\n')
     self.body.append(node['latex'])
+    self.body.append('\n')
     self.body.append(r'\end{algorithmic}')
     self.body.append('\n')
     self.body.append(r'\end{algorithm}')
