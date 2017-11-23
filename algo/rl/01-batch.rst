@@ -465,4 +465,16 @@ for each :math:`k` ，用於 local action 的選擇。
 
 Riedmiller (2008) 有做改進。
 inter-agent coordination + FQI。
-基本想法就是共用 腦。
+基本想法就是先假設其他 agent 做的 action 是 optimal
+（雖然顯然不是，因為 exploration ），然後只在作出比目前都好的 joint action 時
+才 update。這種 coordination 方法受到 noise 的影響很嚴重，
+所以在蒐集 transitions experience :math:`(s, a, s')` 的 :math:`s'` 要仔細篩選。
+
+?
+    which is why determinism in the DEC-MDP’s state transitions must be assumed
+    during the phase of collecting transitions. However, this assumption can be
+    dropped when applying the policies learned.
+
+
+FQI 的 algo 在蒐集 transition 階段要修改成每個 agent 各自有各自的
+experience set :math:`\mathscr{F}_k = \{(s_k, a_k, r_k, s'_k), \dots\}`
