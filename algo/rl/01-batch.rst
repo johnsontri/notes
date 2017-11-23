@@ -436,7 +436,10 @@ Riedmiller (2005)
     #. A smooth immediate cost-function
         - immediate 是指這個 function 就直接看你的 target state
 
-        - e.g. 在非 target region 的 training pattern 的 cost 都是
+        - immediate cost-function:
+          e.g. 在非 target region 的 training pattern 的 cost 都是
           positive cost；target region 直接就是 0。
+
+        - 然後做 smooth
 
 
