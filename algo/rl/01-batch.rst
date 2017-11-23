@@ -412,13 +412,13 @@ Neural Fitted Q Iteration (NFQ)
 Riedmiller (2005)
 
 
-.. pseudo-code::
-
-    \require $(s, a, r, s') \in $ ℱ
-    \state $Q \leftarrow$ init network
-    \loop
-        \state test
-    \endloop
+.. .. pseudo-code::
+..
+..     \require $(s, a, r, s') \in $ ℱ
+..     \state $Q \leftarrow$ init network
+..     \loop
+..         \state test
+..     \endloop
 
 導入的額外的處理：
 
@@ -432,5 +432,11 @@ Riedmiller (2005)
     #. Normalized Q value (Riedmiller 2011): Qmin-heuristic
 
         - 第二種手法是，平移；所有的 training Q value 減掉其中最小的值。
+
+    #. A smooth immediate cost-function
+        - immediate 是指這個 function 就直接看你的 target state
+
+        - e.g. 在非 target region 的 training pattern 的 cost 都是
+          positive cost；target region 直接就是 0。
 
 
