@@ -485,7 +485,29 @@ local training pattern set :math:`\mathscr{O}_k`
 Deep Fitted Q Iteration
 ----------------------------------------------------------------------
 
+Riedmiller (2010)
+
 :math:`s \in R^n` hight-dimensional state space
 
 先拿 data :math:`\mathscr{F}` learn 出
 :math:`\phi: R^n \rightarrow R^m,\ \text{where}\ m \ll n`
+
+然後得出
+
+.. math::
+
+    \mathscr{F}_\phi = \{\phi(s), a, r, \phi(s') | (s, a, r, s') \in \mathscr{F}\}
+
+
+對於 growing batch RL。
+有新的 collection，新的 state，
+去更新 feature extraction mapping （這裡是 unsuppervise）
+原 paper 是 deep autoencoder。
+
+之後就用 target value 去更新 network:
+
+.. math::
+
+    q_{\phi'(s), a} = r + \gamma max_{a' \in A} \hat{Q}^\phi_{a'} (\phi(s))
+
+
