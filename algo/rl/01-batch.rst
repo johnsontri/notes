@@ -455,4 +455,14 @@ Batch methods for cooperative multi-agent，就多 agent 合作。
 
 Decentralized Markov decision process (DEC-(PO)MDP) 這個 framework 用在
 多個獨立的 agents，這些 agent 只能拿到 local state 的相關資訊，沒有
-global state。
+global state。這些 agent 的獨立性包含 action and learning。
+實際上的 goal 就是找這麼多 agent 的 joint policies。
+這裡會用 local state value function :math:`Q_k: S_k \times A_k`
+for each :math:`k` ，用於 local action 的選擇。
+
+最簡單的方法就是，各自 train 各自的 :math:`Q_k` 用 NFQ，
+但很明顯這樣會 underestimate。
+
+Riedmiller (2008) 有做改進。
+inter-agent coordination + FQI。
+基本想法就是共用 腦。
