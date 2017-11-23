@@ -504,7 +504,6 @@ A.k.a `DFQ`
 對於 growing batch RL。
 有新的 collection，新的 state，
 去更新 feature extraction mapping （這裡是 unsuppervise）
-原 paper 是 deep autoencoder。
 
 之後就用 target value 去更新 network:
 
@@ -513,3 +512,5 @@ A.k.a `DFQ`
     q_{\phi'(s), a} = r + \gamma max_{a' \in A} \hat{Q}^\phi_{a'} (\phi(s))
 
 從原有的 :math:`\phi` 算 target value，成為 :math:`\phi'` 的 :math:`q`
+
+Riedmiller (2010) 在 feature extraction 是用 deep autoencoder
