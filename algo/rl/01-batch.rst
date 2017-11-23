@@ -487,6 +487,8 @@ Deep Fitted Q Iteration
 
 Riedmiller (2010)
 
+A.k.a `DFQ`
+
 :math:`s \in R^n` hight-dimensional state space
 
 先拿 data :math:`\mathscr{F}` learn 出
@@ -510,4 +512,4 @@ Riedmiller (2010)
 
     q_{\phi'(s), a} = r + \gamma max_{a' \in A} \hat{Q}^\phi_{a'} (\phi(s))
 
-
+從原有的 :math:`\phi` 算 target value，成為 :math:`\phi'` 的 :math:`q`
