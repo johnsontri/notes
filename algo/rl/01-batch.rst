@@ -387,3 +387,16 @@ Identifying Batch RL
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 `online`, `offline`, `semi-batch`, `batch`
+
+
+Theory of Batch RL
+----------------------------------------------------------------------
+
+兩個追求的目標
+
+#. Stability: guaranteed converge
+
+#. Solution quality
+
+Gordon 用 `averager` 用在 discounted reward 上，
+`self-weighted` 在 non-discounted reward
