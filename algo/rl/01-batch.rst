@@ -381,3 +381,9 @@ Parametric linear approximation
 
 用在 TD 上面就稱為 LSQ/LSTDQ。
 實際上的 learning 就是調 :math:`\vec{w}`
+
+
+Identifying Batch RL
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+`online`, `offline`, `semi-batch`, `batch`
