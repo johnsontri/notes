@@ -362,8 +362,9 @@ Lagoudakis and Parr (2003)
     control problems into the framework of policy iteration.
 
 Parametric linear approximation
-    用 k 個 pre-defined basis 的 function；用 k 個 bias 不調整的 function 所
-    形成的 set。裡面每個 function 長這樣:
+    用 k 個 `pre-defined basis function` ；
+    我理解的是用 k 個不調整的 function，這 k 個 function 是 hyper parameter；
+    所形成的 set。裡面每個 function 長這樣:
 
     .. math::
 
@@ -378,4 +379,5 @@ Parametric linear approximation
 
     \hat{Q}(s, a; \vec{w}) = \sum_i^k \phi_i (s, a) w_i = \Phi \vec{w}
 
-
+用在 TD 上面就稱為 LSQ/LSTDQ。
+實際上的 learning 就是調 :math:`\vec{w}`
