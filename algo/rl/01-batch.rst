@@ -443,3 +443,16 @@ Riedmiller (2005)
         - 然後做 smooth
 
 
+Batch RL in Multi-agent Systems
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Batch methods for cooperative multi-agent，就多 agent 合作。
+
+裡面其中一個 agent 得到的 transition experience 很大程度會受其他 agent 影響。
+這意味著 transition 受外部的因子的影響，像是其他人 agent 的 policy。
+所以這裡就有對 batch experience 的資訊量做改進，因為以前的 transition tuple
+能夠表示的資訊太少。
+
+Decentralized Markov decision process (DEC-(PO)MDP) 這個 framework 用在
+多個獨立的 agents，這些 agent 只能拿到 local state 的相關資訊，沒有
+global state。
