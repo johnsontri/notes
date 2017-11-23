@@ -400,3 +400,33 @@ Theory of Batch RL
 
 Gordon 用 `averager` 用在 discounted reward 上，
 `self-weighted` 在 non-discounted reward
+
+
+Batch RL in Practice
+----------------------------------------------------------------------
+
+
+Neural Fitted Q Iteration (NFQ)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Riedmiller (2005)
+
+
+.. pseudo-code::
+
+    \require $(s, a, r, s') \in $ ℱ
+    \state $Q \leftarrow$ init network
+    \loop
+        \state test
+    \endloop
+
+導入的額外的處理：
+
+    #. Scaling input and target
+
+    #. Adding artificial training patterns
+        - 理解成 prior
+
+        - so-called `hint-to-goal`
+
+    #. Normalized Q value (Riedmiller 2011)
