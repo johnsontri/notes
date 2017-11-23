@@ -478,3 +478,14 @@ inter-agent coordination + FQI。
 
 FQI 的 algo 在蒐集 transition 階段要修改成每個 agent 各自有各自的
 experience set :math:`\mathscr{F}_k = \{(s_k, a_k, r_k, s'_k), \dots\}`
+每個 agents 蒐集 optimistic (因為假設其他人都是 optimal)
+local training pattern set :math:`\mathscr{O}_k`
+
+
+Deep Fitted Q Iteration
+----------------------------------------------------------------------
+
+:math:`s \in R^n` hight-dimensional state space
+
+先拿 data :math:`\mathscr{F}` learn 出
+:math:`\phi: R^n \rightarrow R^m,\ \text{where}\ m \ll n`
