@@ -34,3 +34,26 @@ Let :math:`k` is iteration number.
 這裡的找 Q 的動作就是 `policy evaluation` ；
 找 :math:`\pi_{k+1}` 就是 `policy improvement`
 
+`policy evaluation` 的操作可以是用 Bellman equation
+
+.. math::
+
+    Q^\pi = B^\pi_Q(Q^\pi)
+
+:math:`B^\pi_Q` 是 Bellman mapping (a.k.a backup operator)，定義如下
+
+.. math::
+
+    [B^\pi_Q(Q^\pi)](s, a) = E[R(s, a, s') + \gamma Q(s', \pi(s'))]
+
+同理，對 :math:`V` function 的 Bellman equation
+
+.. math::
+
+    V^\pi = B^\pi_V(V^\pi)
+
+Where Bellman mapping for :math:`V` function:
+
+.. math::
+
+    [B^\pi_V(V^\pi)](s) = E[R(s, \pi(s), s') + \gamma V(s)]
