@@ -57,3 +57,29 @@ Where Bellman mapping for :math:`V` function:
 .. math::
 
     [B^\pi_V(V^\pi)](s) = E[R(s, \pi(s), s') + \gamma V(s)]
+
+
+Classic Policy Iteration 需要明確的寫出 value function，
+在 state space 炸開的時候，就會窒礙難行。
+而人們才會找 approximator。
+
+
+Least-Squares Method for Approximate Policy Iteration
+----------------------------------------------------------------------
+
+主要有兩個分支
+
+    - projected policy iteration
+
+        - one-shot: least-squares TD
+
+        - iterative: least-squares policy evaluation
+
+    - Bellman residual minimization, BRM
+
+
+General 的 idea 是用一堆 basis functions 來做 approximator
+（我覺得這是 parametric 的方法，在開始看到資料之前，
+我們有假設了 basis，這代表我們假設了 data distribution 的 shape）
+
+
