@@ -51,4 +51,14 @@ Forgery
 Digital Signature Requirements
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+#. signature 要 depends on message
 
+#. signature 要用到 auther 的 unique information，來確認本人。
+
+#. 承上，用到 sender 也可
+
+#. easy to produce signature
+
+#. easy to verify signature for receiver
+
+#. computational infeasible to forge signature
