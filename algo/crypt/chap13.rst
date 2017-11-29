@@ -62,3 +62,15 @@ Digital Signature Requirements
 #. easy to verify signature for receiver
 
 #. computational infeasible to forge signature
+
+
+Direct Digital Signature
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+指只有通訊的這些人，才會去 access signature。
+
+然後如果需要機密性，就做 加密 整個 message + signature。
+
+Security 的強度依賴於 sender 的 private key。
+
+
