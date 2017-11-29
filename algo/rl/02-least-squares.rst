@@ -83,3 +83,13 @@ General 的 idea 是用一堆 basis functions 來做 approximator
 我們有假設了 basis，這代表我們假設了 data distribution 的 shape）
 
 
+.. math::
+
+    \hat{Q}(s, a) = \sum_i^d \vec{\phi}^T(s, a) \vec{\theta}
+
+Where :math:`\vec{\phi}(s, a) = [\phi_1(s, a), \dots, \phi_d(s, a)]^T`
+
+就是一堆 basis function。
+
+想像這些 basis function 有 d 個，
+:math:`\vec{\theta}` 是 d 維度的 feature vector。
