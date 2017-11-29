@@ -82,7 +82,6 @@ General 的 idea 是用一堆 basis functions 來做 approximator
 （我覺得這是 parametric 的方法，在開始看到資料之前，
 我們有假設了 basis，這代表我們假設了 data distribution 的 shape）
 
-
 .. math::
 
     \hat{Q}(s, a) = \sum_i^d \vec{\phi}^T(s, a) \vec{\theta}
