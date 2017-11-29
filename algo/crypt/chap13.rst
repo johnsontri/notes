@@ -72,5 +72,26 @@ Direct Digital Signature
 然後如果需要機密性，就做 加密 整個 message + signature。
 
 Security 的強度依賴於 sender 的 private key。
+sender 說 private key 掉了，就嗨了了。
 
 
+SlGamal Digital Signature
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+require: q, a (primitive root of q)
+
+
+#. Each user generate their own key
+
+   #. each private key: 1< x_A < q - 1
+
+   #. public key y_A = a^{x_A} mod q
+
+#. Choose k, k 跟 q-1 互質, then compute
+
+   #. S_1 = a^k mode q
+
+   #. S_2 = k^{-1}(m - x_A S_1)
+
+
+#. Signature pair (S_1, S_2)
