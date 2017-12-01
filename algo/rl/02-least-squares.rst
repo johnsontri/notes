@@ -112,3 +112,38 @@ Norm of Q function defined as:
 雖然上面有平方，不過比較常用。
 
 
+Projected Policy Iteration
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+我們想要找一個 :math:`\hat{Q}` ，這個 :math:`\hat{Q}` 要近似於
+自己的 backup version :math:`B^\pi_Q(\hat{Q})`
+
+會導入一個 :math:`\Pi`
+這個 :math:`\Pi` 就是 mapping function space 到另一個 function space，
+用 basis function 就可以做出 mapping
+（就如同 vector space 用 basis vectors 做 vector space 的轉換）
+
+.. math::
+
+    \Pi: \mathscr{Q} \rightarrow \mathscr{\hat{Q}}
+
+
+Projection
+
+.. math::
+
+    \hat{Q} \approx \Pi(B^\pi_Q(\hat{Q}))
+
+解上面整個 :math:`\approx` 的方程式，就是做最佳化:
+
+.. math::
+
+    min_{\hat{Q} \in \mathscr{\hat{Q}}} \|\| \hat{Q} - \Pi(B^\pi_Q(\hat{Q})) \|\|
+
+這裡的 norm 就是用上面 Euclidean norm 來定義。
+
+如果我們是要解這個 projection function :math:`\Pi`
+
+.. math::
+
+    \vec{\phi} \theta = \Pi((B^\pi_Q(\vec{\phi} \theta))
