@@ -90,8 +90,11 @@ Where :math:`\vec{\phi}(s, a) = [\phi_1(s, a), \dots, \phi_d(s, a)]^T`
 
 就是一堆 basis function。
 
-想像這些 basis function 有 d 個，
-:math:`\vec{\theta}` 是 d 維度的 feature vector。
+想像這些 basis function 有 d 個，也稱為 feature。
+
+:math:`\vec{\theta}` 是 d 維度的 parameter vector。
+即 linear basis model 中的 :math:`\vec{w}`。
+
 
 
 Weighted Euclidean Norm
