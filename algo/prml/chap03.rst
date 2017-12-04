@@ -29,3 +29,33 @@ let :math:`\phi_0 (\vec{x}) = 1`
 x 是 scalar，還不是 vector ，
 就是 let :math:`\phi_i(x) = x^i` 的結果。
 
+這個 :math:`\phi_i` 即為 `basis function` ，
+對於你的問題，可以任意取。e.g.
+
+.. math::
+
+    \phi_i(x) = e^{- \frac{(x - \mu_i)^2}{2s^2}}
+
+想象上面的 basis function 的 :math:`\mu_i` 可以調控每個 basis function 的 value
+在哪裡附近， :math:`s` 調控寬度的 scale。
+上面這個例子就是 Gaussian basis functions。
+在這裡我們不在乎機率相關的解釋，或是 normalization 相關的作用，
+因為我們的 :math:`y` 在使用這些 basis function 時還會乘上 :math:`w` 來調整。
+
+再看一個例子，sigmoid basis function:
+
+.. math::
+
+    \phi_i(x) = \sigma \Big( \frac{x - \mu_i}{s} \Big)
+
+where :math:`\sigma` is the logistic function:
+
+.. math::
+
+    \sigma(x) = \frac{1}{1 + e^{-x}}
+
+:math:`\therefore`
+
+.. math::
+
+    \phi_i(x) = \frac{1}{1 + e^{- \frac{x - \mu_i}{s}}}
