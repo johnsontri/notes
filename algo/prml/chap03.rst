@@ -29,6 +29,9 @@ let :math:`\phi_0 (\vec{x}) = 1`
 x 是 scalar，還不是 vector ，
 就是 let :math:`\phi_i(x) = x^i` 的結果。
 
+所以整個 model 對 :math:`\vec{w}` 而言就是 basis function 的
+linear combination，才稱為 linear model。
+
 這個 :math:`\phi_i` 即為 `basis function` ，
 對於你的問題，可以任意取。e.g.
 
@@ -59,3 +62,13 @@ where :math:`\sigma` is the logistic function:
 .. math::
 
     \phi_i(x) = \frac{1}{1 + e^{- \frac{x - \mu_i}{s}}}
+
+同理，也可以用 :math:`\tanh`
+
+.. math::
+
+    \tanh(x) = 2 \sigma(x) - 1
+
+看到這裡
+選用 :math:`\tanh` 作為 basis function 的效果其實會跟 :math:`\sigma` 一樣，
+因為是 linear combination。
