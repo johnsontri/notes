@@ -72,3 +72,11 @@ where :math:`\sigma` is the logistic function:
 看到這裡
 選用 :math:`\tanh` 作為 basis function 的效果其實會跟 :math:`\sigma` 一樣，
 因為是 linear combination。
+
+還有很多知名的 basis，如 `Fourier` basis。
+
+
+Maximum Likelihood and Least Squares
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
