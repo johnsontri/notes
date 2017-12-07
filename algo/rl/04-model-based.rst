@@ -55,3 +55,13 @@ Sampling 中得到的 sum of reward :math:`\sum R`,
 
     R(s, a) = \frac{R_\sum (s, a)}{C(s, a)}
 
+上面就是最直白的 tabular model learning。
+
+其實整個 Model learning method 可以被視為 supervise learning。
+是對 :math:`(s, a)` 為 input，output 是 :math:`s', r`
+的 supervise learning。
+
+One of easiest model-based RL: Locally weighted Regression.
+就是把 experience 存起來，丟一個新的 state-action 進來後，
+做附近的 state-action 的 weighting，predict state-action。
+
