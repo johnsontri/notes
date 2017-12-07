@@ -65,3 +65,18 @@ One of easiest model-based RL: Locally weighted Regression.
 就是把 experience 存起來，丟一個新的 state-action 進來後，
 做附近的 state-action 的 weighting，predict state-action。
 
+
+Monte Carlo Methods
+----------------------------------------------------------------------
+
+Experience simulating via learned model.
+我就一直產生出 full path of experience，或是有時候不是 full path
+是 max depth search path。每個完整的 path 被稱為 `roll-out` 。
+然後就拿著這些 roll-out，
+用 optimality rule (e.g. discounted sum of reward) 走完，
+更新完走過的 state 的 value 。
+
+原本的 Monte Carlo Tree Search 是，先用 greed action 到達某個深度，
+然後往後的 action 就是 random choice，random 到 terminal state。
+
+
