@@ -27,3 +27,31 @@ Model-free RL 沒這個特性，要多嘗試幾次。
 這個 sample efficient 特性的代價就是，computation cost 跟 memory cost
 比較高。
 
+另一個特性是 `targeted exploration` 。
+Model-based 的 agent 有足夠的資訊去針對特定 state 做 exploration，
+以及跳過雜訊。
+
+
+What is a Model?
+----------------------------------------------------------------------
+
+MDP model.
+
+Tabular maximum likelihood.
+導入 counter :math:`C(s, a, s')` and :math:`C(s, a)`,
+對看過的 :math:`(s, a, s')` 。
+
+對 :math:`s'` 就可以導入 freq 的方法
+
+.. math::
+
+    P(s' | s, a) = T(s, a, s') = \frac{C(s, a, s')}{C(s, a)}
+
+Sampling 中得到的 sum of reward :math:`\sum R`,
+假設這邊寫成 :math:`R_\sum` 。
+所以 對某個 state-action pair 的 expected reward，就算算 mean
+
+.. math::
+
+    R(s, a) = \frac{R_\sum (s, a)}{C(s, a)}
+
