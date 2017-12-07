@@ -16,3 +16,14 @@ Model learning 的方法也是各異
 - build from scratch
 
 - or parametric
+
+- etc...
+
+Sample efficient: take fewer action to learn than model-free RL
+
+舉例來說 model-based 只要 sample 出了 goal state，就會拿著這個 sample
+往回 propagate 回去其他的所有相關的 state。
+Model-free RL 沒這個特性，要多嘗試幾次。
+這個 sample efficient 特性的代價就是，computation cost 跟 memory cost
+比較高。
+
