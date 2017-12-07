@@ -149,4 +149,4 @@ Projection
 
 .. math::
 
-    \vec{\phi} \theta = \Pi((B^\pi_Q(\vec{\phi} \theta))
+    \vec{\phi} \vec{\theta} = \Pi((B^\pi_Q(\vec{\phi} \vec{\theta}))
