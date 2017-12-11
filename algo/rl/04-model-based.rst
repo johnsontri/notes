@@ -78,5 +78,10 @@ Experience simulating via learned model.
 
 原本的 Monte Carlo Tree Search 是，先用 greed action 到達某個深度，
 然後往後的 action 就是 random choice，random 到 terminal state。
+這樣我們就不用考慮完整的 state space，像是 DP 就要考慮全部，這太多了。
 
+那麼給定一個 :math:`(s, a)` pair，
+要有多少的 sampling 才能精確估測 :math:`s'` ？
 
+UCT 給出一種做法是，如果我的 state 越少被 visit 過，那麼提高 Q value，
+讓我的 agent 去嘗試某個 action。
