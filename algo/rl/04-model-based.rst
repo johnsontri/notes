@@ -84,4 +84,13 @@ Experience simulating via learned model.
 要有多少的 sampling 才能精確估測 :math:`s'` ？
 
 UCT 給出一種做法是，如果我的 state 越少被 visit 過，那麼提高 Q value，
-讓我的 agent 去嘗試某個 action。
+讓 agent 去嘗試某個 action。
+
+.. math::
+
+    a = \arg \max_a Q(s, a) + 2 c \sqrt{\frac{\log(C(s, d))}{C(s, a', d)}}
+
+where :math:`d` is depth in tree, :math:`c` is a scale factor.
+
+:math:`c` 只是要讓後面的東西，scale 到 Q value 的合理範圍
+
