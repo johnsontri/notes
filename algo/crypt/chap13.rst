@@ -124,4 +124,13 @@ ECDSA
 RSA-PSS
 ----------------------------------------------------------------------
 
+#. as secure as RSA, 可被證明的。
 
+
+Mask Generation Function (MGF)
+
+    基本上是個 hash function。
+
+    但這個 function output 可以被設計，重新定義，根據需求。
+
+    `salt`
