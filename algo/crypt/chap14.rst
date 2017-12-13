@@ -36,9 +36,11 @@ Key Hierarchy
     `master key` and `session key` layer.
 
     Third party (key center) 跟每個人都 keep `master key`
-    拿來傳 session key
+    拿來傳 session key。 option 4
 
     session key 拿來加密 data，這個 key 是拋棄式的。
+
+    14.3
 
 
 
