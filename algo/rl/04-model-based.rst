@@ -94,3 +94,41 @@ where :math:`d` is depth in tree, :math:`c` is a scale factor.
 
 :math:`c` 只是要讓後面的東西，scale 到 Q value 的合理範圍
 
+Algorithm 10 是 UCT
+
+
+Combining Models and Plaining
+----------------------------------------------------------------------
+
+整個完整的 Model-base algo 需要兩個部分，先 build model，然後 plaining，
+plaining 完後回去 update model。
+
+我的理解是，update model -> update value function -> update model ... etc.
+
+`plaining` 就是 `inference`
+
+所以 model 何時 update?
+觀察到 transition 馬上 update：online；
+走過 :math:`k` steps 再 update：batch，但是這樣在某些情境不適合，
+因為 :math:`k` steps 後 update 代表，
+某個 action 到某個 action 中間會經過較長的時間。
+
+`DYNA` 的 plaining update 是從 experience （或 real world）隨機挑一些
+state-action pairs 後 rollout，來 update。
+
+-> `Prioritized Sweeping`
+
+-> `DYNA-2`
+
+對 real time 的應用有提出 async/threaded 的版本。
+
+
+Sample Complexity
+----------------------------------------------------------------------
+
+`R-MAX`
+    先 init 所有沒看過的 state 爲 absorbing state，
+    而且這個 absorbing state 會產生 max reward，這樣會鼓勵 agent 用探索，
+    然後提高 model 的品質。
+
+    Knows What It Knows `KWIK`
