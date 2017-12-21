@@ -42,6 +42,20 @@ Key Hierarchy
 
     14.3
 
+Session key lifetime
+
+    暫時的 key。
+
+    Connection-oriented protocol: session key per connection
+    (figure 14.4)
+
+    Connectionless (I guess is streaming) protocol: security depend on
+    key exchange frequency.
+
+
+Hybrid Scheme
+
+    ...
 
 
 Pub/private key pair
@@ -49,3 +63,17 @@ Pub/private key pair
     * How is the owner of private key?
 
     *
+
+Remote user-auth principles
+
+    * reply attack
+        * 解法？ sender 跟 receiver 之間要有 seq number （流水號）
+
+
+Kerberos
+
+    AS
+
+    Ticket
+
+    TGS ticket-granting server
