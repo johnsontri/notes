@@ -132,3 +132,28 @@ Sample Complexity
     然後提高 model 的品質。
 
     Knows What It Knows `KWIK`
+
+
+Bandit based Monte-Carlo Planning
+----------------------------------------------------------------------
+
+Abstract
+
+    對 large state-space 的 MDP, Monte-Carlo Planning 是其中一種可行的
+    optimization 手法。
+
+    New algorithm in this paper: UCT
+
+Intro.
+
+    想象這裡有一堆 state-action nodes，我們在 edge 上面標註 reward。
+    從某個 state-action node （為 root）開始，然後往下走，
+    這個 root node 的 value 怎麼算？往下走到 terminal state，
+    後就把 path 上的 reward 傳回去。然後 root node 就對各個 sub-tree
+    傳回來的 value 做 mean，然後就得出這個 node 的 value。
+
+    本篇對 Monte-Carlo plaining 的兩個特性有興趣：
+
+    #. Converge to optimal action if time enough
+
+    #. Small error probability if the algorithm is stopped prematurely(?)
