@@ -157,3 +157,6 @@ Intro.
     #. Converge to optimal action if time enough
 
     #. Small error probability if the algorithm is stopped prematurely(?)
+
+    Monte-Carlo 有用在 non-deterministic(stochastic，有運氣成分的那種)
+    and imperfect info game。
