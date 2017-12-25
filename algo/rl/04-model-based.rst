@@ -160,3 +160,23 @@ Intro.
 
     Monte-Carlo 有用在 non-deterministic(stochastic，有運氣成分的那種)
     and imperfect info game。
+
+    本篇的中心思想是選擇性的 sample action。
+
+Rollout-based Algorithm
+
+    Monte-Carlo plaining 即為 rollout-based，與之相對的是
+    stage-wise tree building。
+    Rollout-based 透過 「從 initial state 開始 sampling」
+    來建立 lookahead tree。
+
+    `episode`: ``(state, action, reward)`` 形成的 tuple
+
+    Rollout-based algorithm 能讓我們拿到以前 sample 出來的 episode，
+    來估測 action 的 value。因此，當我們再次回到某個 state 的時候，
+    就根據以前的估測值，來決定我們的 action，就看我們選擇 action 的方式，
+    舉例來說，也可以用來加速收斂。
+    如果我在整個 plaining 的過程中，有 revisit 的 state 的比例很少，
+    那麼 rollout-based sampling 的效果就會退化成原始（non-selective）的
+    Monte-Carlo plaining。
+
