@@ -179,4 +179,10 @@ Rollout-based Algorithm
     如果我在整個 plaining 的過程中，有 revisit 的 state 的比例很少，
     那麼 rollout-based sampling 的效果就會退化成原始（non-selective）的
     Monte-Carlo plaining。
+    換句話說，給定 :math:`s` 後的 :math:`s'` 所形成的集合，這個集合夠小，
+    或是機率分佈夠集中，rollout-based algorithm 才會有優勢。
+
+    Paper 的 Figure 1 是 rollout-based Monte-Carlo plaining 的 general form。
+    在 vanilla Monte-Carlo plaining，select action 是來自 uniform distribution。
+    本篇的貢獻就是在改良 action selection。
 
