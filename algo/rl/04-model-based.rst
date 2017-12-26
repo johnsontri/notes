@@ -186,3 +186,27 @@ Rollout-based Algorithm
     在 vanilla Monte-Carlo plaining，select action 是來自 uniform distribution。
     本篇的貢獻就是在改良 action selection。
 
+
+Fatored Domains
+----------------------------------------------------------------------
+
+很多 domain 的問題會用 `factored` state representation
+
+.. math::
+
+    s = <x_0, \dots, x_n>
+
+裡面有 :math:`n` 個 features。
+
+在 factored domain 的 transition probability 可以用
+Dynamic Bayesian Network (DBN) 來表示。
+我從這個 state transition 到下個 state 只跟某個 feature subset 有關。
+
+.. math::
+
+    T(s, a, s') = P(s' | s, a) = \prod_i^n p(x_i | s, a)
+
+:math:`s'` 的某個 feature 可能受 :math:`s` 的 1~3 號 feature 影響... etc。
+所以估測 transition probability 的問題變成，
+先 learn Bayesian Network 的 structure 再估測 probability。
+
