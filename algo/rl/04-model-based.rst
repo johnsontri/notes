@@ -240,3 +240,19 @@ RL-DT (2009)
     improve SPITI 的 exploration，用 R-MAX 的手法去鼓勵 exploration。
 
 
+Exploration
+----------------------------------------------------------------------
+
+這是 Model-based 的優勢，能夠做到有計劃性的 exploration。
+以 R-MAX 來說，我 sampling 完了之後，就知道哪裡還沒看過，或是很少，
+然後這些沒看過的地方 都是 max reward，到了下次要 sampling 的時候，
+我的 agent 就會走過去看。
+
+然而如果我的有辦法估測整個 model 的 uncertainty，
+我就不用 counter 來做 measurement 了，exploration 能夠做的更好。
+接下來要討論，第一，如果估測 uncertainty，
+再來，怎麼用 uncertainty 決定 exploration。
+
+Model-based Bayesian RL (Chap 11) 用 posterior over possible model。
+
+belief state MDP (?)
