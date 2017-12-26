@@ -210,3 +210,33 @@ Dynamic Bayesian Network (DBN) 來表示。
 所以估測 transition probability 的問題變成，
 先 learn Bayesian Network 的 structure 再估測 probability。
 
+:math:`\text{DBN-E}^3` Algorithm
+    要 given DBN structure
+
+Factored R-MAX
+    也要 given DBN structure
+
+SLF-R-MAX (2007)
+    DBN 的 structure 可以不用給，這個演算法首先會建立所有的 structure 的組合，
+    然後用 counter 去決定 structure。
+    但還是要決定 max of in-degree 這個 hyperparameter。
+
+MET-R-MAX (2009)
+    對 SLF-R-MAX 的 improve
+
+LSE-R-MAX (2011)
+    不用決定 max of in-degree 了
+
+
+Decision Tree 是另一個決定 feature 之間 structure 的 approach。
+用 information gain (entropy) 去決定誰有用。
+通常有比 DBN 更好的 generalization 效果。
+Decision Tree 能夠將 action 與 features 之間的關係導入，如，
+只有某個 action 會影響某個 feature。
+
+SPITI (2006)
+
+RL-DT (2009)
+    improve SPITI 的 exploration，用 R-MAX 的手法去鼓勵 exploration。
+
+
