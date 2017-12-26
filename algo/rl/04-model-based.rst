@@ -256,3 +256,31 @@ Exploration
 Model-based Bayesian RL (Chap 11) 用 posterior over possible model。
 
 belief state MDP (?)
+
+Bayesian DP and Best of Sampled Set (BOSS)
+
+還有而外導入 confidence module 的方法，這個 confidence module 要 train 來
+predict model 的 distribution error。
+然後讓 agent 往 error 高的地方去 exploration。
+
+
+Continuous Domains
+----------------------------------------------------------------------
+
+對 model-free algorithm 而言，做 continuous domain 就用 function approximation
+即可，但對 model-based algorithm 有障礙。
+有些問題要解：
+
+#. learning continuous model
+
+#. planning on continuous state space
+
+#. exploring a continuous state
+
+Chap 7
+
+像是 regression 或是 instance-based learning
+
+Deisenroth and Rasmussen (2011) use Gaussian Process
+
+Jong and Stone (2007) FITTED-R-MAX
