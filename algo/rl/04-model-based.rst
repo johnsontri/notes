@@ -239,6 +239,9 @@ SPITI (2006)
 RL-DT (2009)
     improve SPITI 的 exploration，用 R-MAX 的手法去鼓勵 exploration。
 
+TEXPLORE (2010)
+    https://github.com/toddhester/rl-texplore-ros-pkg
+
 
 Exploration
 ----------------------------------------------------------------------
@@ -284,3 +287,5 @@ Chap 7
 Deisenroth and Rasmussen (2011) use Gaussian Process
 
 Jong and Stone (2007) FITTED-R-MAX
+
+Nouri and Littman (2010) 用 dimension reduction
