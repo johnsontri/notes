@@ -29,7 +29,7 @@ Problem setting: sequential decision making in
 MDP in Continuous Spaces
 ----------------------------------------------------------------------
 
-架設我們的 state space :math:`S` 是 infinitely large
+假設我們的 state space :math:`S` 是 infinitely large
 
 Transition probability 的 PDF，就是對 :math:`s'` 積分
 
@@ -58,3 +58,18 @@ Transition probability 的 PDF，就是對 :math:`s'` 積分
 是 general form；如果 :math:`\omega` 在所有的 timestamps 中都是 0。
 那麼整個 MDP 就是 deterministic，反之為 stochastic。
 
+如果 :math:`T` 跟 :math:`R` 有 time-dependent，要導入 t 做考慮，
+那麼這個 MDP 是 non-stationary。
+
+Case I: action space 是離散的
+    只有 state space 是 continuous。
+    Policy :math:`\pi: S \times A \rightarrow [0, 1]` 長這樣：
+
+    .. math::
+
+        \pi(s, a) & = P(a | s) \\
+        \sum_{a \in A} \pi(s, a) & = 1
+
+Case II: action space 是 continuous
+    用 :math:`\pi(s)` 的 PDF，從 :math:`\pi(s, a)` 對 action 積分，
+    積出來的 function 就是在 action space 上的 PDF。
