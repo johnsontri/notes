@@ -73,3 +73,20 @@ Case I: action space 是離散的
 Case II: action space 是 continuous
     用 :math:`\pi(s)` 的 PDF，從 :math:`\pi(s, a)` 對 action 積分，
     積出來的 function 就是在 action space 上的 PDF。
+
+Value function 的目的是 predict `future discounted reward` 。
+而 optimality 就是 最大化 reward。
+
+:math:`B^\pi` 是 Dynamic Programming Operator，
+given :math:`\pi` 後 :math:`B^\pi: \mathscr{V} -> \mathscr{V}`
+where :math:`\mathscr{V}` is the space of value function。
+這個 operator 吃一個舊的 value function 會吐出新的 value function。
+
+.. math::
+
+    (B^{\pi_i} V)(s) & = \int_A \pi(s, a)
+        \Big( \int_S T(s, a, s') (R(s, a, s') + \gamma V(s')) ds' \Big) da \\
+    \therefore \lim_{i \to \infty} (B^{\pi_i}V)(s) & = \\
+    (B^* V)(s) & = \max_a \int_S T(s, a, s') (R(s, a, s') + \gamma V(s')) ds'
+
+
