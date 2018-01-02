@@ -37,7 +37,7 @@ Transition probability 的 PDF，就是對 :math:`s'` 積分
 
     \int T(s, a, s') d s' = P(s' | s, a)
 
-也有另一種 form:
+也有另一種 form：
 
 .. math::
 
@@ -47,5 +47,14 @@ Transition probability 的 PDF，就是對 :math:`s'` 積分
 :math:`T: S \times A \rightarrow S`,
 :math:`\omega_T` 是個 zero-mean 的 noise vector。
 上面這種新式的物理意義是，
-我可以從「以 :math:`T(s, a)` 為中心的 Gaussian」 sample 出我的 :math:`s'`
+我可以從「以 :math:`T(s, a)` 為中心的 Gaussian」 sample 出 :math:`s'`
+然後我的 reward function 也可以加上 noise：
+
+.. math::
+
+    r' = R(s, a, s') + \omega_R(s, a, s')
+
+上面 :math:`T` 跟 :math:`R` 帶著 :math:`\omega_T` 、 :math:`\omega_R` 的形式，
+是 general form；如果 :math:`\omega` 在所有的 timestamps 中都是 0。
+那麼整個 MDP 就是 deterministic，反之為 stochastic。
 
