@@ -90,3 +90,27 @@ where :math:`\mathscr{V}` is the space of value function。
     (B^* V)(s) & = \max_a \int_S T(s, a, s') (R(s, a, s') + \gamma V(s')) ds'
 
 
+用 Q function 的話
+
+.. math::
+
+    Q^*(s, a) = \int_S T(s, a, s') (R(s, a, s') + \gamma \max_{a'} Q^*(s', a')) ds'
+
+
+Methodologies to Solve a Continuous MDP
+----------------------------------------------------------------------
+
+Model Approximation
+
+    去 approximate MDP model，然後拿估測出來的 approximation 算 :math:`\pi`.
+    主要是估測 :math:`T`, :math:`R`, 因為 :math:`S, A, \gamma` 姑且都知道，
+    或觀測得到。
+    因為 Markov property 的假設，這些 function 只 depend on local data，
+    算是在 sequence 上作出 iid 的效果。
+    然後 model 的估測就變成 supervise learning problem。
+
+    最經典的兩個方法 *value iteration* 跟 *policy interation*
+    是拿 approximate model 算 value function。
+    Model-based algorithm 對 continuous state MDP 的問題是 generalization，
+    各種 state 的可能性，state space 可以無限大，
+    難以在 build model 的時候全面的涵蓋。
