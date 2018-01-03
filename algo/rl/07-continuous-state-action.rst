@@ -113,4 +113,31 @@ Model Approximation
     是拿 approximate model 算 value function。
     Model-based algorithm 對 continuous state MDP 的問題是 generalization，
     各種 state 的可能性，state space 可以無限大，
-    難以在 build model 的時候全面的涵蓋。
+    難以在 build model 的時候全面的涵蓋。因此 model 的精確程度是備受質疑的。
+
+    只有在 :math:`T(s, a, s')` 的 :math:`s'` 是個夠小的集合的時候，
+    model approximation 才是可行的，在往後因 space 的因素，本章不會再討論
+    更多 model approximation。
+
+Value Approximation
+
+    這類的方法是直接 approximate :math:`V^*, Q^*`
+
+Policy Approximation
+
+    這裡的 algorithm 直接 使用/update policy function。上面的 Value approximate
+    是先有 value function 然後在需要的時候生出 policy。
+    `direct policy-search` and `actor only` algorithms。
+
+
+Function Approximation
+----------------------------------------------------------------------
+
+在 value-based RL 中，target data 不想是原本的 supervise learning 確定是答案，
+而 RL 的 target value 可能來自於觀測到的 state 等，所以不是所有的
+supervise learning 都適用。所以 approximation 的選擇是有條件的。
+
+Linear Function Approximation
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
