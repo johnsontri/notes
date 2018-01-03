@@ -137,7 +137,15 @@ Function Approximation
 而 RL 的 target value 可能來自於觀測到的 state 等，所以不是所有的
 supervise learning 都適用。所以 approximation 的選擇是有條件的。
 
+
 Linear Function Approximation
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+Feature extraction function :math:`\phi: S \rightarrow \Phi`
+會把 state space map 到 feature space :math:`\Phi`
 
+.. math::
+
+    V_t(s) = \theta^T_t \phi(s)
+
+在給定的假設下，有文獻證明 linear approximation 在 RL 的收斂性。
