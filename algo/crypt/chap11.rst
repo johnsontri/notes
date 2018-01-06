@@ -33,8 +33,10 @@ Application of Cryptography Hash Functions
 Message Authentication
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+拿來驗證 message 的 integrity，確保沒有篡改。
+
 Alice 要寄信給 Bob，在裡面的 data 加上了 Hash values
-成為的 data'。
+成為的 data'，這個 hash value 稱為 digest。
 Bob 收到的時候只要把後面的 Hash values 拿起來看看，可以知道 data integrity，
 有沒有傳壞掉。
 
