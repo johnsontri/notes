@@ -1,7 +1,10 @@
 Probability Distributions
 ===============================================================================
 
-density estimation
+Distribution
+    狹義上是一個 function。
+
+Density estimation
     給定一個 random variable :math:`X`, random variable is a function,
     然後有 :math:`x_1, x_2, \dots, x_n` 已觀測的值。我們想要找到
     probability distribution :math:`p(X)`
@@ -9,15 +12,15 @@ density estimation
 Assumption
     常用 data points 之間為 i.i.d. (independent and identically distribution)
 
-ill-posed problem
+Ill-posed problem
     *density estimation* problem 基本上是 ill-posed --
     無限多種 probability distribution 符合這有限的觀測值。
     所以需要注重 model selection
 
-parametric distribution
+Parametric distribution
     這些 distribution 是透過參數來控制形狀，不是 data；形狀早就決定了
 
-non-parametric density estimation
+Non-parametric density estimation
     解決 parametric distribution 的限制， distribution 的形狀用 data set 決定；
     data set 也要夠大。
 
@@ -68,5 +71,13 @@ Then, log likelihood function
     \mu_{ML} = \frac{1}{N} \sum_n^N x_n
 
 就是看著 1 的數量，算 average
+
+
+Binomial Distribution
+----------------------------------------------------------------------
+
+就是 Bernoulli random variable
+（就是每個 random variable 裡面都長成 Bernoulli Distribution 的形狀）
+的 sum，然後假設每個 sample 都是 i.i.d.。
 
 
