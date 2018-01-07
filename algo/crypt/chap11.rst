@@ -1,4 +1,4 @@
-Hash Functions
+Chapter 11: Hash Functions
 ===============================================================================
 
 Hash function :math:`H` 吃任意長度的 input data :math:`M` ，
@@ -149,10 +149,10 @@ Collision
 
     If :math:`x \neq y`, but :math:`H(x) = H(y)`
 
-    如果說 x 有 b bits，
-    h 有 n bits，那麼平均來說（假設 hash function 會 uniform distributed）
-    每個 :math:`h` 會有 :math:`2^{frac{b}{n}}` 個 preimages :math:`x` 。
-    但是我們的 input 是任意長度，所以這個 preimage 的量也是任意大。
+    如果說 :math:`x` 有 b bits，
+    :math:`h` 有 n bits，那麼平均來說（假設 hash function 會 uniform distributed）
+    每個 :math:`h` 會有 :math:`2^{\frac{b}{n}}` 個 preimages :math:`x` 。
+    但是我們的 input 是任意長度，所以 :math:`x` 對應 preimage 的量也是任意大。
 
 Requirements (table 11.1)
 
@@ -160,17 +160,35 @@ Requirements (table 11.1)
 
     - 固定長度 output
 
-    - Efficiency: forward pass 簡單。
+    - Efficiency: forward phase 簡單。
 
-    - preimage resistant: one-way.
+    - preimage resistant: one-way，給你 hash value，
+      找 `原文` :math:`x` 是 computational feasible。
 
     - Second preimage resistant: weak collision resistant.
-      Given :math:`x` 找不到 collision (computational infeasible)
+      Given 原文 :math:`x` 找不到
+      能夠 collision hash value 的 :math:`y` (computational infeasible)
 
     - Strong collision resistant: :math:`\forall (x, y)` pair, no collision.
       (computational infeasible)
 
     - Pseudorandomness: hash value 通過 pseudorandomness 的測試。
+
+前三個 requirements 對於事務上是必要的。
+第四個 one-way 的特性在需要 authentication 時是必要的，
+因為 authentication 裡面加入了 shared secret key，
+如果 hash function 不是 one-way，這樣 attacker 就會拿到這個 shared key，
+然後輕易的篡改資料。
+
+第五個 second preimage resistant，如果不滿足這個 requirement，
+考慮以下狀況，我們有 message :math:`x` 、 hash code :math:`h` 、
+encrypted hash code :math:`h'` 。
+Attacker 如果拿到了 :math:`x` ，外加 :math:`h'` 是公開傳輸的。
+那麼 attacker 想要假造資料，先從 :math:`x` 算出 :math:`h` ，
+因為沒 second preimage resistant，所以 attacker 可以找到一個
+:math:`y` 也算出 :math:`h` ，這個 :math:`y` 就是假造的資料，
+然後這個 :math:`y` 也會有 :math:`h'` 即使 attacker 完全不知道
+secret key。
 
 
 Attacks
