@@ -214,19 +214,19 @@ Attacks
 Brute-Force Attacks
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-m-bit hash value,
+需要的 resource 只受到 hash value 長度影響，與演算法本身無關。
 
-給你 hash value :math:`h` ，然後找 preimage (input)
-random 產出 input，每個 input 都有 hash value，有 :math:`2^m` 種可能。
+Preimage and Second Preimage Attack
+    給你 hash value :math:`h` ，然後找 preimage :math:`x` 或是
+    有 perimage :math:`x` 找 second preimage :math:`y` 。
+    random 產出 input，每個 input 都有 hash value，有 :math:`2^m` 種可能。
 
-期望值上至少也要 :math:`2^{m-1}` （一半）
+    期望值上至少也要 :math:`2^{m-1}` （一半）
 
+Collision Resistant
+    想要直接找到個 pair :math:`(x, y)`
 
-那麼 second preimage?
-給定 :math:`x` ，然後有 :math:`h` ，找到個 :math:`y, s.t. H(y) = H(x)`
-:math:`2^m`
-
-Collision Resistant: :math:`2^{m/2}` ?
+    計算量找很多，:math:`2^{m/2}`
 
 MD4/MD5 -> 128 bit
 
@@ -240,9 +240,35 @@ Cryptanalysis
 Hash Functions Based on Cipher Block Chaining
 ----------------------------------------------------------------------
 
+用 CBC，但沒 secret key。
+
+把 message :math:`M` 切成固定大小的 blocks :math:`M_1, \dots, M_n`
+用類似 DES 的結構去算 hash value :math:`G`
+
+.. math::
+
+    H_0 & \leftarrow init value \\
+    H_i & \leftarrow E(M_i, H_{i-1}) \\
+    G = H_n
 
 11.8
 MD4/MD5/SHA-family 的結構都長這樣。
+
+meet-in-the-middle attack
+    Attacker 有 signature :math:`G` （本來就公開傳輸的），
+    然後 M 是明文。
+
+    Attacks 先建立自己的 Q，切 block :math:`Q_1, \dots Q_{N-2}`
+
+    .. math::
+
+        H_{i-1} & \leftarrow E(X, H_{N-2}) \\
+        H_{i-1} & \leftarrow D(Y, G)
+
+    其中 :math:`X, Y` random 產生的。只需要 :math:`2^{\frac{m}{2}}` 個 X、
+    :math:`2^{\frac{m}{2}}` 個 Y
+
+    最後只要送出 :math:`Q_1, \dots, Q_{N-2}, X, Y` 就有相同的 signature。
 
 
 SHA
