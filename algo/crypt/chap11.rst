@@ -94,7 +94,6 @@ Digital Signature
 #. 假設 message 不 sensitive，就在 M 後面加上 digital signature
    就好了。證明是 Alice sign 的即可。
 
-
 #. 如果 message 很重要，先 sign 一下，append signature 上去，
    然後整個做對稱式加密。
 
@@ -109,7 +108,8 @@ Other Hash Functions Uses
 - Password saved in DataBases.
   (One-way password file)
 
-- intrusion detection
+- intrusion detection。對 file system 上的 files 做 hash，
+  之後就拿出來比對，確保沒有被篡改。
 
 - virus detection
 
@@ -121,7 +121,7 @@ Two Simple Hash Functions
 
 input 長度不定，所以用 iteration。
 
-這裡介紹簡單的，雖然 insecure。
+這裡介紹簡單的兩個 hash function ，雖然 insecure。
 
 #. 切 n 個 block，每個 block 直接 bit-by-bit XOR。
 
@@ -136,6 +136,10 @@ input 長度不定，所以用 iteration。
 Requirements and Security
 ----------------------------------------------------------------------
 
+.. math::
+
+    h \leftarrow H(x)
+
 Preimage
 
     :math:`x` is the preimage of :math:`h` for a hash values
@@ -144,6 +148,11 @@ Preimage
 Collision
 
     If :math:`x \neq y`, but :math:`H(x) = H(y)`
+
+    如果說 x 有 b bits，
+    h 有 n bits，那麼平均來說（假設 hash function 會 uniform distributed）
+    每個 :math:`h` 會有 :math:`2^{frac{b}{n}}` 個 preimages :math:`x` 。
+    但是我們的 input 是任意長度，所以這個 preimage 的量也是任意大。
 
 Requirements (table 11.1)
 
