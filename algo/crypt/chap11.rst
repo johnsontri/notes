@@ -190,6 +190,19 @@ Attacker 如果拿到了 :math:`x` ，外加 :math:`h'` 是公開傳輸的。
 然後這個 :math:`y` 也會有 :math:`h'` 即使 attacker 完全不知道
 secret key。
 
+一個滿足前五個 property 的 hash function 稱為 weak hash function。
+第六個是 collision resistant，滿足這個的就是 strong hash function。
+在連 :math:`x` 都不給的前提下，有沒有一組 :math:`x, y` 的
+hash value 是 collision 的。在這個條件下，能夠確保像是商業上的訂單，
+不會出現一樣的 hash value。
+
+這幾個 property 的關係： collision resistant :math:`\subset`
+second preimage resistant，
+有 second preimage resistant 不一定有 strong collision resistant。
+
+最後一個 requirement 是 `pseudorandomness` ，通常不會當作 hash function 的
+requirement，但有這樣的效果。
+
 
 Attacks
 
