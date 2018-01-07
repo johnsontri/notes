@@ -81,15 +81,26 @@ Practices: SSL/TLS
 
 - Chap 12
 
+- 我理解成 對 hash value :math:`H(M)` 做 對稱式加密
+
 
 Digital Signature
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. math::
+
+    E(PrivateKey, H(M))
 
 #. 假設 message 不 sensitive，就在 M 後面加上 digital signature
    就好了。證明是 Alice sign 的即可。
 
 
-#. 如果 message 很重要，先 sign 一下 ，也可以整個兩個做對稱式加密。
+#. 如果 message 很重要，先 sign 一下，append signature 上去，
+   然後整個做對稱式加密。
+
+- Chap 14
+
+- 我理解成 對 hash value :math:`H(M)` 做 非對稱式加密。
 
 
 Other Hash Functions Uses
