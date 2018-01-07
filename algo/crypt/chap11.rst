@@ -47,6 +47,8 @@ Darth 還是可以在中間加料後，append hash value 上去，讓 Bob 覺得
 
 解法： Figure 11.3
 
+#. 告訴對面 hash *function* 的時候要加密。
+
 #. 導入 data encryption 就好了。
 
 #. 對 hash value 做簽章就好了。
@@ -62,7 +64,11 @@ Message Authentication Code
 
 A.k.a `keyed hash function`
 
-兩邊要 shared 一個 secret key 來做 authentication
+兩邊要 shared 一個 secret key 來做 authentication。
+MAC function 的 input 是 secret key 跟一個 data block，
+然後輸出一個 hash value，這個 hash value 就稱為 `MAC` 。
+這個 MAC 就會和原本的 message 一起送出去，
+這樣在 middle man 不知 secret key 的狀況下，無法修改 MAC。
 
 Practices: SSL/TLS
 
