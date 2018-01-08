@@ -277,38 +277,105 @@ SHA
 SHA-512
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Message 切 block ，不夠就 padding
+一個 block 的長度就是固定的 1024 bits，
+然後有 N 個 blocks。這裡用 SHA-512 舉例，hash value 即為 512 bits。
 
-用 chain 中最後一個的 result
+#. 加 appending。
+   message 的長度 mod 1024 = 896。不足的就補 `1 0 0 0 \dots`
+   弄出 896 是 (1024 - 896) 為了第二步做準備。
+
+#. 在 block 後面加上 original message (befor padding) 的長度資訊。
+   這個長度資訊是 128 bits 的數字。
+
+#. Init hash buffer: 一個 512 bits buffer，可以理解成 8 個 64-bits 的
+   registers :math:`a, b, c, d, e, f, g, h` 以 big-endian format 存資料，
+   significant byte 是最左邊的；即最大的位數放在 low memory address。
+   這些 registers 有特定的 initial value，
+   這 8 個神祕 64 bits數字是從前 8 個質數開根號的小數部分而來的。
+
+#. Block processing: 1024-bit 是 128-word (1 word == 8 byte == 64 bits)
+   在 Figure 11.8。
+
+   對每個 block 的處理
+
+   .. math::
+
+       H_i \leftarrow F(M_i, H_{i-1}) .+ H_{i-1}
+
+   實際上這個 F 拆更細，裡面有 64-bit 的 Key， :math:`M_i`
+   拆成 80 個 round :math:`W_0, \dots, W_{79}` ，然後執行 round function
+
+Round Function
+
+    - :math:`t` round number
+
+    - :math:`ifelse(e, f, g)`: ``e ? f : g``
+
+    - :math:`maj(a, b, c)`: if 2 or 3 個 true 就 true
+      ``(a & b) + (a & c) + (b & c)``
+
+    - :math:`circshift`
+
+    - :math:`\sum_0^{512} a`:
+      ``circshift(a, 28) + circshift(a, 34) + circshift(a, 39)``
+
+    - :math:`\sum_1^{512} e`:
+      ``circshift(e, 14) + circshift(e, 18) + circshift(e, 41)``
+
+    - :math:`W_t` 1024 bits 的 block 拆成 16 個 64 bits 的
+      :math:`W_0, \dots, W_15` ， for :math:`t = 16 \dots 79`
+      總共 80 個 round、80個 :math:`W_t`
+
+      .. math::
+
+          \sigma_0 & \leftarrow circshift(x, 19) + circshift(x, 61) + circshift(x, -6) \\
+          \sigma_1 & \leftarrow (circshift(x, 1) + circshift(x, 8) + circshift(x, -7) \\
+          W_t & \leftarrow \sigma_1 W_{t-2} + W_{t-7} + \sigma_0 W_{t-15} + W_{t-16}
+
+    .. math::
+
+        T_1 & \leftarrow h + ifelse(e, f, g) + \sum e + W_t + K_t \\
+        T_2 & \leftarrow \sum a + maj(a, b, c) \\
+        h   & \leftarrow g \\
+        g   & \leftarrow f \\
+        f   & \leftarrow e \\
+        e   & \leftarrow d + T_1 \\
+        d   & \leftarrow c \\
+        c   & \leftarrow b \\
+        b   & \leftarrow a \\
+        a   & \leftarrow T_1 .+ T_2
+
+    有這些 register rotating 的感覺。
 
 
 SHA-3
 ----------------------------------------------------------------------
 
-Sponge function
-
-
-
-Sponge construction
+Sponge Construction
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-message + padding 後切 blocks
+Sponge function 會切 input 成 fixed-size blocks。
+就像 CBC 的結構，每個 block 處理完的 output 會成為處理下一個 block 的 input。
 
-- sponge function
+Sponge function
 
     - :math:`f` internal function for handle input block
 
-    - :math:`r` input block 的大小，單位是 bit
+    - :math:`r` input block 的大小，單位是 bit，稱為 `bitrate`
 
     - :math:`pad` padding algorithm
 
-sponge function 的 input/output 都是 variable，所以可以作為
+        - Simple padding: 加一個 1 後面都補 0
+
+        - Multirate padding: 一個 1，n 個 0，這樣交替。
+
+Sponge function 的 input/output 都是 variable，所以可以作為
 
     - hash function: fixed-length output
 
     - pseudo-random number generator: fixed length input
 
-input 大小為 :math:`n` 的 message，會被切成 k 個固定大小的 block，
+Input 大小為 :math:`n` 的 message，會被切成 k 個固定大小的 block，
 :math:`r` bits for each block。
 有需要的話，會加上 padding。
 
