@@ -188,14 +188,9 @@ Distribution of Public Key
 
 Pub/private key pair
 
-    * How is the owner of private key?
+    * Who is the owner of private key?
 
     *
-
-Remote user-auth principles
-
-    * reply attack
-        * 解法？ sender 跟 receiver 之間要有 seq number （流水號）
 
 
 X.509
