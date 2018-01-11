@@ -42,3 +42,5 @@ Let :math:`a = x, b = x + h`
 .. math::
 
     f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x - a)^n
+
+就是對 :math:`a` 這點做展開，可以作爲 :math:`a` 點附近的 approximation。
