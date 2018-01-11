@@ -15,7 +15,12 @@ E.g.
 
 .. math::
 
-    f
+    f(x)   & = x^2 \\
+    f'(x)  & = 2x \\
+    f''(x) & = 2
 
+且 :math:`x^* = 0`
+
+Local minima 一定有這些性質，但不是有這個性質的就是 local minima。
 
 
