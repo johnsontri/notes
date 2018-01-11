@@ -149,3 +149,12 @@ Feature extraction function :math:`\phi: S \rightarrow \Phi`
     V_t(s) = \theta^T_t \phi(s)
 
 在給定的假設下，有文獻證明 linear approximation 在 RL 的收斂性。
+
+Tile Coding
+
+    基本上就是把 state space 切 coding，像是 one-hot coding，
+    在某個範圍就 activate 某個 feature。
+
+    Issue 是訊息的失真程度。如果
+    :math:`\phi(s) \rightarrow \phi(s')` 不能 implies :math:`s \rightarrow s'` 。
+    在這種狀況下，可以考慮使用 POMDP
