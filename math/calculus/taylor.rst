@@ -44,3 +44,47 @@ Let :math:`a = x, b = x + h`
     f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x - a)^n
 
 就是對 :math:`a` 這點做展開，可以作爲 :math:`a` 點附近的 approximation。
+
+Linear Taylor approximation
+
+    .. math::
+
+        f(x) \approx f(a) + f'(a)(x - a)
+
+Quadratic Taylor approximation
+
+    .. math::
+
+        f(x) \approx f(a) + f'(a)(x - a) + \frac{1}{2}f''(a)(x - a)^2
+
+
+Multiple Dimension
+----------------------------------------------------------------------
+
+我們的 input 變成這樣 :math:`\vec{x} = [x_1 x_2]^\mathsf{T}`
+所以
+
+.. math::
+
+    \nabla f(\vec{x}) & =
+    \begin{bmatrix}
+        \nabla_{x_1}f(\vec{x}) \\
+        \nabla_{x_2}f(\vec{x})
+    \end{bmatrix} \\
+    \nabla^2 f(\vec{x}) & =
+    \begin{bmatrix}
+        \nabla_{x_1 x_1} f(\vec{x}) & \nabla_{x_1 x_2} f(\vec{x}) \\
+        \nabla_{x_2 x_1} f(\vec{x}) & \nabla_{x_2 x_2} f(\vec{x})
+    \end{bmatrix} \\
+    & = H(\vec{x})
+
+Where :math:`H(\vec{x})` denote `Hessian matrix`.
+
+Taylor Expansion:
+
+.. math::
+
+    f(\vec{x}) = f(\vec{a}) +
+        \nabla f(\vec{x}) \cdot (\vec{x} - \vec{a}) +
+        \frac{1}{2} (\vec{x} - \vec{a})^\mathsf{T} \, \nabla^2 f(\vec{x})
+        \, (\vec{x} - \vec{a}) + \dots
