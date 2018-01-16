@@ -47,7 +47,7 @@ A.k.a RosonBrock's banana function
 
 .. math::
 
-    f(\vec{x}) = (a - x_1)^2 + b(x_2 - x_1^2)^2
+    f(\vec{x}) = (a - x_1)^2 + b(x_2 - {x_1}^2)^2
 
 其 global minima 就在 :math:`\vec{x} = (a, a^2)`
 
@@ -61,4 +61,4 @@ Contour Plot
 
 .. math::
 
-    f(x_1, x_2) = x_1^2 - x_2^2
+    f(x_1, x_2) = {x_1}^2 - {x_2}^2
