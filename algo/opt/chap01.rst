@@ -4,7 +4,7 @@ Chapter 1: Introudction
 Local Minima
 ----------------------------------------------------------------------
 
-單變量
+Univariate
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 #. :math:`f'(x^*) = 0`: `first-order necessary condition` (FONC)
@@ -22,5 +22,17 @@ E.g.
 且 :math:`x^* = 0`
 
 Local minima 一定有這些性質，但不是有這個性質的就是 local minima。
+e.g. :math:`f(x) = x^3` 就沒 local minima。
+
+FONC 的證明可以用 :ref:`taylor-expansion` 得到。
 
 
+Multivariate
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#. :math:`\nabla f(\vec{x}) = 0`: `first-order necessary condition` (FONC)
+
+#. :math:`\nabla^2 f(\vec{x})`` is positive-semidefinite:
+   `second-order necessary condition` (SONC)
+
+如果一個點滿足的條件變成 positive-definite 那麼這個是 strong local minima。
