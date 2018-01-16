@@ -32,7 +32,7 @@ Multivariate
 
 #. :math:`\nabla f(\vec{x}) = 0`: `first-order necessary condition` (FONC)
 
-#. :math:`\nabla^2 f(\vec{x})`` is positive-semidefinite:
+#. :math:`\nabla^2 f(\vec{x})` is positive-semidefinite:
    `second-order necessary condition` (SONC)
 
 如果一個點滿足的條件變成 positive-definite 那麼這個是 strong local minima。
