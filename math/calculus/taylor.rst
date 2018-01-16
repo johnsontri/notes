@@ -85,6 +85,16 @@ Taylor Expansion:
 .. math::
 
     f(\vec{x}) = f(\vec{a}) +
-        \nabla f(\vec{x}) \cdot (\vec{x} - \vec{a}) +
+        \nabla f(\vec{x})^\mathsf{T} (\vec{x} - \vec{a}) +
         \frac{1}{2} (\vec{x} - \vec{a})^\mathsf{T} \, \nabla^2 f(\vec{x})
         \, (\vec{x} - \vec{a}) + \dots
+
+
+Try
+----------------------------------------------------------------------
+
+
+.. literalinclude:: ./code/taylor.jl
+   :language: julia
+
+.. image:: ./img/taylor.gif
