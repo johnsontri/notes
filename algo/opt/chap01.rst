@@ -36,3 +36,29 @@ Multivariate
    `second-order necessary condition` (SONC)
 
 如果一個點滿足的條件變成 positive-definite 那麼這個是 strong local minima。
+
+
+RosonBrock Function
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+A.k.a RosonBrock's banana function
+
+這是個 non-convex function，常用來測試 optimization 的效能。
+
+.. math::
+
+    f(\vec{x}) = (a - x_1)^2 + b(x_2 - x_1^2)^2
+
+其 global minima 就在 :math:`\vec{x} = (a, a^2)`
+
+書中的參數是 :math:`a = 1, b = 5`
+
+
+Contour Plot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+試試這個的等高線圖
+
+.. math::
+
+    f(x_1, x_2) = x_1^2 - x_2^2
