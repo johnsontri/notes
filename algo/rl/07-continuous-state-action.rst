@@ -126,7 +126,9 @@ Value Approximation
 Policy Approximation
 
     這裡的 algorithm 直接 使用/update policy function。上面的 Value approximate
-    是先有 value function 然後在需要的時候生出 policy。
+    是先有 value function 然後在需要的時候生出 policy，
+    但這裡的 policy approximation沒有。
+
     `direct policy-search` and `actor only` algorithms。
 
 

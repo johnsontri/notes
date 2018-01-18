@@ -25,7 +25,6 @@ Non-parametric density estimation
     data set 也要夠大。
 
 
-
 Bernoulli Distribution
 ----------------------------------------------------------------------
 
@@ -47,6 +46,38 @@ Bernoulli Distribution
                                  & = \mu \\
     \therefore Bern(x = 0 | \mu) & = \mu^0 (1 - \mu)^1 \\
                                  & = (1 - \mu)
+
+
+Expectation and Variance
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+算一個 distribution 的 expectation value 就直接 sum 所有的狀況，
+然後得出一個 value。
+
+.. math::
+
+    E(x) & = \sum_x x \times p(X = x) \\
+         & = 1 \times \mu + 0 \times (1 - \mu) \\
+         & = \mu
+
+
+Variance: 回想一下標準差的中心思想，即到 expectation value 的平均距離，
+只是用相減、平方後開根號最後乘上 :math:`\frac{1}{n}` 。
+只是這邊改成用 :math:`p` 跟上面算出來的 :math:`E(x)`
+
+.. math::
+
+    Var(x) & = \sum_x p(X = x) \times (x - E(x))^2 \\
+           & = \sum_x p(X = x) \times (x - \mu)^2 \\
+           & = p(X = 1) \times (1 - \mu)^2 + p(X = 0) \times (0 - \mu)^2 \\
+           & = \mu \times (1- \mu)^2 + (1 - \mu) \times (-\mu)^2 \\
+           & = \mu(1 - \mu)^2 + (1 - \mu)\mu^2 \\
+           & = \mu(1 - \mu)(1 - \mu + \mu) \\
+           & = \mu(1 - \mu)
+
+
+Likelihood Function
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 給定我們有 dataset :math:`\mathcal{D} = \{x_1, \dots, x_n\}`
 而且之間為 iid。得 Likelihood function
