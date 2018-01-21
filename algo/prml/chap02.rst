@@ -67,7 +67,7 @@ Variance: 回想一下標準差的中心思想，即到 expectation value 的平
 
 .. math::
 
-    Var(x) & = \sum_x p(X = x) \times (x - E(x))^2 \\
+    var(x) & = \sum_x p(X = x) \times (x - E(x))^2 \\
            & = \sum_x p(X = x) \times (x - \mu)^2 \\
            & = p(X = 1) \times (1 - \mu)^2 + p(X = 0) \times (0 - \mu)^2 \\
            & = \mu \times (1- \mu)^2 + (1 - \mu) \times (-\mu)^2 \\
@@ -119,7 +119,7 @@ Binomial Distribution
 
 .. math::
 
-    x \sim Bin(n, \mu)
+    X \sim Bin(n, \mu)
 
 
 .. math::
@@ -136,6 +136,15 @@ Where
 Expectation and Variance
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+期望值可以直接理解成，多個 Bernoulli sum 起來。
+
+.. math::
+
+    E(x) = \sum_{x = 0}^n x \times p(X = x | \mu) = n \mu
+
+.. math::
+
+    var(x) = \sum_{x = 0}^n (x - E(x))^2 p(X = x | \mu) = n \mu (1 - \mu)
 
 
 Julia
