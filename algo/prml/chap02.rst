@@ -34,17 +34,17 @@ Bernoulli Distribution
 
 .. math::
 
-    \text{Let } & p(x = 1 | \mu) = \mu \\
-    & p(x = 0 | \mu) = 1 - \mu
+    \text{Let } & p(X = 1 | \mu) = \mu \\
+    & p(X = 0 | \mu) = 1 - \mu
 
 而 distribution 為
 
 .. math::
 
     Bern(x | \mu) & = \mu^x (1 - \mu)^(1 - x) \\
-    \therefore Bern(x = 1 | \mu) & = \mu^1 (1 - \mu)^0 \\
+    \therefore Bern(X = 1 | \mu) & = \mu^1 (1 - \mu)^0 \\
                                  & = \mu \\
-    \therefore Bern(x = 0 | \mu) & = \mu^0 (1 - \mu)^1 \\
+    \therefore Bern(X = 0 | \mu) & = \mu^0 (1 - \mu)^1 \\
                                  & = (1 - \mu)
 
 
@@ -121,3 +121,13 @@ Binomial Distribution
 
     X \sim Bin(n, p)
 
+
+.. math::
+
+    p(X = x | p) = \binom{n}{x} p^x (1 - p)^{n - x}
+
+Where
+
+.. math::
+
+    \binom{n}{x} = \frac{n!}{x! (n-x)!}
