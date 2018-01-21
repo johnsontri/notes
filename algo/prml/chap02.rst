@@ -101,7 +101,7 @@ Then, log likelihood function
 
     \mu_{ML} = \frac{1}{N} \sum_n^N x_n
 
-就是看著 1 的數量，算 average
+就是看著 1 的數量，算 average。
 
 
 Binomial Distribution
@@ -109,6 +109,15 @@ Binomial Distribution
 
 就是 Bernoulli random variable
 （就是每個 random variable 裡面都長成 Bernoulli Distribution 的形狀）
-的 sum，然後假設每個 sample 都是 i.i.d.。
+的 sum，是 Bernoulli 的 general 版本，然後假設每個 sample 都是 i.i.d.。
 
+換句話說，就是 n 跟 sample 一起看，
+原本的 Bernoulli 是看著一個硬幣討論正反面的機率，
+到了 Binomial 是討論一堆硬幣，裡面其中的 m 個都是正（反）面的機率。
+
+因此，兩個參數。
+
+.. math::
+
+    X \sim Bin(n, p)
 
