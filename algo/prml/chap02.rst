@@ -113,21 +113,52 @@ Binomial Distribution
 
 換句話說，就是 n 跟 sample 一起看，
 原本的 Bernoulli 是看著一個硬幣討論正反面的機率，
-到了 Binomial 是討論一堆硬幣，裡面其中的 m 個都是正（反）面的機率。
+到了 Binomial 是討論一堆硬幣，觀測到其中的 :math:`x` 個都是正（反）面的機率。
 
 因此，兩個參數。
 
 .. math::
 
-    X \sim Bin(n, p)
+    x \sim Bin(n, \mu)
 
 
 .. math::
 
-    p(X = x | p) = \binom{n}{x} p^x (1 - p)^{n - x}
+    p(X = x | \mu) = \binom{n}{x} p^x (1 - p)^{n - x}
 
 Where
 
 .. math::
 
     \binom{n}{x} = \frac{n!}{x! (n-x)!}
+
+
+Expectation and Variance
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+Julia
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: julia
+
+    Bin(x, n, μ) = factorial(n) / (factorial(x) * factorial(n - x))  * μ^x * (1 - μ)^(n - x)
+
+    julia> Bin(0, 10, .25)
+    0.056313514709472656
+
+    julia> Bin(1, 10, .25)
+    0.1877117156982422
+
+    julia> Bin(2, 10, .25)
+    0.2815675735473633
+
+    julia> Bin(3, 10, .25)
+    0.25028228759765625
+
+    julia> Bin(4, 10, .25)
+    0.1459980010986328
+
+    julia> Bin(5, 10, .25)
+    0.058399200439453125
