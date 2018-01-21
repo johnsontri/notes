@@ -85,7 +85,7 @@ Likelihood Function
 .. math::
 
     p(\mathcal{D} | \mu) & = \prod_n^N p(x_n | \mu) \\
-                         & = \prod_n^N \mu^x_n (1 - \mu)^(1 - x_n)
+                         & = \prod_n^N \mu^x_n (1 - \mu)^{1 - x_n}
 
 Then, log likelihood function
 
@@ -93,7 +93,7 @@ Then, log likelihood function
 
     \ln p(\mathcal{D} | \mu)
         & = \sum_n^N \ln p(x_n | \mu) \\
-        & = \sum_n^N \ln \Big( \mu^x_n (1 - \mu)^(1 - x_n) \Big)
+        & = \sum_n^N \ln \Big( \mu^x_n (1 - \mu)^{1 - x_n} \Big)
 
 而實際上去 maximum likelihood 時，
 
