@@ -188,4 +188,17 @@ Learning rate issue
 
         \alpha_t(s) \phi(s)^\mathsf{T} \phi(s) = \alpha_t(s) \| \phi(s) \|
 
-    是 :math:`\alpha` 乘上 coding 的 norm。
+    即 :math:`\alpha` 乘上 coding 的 norm。
+    所以在選擇 :math:`\alpha` 的時候，要同時考慮 coding 的 norm。
+
+    舉例來說，如果 :math:`\| \phi(s) \| = M`，
+    那麼就會選 :math:`\alpha < \frac{1}{M} `，避免 learning rate 超過一造成
+    divergence。
+
+    在 tile coding 的使用上 :math:`\vec{\phi(s)}` 裡面的 :math:`\phi_k(s)`
+    會定成 :math:`\frac{1}{M}` 而不是像 onehot coding 的 1。
+    對收斂性會比較好。
+
+    如果我們找到的 coding 能夠用比原本的 state space 用比較少的 resource
+    計算且收斂，那麼這 :math:`\phi` 就稱為 `contraction mapping`，
+    就是壓縮的 representation。
