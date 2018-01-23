@@ -968,13 +968,70 @@ A.k.a `KL divergence`, `information divergence`, `information gain`.
 
 - :math:`KL(p \| q) \neq KL(q \| p)`
 
+
 Convex function
+**************************************************
 
-    .. math::
+.. math::
 
-        f(a + (1 - \lambda)b) \le \lambda f(a) + (1 - \lambda) f(b)
+    f(a + (1 - \lambda)b) \le \lambda f(a) + (1 - \lambda) f(b)
 
-    where :math:`0 \le \lambda \le 1`
+where :math:`0 \le \lambda \le 1`
+
+
+Jensen's inequality
+**************************************************
+
+對上面 convex function 性質的推廣
+
+.. math::
+
+    f \Big( \sum_i \lambda_i x_i \Big) \le \sum_i \lambda_i f(x_i)
+
+此時，視 :math:`\lambda_i` 為 probability :math:`p(x_i)`
+
+.. math::
+
+    f(E(x)) \le E(f(x))
+
+若是 continueous variable
+
+.. math::
+
+    f\Big( \int \vec{x} p(\vec{x}) \, d\vec{x} \Big) \le
+    \int f(\vec{x}) p(\vec{x}) \, d\vec{x}
+
+Proof of :math:`KL(p \| q) \ge 0`
+
+#. 先找一 convex function :math:`f(t) = - \ln t`
+
+#. 因為 convex, 所以可以 Jensen's inequality 成立
+
+   .. math::
+
+       f\Big( \int \vec{x} p(\vec{x}) \, d\vec{x} \Big)
+       & \le
+       \int f(\vec{x}) p(\vec{x}) \, d\vec{x} \\
+       \Rightarrow - \ln \Big( \int \vec{x} p(\vec{x}) \, d\vec{x} \Big)
+       & \le
+       - \int \ln \vec{x} p(\vec{x}) \, d\vec{x} \\
+
+#. 上面的 :math:`\vec{x}` 代換成 :math:`\frac{q(\vec{x})}{p(\vec{x})}`
+
+   .. math::
+
+       - \ln \Big( \int \frac{q(\vec{x})}{p(\vec{x})} p(\vec{x}) \, d\vec{x} \Big)
+       & \le
+       - \int \ln \frac{q(\vec{x})}{p(\vec{x})} p(\vec{x}) \, d\vec{x} \\
+       \Rightarrow
+       - \ln \Big( \int q(\vec{x}) \, d\vec{x} \Big)
+       & \le
+       - \int \ln \frac{q(\vec{x})}{p(\vec{x})} p(\vec{x}) \, d\vec{x} \\
+       \Rightarrow
+       - \ln 1 & \le KL(p \| q) \\
+       \Rightarrow
+       0 & \le KL(p \| q) \\
+
 
 Mutual Information
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
