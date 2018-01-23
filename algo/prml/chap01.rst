@@ -886,9 +886,13 @@ Information Theory
 就是有新的資訊，資訊量高，反之亦然。
 
 假設有 probability distribution :math:`p(x)`
-代表資訊的分佈（資訊出現頻率各有高低）,
+代表資訊的分佈（資訊出現頻率各有高低，
+或是說有 n 個 state 這些 state 出現的機率）,
 我們想要尋找一個 `Monotonic function`_ :math:`h(x)` 來代表觀測 x 後，有多少的
 information gain ，或是說有多 suprise
+
+E.g. state space :math:`{a, b, c, d}` 但不是 uniform distribution，
+可以是 :math:`{0.2, 0.4, 0.3, 0.1}`.
 
 先想象，假設 :math:`x, y` 為獨立 (independent) 的 random variable,
 :math:`h(x, y)` 應該長成:
@@ -921,6 +925,8 @@ information gain ，或是說有多 suprise
 
 此為 :math:`entropy` 的定義。
 
+對於比較集中的 distribution，:math:`H` 的值就比較低，代表 entropy 低。
+反之，比較散開的 distribution，:math:`H` 就高，亂度高。
 
 .. _Monotonic function: https://en.wikipedia.org/wiki/Monotonic_function
 
@@ -935,6 +941,27 @@ Continueous Var
     H(\vec{x}) = - \int p(\vec{x}) \ln p(\vec{x}) d\vec{x}
 
 上式稱為 `differential entropy`
+
+
+Relative Entropy
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+A.k.a `KL divergence`, `information divergence`, `information gain`.
+
+首先有 unknown (true) distribution :math:`p(\vec{x})` ，
+而我們有近似、model 出來的 distribution :math:`q(\vec{x})`
+
+而 KL divergence 的意義是，當我們用近似的 coding :math:`q(\vec{x})` 去表示資料
+(random variable :math:`\vec{x}` 的 state) 時，
+平均上來說，還缺多少資訊量、coding 量，才能精確表達？
+
+.. math::
+
+    KL(p \|\| q)
+      & = \int p(\vec{x}) \hat{h}(\vec{x}) \, d\vec{x} - \int p(x) h(x) \, d\vec{x} \\
+      & = \Big( - \int p(\vec{x}) \ln q(\vec{x}) \, d\vec{x} \Big) -
+          \Big( - \int p(\vec{x}) \ln p(\vec{x}) \, d\vec{x} \Big) \\
+      & = - \int p(\vec{x}) \ln \frac{q(\vec{x})}{p(\vec{x})} \, d\vec{x}
 
 
 Mutual Information
