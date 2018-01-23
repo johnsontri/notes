@@ -957,12 +957,24 @@ A.k.a `KL divergence`, `information divergence`, `information gain`.
 
 .. math::
 
-    KL(p \|\| q)
-      & = \int p(\vec{x}) \hat{h}(\vec{x}) \, d\vec{x} - \int p(x) h(x) \, d\vec{x} \\
+    KL(p \| q)
+      & = \int p(\vec{x}) \hat{h}(\vec{x}) \, d\vec{x} -
+          \int p(\vec{x}) h(\vec{x}) \, d\vec{x} \\
       & = \Big( - \int p(\vec{x}) \ln q(\vec{x}) \, d\vec{x} \Big) -
           \Big( - \int p(\vec{x}) \ln p(\vec{x}) \, d\vec{x} \Big) \\
-      & = - \int p(\vec{x}) \ln \frac{q(\vec{x})}{p(\vec{x})} \, d\vec{x}
+      & = - \int p(\vec{x}) \ln \frac{q(\vec{x})}{p(\vec{x})} \, d\vec{x} \ge 0
 
+- KL divergence equals to 0 if and only if :math:`q(\vec{x}) = p(\vec{x})`
+
+- :math:`KL(p \| q) \neq KL(q \| p)`
+
+Convex function
+
+    .. math::
+
+        f(a + (1 - \lambda)b) \le \lambda f(a) + (1 - \lambda) f(b)
+
+    where :math:`0 \le \lambda \le 1`
 
 Mutual Information
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
