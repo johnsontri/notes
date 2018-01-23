@@ -968,6 +968,30 @@ A.k.a `KL divergence`, `information divergence`, `information gain`.
 
 - :math:`KL(p \| q) \neq KL(q \| p)`
 
+- Data compression 跟 density estimation
+  (modelling 一個 distribution) 有密不可分的關係。
+  過多或過少的 coding 都會讓 KL divergence != 0
+
+若能夠從 unknown distribution :math:`p(\vec{x})` 拿到 data/sample。
+那麼可以用 parametric distribution :math:`p(\vec{x} | \vec{\theta})`
+e.g. multivariate Gaussian。那麼 optimize :math:`\vec{\theta}` 的
+方法就可以是 minimizing KL divergence of :math:`p(\vec{x})` and
+:math:`q(\vec{x} | \vec{\theta})` w.r.t. :math:`\vec{\theta}`.
+然而，因爲不知道 :math:`p(\vec{x})` 所以無法直接進行 optimization，
+只能用 finite sum 來表示 :math:`p(\vec{x})` 的期望值。
+
+.. math::
+
+    KL(p \| q) & \simeq
+    \sum_n^N \Big( - \ln \frac{q(\vec{x_n} | \vec{\theta})}{p(\vec{x_n})} \Big) \\
+    & \simeq
+    \sum_n^N \Big( - \ln q(\vec{x_n} | \vec{\theta}) + p(\vec{x_n}) \Big) \\
+
+這裡可以看到，right-hand side 跟 :math:`\vec{\theta}` 無關。
+left-hand side 的第一項可以視爲 under :math:`\vec{\theta}` ，
+對 training data 的 negative log likelihood。
+所以得到，minimizing KL divergence 等價於 maximizing likelihood function。
+
 
 Convex function
 **************************************************
