@@ -212,3 +212,27 @@ Fuzzy Representation
 
 有時候可以用 piece-wise linear function (折線型的那樣)。
 作出 piece-wise linear function 的其中一個方法是 fuzzy set。
+The element of a fuzzy set can partially belong to a set.
+
+舉例來說，如果把溫度切成兩個 set: cold and warm。
+那麼給你一個特定的溫度，我們會說它 partially cold and partially warm。
+
+RL 中的 state space 或是 state-action space 可以切出 fuzzy set 來表示。
+當然，其中最大的難處還是在定出 fuzzy set。
+
+
+Non-linear Function Approximation
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Non-linear function approximation 某種程度上，
+降低了 feature extraction/feature selection 的吃重程度、
+requirement of domain knowledge。
+
+Parametric non-linear function approximator
+
+.. math::
+
+    V_t(s) = V(\phi(s), \theta_t)
+
+E.g. :math:`V` 可以是一個 NN。
+
