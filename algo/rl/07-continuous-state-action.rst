@@ -236,3 +236,41 @@ Parametric non-linear function approximator
 
 E.g. :math:`V` 可以是一個 NN。
 
+
+Update Parameters
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+TD-learning 如果用了 linear 的 approximator，那麼有 close form solution
+來 optimize，LSTD。
+
+
+Gradient Decent
+**************************************************
+
+舉例來說，這裡的 error function :math:`E` 可以是個 TD error、
+或是 prediction error。
+我們先對 :math:`R` 做 parametrize
+
+.. math::
+
+    \bar{R}: S \times A \times \mathbb{R}^P \rightarrow \mathbb{R}
+
+E.g.
+
+.. math::
+
+    \bar{R}(s_t, a_t, \theta_t)
+
+
+那麼 error function 就簡單的定成距離：
+
+.. math::
+
+    E(s_t, a_t, \theta_t, r_{t+1}) = (\bar{R}(s_t, a_, \theta_t, r_{t+1}) - r_{t+1})^2
+
+
+Update:
+
+.. math::
+
+    \theta_{t+1} \leftarrow \theta_t - \alpha_t \nabla_\theta E(\cdot, \theta_t)
