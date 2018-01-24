@@ -985,7 +985,7 @@ e.g. multivariate Gaussian。那麼 optimize :math:`\vec{\theta}` 的
     KL(p \| q) & \simeq
     \sum_n^N \Big( - \ln \frac{q(\vec{x_n} | \vec{\theta})}{p(\vec{x_n})} \Big) \\
     & \simeq
-    \sum_n^N \Big( - \ln q(\vec{x_n} | \vec{\theta}) + p(\vec{x_n}) \Big) \\
+    \sum_n^N \Big( - \ln q(\vec{x_n} | \vec{\theta}) + \ln p(\vec{x_n}) \Big) \\
 
 這裡可以看到，right-hand side 跟 :math:`\vec{\theta}` 無關。
 left-hand side 的第一項可以視爲 under :math:`\vec{\theta}` ，
