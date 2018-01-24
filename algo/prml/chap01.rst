@@ -992,6 +992,12 @@ left-hand side 的第一項可以視爲 under :math:`\vec{\theta}` ，
 對 training data 的 negative log likelihood。
 所以得到，minimizing KL divergence 等價於 maximizing likelihood function。
 
+實作上會看到
+
+.. math::
+
+    KL(p \| q) \simeq \sum_n^N \ln \frac{p(\vec{x_n})}{q(\vec{x_n} | \vec{\theta})}
+
 
 Convex function
 **************************************************
