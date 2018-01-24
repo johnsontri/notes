@@ -274,3 +274,56 @@ Update:
 .. math::
 
     \theta_{t+1} \leftarrow \theta_t - \alpha_t \nabla_\theta E(\cdot, \theta_t)
+
+Natural Gradient
+
+    我們希望在更新的前後，model :math:`m_t` 與 :math:`m_{t+1}` 的 KL divergence
+    要不變。就是透過調整 step size。
+    這樣的整個 learning process 會比較 stable，避免 outlier 對 model parameter
+    有過度的影響。
+    Natural gradient 對 parameter transformation 有 invariant 的特性，
+    如，把網路的 activation 從 sigmoid 換成 tanh，對 natural gradient 是沒差的。
+
+
+Gradient-Free Optimization
+**************************************************
+
+在 function 不可微分的時候，或是已知會有很多 local optima 存在的時候，
+會使用這類的技術。
+像是 evolutionary algorithms、particle swarm optimization、cross-entropy
+optimization 等。
+本節介紹部分的 evolutionary methods 跟 cross-entropy optimization。
+
+傳統的 evolutionary algorithm，基本上是對 population of solution 做
+selection and mutation。
+而 general 的方法則是，拿 parameter 的 distribution 得到 solution，而且對
+distribution 本身做 selection and mutation，
+就是對 distribution 做 optimization 而不是去 optimize solutions。
+這樣的做法稱為 evolutionary strategies。
+e.g.
+
+- Covariance matrix adaptation evolution strategies (CMA-ES)
+
+- Natural evolutionary strategies (NES)
+
+- Cross-entropy optimization methods
+
+對 evolutionary strategies 並沒有保證收斂。但這類的方法比較適合用在
+Monte Carlo sampling。
+
+General Algorithm of evolutionary strategies
+
+    #. 有 parametrized PDF function :math:`q(\vec{x} | \vec{\theta})`
+
+    #. Fitness function :math:`f(\vec{x})`
+
+    #. Initial parameter :math:`\vec{\theta_0}`
+
+    .. pseudo-code::
+
+        \forall{$t \in 1, 2, \dots$}
+            \state Construct (sample) population
+                $X = \{\vec{x_1}, \vec{x_2}, \dots \}$,
+                where $X \sim q(\cdot | \vec{\theta_t})$
+            \state Use $f(\vec{x_i})$ to update $\vec{\theta_{t+1}}$
+        \endfor
