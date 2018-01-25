@@ -327,3 +327,58 @@ General Algorithm of evolutionary strategies
                 where $X \sim q(\cdot | \vec{\theta_t})$
             \state Use $f(\vec{x_i})$ to update $\vec{\theta_{t+1}}$
         \endfor
+
+
+Approximate Reinforcement Learning
+----------------------------------------------------------------------
+
+
+Value Approximation
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+用 sample experience update value function。
+在這個類別內再細分
+
+- On-policy
+
+- Off-policy
+
+各式 Q-learning
+
+    - Delayed Q-learning
+    - :ref:`double-q`: 處理 overestimate 的問題
+    - Phased Q-learning
+    - Fitted Q-iteration
+
+
+Objective Functions
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:math:`\mathscr{V}` is a function space, such that
+:math:`V \in \mathscr{V}`.裡面是各種 function 的可能性。
+
+:math:`\mathscr{F} \subset \mathscr{V}` 代表 function space of
+function approximator.
+
+如果這個 :math:`\mathscr{F}` 是一個很大的 subset，那麼
+這個 function approximator 會很有彈性且精確，
+但可能容易出現 overfitting 的問題。
+反之，如果這個 subset 很小，那麼就會不精確。
+通常來說 linear function 的 function space 比 non-linear function 的 space 小。
+
+Parametric function 的參數 :math:`\theta` 會隨著 training 而調整，
+其 function space 表示為：
+
+.. math::
+
+    \vec{\theta} = \{V(\cdot, \vec{\theta}) | \theta \in \Theta\}
+
+Projection operator :math:`\Pi: \mathscr{V} \rightarrow \mathscr{F}`
+把 value function map 到最接近的 function :math:`\mathscr{F}`
+用 norm 代表距離：
+
+.. math::
+
+    \| V - \Pi(V) \| = \min_{f \in \mathscr{F}} \| V - f \| =
+    \min_\theta \| V - V^\theta \|
+
