@@ -375,10 +375,53 @@ Parametric function 的參數 :math:`\theta` 會隨著 training 而調整，
 
 Projection operator :math:`\Pi: \mathscr{V} \rightarrow \mathscr{F}`
 把 value function map 到最接近的 function :math:`\mathscr{F}`
-用 norm 代表距離：
+用 weighted norm 代表距離：
 
 .. math::
 
-    \| V - \Pi(V) \| = \min_{f \in \mathscr{F}} \| V - f \| =
-    \min_\theta \| V - V^\theta \|
+    \| V - \Pi(V) \|_w = \min_{f \in \mathscr{F}} \| V - f \|_w =
+    \min_\theta \| V - V^\theta \|_w
+
+如，用 weighted L2 norm:
+
+.. math::
+
+    \| V - V^\theta \|_w = \int_{s \in S} w(s) \Big(V(s) - V^\theta(s) \Big)^2 \, ds
+
+Projected Bellman equation
+
+.. math::
+
+    V^\theta \leftarrow B(\Pi(V^\theta))
+
+
+Gradient TD Learning
+**************************************************
+
+TD learning 在 feature 不是 linear independent 的狀況下要導入
+eligibility traces，其收斂性有被證明。
+
+Greedy-GQ algorithm 這篇 extend Q-learning 到 linear function approximation
+而且在某些條件下有保證收斂性。
+
+Recall TD error
+
+.. math::
+
+    \delta_t = r_{t+1} + \gamma V_t(s_{t+1}) - V_t(s_t)
+
+那麼如果在 gradient decent 的 context 中，就是 tangent line，就會用平方。
+Error function in context of gradient:
+
+.. math::
+
+    E(s_t) = \frac{1}{2} \delta_t ^2
+
+所以 gradient w.r.t. :math:`\theta`
+
+.. math::
+
+    \nabla_\theta E(s_t, \theta) = \delta_t \nabla_\theta \delta_t
+
+
 
