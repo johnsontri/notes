@@ -423,5 +423,36 @@ Error function in context of gradient:
 
     \nabla_\theta E(s_t, \theta) = \delta_t \nabla_\theta \delta_t
 
+如果視 :math:`r_{t+1} + \gamma V_t(s_{t+1})` 為與 :math:`\theta` 無關的
+stochastic approximation (?) 那麼改寫 gradient 如下
 
+.. math::
+
+    \nabla_\theta E(s_t, \theta) = \delta_t \nabla_\theta V_t(s_t)
+
+這個稱為 residual-gradient。
+
+參數的 update 則是用 negative gradient
+
+.. math::
+
+    \theta_{t+1} \leftarrow \theta_t - \alpha_t \delta_t \nabla_\theta V_t(s_t)
+
+這裡的 update rule 在收斂上會比上面的 residual-gradient update 快。
+但是對於 off-policy 的 learning 會 diverge，對 linear or non-linear 的都會。
+
+導入 trace
+
+    #. 原本的方法
+
+        .. math::
+
+            \vec{e_{t+1}} & \leftarrow \lambda \gamma \vec{e_{t}} + \nabla_\theta V_t(s_t) \\
+            \theta_{t+1} & \leftarrow \theta_t + \alpha_t(s_t) \delta_t \vec{e_{t+1}}
+
+    #. Främling (2007) 的 improve，但缺乏理論上的證明
+
+        .. math::
+
+            \vec{e_{t+1}} \leftarrow \max(\lambda \gamma \vec{e_t}, \nabla_\theta V_t(s_t))
 
