@@ -456,3 +456,47 @@ stochastic approximation (?) 那麼改寫 gradient 如下
 
             \vec{e_{t+1}} \leftarrow \max(\lambda \gamma \vec{e_t}, \nabla_\theta V_t(s_t))
 
+
+對於上面的 update rule 不收斂的改良，對 quadratic (L2) projected TD 用 SGD：
+
+.. math::
+
+    E(\theta) & = \frac{1}{2} \| V_t - \Pi(B(V_t)) \|_P \\
+        & = \int_{s \in S} P(s = s_t) (V_t(s) - \Pi(B(V_t)))^2 \, ds
+
+這裡的 weighted norm 的 weighted 就換成 off-policy 對 experience 的 weight。
+所以整個 error function 的 :math:`s` 就會被積分積掉，就跟 state 無關了。
+對 linear approximate function 有 Gradient-TD verion 2 by (Sutton 2009).
+
+而在 non-linear approximator 上的 algorithm 為 GQ(:math:`\lambda`)
+or Greedy-GQ(:math:`\lambda`)
+
+
+Policy Approximation
+----------------------------------------------------------------------
+
+上面的 value approximation 在處理 continuous space 已經很不錯了，
+然而對 continuous action space 仍然很棘手。
+Value approximation 就對 :math:`Q(s, a)` 算出所有可能的 action，
+然後 max operator。
+但在 continuous action，這個計算量很客觀，或是根本不可行。
+
+所以這邊會想要對 state-action space 做參數化
+
+.. math::
+
+    \pi: S \times A \times \Theta \rightarrow [0, 1]
+
+代表這個 state-action pair 在 given 參數 :math:`\theta \in \Theta` 下的機率
+:math:`\pi(s, a, \theta)` 。
+上面這個 :math:`\pi` 稱為 actor。
+
+接下來會介紹
+
+- policy-gradient
+
+- evolutionary approach for direct policy search
+
+- actor-critic
+
+
