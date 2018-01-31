@@ -581,3 +581,24 @@ Alternative: Stochastic Gradient Decent，
 
 這個結果跟 Fisher's score function 有關（？
 
+分析 expectation 裡面的東西：
+
+.. math::
+
+    \nabla_\theta \log p(\mathscr{S} | s, \theta) & =
+    \nabla_\theta \log \Big(
+        p(s_0 = s) \prod_t \pi(s_t, a_t, \theta) p(s_{t+1} | s_t, a_t)
+    \Big) \\
+    & =
+    \nabla_\theta \Big(
+        \log p(s_0 = s) +
+        \sum_t \log \pi(s_t, a_t, \theta) +
+        \sum_t \log p(s_{t+1} | s_t, a_t)
+    \Big) \\
+    & =
+    \nabla_\theta \sum_t \log \pi(s_t, a_t, \theta) \\
+    & =
+    \sum_t \nabla_\theta \log \pi(s_t, a_t, \theta)
+
+從這個 gradient 可以看到，導入 :math:`\mathscr{S}` 之後的 gradient 沒有用到
+transition model。
