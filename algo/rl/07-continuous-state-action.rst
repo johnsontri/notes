@@ -656,3 +656,22 @@ Gradient:
         \sum_{b \in A} e^{\theta^\mathsf{T} \phi(s, b)}
     \Big) \\
     & = \phi(s, a) - \sum_{b \in A} \pi(s, b, \theta) \phi(s, b)
+
+這個 policy function 因為分母做積分，做 normalize term。
+適用在 discrete action space。
+
+
+Gaussian Exploration
+**************************************************
+
+適合 continuous action space。
+選 :math:`\mu \in \mathbb{R}^{D_A}` 跟 covariance matrix :math:`\Sigma`
+
+.. math::
+
+    \pi(s, a, \mu, \Sigma) & = \frac{1}{2\pi \det(\Sigma)}
+    e^{-\frac{1}{2}(a - \mu)^\mathsf{T} \Sigma^{-1} (a - \mu)} \\
+    \nabla_\mu    \log \pi(s, a, \mu, \Sigma) & = (a - \mu)^\mathsf{T} \Sigma^-1 \\
+    \nabla_\Sigma \log \pi(s, a, \mu, \Sigma) & = \frac{1}{2}
+    (\Sigma^{-1} (a - \mu)(a - \mu)^\mathsf{T} \Sigma^{-1} - \Sigma^{-1})
+
