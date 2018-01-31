@@ -479,7 +479,7 @@ Policy Approximation
 然而對 continuous action space 仍然很棘手。
 Value approximation 就對 :math:`Q(s, a)` 算出所有可能的 action，
 然後 max operator。
-但在 continuous action，這個計算量很客觀，或是根本不可行。
+但在 continuous action，這個計算量很可觀，或是根本不可行。
 
 所以這邊會想要對 state-action space 做參數化
 
@@ -499,4 +499,85 @@ Value approximation 就對 :math:`Q(s, a)` 算出所有可能的 action，
 
 - actor-critic
 
+
+Policy-Gradient
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+原始想法是 maximize cumulative expected :math:`V^\pi` ，
+所以是對期望值 :math:`E[ V^\pi(s_t) ]` 做 gradient ascent。
+
+.. math::
+
+    \theta_{k+1} & \leftarrow \theta_k + \alpha_k \nabla_\theta E[V^\pi(s_t)] \\
+        & = \theta_k + \alpha_k \nabla_\theta \int_{s\in S} p(s_t = s) V^\pi(s) \, ds
+
+這裡的 :math:`p(s_t = s)` 即，在時間點 :math:`t` 且 state 為 :math:`s` 的機率。
+上式中的 :math:`\theta` 下標，刻意使用了 :math:`k` ，避免與 :math:`t`
+混肴，因為參數的 update 未必是每個時間點 :math:`t` 都會做 update。
+
+Alternative: Stochastic Gradient Decent，
+這是 online 的 update，下標直接是 :math:`t` 。
+
+.. math::
+
+    \theta_{t+1} \leftarrow \theta_t + \alpha_t \nabla_\theta V^\pi(s_t)
+
+在這裡會遇到的問題通常都是， :math:`V^\pi` 根本未知，無從做微分。
+所以 policy-gradient algorithms 就會對 :math:`\nabla_\theta V^\pi`
+做估測，使用這個估測值。
+
+這裡會導入 trajectory :math:`\mathscr{S}` 來處理這個問題。
+
+.. math::
+
+    \mathscr{S} = \{s_0, a_0, s_1, a_1, \dots \}
+
+是整條的 state-action process。
+
+計算這個 trajectory 在給定 state :math:`s` 為起點，
+（前面的 state 跟 Markov property 一樣，不管了）
+往後的各種可能性的 probability
+
+.. math::
+
+    p(\mathscr{S} | s, \theta)
+        & = p(s_0 = s) p(a_0 | s_0, \theta)
+            p(s_1 | s_0, a_0) p(a_1 | s_1, \theta)
+            p(s_2 | s_1, a_1) \dots \\
+        & = p(s_0 = s) \prod_{t = 0} p(a_t | s_t, \theta) p(s_{t+1} | s_t, a_t) \\
+        & = p(s_0 = s) \prod_{t = 0} \pi(s_t, a_t, \theta) p(s_{t+1} | s_t, a_t)
+
+然後用 Bellman 對 :math:`V^\pi` 的原始定義，discounted reward 的 expectation
+，重新展開。
+
+.. math::
+
+    V^\pi(s) & = E \Big[ \sum_t \gamma^t r_t \Big | s \Big] \\
+      & = \int_\mathscr{S} p(\mathscr{S} | s, \theta)
+          \Big( \sum_t \gamma^t r_t \Big) \, d\mathscr{S} \\
+
+然後對 :math:`\theta` 微分
+
+.. math::
+
+    \nabla_\theta V^\pi(s) & =
+      \int_\mathscr{S} \nabla_\theta p(\mathscr{S} | s, \theta)
+      \Big( \sum_t \gamma^t r_t \Big) \, d\mathscr{S} \\
+      & = \int_\mathscr{S}
+      p(\mathscr{S} | s, \theta) \nabla_\theta \log p(\mathscr{S} | s, \theta)
+      \Big( \sum_t \gamma^t r_t \Big) \, d\mathscr{S}
+      & \because \nabla_x f(x) = f(x) \nabla_x \log f(x) \\
+      & = \int_\mathscr{S}
+      p(\mathscr{S} | s, \theta)
+      \Big(
+      \nabla_\theta \log p(\mathscr{S} | s, \theta)
+      \Big( \sum_t \gamma^t r_t \Big) \,
+      \Big)
+      d\mathscr{S} \\
+      & = E \Big[
+        \nabla_\theta \log p(\mathscr{S} | s, \theta)
+        \Big( \sum_t \gamma^t r_t \Big)
+        | s, \theta \Big]
+
+這個結果跟 Fisher's score function 有關（？
 
