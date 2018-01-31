@@ -602,3 +602,57 @@ Alternative: Stochastic Gradient Decent，
 
 從這個 gradient 可以看到，導入 :math:`\mathscr{S}` 之後的 gradient 沒有用到
 transition model。
+
+
+Boltzmann Exploration
+**************************************************
+
+即基於 Boltzmann distribution 的 policy function
+
+.. math::
+
+    \pi (s, a, \theta)
+      & = \frac{e^{\theta^\mathsf{T} \phi(s, a)}}
+        {\sum_{b \in A} e^{\theta^\mathsf{T} \phi(s, b)}}
+      & \propto e^{\theta^\mathsf{T} \phi(s, a)} \\
+
+Gradient:
+
+.. math::
+
+    \nabla_\theta \log \pi(s, a, \theta) & =
+    \nabla_\theta \log \frac{e^{\theta^\mathsf{T} \phi(s, a)}}
+                            {\sum_{b \in A} e^{\theta^\mathsf{T} \phi(s, b)}} \\
+    & = \nabla_\theta \Big(
+    \log {e^{\theta^\mathsf{T} \phi(s, a)}} -
+    \log \sum_{b \in A} e^{\theta^\mathsf{T} \phi(s, b)}
+    \Big) \\
+    & = \nabla_\theta \Big(
+    \theta^\mathsf{T} \phi(s, a) -
+    \log \sum_{b \in A} e^{\theta^\mathsf{T} \phi(s, b)}
+    \Big) \\
+    & =
+    \nabla_\theta
+    \theta^\mathsf{T} \phi(s, a) -
+    \nabla_\theta
+    \log \sum_{b \in A} e^{\theta^\mathsf{T} \phi(s, b)}
+    \\
+    & =
+    \phi(s, a) -
+    \nabla_\theta
+    \log \sum_{b \in A} e^{\theta^\mathsf{T} \phi(s, b)}
+    \\
+    & =
+    \phi(s, a) -
+    \frac{1}{\sum_{b \in A} e^{\theta^\mathsf{T} \phi(s, b)}}
+    \nabla_\theta
+    \Big(
+        \sum_{b \in A} e^{\theta^\mathsf{T} \phi(s, b)}
+    \Big) \\
+    & =
+    \phi(s, a) -
+    \frac{\sum_{b \in A} \phi(s, b)}{\sum_{b \in A} e^{\theta^\mathsf{T} \phi(s, b)}}
+    \Big(
+        \sum_{b \in A} e^{\theta^\mathsf{T} \phi(s, b)}
+    \Big) \\
+    & = \phi(s, a) - \sum_{b \in A} \pi(s, b, \theta) \phi(s, b)
