@@ -603,6 +603,48 @@ Alternative: Stochastic Gradient Decent，
 從這個 gradient 可以看到，導入 :math:`\mathscr{S}` 之後的 gradient 沒有用到
 transition model。
 
+:math:`\nabla_\theta V^\pi(s)` 繼續改寫
+
+.. math::
+
+    \nabla_\theta V^\pi(s) = E \Big[
+      \Big(\sum_t \nabla_\theta \log \pi(s_t, a_t, \theta) \Big)
+      \Big(\sum_t \gamma^t r_t \Big)
+    \Big]
+
+其中後面那項 summation 即為 predictive total future (discounted) reward.
+這整個 gradient 是個期望值，那麼可以用 sample 來計算，
+那麼就可以完成 update。
+
+.. math::
+
+    \nabla_\theta V^\pi(s) \approx
+    \frac{1}{K} \sum_k
+    \Big[
+      \Big(\sum_t \nabla_\theta \log \pi(s_t, a_t, \theta) \Big)
+      \Big(\sum_t \gamma^t r_t \Big)
+    \Big]
+
+完整的參數 update 長這樣
+
+.. math::
+
+    \theta_{t+1} \leftarrow \theta_t + \alpha(s_t) \Big\{
+      \frac{1}{K} \sum_k
+      \Big[
+        \Big(\sum_t \nabla_\theta \log \pi(s_t, a_t, \theta) \Big)
+        \Big(\sum_t \gamma^t r_t \Big)
+      \Big]
+    \Big\}
+
+看到這裡的 total reward 的部分，如果 total reward 的 variance 很大，
+那麼對 gradient 來說是 noise 很多。
+這裡可以導入一個 baseline :math:`b(s_t)` ，只 depends on state :math:`s`
+的 baseline function。去修正 total reward 的 variance；因為這個 function
+與 :math:`\theta` 無關所以 gradient 的部分是不影響的。
+常見的 baseline function 的選擇 :math:`b(s) = V_t(s)` ，
+還有其他的方法去處理 variance，而且會加速收斂，但本書沒提。
+
 
 Boltzmann Exploration
 **************************************************
