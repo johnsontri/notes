@@ -642,8 +642,35 @@ transition model。
 這裡可以導入一個 baseline :math:`b(s_t)` ，只 depends on state :math:`s`
 的 baseline function。去修正 total reward 的 variance；因為這個 function
 與 :math:`\theta` 無關所以 gradient 的部分是不影響的。
+
+.. math::
+
+    \theta_{t+1} \leftarrow \theta_t + \alpha(s_t) \Big\{
+      \frac{1}{K} \sum_k
+      \Big[
+        \Big(\sum_t \nabla_\theta \log \pi(s_t, a_t, \theta) \Big)
+        \Big(\sum_t \gamma^t r_t - b(s_t) \Big)
+      \Big]
+    \Big\}
+
+但這裡書中寫到，有待確認，他的 expectation 的 operator 不見了：
+
+.. math::
+
+    \theta_{t+1} \leftarrow \theta_t + \alpha(s_t)
+    \Big[
+      \Big(\sum_t \nabla_\theta \log \pi(s_t, a_t, \theta) \Big)
+      \Big(\sum_t \gamma^t r_t - b(s_t) \Big)
+    \Big]
+
 常見的 baseline function 的選擇 :math:`b(s) = V_t(s)` ，
 還有其他的方法去處理 variance，而且會加速收斂，但本書沒提。
+
+Step size 的討論
+
+    這裡的 gradient 是在 parameter space 上的，
+    而沒用到 policy space 的資訊去計算方向。
+    一樣有導入 natural gradient 的 Fisher information 去調整 :math:`\alpha` 。
 
 
 Boltzmann Exploration
@@ -716,4 +743,21 @@ Gaussian Exploration
     \nabla_\mu    \log \pi(s, a, \mu, \Sigma) & = (a - \mu)^\mathsf{T} \Sigma^-1 \\
     \nabla_\Sigma \log \pi(s, a, \mu, \Sigma) & = \frac{1}{2}
     (\Sigma^{-1} (a - \mu)(a - \mu)^\mathsf{T} \Sigma^{-1} - \Sigma^{-1})
+
+
+Finite Diff
+**************************************************
+
+對不可微分的 policy function。
+
+
+Policy Search with Evolutionary Strategies
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+這一類是 gradient-free search，也是對 parameter space 的 search。
+
+Natural Evolutionary Strategies (NES)
+這個是比較特別的例子，結合 natural gradient 跟 evolutionary strategies。
+NES 會產生一大堆的 parameter vectors :math:`\theta_1 \dots \theta_n`
+
 
