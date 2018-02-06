@@ -28,5 +28,3 @@ Problem Setting
 
 這篇提出三個演算法，分別用在 finite MDP，large or infinite state space，
 第三個則是在只有 trajectory samples 的狀況下是用。
-
-
