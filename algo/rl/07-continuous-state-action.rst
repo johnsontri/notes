@@ -761,3 +761,21 @@ Natural Evolutionary Strategies (NES)
 NES 會產生一大堆的 parameter vectors :math:`\theta_1 \dots \theta_n`
 
 
+Actor-Critic Algorithm
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+原本的 policy-gradient 要用 sample (可能從 Monte Carlo roll-out 來)
+對 :math:`V^\pi` 算估測值，然後用這個估測值的 gradient。
+但是問題會發生在 sample 的品質，sample 如果 variance 大、不精確，
+那麼效果就不好、收斂慢。
+
+在 continuous time 有 Hamilton-Jacobi-Bellman equation。
+
+最原始的 actor-critic 方法是 approximate :math:`Q^\pi` 而不是 :math:`V^\pi` 。
+參見 action dependent heuristic dynamic programming。
+
+
+Continuous Actor-Critic Learning Automaton
+**************************************************
+
+Continuous Actor-Critic Learning Automaton (cacla)
