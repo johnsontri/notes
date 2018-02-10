@@ -779,3 +779,22 @@ Continuous Actor-Critic Learning Automaton
 **************************************************
 
 Continuous Actor-Critic Learning Automaton (cacla)
+
+Cacla 用 error in action space，
+其他的方法是 error in parameter/policy space。
+而且只使用 TD error 的符號，沒有用 scalar。
+
+Critic :math:`V: S \times \Psi \rightarrow \mathbb{R}`
+作為 :math:`V^\pi` 的 approximator，
+這裡的 :math:`\Psi` 即為參數。
+
+Actor :math:`Ac: S \times \Theta \rightarrow A`
+
+Policy :math:`\pi: S \times \Theta \rightarrow A`
+
+這裡的 policy function 會把 actor 隱含在裡面，
+policy function output 的 action 未必是 Actor 給出的 function，
+因為要 policy function 還有 exploration。
+舉例來說，policy function 假設為 Gaussian Exploration，
+那麼這個 Gaussian 的 mean 就是 :math:`Ac(s, \theta)`
+而使用上就是對這個 Gaussian sampling，那麼就有機會做 exploration。
