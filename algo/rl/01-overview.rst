@@ -768,6 +768,53 @@ Evaluate value function of an `unknown` MDP.
 - TD(0)
 - Monte Carlo
 
+更新的想法來自 empircal mean，因為我們只有 sample，而沒有 MDP model。
+DP 即為有 MDP model 的 case。
+
+Monte Carlo
+    給定一個 policy，然後 value function 就定成
+    `total future discounted reward` (即 return :math:`G`) 的 mean。
+
+    先想象我們有很多 episode，在一個 episode 中的某個 state，
+    其 return :math:`G_t = R_{t+1} + \gamma R_{t+2} + \dots` 。
+    這樣只是 single :math:`G_t` 。
+    那麼接下來就去跑很多 episode，盡可能的去 sampling。
+    然後計算每個 state :math:`s` 的 :math:`G` ，做 mean，
+    就得到 value function。
+
+    在求這個 :math:`G` 的時候，就必須跑到 terminal state，
+    才能往回作出 backup。（可以用 recursive function call 實作）
+
+    這裡次數的計算上常見兩種方法
+
+    - First-visit Monte Carlo: 每個 episode 中，遇到同樣的 state 不會重複計算
+
+    - Every-visit Monte Carlo: 都算
+
+在算 mean 的時候，為了計算方便，會用 increamental 的方法。
+
+.. math::
+
+    \mu_k = \mu_{k-1} + \frac{1}{k}(x_k - \mu_{k-1})
+
+在這個 increamental mean 的公式中，物理意義解釋為，新的 mean 是舊的 mean，
+加上個 error，且 step size 是 :math:`\frac{1}{k}` 。
+嘗試往 error 的方向更新。
+
+那麼 general 的理解成：
+
+.. math::
+
+    \mu_k = \mu_{k-1} + \alpha(x_k - \mu_{k-1})
+
+換成 RL 的 context:
+
+.. math::
+
+    V^\pi(s) \leftarrow V^\pi(s) + \alpha(G - V^\pi(s))
+
+
+
 
 Reference
 ----------------------------------------------------------------------
