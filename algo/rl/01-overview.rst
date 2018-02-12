@@ -756,6 +756,19 @@ Monte Carlo Method
 :math:`TD(\lambda)` where :math:`\lambda = 1` 就是 Monte Carlo。
 
 
+Model-free Prediction
+----------------------------------------------------------------------
+
+這裡的 prediction 就是 policy evaluation。
+
+Evaluate value function of an `unknown` MDP.
+
+兩個極端
+
+- TD(0)
+- Monte Carlo
+
+
 Reference
 ----------------------------------------------------------------------
 
