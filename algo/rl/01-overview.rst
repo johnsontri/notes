@@ -813,8 +813,37 @@ Monte Carlo
 
     V^\pi(s) \leftarrow V^\pi(s) + \alpha(G - V^\pi(s))
 
+Monte Carlo 就因為 :math:`G` 的計算，必須用在 episode MDP 上面，
+要能明確的 terminate。
 
+接下來看 TD(0)，相較與 Monte Carlo，TD 不是用整個 return :math:`G`
+而是用了估測的 return，把原本的 :math:`G` 換成 `TD error`
 
+.. math::
+
+    \delta_t = R_{t+1} + \gamma V^\pi(s')
+
+整個 update rule
+
+.. math::
+
+    V^\pi(s) \leftarrow V^\pi(s) + \alpha(\delta_t - V^\pi(s))
+
+這裡解釋成 TD(0) 基本上只往後看了一個 step 的 reward，剩下的用舊的估計值。
+
+然而 Monte Carlo 跟 TD(0) 之間就是 Bias/Variance trade-off。
+
+- Monte Carlo 使用的 :math:`G` 是不偏估計，但是會用到整個 episode，
+  noise 可能會很多，variance 就大，在 sample 少的狀況會收斂慢。
+
+- TD(0) 因為導入的舊的估計值，所以有 bias，且因為只看了一步，
+  所以只能用在 stationary 的 case； Monte Carlo 則不受 stationary 的條件影響。
+
+一個只看一個 step，一個看整個 episode，這樣是兩個極端，
+有沒有中間的 solution？ :math:`TD(\lambda)`
+
+在 :math:`TD(\lambda)` 且導入 forward view (eligibility trace) 的狀況下，
+長久下來的更新量就跟 Monte Carlo 一樣。
 
 Reference
 ----------------------------------------------------------------------
