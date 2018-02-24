@@ -845,6 +845,77 @@ Monte Carlo 就因為 :math:`G` 的計算，必須用在 episode MDP 上面，
 在 :math:`TD(\lambda)` 且導入 forward view (eligibility trace) 的狀況下，
 長久下來的更新量就跟 Monte Carlo 一樣。
 
+
+Q-Learning
+----------------------------------------------------------------------
+
+Off-policy 的其中一個方法，Q-Learning 即為 off-policy 中使用
+action-value function 代表。
+
+在這個 off-policy 的 learning 原本你有一個 behaviour policy 的 sample
+:math:`{s_1, a_1, r_1, s_2, a_2, \dots}` ，
+這個 behaviour policy 是從其他地方來的，
+（可能是 export/human ... etc）
+然後現在要用這個 behaviour policy :math:`\mu` 來
+train 出你的 target policy :math:`\pi` 。
+
+- Next action 是從 behaviour policy 來的 :math:`a_{t+1} \sim \mu(s_t)`
+
+- 但是同時考慮 alternative next action 的 value ，從你的 target policy 來
+  :math:`a' \sim \pi(s_t)`
+
+- 然後朝 alternative action 的方向 update :math:`Q(s_t, a_t)`
+
+.. math::
+
+    Q(s_t, a_t) \leftarrow Q(s_t, a_t) + \alpha
+        \Big(r_{t+1} + \gamma Q(s_{t+1}, a') - Q(s_t, a_t) \Big)
+
+上式中的 TD target
+
+.. math::
+
+    r_{t+1} + \gamma Q(s_{t+1}, a')
+
+的意是是朝 target policy 的方向 lookahead。
+
+
+Off-policy Control with Q-Learning
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- (special case) 現在假設 behaviour 跟 target 都要 improve
+
+- (special case) 假設 target policy 是 greedy policy。
+
+.. math::
+
+    \pi(s) = \arg \max_a Q(s, a)
+
+- (special case) 假設 behaviour policy :math:`\mu`
+
+- 這是個 special case: 我們想要 follow :math:`\epsilon\text{-greedy}`
+  behaviour，然後 learn 出個 greedy behaviour。
+
+TD target:
+
+.. math::
+
+      & r_{t+1} + \gamma Q(s_{t+1}, a') \\
+    = & r_{t+1} + \gamma Q(s_{t+1}, \arg \max_{a'} Q(s_{t+1}, a')) \\
+    = & r_{t+1} + \max_{a'} \gamma Q(s_{t+1}, a')
+
+剛好直接寫成這樣。
+
+.. math::
+
+    Q(s, a) \leftarrow Q(s, a) + \alpha \Big(
+        r + \max_{s'} \gamma Q(s', a') - Q(s, a)
+    \Big)
+
+這裡的 :math:`a` 就來自 :math:`\epsilon\text{-greedy}` policy ，
+:math:`a'` 來自 greedy policy。
+
+
 Reference
 ----------------------------------------------------------------------
 
