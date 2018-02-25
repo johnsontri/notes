@@ -915,6 +915,28 @@ TD target:
 這裡的 :math:`a` 就來自 :math:`\epsilon\text{-greedy}` policy ，
 :math:`a'` 來自 greedy policy。
 
+* Q(λ) learning ?
+
+
+SARSA and Q-Learning
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+SARSA 是 On-Policy 的，回想 SARSA 跟 Q 的 update rule 的 general form:
+
+.. math::
+
+    Q(s, a) \leftarrow Q(s, a) + \alpha \Big(
+    r + \gamma Q(s, a') - Q(s, a)
+    \Big)
+
+SARSA 在這裡的 :math:`a, a'` 都來自於同一個 policy
+(e.g. 都來自 :math:`\epsilon\text{-greedy}`)
+，正所謂 on-policy。
+
+而 Q-Learning 的 :math:`a, a'` 是不同的 policy。
+:math:`a' \sim \pi` 來自 target policy；
+:math:`a \sum \mu` 來自 behaviour policy。
+
 
 Reference
 ----------------------------------------------------------------------
