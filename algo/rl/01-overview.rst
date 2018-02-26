@@ -935,7 +935,7 @@ SARSA 在這裡的 :math:`a, a'` 都來自於同一個 policy
 
 而 Q-Learning 的 :math:`a, a'` 是不同的 policy。
 :math:`a' \sim \pi` 來自 target policy；
-:math:`a \sum \mu` 來自 behaviour policy。
+:math:`a \sim \mu` 來自 behaviour policy。
 
 
 Reference
