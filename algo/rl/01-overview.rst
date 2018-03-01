@@ -846,6 +846,16 @@ Monte Carlo 就因為 :math:`G` 的計算，必須用在 episode MDP 上面，
 長久下來的更新量就跟 Monte Carlo 一樣。
 
 
+Model-free Control
+----------------------------------------------------------------------
+
+在 Model-free control state value function :math:`V(s)`
+變得沒有用，因為無法透過 :math:`V(s)` 得到 policy；
+無法透過比較隔壁的 :math:`V(s')` 來得到 policy，
+因為沒有 transition probability。
+所以在 Model-free 的狀況之下，都會用 action value function :math:`Q(s, a)` 。
+
+
 Q-Learning
 ----------------------------------------------------------------------
 
